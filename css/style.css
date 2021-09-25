@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "vazir";
+  src: url("../font/Vazir.eot");
+  src: url("../font/Vazir.eot?#iefix") format("embedded-type"),
+    url("../font/Vazir.ttf") format("truetype"),
+    url("../font/Vazir.woff") format("woff"),
+    url("../font/Vazir.woff2") format("woff2");
+
+  font-family: "sahel";
+  src: url("../font/sahel/Sahel-Bold.eot");
+  src: url("../font/sahel/Sahel-Bold.eot") format("embedded-type"),
+    url("../font/sahel/Sahel-Bold.ttf") format("truetype"),
+    url("../font/sahel/Sahel-Bold.woff") format("woff"),
+    url("../font/sahel/Sahel-Bold.woff2") format("woff2");
+}
+
+* {
+  font-family: "vazir";
+}
