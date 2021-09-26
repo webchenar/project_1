@@ -20,6 +20,10 @@
   font-family: "vazir";
 }
 
+a{
+  text-decoration: none;
+}
+
 .my-blue{
     color: #0253BC !important;
 }
@@ -70,6 +74,7 @@
 
 .messenger{
   color: #3a8dfa;
+  
 }
 
 .messenger:hover{
