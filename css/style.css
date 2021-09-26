@@ -63,3 +63,15 @@
 .my-t-color{
   color: #022553;
 }
+
+.my-footer-color{
+ background-color: #F7FAFD;
+}
+
+.messenger{
+  color: #3a8dfa;
+}
+
+.messenger:hover{
+  color: #0253BC;
+}
