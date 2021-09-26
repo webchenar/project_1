@@ -32,6 +32,10 @@
     background-color: #f7fdfd;
 }
 
+.my-bg-blue{
+  background-color:  #E8F1FF;
+}
+
 .sahel{
     font-family: 'sahel' !important;
 }
@@ -54,4 +58,8 @@
 
 .my-bg-card{
   background-color: #f7fdfd;
+}
+
+.my-t-color{
+  color: #022553;
 }
