@@ -29,7 +29,7 @@
 }
 
 .my-bg{
-    background-color: #F7FAFD;
+    background-color: #f7fdfd;
 }
 
 .sahel{
@@ -45,4 +45,13 @@
 
 .card-height{
   height: 100%;
+}
+
+.card-profile-img{
+  width: 90px;
+  height: 90px;
+}
+
+.my-bg-card{
+  background-color: #f7fdfd;
 }
