@@ -18,6 +18,8 @@
 
 * {
   font-family: "vazir";
+  padding: 0;
+  margin: 0;
 }
 
 a{
@@ -80,6 +82,13 @@ a{
 .messenger:hover{
   color: #0253BC;
 }
+
+/*@media (min-width: 40px) {
+  .justifuy{
+    text-align: justify;
+  }
+}*/
+
 
 .justifuy{
   text-align: justify;
