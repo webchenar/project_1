@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5 pt-2">
-                <h5 class="fs-5 fw-bolder pt-2">تماس با نیکو ثبت</h5>
+                <h5 class="fs-5 sahel pt-2">تماس با نیکو ثبت</h5>
                 <h5 class="fs-6">
                     <i class="fas fa-house-user"></i> آدرس: ساختمان مرکز رشد
                     استهبان،مجموعه ثبتی نیکوثبت

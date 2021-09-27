@@ -17,7 +17,7 @@
       </h1>
     </div>
 
-    <div class="row justifuy">
+    <div class="row">
       <div class="col-12 col-lg-4 mt-3">
         <div class="card card-height">
           <div class="card-body border-1 shadow">
@@ -26,11 +26,11 @@
               <i class="fas fa-check fa-2x icon col-2 offset-2"></i>
             </div>
             <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
-            <p class="card-text">
+            <p class="card-text justify">
               با چند کلیک ساده و به صورت آنلانن شرکت خود را به ثبت برسانید
             </p>
             <div class="d-flex flex-row-reverse">
-              <a href="#" class="card-link position-absolute bottom-0 mb-1">فرم تغیرات و تمدید شرکت</a>
+              <a href="#" class="card-link position-absolute bottom-0 mb-1"> فرم ثبت شرکت</a>
               <!--<a href="#" class="card-link">Another link</a>-->
             </div>
           </div>
@@ -45,12 +45,12 @@
               <i class="fas fa-tasks fa-2x icon col-2 offset-2"></i>
             </div>
             <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
-            <p class="card-text">
+            <p class="card-text justify">
               یک شرکت پس از ثبت، می تواند تغییراتی را در مواردی از اساسنامه
               و یا هر آنچه مربوط به شرکت است ایجاد کند
             </p>
             <div class="d-flex flex-row-reverse">
-              <a href="#" class="card-link position-absolute bottom-0 mb-1">فرم ثبت شرکت</a>
+              <a href="#" class="card-link position-absolute bottom-0 mb-1">فرم تغیرات و تمدید شرکت</a>
               <!--<a href="#" class="card-link">Another link</a>-->
             </div>
           </div>
@@ -67,7 +67,7 @@
               <i class="fas fa-drafting-compass fa-2x icon col-2 offset-2"></i>
             </div>
             <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
-            <p class="card-text">
+            <p class="card-text justify">
               نام و نشان تجاری ، نام یا نمادی متمایز برای شناسایی کالاها یا
               خدمات از یک فروشنده
             </p>
@@ -80,7 +80,7 @@
       </div>
     </div>
 
-    <div class="row justifuy">
+    <div class="row">
       <div class="col-12 col-lg-4 mt-3">
         <div class="card card-height">
           <div class="card-body border-1 shadow">
@@ -89,7 +89,7 @@
               <i class="fas fa-id-card fa-2x icon col-2 offset-2"></i>
             </div>
             <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
-            <p class="card-text">
+            <p class="card-text justify">
               کارت بازرگانی مجوزی است که به اشخاص حقیقی و حقوقی داده
               می‌شود...
             </p>
@@ -109,7 +109,7 @@
               <i class="fas fa-fill-drip fa-2x icon col-2 offset-2"></i>
             </div>
             <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
-            <p class="card-text">
+            <p class="card-text justify">
               اختراع محصول جدیدی است که در نتیجه‌ی فکر فرد یا افراد مخترع
             </p>
             <div class="d-flex flex-row-reverse">
@@ -128,7 +128,7 @@
               <i class="fas fa-chart-line fa-2x icon col-2 offset-2"></i>
             </div>
             <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
-            <p class="card-text fs-6">
+            <p class="card-text fs-6 justify">
               فرآیند رتبه بندی متشکل از پیگیری جهت تکمیل شرایط و مدارک و
               مراوده و پیگیری از سازمان مدیریت...
             </p>
@@ -141,7 +141,7 @@
       </div>
     </div>
 
-    <div class="row justifuy">
+    <div class="row">
       <div class="col-12 col-lg-4 mt-3">
         <div class="card card-height">
           <div class="card-body border-1 shadow">
@@ -152,7 +152,7 @@
               <i class="fas fa-snowplow fa-2x icon col-2 offset-2"></i>
             </div>
             <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
-            <p class="card-text">
+            <p class="card-text justify">
               جواز تاسیس به مجوزی که افراد جهت انجام یک فعالیت
               تولیدی-اقتصادی اخذ می کنند ...
             </p>
@@ -169,12 +169,12 @@
           <div class="card-body border-1 shadow">
             <div class="row">
               <h5 class="col-8 card-title sahel">
-                اخذ کداقتصادی و پلمپ دفاتر
+                اخذ کداقتصادی و پلمپ دفاتر:
               </h5>
               <i class="fas fa-unlock fa-2x icon col-2 offset-2"></i>
             </div>
             <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
-            <p class="card-text">
+            <p class="card-text justify">
               هر شرکت نیاز به یک کد اقتصادی دارد. این کد برای مشخص شدن
               عملکرد یک شرکت در قراردادها ...
             </p>
@@ -191,15 +191,15 @@
         <div class="card card-height">
           <div class="card-body border-1 shadow">
             <div class="row">
-              <h5 class="col-8 card-title sahel">
+              <h5 class="col-9 card-title sahel">
                 خدمات حسابداری و دفاتر مالیاتی:
               </h5>
-              <i class="fas fa-calculator fa-2x icon col-2 offset-2"></i>
+              <i class="fas fa-calculator fa-2x icon col-2 offset-1"></i>
             </div>
             <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
-            <p class="card-text">
+            <p class="card-text  justify">
               یک موسسه خدمات مالی، نیاز به مشاوره مالی مناسب دارد تا در مورد
-              مسائل مالی به مشتریان مشاوره دهد.
+              مسائل مالی به مشتریان مشاوره دهد...
             </p>
             <div class="d-flex flex-row-reverse mt-3">
               <a href="#" class="card-link position-absolute bottom-0 mb-1">فرم خدمات حسابداری و دفاتر مالیاتی</a>

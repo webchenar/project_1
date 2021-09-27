@@ -59,7 +59,8 @@
                         <a class="d-block d-md-inline-block  btn btn-outline-primary " href="#">درخواست مشاوره</a>
                         <a class="d-block d-md-inline-block btn btn-outline-primary my-1 my-md-0" href="#">فهرست خدمات نیکو ثبت</a>
                     </div>
-                    <a class="d-block d-md-block  d-lg-inline-block btn btn-primary mt-lg-0" href="#">تمدید شرکت سهامی خاصی</a>
+                    <a class="d-block d-md-block  d-lg-inline-block btn btn-primary mt-lg-0" href="#">
+                        تمدید شرکت سهامی خاص</a>
 
                 </div>
             </div>
