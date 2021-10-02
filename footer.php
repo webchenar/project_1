@@ -56,11 +56,4 @@
 <script src="./bootstrap-5.1.1/js/bootstrap.bundle.js"></script>
 <script src="./js/vadidation.js"></script>
 </body>
-<!-- test -->
-<!-- test -->
-<!-- test -->
-<!-- test -->
-<!-- test -->
-<!-- test222 -->
-
 </html>
