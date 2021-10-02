@@ -1,6 +1,11 @@
 <?php include_once('header.php');
 
+$data = new DataBase();
 $chek = true;
+
+if (!empty($_SESSION['rand'])) {
+    header('location:active.php');
+}
 
 if (isset($_POST['fname']) and isset($_POST['lname']) and isset($_POST['phone']) and isset($_POST['password']) and isset($_POST['repeatPassword'])) {
 
@@ -41,7 +46,13 @@ if (isset($_POST['fname']) and isset($_POST['lname']) and isset($_POST['phone'])
     }
 
     if ($chek) {
-        echo rand(1000, 9999);
+        $data->insertUser($_POST['fname'], $_POST['lname'], $_POST['phone'], $_POST['email'], $_POST['cellPhone'], $_POST['password']);
+
+        session_start();
+        $_SESSION['phone'] = $_POST['phone'];
+        $_SESSION['rand'] = rand(1000, 9999);
+        $_SESSION['fname'] = $_POST['fname'];
+        header('location:active.php');
     }
 }
 
@@ -57,7 +68,7 @@ if (isset($_POST['fname']) and isset($_POST['lname']) and isset($_POST['phone'])
 
                     <div class="col-12 ">
                         <label for="inputfname" class="form-label ">نام:*</label>
-                        <input type="text" name="fname" class="form-control" id="validationCustom03" placeholder="لطفا نام خود را وارد کنید" aria-label="First name" required>
+                        <input type="text" name="fname" class="form-control" value="<?php echo (isset($_POST['fname']) ? $_POST['fname'] : '');  ?>" id="validationCustom03" placeholder="لطفا نام خود را وارد کنید" aria-label="First name" required>
                         <div class="invalid-feedback">
                             وارد کردن نام اجباریست
                         </div>
@@ -65,7 +76,7 @@ if (isset($_POST['fname']) and isset($_POST['lname']) and isset($_POST['phone'])
 
                     <div class="col-md-12 my-3">
                         <label for="inputfname" class="form-label">نام خانوادگی:*</label>
-                        <input type="text" name="lname" id="validationCustom03" class="form-control" placeholder="لطفا نام خانوادگی خود را وارد کنید" required>
+                        <input type="text" name="lname" id="validationCustom03" class="form-control"   value="<?php echo (isset($_POST['lname']) ? $_POST['lname'] : '');  ?>" placeholder="لطفا نام خانوادگی خود را وارد کنید" required>
                         <div class="invalid-feedback">
                             وارد کردن نام خانوادگی اجباریست
                         </div>
@@ -73,7 +84,7 @@ if (isset($_POST['fname']) and isset($_POST['lname']) and isset($_POST['phone'])
 
                     <div class=" col-12 my-3">
                         <label for="inputfname" class="form-label">شماره همراه:*</label>
-                        <input type="text" name="phone" id="validationCustom03 phone" class="form-control" placeholder="لطفا شماره تلفن همراه خود را وارد کنید" maxlength="11" required>
+                        <input type="text" name="phone" id="validationCustom03 phone" class="form-control" value="<?php echo (isset($_POST['phone']) ? $_POST['phone'] : '');  ?>" placeholder="لطفا شماره تلفن همراه خود را وارد کنید" maxlength="11" required>
                         <div class="invalid-feedback">
                             وارد کردن شماره همراه اجباریست
                         </div>
@@ -81,13 +92,13 @@ if (isset($_POST['fname']) and isset($_POST['lname']) and isset($_POST['phone'])
                     </div>
 
                     <div class="col-12 my-3 ">
-                        <label for="inputfname" class="form-label">ایمیل:</label>
-                        <input type="text" class="form-control" placeholder="لطفا ایمیل خود را وارد کنید">
+                        <label for="inputfname"  class="form-label">ایمیل:</label>
+                        <input type="text" name="email" class="form-control" value="<?php echo (isset($_POST['email']) ? $_POST['email'] : '');  ?>" placeholder="لطفا ایمیل خود را وارد کنید">
                     </div>
 
                     <div class="col-12 my-3">
-                        <label for="inputfname" class="form-label">شماره تلفن ثابت(همراه با کد شهر):*</label>
-                        <input type="text" class="form-control" placeholder="لطفا شماره تلفن ثابت خود را وارد کنید">
+                        <label for="inputfname" class="form-label">شماره تلفن ثابت(همراه با کد شهر):</label>
+                        <input type="text" name="cellPhone" value="<?php echo (isset($_POST['cellPhone']) ? $_POST['cellPhone'] : '');  ?>" class="form-control" placeholder="لطفا شماره تلفن ثابت خود را وارد کنید">
                     </div>
                 </div>
 

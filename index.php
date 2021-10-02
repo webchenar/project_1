@@ -1,4 +1,11 @@
-<?php include_once('./header.php'); ?>
+<?php include_once('./header.php'); 
+
+if (isset($_COOKIE['newUser'])) {
+  echo '<div class="alert alert-success container my-bg" role="alert">
+  حساب کاربری شما با موفقیت فعال شد
+    </div>';
+}
+?>
 
 <div class="my-bg">
   <div class="container">

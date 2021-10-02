@@ -1,3 +1,6 @@
+<?php include_once('./config/Data.Class.php');
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -6,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NikoSabt</title>
-    <link rel="stylesheet" href="./bootstrap-5.1.1/css/bootstrap.rtl.css" />
+    <link rel="stylesheet" href="./bootstrap-5.1.1/css/bootstrap.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/all.css" />
 </head>
@@ -39,7 +42,7 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <?php
-                                if (isset($_SESSION['username'])) {
+                                if (isset($_SESSION['phone']) and isset($_SESSION['fname'])) {
                                 ?>
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         حساب کاربری
@@ -55,7 +58,7 @@
                                 <?php } ?>
 
                                 <?php
-                                if (empty($_SESSION['username'])) {
+                                if (empty($_SESSION['phone'])) {
                                 ?>
                                     <a class="nav-link" href="/register.php">ثبت نام در نیکو ثبت</a>
 

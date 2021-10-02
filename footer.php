@@ -53,7 +53,9 @@
     </div>
 </footer>
 
-<script src="./bootstrap-5.1.1/js/bootstrap.bundle.js"></script>
-<script src="./js/vadidation.js"></script>
+
+<script src="./js/bootstrap.bundle.js"></script>
+<script src="./js/validation.js"></script>
+
 </body>
 </html>
