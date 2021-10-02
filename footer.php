@@ -53,7 +53,8 @@
     </div>
 </footer>
 
-<script src="./bootstrap-5.1.1/js/bootstrap.js"></script>
+<script src="./bootstrap-5.1.1/js/bootstrap.bundle.js"></script>
+<script src="./js/vadidation.js"></script>
 </body>
 <!-- test -->
 <!-- test -->

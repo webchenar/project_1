@@ -37,32 +37,35 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">درباره ما</a>
                             </li>
+                            <li class="nav-item dropdown">
+                                <?php
+                                if (isset($_SESSION['username'])) {
+                                ?>
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        حساب کاربری
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="#">مشاهده پنل کاربری</a></li>
+                                        <li><a class="dropdown-item" href="#">ویرایش اطلاعات</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">خروج از حساب</a></li>
+                                    </ul>
+                                <?php } ?>
+
+                                <?php
+                                if (empty($_SESSION['username'])) {
+                                ?>
+                                    <a class="nav-link" href="/register.php">ثبت نام در نیکو ثبت</a>
+
+                                <?php } ?>
+
+                            </li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </div>
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <img class="img-fluid" src="./img/header.png" alt="" />
-                </div>
-                <div class="col-md-6">
-                    <span class="fs-4 ms-2 sahel justifuy">نیکوثبت مجموعه ای ثبتی جهت انجام کلیه امور ثبتی کسب وکار
-                        شما</span>
-                    <p class="m-5 fs-5 justifuy">
-                        مجموعه نیکوثبت کسب وکار شما را از بسیاری جهات لمس میکند با خیال
-                        راحت امور ثبتیتان را به ما بسپارید و به مدیریت کسب وکار خود
-                        بپردارید.
-                    </p>
-                    <div class="d-block d-md-flex justify-content-between d-lg-inline-block mb-md-1">
-                        <a class="d-block d-md-inline-block  btn btn-outline-primary " href="#">درخواست مشاوره</a>
-                        <a class="d-block d-md-inline-block btn btn-outline-primary my-1 my-md-0" href="#">فهرست خدمات نیکو ثبت</a>
-                    </div>
-                    <a class="d-block d-md-block  d-lg-inline-block btn btn-primary mt-lg-0" href="#">
-                        تمدید شرکت سهامی خاص</a>
-
-                </div>
-            </div>
-        </div>
     </header>
+
