@@ -46,7 +46,7 @@ if (isset($_POST['fname']) and isset($_POST['lname']) and isset($_POST['phone'])
     }
 
     if ($chek) {
-        $data->insertUser($_POST['fname'], $_POST['lname'], $_POST['phone'], $_POST['email'], $_POST['cellPhone'], $_POST['password']);
+        $data->insertUser($_POST['fname'], $_POST['lname'], $_POST['phone'], $_POST['email'], $_POST['cellPhone'], md5($_POST['password']));
 
         session_start();
         $_SESSION['phone'] = $_POST['phone'];
