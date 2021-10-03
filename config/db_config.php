@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-define('SITEURL', "http://localhost/my_websites/project_1/"); // ! change it to your local or website address.
+define('SITEURL', "http://localhost/project_1/"); // ! change it to your local or website address.
 define('LOCALHOST', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');

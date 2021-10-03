@@ -62,7 +62,7 @@ if (isset($_POST['submit'])) {
         header('location:' . SITEURL . 'admin/');
     } else {
         $_SESSION['login'] = "<div class='error text-center'>نام کاربری یا گذرواژه صحیح نمی‌باشد.</div>";
-        header('location:' . SITEURL . 'admin/login.php');
+        header('location:' . SITEURL . 'admin/admin_login.php');
     }
 
 
