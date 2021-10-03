@@ -1,6 +1,6 @@
 <?php
 
-define('SITEURL', "http://localhost/my_websites/nikoosabt/project_1"); // ! change it to your local or website address.
+define('SITEURL', "http://localhost/project_1"); // ! change it to your local or website address.
 define('LOCALHOST', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
