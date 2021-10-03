@@ -58,11 +58,11 @@ class DataBase
         return $this->select('users', $fild, $id, $fild2 = null, $id2 = null, $resualt = true);
     }
 
-    public function  insertUser($fname, $lname, $phone, $email, $cellPhone, $passWord)
+    public function  insertUser($fname, $lname, $phone, $email, $cellPhone, $passWord, $verified)
     {
         try {
             
-            $this->Con->exec("INSERT INTO `tbl_user`(`phone`, `PASSWORD`, `first_name`, `last_name`, `email`, `cell_phone`) VALUES ('$phone','$passWord','$fname','$lname','$email','$cellPhone')");
+            $this->Con->exec("INSERT INTO `tbl_user`(`phone`, `PASSWORD`, `first_name`, `last_name`, `email`, `cell_phone`, `verified`) VALUES ('$phone','$passWord','$fname','$lname','$email','$cellPhone', '$verified')");
         } catch (PDOException $e) {
             echo $e;
         }

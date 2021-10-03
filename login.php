@@ -1,4 +1,8 @@
-<?php include_once('header.php');
+<?php
+
+$title = 'صفحه ورود';
+
+include_once('header.php');
 
 $data = new DataBase();
 
@@ -25,8 +29,10 @@ if (isset($_POST['phone']) and $_POST['password']) {
 
     if (isset($user['verified']) and $user['verified'] != 1) {
         echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>حساب کاربری شما تایید نشده است</strong>
+        <strong>حساب کاربری شما تایید نشده است <a href="active.php">جهت فعال سازی حساب کلیک کنید<a/></strong>
       </div>';
+        $_SESSION['phone'] = $user['phone'];
+        $_SESSION['rand'] = rand(1000, 9999);
         $chek = false;
     }
 
@@ -50,7 +56,7 @@ if (isset($_POST['phone']) and $_POST['password']) {
 <div class="container">
     <div class="container mt-5  pb-3">
 
-        <h3 class="sahel fs-3 fw-bold my-t-color m-5 text-center">
+        <h3 class="sahel fs-3 fw-bold my-t-color my-4 text-center">
             برای ورود لطفا شماره همراه و رمز عبور خود را وارد کنید
         </h3>
 

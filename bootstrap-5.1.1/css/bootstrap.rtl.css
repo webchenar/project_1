@@ -4845,6 +4845,14 @@ textarea.form-control-lg {
   border-radius: 0.25rem;
 }
 
+.myalert {
+  position: relative;
+  padding: 0;
+  margin-bottom: 0;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
 .alert-heading {
   color: inherit;
 }

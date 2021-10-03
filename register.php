@@ -1,4 +1,8 @@
-<?php include_once('header.php');
+<?php 
+
+$title = 'نیکوثبت';
+
+include_once('header.php');
 
 $data = new DataBase();
 $chek = true;
@@ -85,13 +89,16 @@ if (isset($_POST['fname']) and isset($_POST['lname']) and isset($_POST['phone'])
     }
 
     if ($chek) {
-        $data->insertUser($_POST['fname'], $_POST['lname'], $_POST['phone'], $_POST['email'], $_POST['cellPhone'], md5($_POST['password']));
 
-        session_start();
-        $_SESSION['phone'] = $_POST['phone'];
-        $_SESSION['rand'] = rand(1000, 9999);
         $_SESSION['fname'] = $_POST['fname'];
+        $_SESSION['lname'] = $_POST['lname'];
+        $_SESSION['phone'] = $_POST['phone'];
+        $_SESSION['email'] = $_POST['email'];
+        $_SESSION['cellPhone'] = $_POST['cellPhone'];
+        $_SESSION['password'] = md5($_POST['password']);
+        $_SESSION['rand'] = rand(1000, 9999);
         header('location:active.php');
+
     }
 }
 

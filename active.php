@@ -1,4 +1,6 @@
-<?php include_once('header.php'); 
+<?php 
+$title = 'فعال سازی حساب';
+include_once('header.php'); 
 $data = new DataBase();
 echo $_SESSION['phone'] . '<br>' . $_SESSION['rand']; 
 
@@ -9,8 +11,20 @@ if (empty($_SESSION['rand'])) {
 if (isset($_POST['activeCode'])) {
     
     if (isset($_SESSION['phone']) and isset($_SESSION['rand']) and $_SESSION['rand'] == $_POST['activeCode']) {
+
+        $data->insertUser($_SESSION['fname'], $_SESSION['lname'], $_SESSION['phone'], $_SESSION['email'], $_SESSION['cellPhone'], $_SESSION['password'], '1');
+
+        $fname = $_SESSION['fname'];
+        $phone = $_SESSION['phone'];
+
+        session_unset();
+
+        $_SESSION['fname'] = $fname;
+
+        $_SESSION['phone'] = $phone;
+
         setcookie("newUser", "true", time()+10);
-        $data->verifiedUser($_SESSION['phone']);
+
         header('location:index.php');
     }else{
 
