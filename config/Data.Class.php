@@ -17,7 +17,6 @@ class DataBase
         if (isset($this->DbName, $this->DbUserName, $this->DbPassWord)) {
             $this->ChekConnect == true;
             $this->Con = new PDO("mysql:host=$this->DbHoste;dbname=$this->DbName", $this->DbUserName, $this->DbPassWord);
-            
         }
         return $this->ChekConnect;
     }
@@ -61,7 +60,7 @@ class DataBase
     public function  insertUser($fname, $lname, $phone, $email, $cellPhone, $passWord, $verified)
     {
         try {
-            
+
             $this->Con->exec("INSERT INTO `tbl_user`(`phone`, `PASSWORD`, `first_name`, `last_name`, `email`, `cell_phone`, `verified`) VALUES ('$phone','$passWord','$fname','$lname','$email','$cellPhone', '$verified')");
         } catch (PDOException $e) {
             echo $e;
@@ -78,14 +77,16 @@ class DataBase
         }
     }
 
-    public function search($table, $fild, $id){
+    public function search($table, $fild, $id)
+    {
         //$this->Con->exec("SELECT `$fild` FROM `$table` WHERE `$fild` =" . "'" . $id . "'");
-        $data = $this->Con->prepare("SELECT `$fild` FROM `$table` WHERE `$fild` =" . "'" . $id . "'");
+        $data = $this->Con->prepare("SELECT * FROM `$table` WHERE `$fild` =" . "'" . $id . "'");
         $data->execute();
-        return $data->rowCount();
+        return $data->fetch();
     }
 
-    public function searchLogIn($table, $fild1, $id1, $fild2, $id2){
+    public function searchLogIn($table, $fild1, $id1, $fild2, $id2)
+    {
         //echo "SELECT * FROM `$table` WHERE `$fild1` =" . "'" . $id1 . "'" . "AND" . "`$fild2` ="  . "'" . $id2 . "'";
 
         $data = $this->Con->prepare("SELECT * FROM `$table` WHERE `$fild1` =" . "'" . $id1 . "'" . "AND" . "`$fild2` ="  . "'" . $id2 . "'");
@@ -93,4 +94,14 @@ class DataBase
         return $data->fetch();
     }
 
+    public function update($fname, $lname, $phone, $email, $cellPhone, $passWord, $id)
+    {
+        echo "UPDATE `tbl_user` SET `phone` = '$phone' , `PASSWORD` = '$passWord', `first_name` = '$fname', `last_name` = '$lname', `email` = '$email', `cell_phone` = '$cellPhone'  WHERE `phone` =" . "'" . $id . "'";
+
+        try {
+            $this->Con->exec("UPDATE `tbl_user` SET `phone` = '$phone' , `PASSWORD` = '$passWord', `first_name` = '$fname', `last_name` = '$lname', `email` = '$email', `cell_phone` = '$cellPhone'  WHERE `phone` =" . "'" . $id . "'");
+        } catch (PDOException $e) {
+            echo $e;
+        }
+    }
 }

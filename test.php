@@ -1,28 +1,26 @@
-<?php include_once('header.php');
+<?php 
 
-session_destroy();
+include_once('header.php');
 
-/* set the cache limiter to 'private' */
-
-session_cache_limiter('private');
-$cache_limiter = session_cache_limiter();
-
-/* set the cache expire to 30 minutes */
-session_cache_expire(1);
-$cache_expire = session_cache_expire();
-
-/* start the session */
-
-session_start();
-
-$_SESSION['name'] = 'test';
-echo $_SESSION['name'];
-
-echo "The cache limiter is now set to $cache_limiter<br />";
-echo "The cached session pages expire after $cache_expire minutes";
+if (preg_match('/^[^\x{600}-\x{6FF}]+$/u', str_replace("\\\\", "", $_POST['fname']))) {
+    echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>نام را به صورت فارسی وارد کنید</strong>
+  </div>';
+    $chek = false;
+  } 
+  
+  if (preg_match('/^[^\x{600}-\x{6FF}]+$/u', str_replace("\\\\", "", $_POST['lname']))) {
+    echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>نام خانوادگی را به صورت فارسی وارد کنید</strong>
+  </div>';
+    $chek = false;
+  } 
 
 ?>
 
-
-
+<form action="#test.php" method="POST">
+    <input type="text" name="fname">
+    <input type="text" name="lname">
+    <button type="sybmit">salam</button>
+    </form>
 <?php include_once('footer.php'); ?>
