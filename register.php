@@ -16,11 +16,21 @@ if (isset($_POST['fname']) and isset($_POST['lname']) and isset($_POST['phone'])
         $chek = false;
     }
 
-    if (!preg_match("/^09[0-9]{9}$/", $_POST['phone'])) {
-        echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>فرمت شماره همراه اشتباه است</strong>
-      </div>';
-        $chek = false;
+    if (isset($_POST['phone'])) {
+        if (!preg_match("/^09[0-9]{9}$/", $_POST['phone'])) {
+            echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>فرمت شماره همراه اشتباه است</strong>
+          </div>';
+            $chek = false;
+        }
+
+        if ($data->search('tbl_user', 'phone', $_POST['phone']) != 0) {
+            echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>کاربری قبلا با این شماره همراه ثبت نام کرده است</strong>
+          </div>';
+            $chek = false;
+        }
+
     }
 
     if (preg_match('/^[^\x{600}-\x{6FF}]+$/u', str_replace("\\\\", "", $_POST['fname']))) {
@@ -36,6 +46,35 @@ if (isset($_POST['fname']) and isset($_POST['lname']) and isset($_POST['phone'])
       </div>';
         $chek = false;
     } 
+
+    if (isset($_POST['email']) and strlen($_POST['email']) != 0) {
+        if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) or strlen($_POST['email']) < 10) {
+            echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>فرمت ایمیل اشتباه است</strong>
+          </div>';
+          $chek = false;
+          echo 'hello';
+        }
+
+        if ($data->search('tbl_user', 'email', $_POST['email']) != 0) {
+            echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>کاربری قبلا با این ایمیل ثبت نام کرده است</strong>
+          </div>';
+            $chek = false;
+        }
+
+    }
+
+    if (isset($_POST['cellPhone']) and strlen($_POST['cellPhone']) != 0) {
+
+        if (strlen($_POST['cellPhone']) != 11) {
+            echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>فرمت شماره تلفن ثابت اشتباه است</strong>
+          </div>';
+            $chek = false;
+        }
+
+    }
 
     if ($_POST['password'] !== $_POST['repeatPassword']) {
 
@@ -98,7 +137,7 @@ if (isset($_POST['fname']) and isset($_POST['lname']) and isset($_POST['phone'])
 
                     <div class="col-12 my-3">
                         <label for="inputfname" class="form-label">شماره تلفن ثابت(همراه با کد شهر):</label>
-                        <input type="text" name="cellPhone" value="<?php echo (isset($_POST['cellPhone']) ? $_POST['cellPhone'] : '');  ?>" class="form-control" placeholder="لطفا شماره تلفن ثابت خود را وارد کنید">
+                        <input type="text" name="cellPhone" value="<?php echo (isset($_POST['cellPhone']) ? $_POST['cellPhone'] : '');  ?>" class="form-control" placeholder="لطفا شماره تلفن ثابت خود را وارد کنید" maxlength="11">
                     </div>
                 </div>
 
@@ -145,18 +184,6 @@ if (isset($_POST['fname']) and isset($_POST['lname']) and isset($_POST['phone'])
         </form>
     </div>
 </div>
-
-<script>
-    $('#phone').on('keyup', function(event) {
-        var arregexe = /[0-9\-\(\)\s]+/;
-        if (!arregexe.test(event.key)) {
-            $("#spanmsg").html('شماره تماس صحیح نیست');
-        } else {
-
-            $("#spanmsg").html('شماره تماس صحیح است');
-        }
-    });
-</script>
 
 
 <?php include_once('footer.php'); ?>

@@ -8,7 +8,6 @@ class DataBase
     private $ChekConnect = false;
     private $Con;
     public $Sql = null;
-
     public function __construct(/*$dbName, $dbUserName, $dbPassWord, $dbHoste*/)
     {
         /*$this->DbName = $dbName;
@@ -18,6 +17,7 @@ class DataBase
         if (isset($this->DbName, $this->DbUserName, $this->DbPassWord)) {
             $this->ChekConnect == true;
             $this->Con = new PDO("mysql:host=$this->DbHoste;dbname=$this->DbName", $this->DbUserName, $this->DbPassWord);
+            
         }
         return $this->ChekConnect;
     }
@@ -61,6 +61,7 @@ class DataBase
     public function  insertUser($fname, $lname, $phone, $email, $cellPhone, $passWord)
     {
         try {
+            
             $this->Con->exec("INSERT INTO `tbl_user`(`phone`, `PASSWORD`, `first_name`, `last_name`, `email`, `cell_phone`) VALUES ('$phone','$passWord','$fname','$lname','$email','$cellPhone')");
         } catch (PDOException $e) {
             echo $e;
@@ -76,4 +77,20 @@ class DataBase
             echo $e;
         }
     }
+
+    public function search($table, $fild, $id){
+        //$this->Con->exec("SELECT `$fild` FROM `$table` WHERE `$fild` =" . "'" . $id . "'");
+        $data = $this->Con->prepare("SELECT `$fild` FROM `$table` WHERE `$fild` =" . "'" . $id . "'");
+        $data->execute();
+        return $data->rowCount();
+    }
+
+    public function searchLogIn($table, $fild1, $id1, $fild2, $id2){
+        //echo "SELECT * FROM `$table` WHERE `$fild1` =" . "'" . $id1 . "'" . "AND" . "`$fild2` ="  . "'" . $id2 . "'";
+
+        $data = $this->Con->prepare("SELECT * FROM `$table` WHERE `$fild1` =" . "'" . $id1 . "'" . "AND" . "`$fild2` ="  . "'" . $id2 . "'");
+        $data->execute();
+        return $data->fetch();
+    }
+
 }

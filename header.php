@@ -19,14 +19,14 @@ session_start();
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid d-flex flex-row-reverse">
-                    <a class="navbar-brand my-blue fs-3" href="#">NikooSabt</a>
+                    <a class="navbar-brand my-blue fs-3" href="index.php">NikooSabt</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">خانه</a>
+                                <a class="nav-link active" href="index.php">خانه</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">خدمات</a>
@@ -45,7 +45,7 @@ session_start();
                                 if (isset($_SESSION['phone']) and isset($_SESSION['fname'])) {
                                 ?>
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        حساب کاربری
+                                        <?php echo "خوش آمدی " . $_SESSION['fname'] ?>
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><a class="dropdown-item" href="#">مشاهده پنل کاربری</a></li>
@@ -53,14 +53,20 @@ session_start();
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item" href="#">خروج از حساب</a></li>
+                                        <li><a class="dropdown-item" href="logout.php">خروج از حساب</a></li>
                                     </ul>
                                 <?php } ?>
 
                                 <?php
                                 if (empty($_SESSION['phone'])) {
                                 ?>
-                                    <a class="nav-link" href="/register.php">ثبت نام در نیکو ثبت</a>
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        ورود / ثبت نام
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="register.php">ثبت نام در نیکو ثبت</a></li>
+                                        <li><a class="dropdown-item" href="login.php">ورود به نیکو ثبت</a></li>
+                                    </ul>
 
                                 <?php } ?>
 
@@ -71,4 +77,3 @@ session_start();
             </nav>
         </div>
     </header>
-
