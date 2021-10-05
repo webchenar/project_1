@@ -16,7 +16,7 @@ class DataBase
             $this->DbHoste = $dbHoste;*/
         if (isset($this->DbName, $this->DbUserName, $this->DbPassWord)) {
             $this->ChekConnect == true;
-            $this->Con = new PDO("mysql:host=$this->DbHoste;dbname=$this->DbName", $this->DbUserName, $this->DbPassWord);
+            $this->Con = new PDO("mysql:host=$this->DbHoste;dbname=$this->DbName;charset=UTF8", $this->DbUserName, $this->DbPassWord);
         }
         return $this->ChekConnect;
     }
@@ -59,8 +59,9 @@ class DataBase
 
     public function  insertUser($fname, $lname, $phone, $email, $cellPhone, $passWord, $verified)
     {
+        
         try {
-
+            
             $this->Con->exec("INSERT INTO `tbl_user`(`phone`, `PASSWORD`, `first_name`, `last_name`, `email`, `cell_phone`, `verified`) VALUES ('$phone','$passWord','$fname','$lname','$email','$cellPhone', '$verified')");
         } catch (PDOException $e) {
             echo $e;
