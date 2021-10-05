@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $title = 'نیکوثبت';
 
@@ -8,7 +8,7 @@ $data = new DataBase();
 
 $chek = true;
 
-$_SESSION['register'] = true;
+$_SESSION['page'] = 'register';
 
 $_SESSION['titr'] = 'لطفا کد پیامک شده به شماره همراه  یا ایمیل خود را برای تایید حساب کاربری وارد کنید';
 if (!empty($_SESSION['rand'])) {
@@ -23,14 +23,13 @@ if (isset($_POST['phone']) and isset($_POST['email'])) {
       </div>';
         $chek = false;
     }
-    
+
     if (!empty($data->search('tbl_user', 'email', $_POST['email']))) {
         echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
         <strong>کاربری قبلا با این ایمیل ثبت نام کرده است</strong>
       </div>';
         $chek = false;
     }
-
 }
 
 
@@ -48,7 +47,7 @@ require_once('./src/validation.php');
 
                     <div class="col-12 ">
                         <label for="inputfname" class="form-label">نام: <span class="t-red">*</span></label>
-                        <input type="text" name="fname" class="form-control" id="validationCustom03" placeholder="لطفا نام خود را وارد کنید" aria-label="First name" required>
+                        <input type="text" name="fname" class="form-control" vvalue="<?php echo isset($_POST['lname']) ? $_POST['lname'] : null; ?>" " id="validationCustom03" placeholder="لطفا نام خود را وارد کنید" aria-label="First name" required>
                         <div class="invalid-feedback">
                             وارد کردن نام اجباریست
                         </div>
@@ -56,7 +55,9 @@ require_once('./src/validation.php');
 
                     <div class="col-md-12 my-3">
                         <label for="inputfname" class="form-label">نام خانوادگی:<span class="t-red">*</span></label>
-                        <input type="text" name="lname" id="validationCustom03" class="form-control"  placeholder="لطفا نام خانوادگی خود را وارد کنید" required>
+
+                        <input type="text" name="lname" value="<?php echo isset($_POST['lname']) ? $_POST['lname'] : null; ?>" id="validationCustom03" class="form-control" placeholder="لطفا نام خانوادگی خود را وارد کنید" required>
+
                         <div class="invalid-feedback">
                             وارد کردن نام خانوادگی اجباریست
                         </div>
@@ -64,7 +65,9 @@ require_once('./src/validation.php');
 
                     <div class=" col-12 my-3">
                         <label for="inputfname" class="form-label">شماره همراه:<span class="t-red">*</span></label>
-                        <input type="text" name="phone" id="validationCustom03 phone" class="form-control" placeholder="لطفا شماره تلفن همراه خود را وارد کنید" maxlength="11" required>
+
+                        <input type="text" name="phone" value="<?php echo isset($_POST['phone']) ? $_POST['phone'] : null; ?>" id="validationCustom03 phone" class="form-control" placeholder="لطفا شماره تلفن همراه خود را وارد کنید" maxlength="11" required>
+
                         <div class="invalid-feedback">
                             وارد کردن شماره همراه اجباریست
                         </div>
@@ -72,13 +75,18 @@ require_once('./src/validation.php');
                     </div>
 
                     <div class="col-12 my-3 ">
-                        <label for="inputfname"  class="form-label">ایمیل:</label>
-                        <input type="text" name="email" class="form-control" placeholder="لطفا ایمیل خود را وارد کنید">
+                        <label for="inputfname" class="form-label">ایمیل:</label>
+
+                        <input type="text" name="email" class="form-control" value="<?php echo isset($_POST['email']) ? $_POST['email'] : null; ?>" placeholder="لطفا ایمیل خود را وارد کنید">
+
                     </div>
 
                     <div class="col-12 my-3">
+
                         <label for="inputfname" class="form-label">شماره تلفن ثابت(همراه با کد شهر):</label>
-                        <input type="text" name="cellPhone" class="form-control" placeholder="لطفا شماره تلفن ثابت خود را وارد کنید" maxlength="11">
+
+                        <input type="text" name="cellPhone" class="form-control" value="<?php echo isset($_POST['cellPhone']) ? $_POST['cellPhone'] : null; ?>" placeholder="لطفا شماره تلفن ثابت خود را وارد کنید" maxlength="11">
+
                     </div>
                 </div>
 
@@ -116,6 +124,16 @@ require_once('./src/validation.php');
                         وارد کردن تکرار رمز عبور اجباریست
                     </div>
                 </div>
+            </div>
+
+            <div class="col-12 col-md-4 my-3">
+                <label for="inputfname" class="form-label">تصویر امنیتی:<span class="t-red">*</span></label>
+                <img src="./src/captcha.php" class="my-4" alt="">
+                <input type="text" name="code" id="validationCustom03 phone" class="form-control" placeholder="لطفا کد امنیتی را وارد کنید" maxlength="5" required>
+                <div class="invalid-feedback">
+                    وارد کردن کد امنیتی اجباریست
+                </div>
+                <span id="spanmsg"></span>
             </div>
 
             <div class="col-12 col-sm-3 my-5">

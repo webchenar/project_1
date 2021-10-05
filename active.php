@@ -1,14 +1,14 @@
 <?php
-$title = 'فعال سازی حساب';
 include_once('header.php');
+$title = 'فعال سازی حساب';
 $data = new DataBase();
 
+//محل اتصال apn پیامک و ایمیل
 
-if (isset($_SESSION['register'])) {
-    echo $_SESSION['phone'] . '<br>' . $_SESSION['rand'];
+if (strcmp($_SESSION['page'], 'register') == 0) {
+    echo $_SESSION['phone'] . '<br>' . $_SESSION['rand'] . '<br>' . $_SESSION['page'];
 }else{
-    $user = $data->search('tbl_user', 'phone', $_SESSION['oldPhone']);
-    echo $user['phone'] . '<br>' . $_SESSION['rand'];
+    echo $_SESSION['newPhone'] . '<br>' . $_SESSION['rand'];
 }
 
 
@@ -18,27 +18,37 @@ if (empty($_SESSION['rand'])) {
 
 if (isset($_POST['activeCode'])) {
 
+    echo 'active code <br>';
+
     if (isset($_SESSION['phone']) and isset($_SESSION['rand']) and $_SESSION['rand'] == $_POST['activeCode']) {
 
-        if (isset($_SESSION['register'])) {
+        echo 'active code <br>';
+
+        if (strcmp($_SESSION['page'], 'register') == 0) {
+
+            echo 'register';
 
             $data->insertUser($_SESSION['fname'], $_SESSION['lname'], $_SESSION['phone'], $_SESSION['email'], $_SESSION['cellPhone'], $_SESSION['password'], '1');
 
+            $_SESSION['register'] == '';
+
         }else{
 
-            $data->update($_SESSION['fname'], $_SESSION['lname'], $_SESSION['phone'], $_SESSION['email'], $_SESSION['cellPhone'], md5($_SESSION['password']), $user['phone']);
+            echo 'update <br>';
 
-            echo 'update';
+            $data->update($_SESSION['fname'], $_SESSION['lname'], $_SESSION['phone'], $_SESSION['email'], $_SESSION['cellPhone'], md5($_SESSION['password']), $_SESSION['oldPhone']);
+            $_POST = null;
+
         }
         
-        $fname = $_SESSION['fname'];
+        /*$fname = $_SESSION['fname'];
         $phone = $_SESSION['phone'];
 
         session_unset();
 
         $_SESSION['fname'] = $fname;
 
-        $_SESSION['phone'] = $phone;
+        $_SESSION['phone'] = $phone;*/
 
         setcookie("newUser", "true", time() + 10);
 
@@ -48,6 +58,7 @@ if (isset($_POST['activeCode'])) {
         echo '<div class="alert alert-warning container" role="alert">
         کد وارد شده صحیح نیست. در صورت مشکل با ما تماس بگیرید
       </div>';
+
     }
 }
 

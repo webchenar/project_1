@@ -1,7 +1,12 @@
 <?php
 if (isset($_POST['fname']) and isset($_POST['lname']) and isset($_POST['phone']) and isset($_POST['password']) and isset($_POST['repeatPassword'])) {
 
-
+  if (strcmp(strtolower($_SESSION['captcha']), strtolower($_POST['code'])) != 0) {
+    echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>کد امنیتی وارد شده اشتباه است</strong>
+  </div>';
+  $chek = false;
+  }
 
 if (strlen($_POST['password']) < 8) {
     echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
@@ -74,6 +79,8 @@ if ($chek) {
     $_SESSION['cellPhone'] = $_POST['cellPhone'];
     $_SESSION['password'] = md5($_POST['password']);
     $_SESSION['rand'] = rand(1000, 9999);
+    $_SESSION['newPhone'] = isset($_POST['phone'])?$_POST['phone']:null;
+    $_POST = null;
     header('location:active.php');
 
 }
