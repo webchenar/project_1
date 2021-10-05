@@ -1,5 +1,7 @@
 <?php 
 
+ob_start();
+
 session_start();
 
 include_once('./config/Data.Class.php');
@@ -17,8 +19,9 @@ if (empty($title)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php echo $title;?></title>
     <link rel="stylesheet" href="./bootstrap-5.1.1/css/bootstrap.rtl.css" />
-    <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/all.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+
 </head>
 
 <body>
@@ -61,7 +64,7 @@ if (empty($title)) {
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><a class="dropdown-item" href="#">مشاهده پنل کاربری</a></li>
-                                        <li><a class="dropdown-item" href="#">ویرایش اطلاعات</a></li>
+                                        <li><a class="dropdown-item" href="changeinfo.php">ویرایش اطلاعات</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>

@@ -1,8 +1,8 @@
 <?php
-
+include_once('header.php');
 $title = 'صفحه ورود';
 
-include_once('header.php');
+
 
 $data = new DataBase();
 
@@ -37,13 +37,18 @@ if (isset($_POST['phone']) and $_POST['password']) {
     }
 
     if ($chek) {
-        if ($_POST['check']) {
+        if (isset($_POST['check'])) {
+
+            //session_start();
+            
             $_SESSION['phone'] = $user['phone'];
             $_SESSION['fname'] = $user['first_name'];
-            echo $_SESSION['phone'] . $_SESSION['fname'];
+
         }else{
+
             setcookie('phone', $user['phone'], time()+10800);
             setcookie('fname', $user['first_name'], time()+10800);
+
         }
 
         header('location:index.php');

@@ -1,38 +1,65 @@
-<?php 
+<?php
+include_once('header.php');
 $title = 'فعال سازی حساب';
-include_once('header.php'); 
 $data = new DataBase();
-echo $_SESSION['phone'] . '<br>' . $_SESSION['rand']; 
+
+//محل اتصال apn پیامک و ایمیل
+
+if (strcmp($_SESSION['page'], 'register') == 0) {
+    echo $_SESSION['phone'] . '<br>' . $_SESSION['rand'] . '<br>' . $_SESSION['page'];
+}else{
+    echo $_SESSION['newPhone'] . '<br>' . $_SESSION['rand'];
+}
+
 
 if (empty($_SESSION['rand'])) {
     header('location: register.php');
 }
 
 if (isset($_POST['activeCode'])) {
-    
+
+    echo 'active code <br>';
+
     if (isset($_SESSION['phone']) and isset($_SESSION['rand']) and $_SESSION['rand'] == $_POST['activeCode']) {
 
-        $data->insertUser($_SESSION['fname'], $_SESSION['lname'], $_SESSION['phone'], $_SESSION['email'], $_SESSION['cellPhone'], $_SESSION['password'], '1');
+        echo 'active code <br>';
 
-        $fname = $_SESSION['fname'];
+        if (strcmp($_SESSION['page'], 'register') == 0) {
+
+            echo 'register';
+
+            $data->insertUser($_SESSION['fname'], $_SESSION['lname'], $_SESSION['phone'], $_SESSION['email'], $_SESSION['cellPhone'], $_SESSION['password'], '1');
+
+            $_SESSION['register'] == '';
+
+        }else{
+
+            echo 'update <br>';
+
+            $data->update($_SESSION['fname'], $_SESSION['lname'], $_SESSION['phone'], $_SESSION['email'], $_SESSION['cellPhone'], md5($_SESSION['password']), $_SESSION['oldPhone']);
+            $_POST = null;
+
+        }
+        
+        /*$fname = $_SESSION['fname'];
         $phone = $_SESSION['phone'];
 
         session_unset();
 
         $_SESSION['fname'] = $fname;
 
-        $_SESSION['phone'] = $phone;
+        $_SESSION['phone'] = $phone;*/
 
-        setcookie("newUser", "true", time()+10);
+        setcookie("newUser", "true", time() + 10);
 
         header('location:index.php');
-    }else{
+    } else {
 
         echo '<div class="alert alert-warning container" role="alert">
         کد وارد شده صحیح نیست. در صورت مشکل با ما تماس بگیرید
       </div>';
-    }
 
+    }
 }
 
 
@@ -40,7 +67,7 @@ if (isset($_POST['activeCode'])) {
 
 <div class="container border text-center mt-5  pb-3">
     <h3 class="sahel fs-3 fw-bold my-t-color m-3 ">
-        لطفا کد پیامک شده به شماره همراه  یا ایمیل خود را برای تایید حساب کاربری وارد کنید
+        <?php echo $_SESSION['titr'] ?>
     </h3>
     <div class="row d-flex justify-content-center">
         <form class="col-12  col-lg-4 row " action="active.php" method="POST">

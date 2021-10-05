@@ -26,6 +26,10 @@ a{
   text-decoration: none;
 }
 
+.mygray{
+  background-color: rgb(243, 243, 243);
+}
+
 .my-blue{
     color: #0253BC !important;
 }
@@ -92,4 +96,8 @@ a{
 
 .justifuy{
   text-align: justify;
+}
+
+.t-red{
+  color: red;
 }
