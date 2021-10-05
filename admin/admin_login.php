@@ -54,10 +54,21 @@ if (isset($_POST['submit'])) {
     $sql = "SELECT * FROM tbl_admin WHERE phone='$username' AND password='$password'";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
+    $last_login_date_time = date("Y-m-d H:i:s");
+
 
     if ($count == 1) {
         $_SESSION['login'] = "<div class='success'>شما با موفقیت وارد شدید.</div>";
         $_SESSION['user'] = $username;
+
+        $sql2 = "UPDATE 
+                    tbl_admin 
+                SET
+                    last_login_datetime = '$last_login_date_time'
+                WHERE
+                    phone = '$username'";
+
+        mysqli_query($conn, $sql2);
 
         header('location:' . SITEURL . 'admin/');
     } else {
