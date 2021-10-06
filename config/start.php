@@ -48,7 +48,18 @@ $tableCreate_admin = "CREATE TABLE `tbl_admin`(
 mysqli_query($conn, $tableCreate_admin) or die (mysqli_error($conn));
 
 // end of creating.
+$password = md5('1');
 
+$last_login_date_time = date("Y-m-d H:i:s");
+
+$sql = "INSERT INTO tbl_admin
+    (phone,PASSWORD,first_name,last_name,email,cell_phone,verified,
+    username,access_level,last_login_datetime)
+VALUES
+    ('1', '$password', 'admin', 'admin', 'example@gmail.com','9999999999','1',
+    'test admin', '3', '$last_login_date_time')";
+
+$result = mysqli_query($conn, $sql) or die (mysqli_error($conn));
 
 mysqli_close($conn);
 
