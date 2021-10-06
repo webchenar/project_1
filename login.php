@@ -56,6 +56,7 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
             setcookie('fname', $user['first_name'], time() + 10800);
         }
 
+        setcookie("logIn", "true", time() + 10800);
         header('location:index.php');
     }
 }

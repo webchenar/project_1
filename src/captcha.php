@@ -2,7 +2,7 @@
 
     session_start();
 
-    $string = '12345678998765432100asdfghjklqwertyuiopzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM';
+    $string = '12345678998765432100asdfghjkqwertyuiopzxcvbnmQWERTYUOPASDFGHJKLZXCVBNM';
 
     $_SESSION['captcha'] = '';
     
