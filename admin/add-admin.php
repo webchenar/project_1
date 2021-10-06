@@ -16,7 +16,7 @@
                 <tr>
                     <td>Phone:</td>
                     <td>
-                        <input type="text" name="full_name" placeholder="">
+                        <input type="text" name="phone" placeholder="">
                     </td>
                 </tr>
                 <tr>
@@ -29,44 +29,44 @@
                 <tr>
                     <td>First_name:</td>
                     <td>
-                        <input type="text" name="full_name" placeholder="">
+                        <input type="text" name="first_name" placeholder="">
                     </td>
                 </tr>
                 <tr>
                     <td>last_name:</td>
                     <td>
-                        <input type="text" name="password" placeholder="">
+                        <input type="text" name="last_name" placeholder="">
                     </td>
                 </tr>
                 <tr>
                     <td>email:</td>
                     <td>
-                        <input type="email" name="full_name" placeholder="">
+                        <input type="email" name="email" placeholder="">
                     </td>
                 </tr>
                 <tr>
                     <td>cell_phone:</td>
                     <td>
-                        <input type="text" name="password" placeholder="">
+                        <input type="text" name="cell_phone" placeholder="">
                     </td>
                 </tr>
                 <tr>
                     <td>verify:</td>
                     <td>
-                        <input type="radio" name="active" value="Yes"> تایید
-                        <input type="radio" name="active" value="No"> تعلیق
+                        <input type="radio" name="verified" value="1"> تایید
+                        <input type="radio" name="verified" value="0"> تعلیق
                     </td>
                 </tr>
                 <tr>
                     <td>username:</td>
                     <td>
-                        <input type="text" name="password" placeholder="">
+                        <input type="text" name="username" placeholder="">
                     </td>
                 </tr>
                 <tr>
                     <td>access_level</td>
                     <td>
-                        <input type="text" name="password" placeholder="">
+                        <input type="text" name="access_level" placeholder="">
 
                     </td>
                 </tr>
@@ -85,9 +85,8 @@
 
 <?php
 if (isset($_POST['submit'])) {
-
     $phone = $_POST['phone'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
@@ -97,17 +96,14 @@ if (isset($_POST['submit'])) {
     $access_level = $_POST['access_level'];
     $last_login_date_time = date("Y-m-d H:i:s");
 
-    $sql = "INSERT INTO tbl_admin SET
-            'phone' =$phone,
-            'PASSWORD' = $password,
-            'first_name'= $first_name,
-            'last_name'= $last_name,
-            'email'=$email,
-            'cell_phone' = $cell_phone,
-            'verified' = $verified,
-            'username' = $username,
-            'access_level' = $username,
-            'last_login_datetime' = $last_login_date_time";
+
+    $sql = "INSERT INTO tbl_admin
+    (phone,PASSWORD,first_name,last_name,email,cell_phone,verified,
+    username,access_level,last_login_datetime)
+VALUES
+    ('$phone', '$password', '$first_name', '$last_name', '$email','$cell_phone','$verified',
+    '$username', '$access_level', '$last_login_date_time')";
+
 
     $result = mysqli_query($conn, $sql) or die (mysqli_error($conn));
 

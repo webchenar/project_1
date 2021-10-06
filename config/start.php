@@ -9,7 +9,7 @@ define('DB_NAME', 'nikoosabt_db');
 $conn = mysqli_connect(LOCALHOST, DB_USERNAME, DB_PASSWORD) or die(mysqli_error($conn));
 
 
-$createDatabase = "CREATE DATABASE nikoosabt_db CHARACTER SET utf8 COLLATE utf8_general_ci";
+$createDatabase = "CREATE DATABASE nikoosabt_db CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci";
 mysqli_query($conn, $createDatabase) or die(mysqli_error($conn));
 
 
@@ -27,7 +27,7 @@ $tableCreate_User = "CREATE TABLE `tbl_user`(
     cell_phone VARCHAR(15),
     verified INT(10) DEFAULT 0,
     PRIMARY KEY(id , phone)
-) DEFAULT CHARSET = utf8";
+) DEFAULT CHARSET = utf8mb4 COLLATE utf8mb4_persian_ci";
 mysqli_query($conn, $tableCreate_User) or die (mysqli_error($conn));
 
 
@@ -44,7 +44,7 @@ $tableCreate_admin = "CREATE TABLE `tbl_admin`(
     access_level VARCHAR(10),
     last_login_datetime DATETIME,
     PRIMARY KEY(id, phone)
-) DEFAULT CHARSET = utf8";
+) DEFAULT CHARSET = utf8mb4 COLLATE utf8mb4_persian_ci";
 mysqli_query($conn, $tableCreate_admin) or die (mysqli_error($conn));
 
 // end of creating.

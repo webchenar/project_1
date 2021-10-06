@@ -12,7 +12,8 @@ include "login_check.php";
 <body>
 <div class="navbar">
     <ul>
-        <li><a href="#">main</a></li>
-        <li><a href="logout.php">logout</a></li>
+        <li><a href="<?php echo SITEURL . 'admin/index.php/' ?>">main</a></li>
+        <li><a href="<?php echo SITEURL . 'admin/manage-admin.php/' ?>">Manage Admin</a></li>
+        <li><a href="<?php echo SITEURL . 'admin/logout.php/' ?>">logout</a></li>
     </ul>
 </div>

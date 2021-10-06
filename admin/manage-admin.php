@@ -1,4 +1,5 @@
 <?php include "partials/menu.php"; ?>
+
     <div>
         <h1>مدیریت نمایندگان و مدیران</h1>
         <br>
@@ -35,7 +36,7 @@
         }
 
         ?>
-        <a href="add-admin.php"> اضافه کردن مدیر </a>
+        <a href="<?php echo SITEURL . 'admin/add-admin.php/' ?>"> اضافه کردن مدیر </a>
         <br>
         <table style="width:100%;border-bottom:1px solid black; padding: 1%;text-align: left; padding: 1%;">
             <tr>
@@ -48,9 +49,6 @@
             </tr>
 
             <?php
-
-            // #TODO: fix Unicode on Output in fist name and last name(full name).
-
             $sql = "SELECT * FROM tbl_admin";
             $res = mysqli_query($conn, $sql);
 
@@ -58,10 +56,9 @@
                 $count = mysqli_num_rows($res);
                 if ($count > 0) {
                     while ($rows = mysqli_fetch_assoc($res)) {
-
                         $id = $rows['id'];
                         $phone = $rows['phone'];
-                        $full_name = $rows['first_name'] . $rows['last_name'];
+                        $full_name = $rows['first_name'] . " " . $rows['last_name'];
                         $email = $rows['email'];
                         $access_level = $rows['access_level'];
                         $username = $rows['username'];
@@ -75,12 +72,9 @@
                             <td><?php echo $access_level; ?></td>
                             <td><?php echo $last_login; ?></td>
                             <td>
-                                <a href="<?php echo SITEURL; ?>admin/update-password.php?id=<?php echo $id; ?>"
-                                   class="btn-primary">تغییر پسورد</a>
-                                <a href="<?php echo SITEURL; ?>admin/update-admin.php?id=<?php echo $id; ?>"
-                                   class="btn-secondary">به روز رسانی مدیر</a>
-                                <a href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $id; ?>"
-                                   class="btn-danger">حذف مدیر</a>
+                                <a href="<?php echo SITEURL; ?>admin/update-password.php?id=<?php echo $id; ?>">تغییر پسورد</a>
+                                <a href="<?php echo SITEURL; ?>admin/update-admin.php?id=<?php echo $id; ?>">به روز رسانی مدیر</a>
+                                <a href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $id; ?>">حذف مدیر</a>
                             </td>
                         </tr>
 
@@ -88,8 +82,7 @@
 
                     }
                 } else {
-
-
+                    // noting yet. #TODO: something need here.
                 }
             }
 

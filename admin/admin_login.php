@@ -1,5 +1,4 @@
 <?php include "../config/db_config.php"; ?>
-
     <html lang="fa-IR">
     <head>
         <title>Admin Login</title>
@@ -25,7 +24,6 @@
         <br>
     </div>
 
-
     <form action="" method="post">
         <label>Username:
             <input type="text" name="username" placeholder="type your username...">
@@ -38,10 +36,7 @@
         <br>
         <br>
         <input type="submit" name="submit" value="Sign In">
-
     </form>
-
-
     </body>
     </html>
 
@@ -56,9 +51,8 @@ if (isset($_POST['submit'])) {
     $count = mysqli_num_rows($result);
     $last_login_date_time = date("Y-m-d H:i:s");
 
-
     if ($count == 1) {
-        $_SESSION['login'] = "<div class='success'>شما با موفقیت وارد شدید.</div>";
+        $_SESSION['login'] = "<div>شما با موفقیت وارد شدید.</div>";
         $_SESSION['user'] = $username;
 
         $sql2 = "UPDATE 
@@ -72,10 +66,9 @@ if (isset($_POST['submit'])) {
 
         header('location:' . SITEURL . 'admin/');
     } else {
-        $_SESSION['login'] = "<div class='error text-center'>نام کاربری یا گذرواژه صحیح نمی‌باشد.</div>";
+        $_SESSION['login'] = "<div>نام کاربری یا گذرواژه صحیح نمی‌باشد.</div>";
         header('location:' . SITEURL . 'admin/admin_login.php');
     }
-
-
 }
+
 ?>
