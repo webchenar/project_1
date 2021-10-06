@@ -5,14 +5,13 @@ $data = new DataBase();
 
 //محل اتصال apn پیامک و ایمیل
 
-if (strcmp($_SESSION['page'], 'register') == 0) {
+if (strcmp($_SESSION['page'], 'register') == 0 or strcmp($_SESSION['page'], 'forget') == 0) {
     echo $_SESSION['phone'] . '<br>' . $_SESSION['rand'] . '<br>' . $_SESSION['page'];
 }else{
     echo $_SESSION['newPhone'] . '<br>' . $_SESSION['rand'];
 }
 
-
-if (empty($_SESSION['rand'])) {
+if (empty($_SESSION['rand']) and strcmp($_SESSION['page'], 'forget') != 0) {
     header('location: register.php');
 }
 
@@ -24,21 +23,26 @@ if (isset($_POST['activeCode'])) {
 
         echo 'active code <br>';
 
+        setcookie("logIn", "true", time() + 10800);
+
         if (strcmp($_SESSION['page'], 'register') == 0) {
 
             echo 'register';
 
             $data->insertUser($_SESSION['fname'], $_SESSION['lname'], $_SESSION['phone'], $_SESSION['email'], $_SESSION['cellPhone'], $_SESSION['password'], '1');
 
-            $_SESSION['register'] == '';
+            setcookie("newUser", "true", time() + 10);
 
-        }else{
+            $_SESSION['page'] == '';
 
+        }elseif (strcmp($_SESSION['page'], 'change') == 0) {
             echo 'update <br>';
 
             $data->update($_SESSION['fname'], $_SESSION['lname'], $_SESSION['phone'], $_SESSION['email'], $_SESSION['cellPhone'], md5($_SESSION['password']), $_SESSION['oldPhone']);
             $_POST = null;
 
+        }elseif(strcmp($_SESSION['page'], 'forget') == 0){
+            $_SESSION['page'] ='';
         }
         
         /*$fname = $_SESSION['fname'];
@@ -49,8 +53,6 @@ if (isset($_POST['activeCode'])) {
         $_SESSION['fname'] = $fname;
 
         $_SESSION['phone'] = $phone;*/
-
-        setcookie("newUser", "true", time() + 10);
 
         header('location:index.php');
     } else {

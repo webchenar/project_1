@@ -62,6 +62,8 @@ if (empty($title)) {
                                         <?php echo "خوش آمدی " . $fname; ?>
 
                                     </a>
+                                    <?php if (isset($_COOKIE['logIn'])) {?>
+
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><a class="dropdown-item" href="#">مشاهده پنل کاربری</a></li>
                                         <li><a class="dropdown-item" href="changeinfo.php">ویرایش اطلاعات</a></li>
@@ -70,6 +72,7 @@ if (empty($title)) {
                                         </li>
                                         <li><a class="dropdown-item" href="logout.php">خروج از حساب</a></li>
                                     </ul>
+                                    <?php } ?>
                                 <?php } ?>
 
                                 <?php

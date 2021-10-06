@@ -2,16 +2,17 @@
 include_once('header.php');
 $title = 'صفحه ورود';
 
-
+$_SESSION['titr'] = 'برای ورود به سایت لطفا کدی که به شماره همراه و یا ایمیل شما ارسال شده را وارد کنید';
 
 $data = new DataBase();
 
 $chek = true;
 
+$_SESSION['page'] = 'forget';
 
-if (isset($_POST['phone']) and isset($_POST['password'])) {
+if (isset($_POST['phone'])) {
 
-    $user = $data->searchLogIn('tbl_user', 'phone', $_POST['phone'], 'PASSWORD', md5($_POST['password']));
+    $user = $data->search('tbl_user', 'phone', $_POST['phone']);
 
     if (strcmp(strtolower($_SESSION['captcha']), strtolower($_POST['code']) ) != 0) {
         echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
@@ -22,7 +23,7 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
 
     if (!$user) {
         echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>نام کاربری یا رمز عبور اشتباه است</strong>
+        <strong>شماره تماس اشتباه است</strong>
       </div>';
         $chek = false;
     }
@@ -44,19 +45,14 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
     }
 
     if ($chek) {
-        if (isset($_POST['check'])) {
 
-            //session_start();
+        $_SESSION['phone'] = $user['phone'];
 
-            $_SESSION['phone'] = $user['phone'];
-            $_SESSION['fname'] = $user['first_name'];
-        } else {
+        $_SESSION['fname'] = $user['first_name'];
 
-            setcookie('phone', $user['phone'], time() + 10800);
-            setcookie('fname', $user['first_name'], time() + 10800);
-        }
+        $_SESSION['rand'] = rand(1000, 9999);
 
-        header('location:index.php');
+        header('location:active.php');
     }
 }
 
@@ -66,12 +62,12 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
     <div class="container mt-5  pb-3">
 
         <h3 class="sahel fs-3 fw-bold my-t-color my-4 text-center">
-            برای ورود لطفا شماره همراه و رمز عبور خود را وارد کنید
+             در صورت فراموشی نام کاربری و یا رمز عبور لطفا شماره همراه خود را وارد کنید
         </h3>
 
         <div class="row d-flex justify-content-center ">
 
-            <form class="my-2 needs-validation col-md-5 " action="login.php" method="POST" novalidate>
+            <form class="my-2 needs-validation col-md-5 " action="forget.php" method="POST" novalidate>
 
                 <div class=" col-12 my-3">
                     <label for="inputfname" class="form-label">شماره همراه:*</label>
@@ -80,14 +76,6 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
                         وارد کردن شماره همراه اجباریست
                     </div>
                     <span id="spanmsg"></span>
-                </div>
-
-                <div class="col-12 my-3">
-                    <label for="inputfname" class="form-label">رمز عبور:*</label>
-                    <input type="password" name="password" id="validationCustom03" class="form-control" placeholder="لطفا رمز عبور خود را وارد کنید" aria-label="Last name" required>
-                    <div class="invalid-feedback">
-                        وارد کردن رمز عبور اجباریست
-                    </div>
                 </div>
 
                 <div class="col-12 col-md-12 my-3">
@@ -100,23 +88,11 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
                     <span id="spanmsg"></span>
                 </div>
 
-                <div class="mb-3 mt-3 form-check">
-
-                    <input type="checkbox" name="check" value="1" class="form-check-input " id="exampleCheck1">
-
-                    <label class="form-check-label d" for="exampleCheck1">مرا به خاطر بسپار</label>
-                </div>
-
-
                 <button class="btn  btn-info  text-center col-12 mb-3" type="submit" id="button-addon2">
                     ورود
                 </button>
-
-                <a href="forget.php" class="m-2">فراموشی نام کاربری یا رمز عبور</a>
                 
             </form>
-
-            
 
         </div>
     </div>
