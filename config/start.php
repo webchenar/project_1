@@ -47,9 +47,36 @@ $tableCreate_admin = "CREATE TABLE `tbl_admin`(
 ) DEFAULT CHARSET = utf8mb4 COLLATE utf8mb4_persian_ci";
 mysqli_query($conn, $tableCreate_admin) or die (mysqli_error($conn));
 
-// end of creating.
-$password = md5('1');
 
+// create request table
+$tableCreate_sabt_sherkat = "CREATE TABLE `sabt_sherkat`(
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    company_type VARCHAR(250),
+    activity_subject VARCHAR(200),
+    other_activity VARCHAR(200),
+    first_name VARCHAR(100),
+    last_name VARCHAR(100),
+    state VARCHAR(200),
+    city VARCHAR(200),
+    phone_number VARCHAR(15),
+    company_postal_code VARCHAR(12),
+    board_postal_code VARCHAR(12),
+    national_code VARCHAR(12),
+    CEO_cert_picture TEXT,
+    CEO_ID_picture TEXT,
+    board_cert_picture TEXT,
+    board_ID_picture TEXT,
+    inspector_cert_picture TEXT,
+    inspector_ID_picture TEXT,
+    PRIMARY KEY(id)
+) DEFAULT CHARSET = utf8mb4 COLLATE utf8mb4_persian_ci";
+mysqli_query($conn, $tableCreate_sabt_sherkat) or die (mysqli_error($conn));
+
+
+// end of Table creating.
+
+// create a admin for sample and test.
+$password = md5('1');
 $last_login_date_time = date("Y-m-d H:i:s");
 
 $sql = "INSERT INTO tbl_admin
