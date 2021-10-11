@@ -16,7 +16,7 @@ if (isset($_COOKIE['newUser'])) {
         <img class="img-fluid" src="./img/header.png" alt="" />
       </div>
       <div class="col-md-6">
-        <span class="fs-4 ms-2 sahel justifuy">نیکوثبت مجموعه ای ثبتی جهت انجام کلیه امور ثبتی کسب وکار
+        <span class="fs-4 ms-2 sahel justifuy ">نیکوثبت مجموعه ای ثبتی جهت انجام کلیه امور ثبتی کسب وکار
           شما</span>
         <p class="m-5 fs-5 justifuy">
           مجموعه نیکوثبت کسب وکار شما را از بسیاری جهات لمس میکند با خیال
