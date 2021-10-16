@@ -1,6 +1,8 @@
 <?php
-include_once('header.php');
 $title = 'فعال سازی حساب';
+
+include_once('header.php');
+
 $data = new DataBase();
 
 //محل اتصال apn پیامک و ایمیل

@@ -1,4 +1,5 @@
 <?php
+
 class DataBase
 {
     public $DbName = 'nikoosabt_db';
@@ -55,6 +56,17 @@ class DataBase
     public function read($fild, $id)
     {
         return $this->select('users', $fild, $id, $fild2 = null, $id2 = null, $resualt = true);
+    }
+
+    public function insertSjtamdidSahamiKhas($rel_user, $c_shenase_meli, $c_name, $c_shomare_sabt, $c_sarmaye, $time_shore_jalase, $date_shore_jalase, $rozname, $file_rozname = '', $tedad_emza = 0){
+        try{
+            $this->Con->exec("INSERT INTO `sj_tamdid_sahami_khas`(`rel_user`, `c_shenase_meli`, `c_name`, `c_shomare_sabt`, `c_sarmaye`, `t_shorooe_jalase`, `d_shorooe_jalase`, `rooz_name`, `rooz_name_file`, `va_ya`) VALUES ('$rel_user', '$c_shenase_meli','$c_name','$c_shomare_sabt','$c_sarmaye','$time_shore_jalase','$date_shore_jalase','$rozname','$file_rozname','$tedad_emza')");
+
+            $_SESSION['test'] = "INSERT INTO `sj_tamdid_sahami_khas`(`rel_user`, `c_shenase_meli`, `c_name`, `c_shomare_sabt`, `c_sarmaye`, `t_shorooe_jalase`, `d_shorooe_jalase`, `rooz_name`, `rooz_name_file`, `va_ya`) VALUES ('$rel_user', '$c_shenase_meli','$c_name','$c_shomare_sabt','$c_sarmaye','$time_shore_jalase','$date_shore_jalase','$rozname','$file_rozname','$tedad_emza')";
+
+        }catch(PDOException $e){
+            echo $e;
+        }
     }
 
     public function  insertUser($fname, $lname, $phone, $email, $cellPhone, $passWord, $verified)

@@ -4,11 +4,14 @@ ob_start();
 
 session_start();
 
+include_once('./src/function.php');
+
 include_once('./config/Data.Class.php');
 
 if (empty($title)) {
     $title = 'نیکوثبت';
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">

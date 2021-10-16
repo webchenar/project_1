@@ -1,11 +1,16 @@
-<?php include_once('header.php') ?>
+<?php 
+$title = 'تمدید شرکت سهامی خاص';
+include_once('header.php') ?>
 <?php
 var_dump($_POST);
 
+$data = new DataBase();
+_function::logIn();
 
 
+if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset($_POST['shenasemelli']) && isset($_POST['rozname']) && isset($_POST['sahamdar']) && empty($_SESSION['step2'])) {
 
-if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset($_POST['shenasemelli']) && isset($_POST['rozname']) && isset($_POST['sahamdar'])) {
+    echo isset($_SESSION['phone']) ? $_SESSION['phone'] : $_COOKIE['phone'], $_POST['shenasemelli'],$_POST['namesherkat'], $_POST['shomaresabtsherkat'], $_POST['sarmaie'], $_POST['hours'] . $_POST['hours'], $_POST['years'] . $_POST['mounth'] . $_POST['day'], $_POST['rozname'] ;
 
     $_SESSION['chek'] = true;
 
@@ -30,6 +35,13 @@ if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset
       $_SESSION['chek'] = false;
     }
 
+    if (!preg_match("/[0-9]/", $_POST['sarmaie'])) {
+        echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>فرمت سرمایه ثبت شده اشتباه است</strong>
+      </div>';
+      $_SESSION['chek'] = false;
+    }
+
 
     if (!(preg_match("/[0-9]/", $_POST['minute']) && preg_match("/[0-9]/", $_POST['hours']) && preg_match("/[0-9]/", $_POST['day']) && preg_match("/[0-9]/", $_POST['mounth']) && preg_match("/[0-9]/", $_POST['years']))) {
         echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
@@ -50,23 +62,20 @@ if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset
     }
 
 
+
     //Step Dovome
 
     if ($_SESSION['chek']) {
-        
-        $_SESSION['namesherkat'] = $_POST['namesherkat'];
-        $_SESSION['shomaresabtsherkat'] = $_POST['shomaresabtsherkat'];
         $_SESSION['shenasemelli'] = $_POST['shenasemelli'];
-        $_SESSION['minute'] = $_POST['minute'];
-        $_SESSION['hours'] = $_POST['hours'];
-        $_SESSION['day'] = $_POST['day'];
-        $_SESSION['mounth'] = $_POST['mounth'];
-        $_SESSION['years'] = $_POST['years'];
-        $_SESSION['rozname'] = $_POST['rozname'];
         $_SESSION['sahamdar'] = $_POST['sahamdar'];
         $_SESSION['step2'] = true;
         $_SESSION['count'] = 1;
         $_SESSION['chek'] = true;
+
+
+        $data->insertSjtamdidSahamiKhas(isset($_SESSION['phone']) ? $_SESSION['phone'] : $_COOKIE['phone'], $_POST['shenasemelli'],$_POST['namesherkat'], $_POST['shomaresabtsherkat'], $_POST['sarmaie'], $_POST['hours'] . $_POST['hours'], $_POST['years'] . $_POST['mounth'] . $_POST['day'], $_POST['rozname'] );
+
+        
     } else {
         $_SESSION['step2'] = false;
     }
@@ -236,10 +245,22 @@ if (isset($_SESSION['step2'])) {
                                 <input type="text" name="shenasemelli" value="<?php echo isset($_POST['shenasemelli']) ? $_POST['shenasemelli'] : null; ?>" id="validationCustom03 phone" class="form-control" placeholder="لطفا شماره شناسه ملی شرکت را وارد کنید" required>
 
                                 <div class="invalid-feedback">
-                                    وارد کردن شماره همراه اجباریست
+                                    وارد کردن شناسه ملی اجباریست
                                 </div>
                                 <span id="spanmsg"></span>
                             </div>
+
+                            <div class=" col-12 my-3">
+                                <label for="shenasemelli" class="form-label">شناسه ملی شرکت:<span class="t-red">*</span></label>
+
+                                <input type="text" name="sarmaie" value="<?php echo isset($_POST['sarmaie']) ? $_POST['sarmaie'] : null; ?>" id="validationCustom03 phone" class="form-control" placeholder="لطفا سرمایه ثبت شده شرکت را وارد کنید" required>
+
+                                <div class="invalid-feedback">
+                                    وارد کردن سرمایه ثبت شده شرکت اجباریست
+                                </div>
+                                <span id="spanmsg"></span>
+                            </div>
+
 
                             <div class="col-12 my-3">
 
