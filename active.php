@@ -7,7 +7,7 @@ $data = new DataBase();
 
 if (strcmp($_SESSION['page'], 'register') == 0 or strcmp($_SESSION['page'], 'forget') == 0) {
     echo $_SESSION['phone'] . '<br>' . $_SESSION['rand'] . '<br>' . $_SESSION['page'];
-}else{
+} else {
     echo $_SESSION['newPhone'] . '<br>' . $_SESSION['rand'];
 }
 
@@ -34,17 +34,30 @@ if (isset($_POST['activeCode'])) {
             setcookie("newUser", "true", time() + 10);
 
             $_SESSION['page'] == '';
-
-        }elseif (strcmp($_SESSION['page'], 'change') == 0) {
+        } elseif (strcmp($_SESSION['page'], 'change') == 0) {
             echo 'update <br>';
 
-            $data->update($_SESSION['fname'], $_SESSION['lname'], $_SESSION['phone'], $_SESSION['email'], $_SESSION['cellPhone'], md5($_SESSION['password']), $_SESSION['oldPhone']);
+            $data->update($_SESSION['fname'], $_SESSION['lname'], $_SESSION['phone'], $_SESSION['email'], $_SESSION['cellPhone'], $_SESSION['password'], $_SESSION['oldPhone']);
             $_POST = null;
 
-        }elseif(strcmp($_SESSION['page'], 'forget') == 0){
-            $_SESSION['page'] ='';
+
+            if (isset($_COOKIE['fname'])) {
+                setcookie("fname", $_POST['fname'], time() + 10800);
+            }
+
+            $fname = $_SESSION['fname'];
+            $phone = $_SESSION['phone'];
+
+            session_unset();
+
+            $_SESSION['fname'] = $fname;
+
+            $_SESSION['phone'] = $phone;
+            
+        } elseif (strcmp($_SESSION['page'], 'forget') == 0) {
+            $_SESSION['page'] = '';
         }
-        
+
         /*$fname = $_SESSION['fname'];
         $phone = $_SESSION['phone'];
 
@@ -60,7 +73,6 @@ if (isset($_POST['activeCode'])) {
         echo '<div class="alert alert-warning container" role="alert">
         کد وارد شده صحیح نیست. در صورت مشکل با ما تماس بگیرید
       </div>';
-
     }
 }
 

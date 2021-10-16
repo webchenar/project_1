@@ -1737,7 +1737,7 @@
                 '    <div class="kv-zoom-description"></div>\n' +
                 '  </div>\n' +
                 '</div>\n';
-            tDescClose = '<button type="button" class="kv-desc-hide" aria-label="Close">{closeIcon}</button>';
+            tDescClose = '<button type="button" class="kv-desc-hide"></button>';
             tProgress = '<div class="progress">\n' +
                 '    <div class="{class}" role="progressbar"' +
                 ' aria-valuenow="{percent}" aria-valuemin="0" aria-valuemax="100" style="width:{percent}%;">\n' +
@@ -6203,26 +6203,26 @@
         bitRateUnits: ['B/s', 'KB/s', 'MB/s', 'GB/s', 'TB/s', 'PB/s', 'EB/s', 'ZB/s', 'YB/s'],
         fileSingle: 'file',
         filePlural: 'files',
-        browseLabel: 'Browse &hellip;',
-        removeLabel: 'Remove',
+        browseLabel: 'انتخاب &hellip;',
+        removeLabel: 'حذف',
         removeTitle: 'Clear all unprocessed files',
-        cancelLabel: 'Cancel',
+        cancelLabel: 'حذف',
         cancelTitle: 'Abort ongoing upload',
         pauseLabel: 'Pause',
         pauseTitle: 'Pause ongoing upload',
-        uploadLabel: 'Upload',
+        uploadLabel: 'ارسال',
         uploadTitle: 'Upload selected files',
         msgNo: 'No',
-        msgNoFilesSelected: 'No files selected',
-        msgCancelled: 'Cancelled',
+        msgNoFilesSelected: 'هیچ فایلی انتخاب نشده',
+        msgCancelled: '',
         msgPaused: 'Paused',
-        msgPlaceholder: 'Select {files} ...',
+        msgPlaceholder: 'فایل ها را انتخاب کنید',
         msgZoomModalHeading: 'Detailed Preview',
         msgFileRequired: 'You must select a file to upload.',
         msgSizeTooSmall: 'File "{name}" (<b>{size} KB</b>) is too small and must be larger than <b>{minSize} KB</b>.',
         msgSizeTooLarge: 'File "{name}" (<b>{size} KB</b>) exceeds maximum allowed upload size of <b>{maxSize} KB</b>.',
         msgFilesTooLess: 'You must select at least <b>{n}</b> {files} to upload.',
-        msgFilesTooMany: 'Number of files selected for upload <b>({n})</b> exceeds maximum allowed limit of <b>{m}</b>.',
+        msgFilesTooMany: 'Number of فایل انتخاب شده for upload <b>({n})</b> exceeds maximum allowed limit of <b>{m}</b>.',
         msgTotalFilesTooMany: 'You can upload a maximum of <b>{m}</b> files (<b>{n}</b> files detected).',
         msgFileNotFound: 'File "{name}" not found!',
         msgFileSecured: 'Security restrictions prevent reading the file "{name}".',
@@ -6254,9 +6254,9 @@
         msgValidationError: 'Validation Error',
         msgLoading: 'Loading file {index} of {files} &hellip;',
         msgProgress: 'Loading file {index} of {files} - {name} - {percent}% completed.',
-        msgSelected: '{n} {files} selected',
+        msgSelected: '{n} {فایل} انتخاب شده',
         msgProcessing: 'Processing ...',
-        msgFoldersNotAllowed: 'Drag & drop files only! {n} folder(s) dropped were skipped.',
+        msgFoldersNotAllowed: 'فایل ها را به این مکان بکشید! {n} folder(s) dropped were skipped.',
         msgImageWidthSmall: 'Width of image file "{name}" must be at least {size} px.',
         msgImageHeightSmall: 'Height of image file "{name}" must be at least {size} px.',
         msgImageWidthLarge: 'Width of image file "{name}" cannot exceed {size} px.',
@@ -6275,7 +6275,7 @@
             uploadBatch: 'batch file upload',
             uploadExtra: 'form data upload'
         },
-        dropZoneTitle: 'Drag & drop files here &hellip;',
+        dropZoneTitle: 'فایل ها را به این مکان بکشید &hellip;',
         dropZoneClickTitle: '<br>(or click to select {files})',
         previewZoomButtonTitles: {
             prev: 'View previous file',

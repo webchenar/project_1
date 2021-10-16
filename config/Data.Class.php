@@ -88,7 +88,7 @@ class DataBase
 
     public function searchLogIn($table, $fild1, $id1, $fild2, $id2)
     {
-        //echo "SELECT * FROM `$table` WHERE `$fild1` =" . "'" . $id1 . "'" . "AND" . "`$fild2` ="  . "'" . $id2 . "'";
+        echo "SELECT * FROM `$table` WHERE `$fild1` =" . "'" . $id1 . "'" . "AND" . "`$fild2` ="  . "'" . $id2 . "'";
 
         $data = $this->Con->prepare("SELECT * FROM `$table` WHERE `$fild1` =" . "'" . $id1 . "'" . "AND" . "`$fild2` ="  . "'" . $id2 . "'");
         $data->execute();
