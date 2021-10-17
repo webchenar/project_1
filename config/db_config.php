@@ -1,9 +1,10 @@
 <?php
+ob_start();
 session_start();
 
 date_default_timezone_set('Asia/Tehran');
 
-define('SITEURL', "http://localhost/project_1/"); // ! change it to your local or website address.
+define('SITEURL', "http://localhost/nikoosabt/project_1/"); // ! change it to your local or website address.
 define('LOCALHOST', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
