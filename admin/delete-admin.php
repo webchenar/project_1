@@ -1,4 +1,6 @@
 <?php
+$website_title = "حذف مدیر";
+
 include('../config/db_config.php');
 
 $id = $_GET['id'];

@@ -1,4 +1,7 @@
-<?php include 'partials/menu.php'; ?>
+<?php
+$website_title = "به روز رسانی مدیر";
+
+include 'partials/menu.php'; ?>
 
 <div>
 
