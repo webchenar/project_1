@@ -62,8 +62,6 @@ class DataBase
         try{
             $this->Con->exec("INSERT INTO `sj_tamdid_sahami_khas`(`rel_user`, `c_shenase_meli`, `c_name`, `c_shomare_sabt`, `c_sarmaye`, `t_shorooe_jalase`, `d_shorooe_jalase`, `rooz_name`, `rooz_name_file`, `va_ya`) VALUES ('$rel_user', '$c_shenase_meli','$c_name','$c_shomare_sabt','$c_sarmaye','$time_shore_jalase','$date_shore_jalase','$rozname','$file_rozname','$tedad_emza')");
 
-            $_SESSION['test'] = "INSERT INTO `sj_tamdid_sahami_khas`(`rel_user`, `c_shenase_meli`, `c_name`, `c_shomare_sabt`, `c_sarmaye`, `t_shorooe_jalase`, `d_shorooe_jalase`, `rooz_name`, `rooz_name_file`, `va_ya`) VALUES ('$rel_user', '$c_shenase_meli','$c_name','$c_shomare_sabt','$c_sarmaye','$time_shore_jalase','$date_shore_jalase','$rozname','$file_rozname','$tedad_emza')";
-
         }catch(PDOException $e){
             echo $e;
         }
@@ -113,6 +111,16 @@ class DataBase
         try {
             $this->Con->exec("UPDATE `tbl_user` SET `phone` = '$phone' , `PASSWORD` = '$passWord', `first_name` = '$fname', `last_name` = '$lname', `email` = '$email', `cell_phone` = '$cellPhone'  WHERE `phone` =" . "'" . $id . "'");
         } catch (PDOException $e) {
+            echo $e;
+        }
+    }
+
+    public function inserMemberSjtamdidSahamiKhas($idsj, $fname, $lname, $phone, $meli_code, $tedadsaham, $cartmeli, $shenasname, $vazifejalase, $semat, $sematnahaie){
+        try{
+
+            $this->Con->exec("INSERT INTO `sahamdaran`(`id_sj_tamdid_sahami_khas`, `phone`, `fname`, `lname`, `meli_code`, `tedad_saham`, `scan_cart_meli`, `scan_shenasname_meli`, `vazife_jalase`, `semat`, `semat_nahaei`) VALUES ('$idsj','$phone','$lname','$fname','$meli_code','$tedadsaham','$cartmeli','$shenasname','$vazifejalase','$semat','$sematnahaie')");
+
+        }catch(PDOException $e){
             echo $e;
         }
     }
