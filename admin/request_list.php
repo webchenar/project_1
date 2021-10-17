@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="fa-IR" dir="rtl">
-<head>
-    <title>درخواست ها</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="admin page."/>
+<?php
+$website_title = "لیست درخواست ها";
+include("partials/menu.php");
 
-</head>
+?>
+
 <body>
 <ul>
     <li>
@@ -13,5 +11,5 @@
     </li>
 </ul>
 
-</body>
-</html>
+<?php include("partials/footer.php"); ?>
+

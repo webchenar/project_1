@@ -3,20 +3,19 @@ include "../config/db_config.php";
 include "login_check.php";
 ?>
 
-<!DOCTYPE html>
-<html lang="fa-IR" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>داشبورد مدیریت وبسایت</title>
-    <link rel="stylesheet" href="styles/admin.css">
-    <!-- Boxicons CDN Link -->
-    <!--
-    TODO: change cdn to local.
-    -->
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
+
+<div>
+    <div>
+        <i></i>
+        <span>Nikoosabt</span>
+    </div>
+
+    <ul>
+        <li>
+            <a href="<?php echo SITEURL . 'admin/index.php'; ?>">
+                <i></i>
+                <span>داشبورد</span>
+]
 
 <div class="sidebar">
     <div class="logo-details">
@@ -28,25 +27,28 @@ include "login_check.php";
             <a href="<?php echo SITEURL . 'admin/index.php'; ?>" class="active">
                 <i class='bx bx-grid-alt'></i>
                 <span class="links_name">داشبورد</span>
+
             </a>
         </li>
         <li>
             <a href="<?php echo SITEURL . 'admin/manage-admin.php'; ?>">
-                <i class='bx bxs-face'></i>
-                <span class="links_name">تنظیمات مدیران</span>
+                <i></i>
+                <span>تنظیمات مدیران</span>
+
             </a>
         </li>
         <li>
             <a href="<?php echo SITEURL . 'admin/request_list.php'; ?>">
-                <i class='bx bxl-stack-overflow'></i>
-                <span class="links_name">درخواست‌ها</span>
+                <i></i>
+                <span>درخواست های کاربران</span>
             </a>
         </li>
 
-        <li class="log_out">
+        <li>
             <a href="<?php echo SITEURL . 'admin/logout.php'; ?>">
-                <i class='bx bx-log-out'></i>
-                <span class="links_name">خروج</span>
+                <i></i>
+                <span>خروج</span>
+
             </a>
         </li>
     </ul>

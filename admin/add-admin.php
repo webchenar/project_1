@@ -1,4 +1,7 @@
-<?php include 'partials/menu.php'; ?>
+<?php
+$website_title = "اضافه کردن مدیر";
+
+include 'partials/menu.php'; ?>
 
 <div>
     <div>

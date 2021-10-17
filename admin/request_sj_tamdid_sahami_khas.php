@@ -1,28 +1,20 @@
 <?php
-include "../config/db_config.php";
 $website_title = "صورت جلسه تمدید شرکت های سهامی خاص";
+include "partials/menu.php";
 ?>
 
-<!DOCTYPE html>
-<html lang="fa-IR" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo $website_title; ?></title>
-    <style>
-        table {
-            width: 100%;
-        }
+<style>
+    table {
+        width: 100%;
+    }
 
-        table, th, td {
+    table, th, td {
 
-            border: 1px solid black;
-        }
-    </style>
-</head>
-<body>
+        border: 1px solid black;
+    }
+</style>
+
+
 
 <?php
 $connection = new PDO("mysql:host=localhost;dbname=nikoosabt_db;charset=UTF8", 'root', '');

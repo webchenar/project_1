@@ -1,4 +1,7 @@
-<?php include('partials/menu.php'); ?>
+<?php
+$website_title = "تغییر پسورد";
+
+include('partials/menu.php'); ?>
 
     <div class="main-content">
         <div class="wrapper">
