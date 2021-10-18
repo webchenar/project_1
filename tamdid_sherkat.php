@@ -5,7 +5,7 @@ include_once('header.php') ?>
 
 //var_dump($_POST);
 
-//var_dump($_SESSION);
+var_dump($_SESSION);
 
 
 
@@ -13,47 +13,56 @@ $data = new DataBase();
 
 _function::logIn();
 
-if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset($_POST['shenasemelli']) && isset($_POST['rozname']) && isset($_POST['sahamdar']) && isset($_POST['tedadsaham']) && empty($_SESSION['step2'])) {
+$_SESSION['step2'] = false;
 
-    echo isset($_SESSION['phone']) ? $_SESSION['phone'] : $_COOKIE['phone'], $_POST['shenasemelli'], $_POST['namesherkat'], $_POST['shomaresabtsherkat'], $_POST['sarmaie'], $_POST['hours'] . $_POST['hours'], $_POST['years'] . $_POST['mounth'] . $_POST['day'], $_POST['rozname'];
+/*
+if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset($_POST['shenasemelli']) && isset($_POST['rozname']) && isset($_POST['sahamdar']) && isset($_POST['tedadsaham']) && isset($_POST['hozor']) && empty($_SESSION['step2'])) {
 
-    $_SESSION['chek'] = true;
 
-   
+    $chek = true;
+
+
 
     if (!preg_match("/[0-9]/", $_POST['shomaresabtsherkat'])) {
         echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
         <strong>فرمت شماره ثبت اشتباه است</strong>
       </div>';
-        $_SESSION['chek'] = false;
+        $chek = false;
     }
 
     if (!preg_match("/[0-9]/", $_POST['shenasemelli'])) {
         echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
         <strong>فرمت شناسه ملی شرکت اشتباه است</strong>
       </div>';
-        $_SESSION['chek'] = false;
+        $chek = false;
     }
 
     if (!preg_match("/[0-9]/", $_POST['sahamdar'])) {
         echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>تعداد سهام داران باید در بازه اعداد باشد</strong>
+        <strong>لطفا تعداد سهامداران را مشخص کنید</strong>
       </div>';
-        $_SESSION['chek'] = false;
+        $chek = false;
+    }
+
+    if (preg_match('/^[^\x{600}-\x{6FF}]+$/u', str_replace("\\\\", "", $_POST['adress']))) {
+        echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>آدرس را به صورت فارسی وارد کنید</strong>
+    </div>';
+        $chek = false;
     }
 
     if (!preg_match("/[0-9]/", $_POST['sarmaie'])) {
         echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
         <strong>فرمت سرمایه ثبت شده اشتباه است</strong>
       </div>';
-        $_SESSION['chek'] = false;
+        $chek = false;
     }
-    
+
     if (!preg_match("/[0-9]/", $_POST['tedadsaham'])) {
         echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>تعداد سهام ثبت شده باید در بازه اعداد باشد</strong>
+        <strong>لطفا تعداد سهامداران را مشخص کنید</strong>
       </div>';
-        $_SESSION['chek'] = false;
+        $chek = false;
     }
 
 
@@ -61,38 +70,45 @@ if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset
         echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
         <strong>لطفا تاریخ را وارد کنید</strong>
       </div>';
-        $_SESSION['chek'] = false;
+        $chek = false;
     }
 
     if (preg_match('/^[^\x{600}-\x{6FF}]+$/u', str_replace("\\\\", "", $_POST['rozname']))) {
         echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
         <strong>نام روزنامه اشتهباه است</strong>
       </div>';
-        $_SESSION['chek'] = false;
+        $chek = false;
     }
 
     if ($_POST['sahamdar'] > 12 || $_POST['sahamdar'] < 3) {
-        $_SESSION['chek'] = false;
+        $chek = false;
+    }
+
+    if (strcmp($_POST['hozor'], '- کلیه/اکثریت -') == 0) {
+        echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>لطفا مشخص کنید جلسه با حضور کلیه و یا اکثریت سهامداران برگزار شده است</strong>
+      </div>';
     }
 
 
 
     //Step Dovome
 
-    if ($_SESSION['chek']) {
+    if ($chek == true) {
 
         $_SESSION['shenasemelli'] = $_POST['shenasemelli'];
-        $_SESSION['sahamdar'] = $_POST['sahamdar'];
+        $_SESSION['sahamdaran'] = $_POST['sahamdar'];
         $_SESSION['step2'] = true;
         $_SESSION['count'] = 1;
-        $_SESSION['chek'] = true;
         $_SESSION['tedadsaham'] = $_POST['tedadsaham'];
 
-        $data->insertSjtamdidSahamiKhas(isset($_SESSION['phone']) ? $_SESSION['phone'] : $_COOKIE['phone'], $_POST['shenasemelli'], $_POST['namesherkat'], $_POST['shomaresabtsherkat'], $_POST['sarmaie'], $_POST['hours'] . '-' . $_POST['minute'], $_POST['years'] . '-' . $_POST['mounth'] . '-' . $_POST['day'], $_POST['rozname']);
+        $data->insertSjtamdidSahamiKhas(isset($_SESSION['phone']) ? $_SESSION['phone'] : $_COOKIE['phone'], $_POST['shenasemelli'], $_POST['namesherkat'], $_POST['shomaresabtsherkat'], $_POST['sarmaie'], $_POST['hours'] . '-' . $_POST['minute'], $_POST['years'] . '-' . $_POST['mounth'] . '-' . $_POST['day'], $_POST['rozname'], $_POST['adress'], $_POST['hozor'], $_SESSION['sahamdaran'], $_POST['tedadsaham']);
 
         $_SESSION['tedadsahamentekhabi'] = 0;
 
-
+        if (empty($_SESSION['nazer'])) {
+            $_SESSION['nazer'] = 1;
+        }
     } else {
         $_SESSION['step2'] = false;
     }
@@ -102,18 +118,21 @@ if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset
 
 <?php
 
-if (isset($_SESSION['step2'])) {
-    
+if ($_SESSION['step2']) {
+
 ?>
 
     <?php
-    if ( $_SESSION['count'] <= $_SESSION['sahamdar']) {
+    if ($_SESSION['count'] <= $_SESSION['sahamdaran']) {
 
-        
 
-        if (isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['phone']) && isset($_POST['tedadsaham']) && isset($_POST['sematjalase']) && isset($_POST['sematnahaie'])) {
+        if (isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['phone']) && isset($_POST['sahm']) && isset($_POST['sematjalase']) && isset($_POST['sematnahaie'])) {
 
             $chek = true;
+
+            $sj_id = $data->search('sj_tamdid_sahami_khas', 'rel_user', isset($_SESSION['phone']) ? $_SESSION['phone'] : $_COOKIE['phone'])['sj_id'];
+
+            echo $_SESSION['nazer'];
 
             if (isset($_POST['phone'])) {
                 if (!preg_match("/^09[0-9]{9}$/", $_POST['phone'])) {
@@ -133,14 +152,13 @@ if (isset($_SESSION['step2'])) {
                 }
             }
 
-            if (isset($_POST['tedadsaham'])) {
-                if ($_POST['tedadsaham'] == 0) {
+            if (isset($_POST['sahm'])) {
+                if ($_POST['sahm'] == 0) {
                     echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>باید تعداد سهام را برای سهامدار مشخص کنید</strong>
                   </div>';
-                  $chek = false;
-
-                }else if (!($_SESSION['sahamdar'] == $_SESSION['count']) && $_SESSION['tedadsaham'] - $_SESSION['tedadsahamentekhabi'] <= 0) {
+                    $chek = false;
+                } else if (!($_SESSION['sahamdaran'] == $_SESSION['count']) && $_SESSION['tedadsaham'] - $_SESSION['tedadsahamentekhabi'] <= 0) {
                     echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>همه سهام های ثبت شده و یا بیشتر از آن نمیتواند به این سهامدار اختصاص داده شود</strong>
                   </div>';
@@ -149,8 +167,8 @@ if (isset($_SESSION['step2'])) {
             }
 
 
-            if (isset($_POST['tedadsaham'])) {
-                if (!preg_match("/[0-9]$/", $_POST['tedadsaham'])) {
+            if (isset($_POST['sahm'])) {
+                if (!preg_match("/[0-9]$/", $_POST['sahm'])) {
                     echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>تعداد سهام باید به در بازه اعداد وارد شود</strong>
                   </div>';
@@ -166,6 +184,7 @@ if (isset($_SESSION['step2'])) {
                 $chek = false;
             }
 
+
             if (preg_match('/^[^\x{600}-\x{6FF}]+$/u', str_replace("\\\\", "", $_POST['lname']))) {
                 echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
               <strong>نام خانوادگی را به صورت فارسی وارد کنید</strong>
@@ -173,7 +192,8 @@ if (isset($_SESSION['step2'])) {
                 $chek = false;
             }
 
-            if (!strcmp($_POST['sematjalase'], 'رئیس جلسه') or !strcmp($_POST['sematjalase'], 'ناظر جلسه') or !strcmp($_POST['sematjalase'], 'منشی جلسه')) {
+
+            if (strcmp($_POST['sematjalase'], '- انتخاب سمت در جلسه -') == 0) {
                 echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
                 <strong>لطفا سمت در جلسه را مشخص کنید</strong>
               </div>';
@@ -181,13 +201,65 @@ if (isset($_SESSION['step2'])) {
             }
 
 
-            if (!strcmp($_POST['sematnahaie'], 'مدیر عامل و رئیس هیئت مدیره') or !strcmp($_POST['sematnahaie'], 'رئیس هیئت میره') or !strcmp($_POST['sematnahaie'], 'نائب رئیس هیئت مدیره') or !strcmp($_POST['sematnahaie'], 'عضو اصلی هیئت مدیره')) {
+            if (strcmp($_POST['sematjalase'], 'ناظر جلسه') == 0) {
+
+                if ($_SESSION['nazer'] > 2) {
+                    echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>هر دو ناظر جلسه انتخاب شده است</strong>
+                  </div>';
+                    $chek = false;
+                }
+            }
+
+            $members = $data->searchFunction('sahamdaran', 'id_sj_tamdid_sahami_khas', $sj_id)->fetchAll();
+
+
+
+            if (!empty($members)) {
+
+                foreach ($members as $member) {
+
+                    if (strcmp($member['vazife_jalase'], $_POST['sematjalase']) == 0 && strcmp('ناظر جلسه', $_POST['sematjalase']) != 0) {
+                        echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>سمت ' . $_POST['sematjalase'] . ' انتخاب شده است</strong>
+                      </div>';
+                        $chek = false;
+                        break;
+                    }
+                }
+
+
+                if ($member['phone'] == $_POST['phone']) {
+                    echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>کاربری با این شماره تماس  ثبت کرده اید</strong>
+                  </div>';
+                    $chek = false;
+                }
+
+
+                if ($member['meli_code'] == $_POST['codmeli']) {
+                    echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>کاربری با این کد ملی  ثبت کرده اید</strong>
+                  </div>';
+                    $chek = false;
+                }
+            }
+
+
+            /*if ($sematJalase->rowCount() == 1 ) {
+                echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>سمت جلسه  ' . $_POST['sematjalase'] . ' انتخاب شده است</strong>
+              </div>';
+                $chek = false;
+            }*/
+
+/*if (strcmp($_POST['sematnahaie'], '- انتخاب سمت نهایی -') == 0) {
                 echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
                 <strong>لطفا سمت نهایی را مشخص کنید</strong>
               </div>';
                 $chek = false;
             }
-            
+
 
             if (!empty($data->search('sahamdaran', 'meli_code', $_POST['codmeli'])) && !empty($data->search('sahamdaran', 'phone', $_POST['phone']))) {
                 echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
@@ -198,14 +270,17 @@ if (isset($_SESSION['step2'])) {
 
             if ($chek) {
 
-                $sj_id = $data->search('sj_tamdid_sahami_khas', 'rel_user', isset($_SESSION['phone']) ? $_SESSION['phone'] : $_COOKIE['phone'])['sj_id'];
 
+                $data->inserMemberSjtamdidSahamiKhas($sj_id, $_POST['fname'], $_POST['lname'], $_POST['phone'], $_POST['codmeli'], $_POST['sahm'], '', '', $_POST['sematjalase'], 'سهامدار', $_POST['sematnahaie']);
 
-                $data->inserMemberSjtamdidSahamiKhas($sj_id, $_POST['fname'], $_POST['lname'], $_POST['phone'], $_POST['codmeli'], $_POST['tedadsaham'], '', '', $_POST['sematjalase'], 'سهامدار', $_POST['sematnahaie']);
+                if (strcmp($_POST['sematjalase'], 'ناظر جلسه') == 0) {
+
+                    $_SESSION['nazer']++;
+                }
 
                 $_SESSION['count']++;
 
-                $_SESSION['tedadsahamentekhabi'] += $_POST['tedadsaham'];
+                $_SESSION['tedadsahamentekhabi'] += $_POST['sahm'];
 
                 //$_POST = NULL;
 
@@ -216,7 +291,7 @@ if (isset($_SESSION['step2'])) {
 
 
         <div class="alert alert-info container" role="alert">
-            لطفا مشخصات سهام دار <?php echo $_SESSION['count']; ?> را وارد کنید(تعداد سهام داران <?php echo $_SESSION['sahamdar']; ?>)
+            لطفا مشخصات سهام دار <?php echo $_SESSION['count']; ?> را وارد کنید(تعداد سهام داران <?php echo $_SESSION['sahamdaran']; ?>)
         </div>
 
         <div class="alert alert-info container" role="alert">
@@ -277,9 +352,9 @@ if (isset($_SESSION['step2'])) {
 
                             <div class="col-12 my-3">
 
-                                <label for="inputfname" class="form-label">تعداد سهام:<span class="t-red">*</span></label>
+                                <label for="sahm" class="form-label">تعداد سهام:<span class="t-red">*</span></label>
 
-                                <input type="text" name="tedadsaham" class="form-control" value="<?php echo isset($_POST['tedadsaham']) ? $_POST['tedadsaham'] : null; ?>" placeholder="لطفا تعداد را وارد کنید" maxlength="11" required>
+                                <input type="text" name="sahm" class="form-control" value="<?php echo isset($_POST['sahm']) ? $_POST['sahm'] : null; ?>" placeholder="لطفا تعداد را وارد کنید" maxlength="11" required>
                                 <div class="invalid-feedback">
                                     وارد کردن تعداد سهام اجباریست
                                 </div>
@@ -289,20 +364,22 @@ if (isset($_SESSION['step2'])) {
 
                             <label for="sematjalase" class="form-label d-inline"> سمت در جلسه: <span class="t-red">*</span></label>
                             <select name="sematjalase" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false" required>
+
                                 <option>- انتخاب سمت در جلسه -</option>
-                                <option value="raeis">رئیس جلسه</option>
-                                <option value="nazer">ناظر جلسه</option>
-                                <option value="monshi">منشی جلسه</option>
+                                <option value="رئیس جلسه">رئیس جلسه</option>
+                                <option value="ناظر جلسه">ناظر جلسه</option>
+                                <option value="منشی جلسه">منشی جلسه</option>
+                                <option value="سهامدار">سهامدار</option>
                             </select>
 
                             <br>
                             <label for="sematnahaie" class="form-label "> سمت نهایی: <span class="t-red">*</span></label>
                             <select name="sematnahaie" class="btn-outline-success rounded p-1 mb-3 " aria-required="true" aria-invalid="false" required>
-                                <option>- انتخاب سمت نهایی -</option>
-                                <option value="modiramel-raeis">مدیر عامل و رئیس هیئت مدیره</option>
-                                <option value="raeis">رئیس هیئت میره</option>
-                                <option value="naebrais">نائب رئیس هیئت مدیره</option>
-                                <option value="ozveasli">عضو اصلی هیئت مدیره</option>
+                                <option value="<?php echo isset($_POST['sematnahaie']) ? $_POST['sematnahaie'] : '- انتخاب سمت نهایی -' ?>"><?php echo isset($_POST['sematnahaie']) ? $_POST['sematnahaie'] : '- انتخاب سمت نهایی -' ?></option>
+                                <option value="مدیر عامل و رئیس هیئت مدیره">مدیر عامل و رئیس هیئت مدیره</option>
+                                <option value="رئیس هیئت میره">رئیس هیئت میره</option>
+                                <option value="نائب رئیس هیئت مدیره">نائب رئیس هیئت مدیره</option>
+                                <option value="عضو اصلی هیئت مدیره">عضو اصلی هیئت مدیره</option>
                             </select>
 
                         </div>
@@ -394,7 +471,7 @@ if (isset($_SESSION['step2'])) {
 
 
 
-                            
+
 
                             <div class="col-12 my-3">
 
@@ -605,7 +682,7 @@ if (isset($_SESSION['step2'])) {
                             <div class=" col-12 my-3">
                                 <label for="shenasemelli" class="form-label">آدرس رسمی و قانونی شرکت:<span class="t-red">*</span></label>
 
-                                <textarea type="text" name="adress" value="<?php echo isset($_POST['sarmaie']) ? $_POST['sarmaie'] : null; ?>" id="validationCustom03 phone" class="form-control" placeholder="لطفا سرمایه ثبت شده شرکت را وارد کنید" required></textarea>
+                                <textarea type="text" name="adress" value="<?php echo isset($_POST['adress']) ? $_POST['adress'] : null; ?>" id="validationCustom03 phone" class="form-control" placeholder="لطفا سرمایه ثبت شده شرکت را وارد کنید" required><?php echo isset($_POST['adress']) ? $_POST['adress'] : null; ?></textarea>
 
                                 <div class="invalid-feedback">
                                     وارد کردن آدرر قانونی شرکت شرکت اجباریست
@@ -615,8 +692,12 @@ if (isset($_SESSION['step2'])) {
 
 
                             <div class="col-12 my-3">
-                                <label for="kollie" class="form-label">جلسه با حضور کلیه سهامداران برگزار شد:</label>
-                                <input class="form-check-input " name="kolie" type="checkbox" value="1" id="defaultCheck1">
+                            <label for="hozor" class="form-label">جلسه با حضور:<span class="t-red">*</span></label>
+                                <select name="hozor" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
+                                    <option>- کلیه/اکثریت -</option>
+                                    <option value="3">با حضور اکثریت سهامداران</option>
+                                    <option value="4">با حضور کلیه سهامداران</option>
+                                </select>
                             </div>
 
 
@@ -653,8 +734,278 @@ if (isset($_SESSION['step2'])) {
         </div>
     <?php
 }
-    ?>
+
+if($_SESSION['count'] == $_SESSION['sahamdaran']){  ?>
+
+*/ ?>
+
+
+<?php
+
+if (isset($_POST['fnamebazresasli']) && isset($_POST['lnamebazresasli']) && isset($_POST['phonebazresasli']) && isset($_POST['codmelibazresasli']) && isset($_POST['fnamebazres']) && isset($_POST['lnamebazres']) && isset($_POST['phonebazres']) && isset($_POST['codmelibazres']) && isset($_POST['fnamaiande']) && isset($_POST['lnamaiande']) && isset($_POST['phonenamaiande']) && isset($_POST['codmelinamaiande']) && isset($_POST['fmodiramel']) && isset($_POST['lmodiramel']) && isset($_POST['phonemodiramel']) && isset($_POST['codmelimodiramel'])) {
+
+    $chek = true;
+
+    if (!preg_match("/^09[0-9]{9}$/", $_POST['phonebazres']) or !preg_match("/^09[0-9]{9}$/", $_POST['phonebazresasli']) or !preg_match("/^09[0-9]{9}$/", $_POST['phonenamaiande'])) {
+        echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>فرمت شماره همراه اشتباه است</strong>
+              </div>';
+        $chek = false;
+    }
+
+    if (!preg_match("/[0-9]$/", $_POST['codmelibazresasli']) or !preg_match("/[0-9]$/", $_POST['codmelibazres']) or !preg_match("/[0-9]$/", $_POST['codmelinamaiande'])) {
+        echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>کد ملی باید به صورت عدد وارد شود</strong>
+              </div>';
+        $chek = false;
+    }
+
+    if (preg_match('/^[^\x{600}-\x{6FF}]+$/u', str_replace("\\\\", "", $_POST['fnamebazresasli'])) or preg_match('/^[^\x{600}-\x{6FF}]+$/u', str_replace("\\\\", "", $_POST['fnamebazres'])) or preg_match('/^[^\x{600}-\x{6FF}]+$/u', str_replace("\\\\", "", $_POST['lnamebazresasli'])) or preg_match('/^[^\x{600}-\x{6FF}]+$/u', str_replace("\\\\", "", $_POST['lnamebazres'])) or preg_match('/^[^\x{600}-\x{6FF}]+$/u', str_replace("\\\\", "", $_POST['fnamaiande'])) or preg_match('/^[^\x{600}-\x{6FF}]+$/u', str_replace("\\\\", "", $_POST['lnamaiande']))) {
+        echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>نام  و نام خانوادگی را به صورت فارسی وارد کنید</strong>
+        </div>';
+        $chek = false;
+    }
+
+    if ($_POST['phonebazres'] == $_POST['phonebazresasli'] or $_POST['codmelibazresasli'] == $_POST['codmelibazres']) {
+        echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>شماره تماس و یا کد ملی یکی از بازرسین تکراریست</strong>
+          </div>';
+        $chek = false;
+    }
 
 
 
-    <?php include_once('footer.php') ?>
+
+    if ($_POST['fnamebazresasli'] && $_POST['lnamebazresasli'] && $_POST['fnamebazres'] && $_POST['lnamebazres']) {
+        # code...
+    }
+}else{
+    echo '<div class="container my-2 alert alert-light alert-dismissible fade show" role="alert">
+    <strong>لطفا مشخصات زیر را تکمیل کنید</strong>
+  </div>';
+}
+
+?>
+<div class="alert alert-info container" role="alert">
+    لطفا مشخصات بازرس اصلی و علی البدل را وارد کنید
+</div>
+<form class="my-5 needs-validation container" action="tamdid_sherkat.php" method="POST" novalidate>
+
+
+
+    <div class="row align-items-stretch justify-content-between">
+
+
+        <div class="col-12 col-md-5 border py-3 my-2 ">
+
+            <div class="col-12 ">
+                <label for="inputfname" class="form-label">نام:(بازرس اصلی) <span class="t-red">*</span></label>
+                <input type="text" name="fnamebazresasli" class="form-control" value="<?php echo isset($_POST['fnamebazresasli']) ? $_POST['fnamebazresasli'] : null; ?>" " id=" validationCustom03" placeholder="لطفا نام  بازرس خود را وارد کنید" aria-label="First name" required>
+                <div class="invalid-feedback">
+                    وارد کردن نام بازرس اجباریست
+                </div>
+            </div>
+
+            <div class="col-md-12 my-3">
+                <label for="inputlname" class="form-label">نام خانوادگی:<span class="t-red">*</span></label>
+
+                <input type="text" name="lnamebazresasli" value="<?php echo isset($_POST['lnamebazresasli']) ? $_POST['lnamebazresasli'] : null; ?>" id="validationCustom03" class="form-control" placeholder="لطفا نام خانوادگی خود را وارد کنید" required>
+
+                <div class="invalid-feedback">
+                    وارد کردن نام خانوادگی بازرس اجباریست
+                </div>
+            </div>
+
+            <div class=" col-12 my-3">
+                <label for="inputfname" class="form-label">شماره همراه:<span class="t-red">*</span></label>
+
+                <input type="text" name="phonebazresasli" value="<?php echo isset($_POST['phonebazresasli']) ? $_POST['phonebazresasli'] : null; ?>" id="validationCustom03 phone" class="form-control" placeholder="لطفا شماره تلفن همراه خود را وارد کنید" maxlength="11" required>
+
+                <div class="invalid-feedback">
+                    وارد کردن شماره همراه بازرس اجباریست
+                </div>
+                <span id="spanmsg"></span>
+            </div>
+
+            <div class="col-12 my-3 ">
+                <label for="codmelibazresasli" class="form-label">کد ملی:<span class="t-red">*</span></label>
+
+                <input type="text" name="codmelibazresasli" class="form-control" value="<?php echo isset($_POST['codmelibazresasli']) ? $_POST['codmelibazresasli'] : null; ?>" placeholder="لطفا کد ملی خود را وارد کنید" required>
+
+                <div class="invalid-feedback">
+                    وارد کردن کد ملی اجباریست
+                </div>
+                <span id="spanmsg"></span>
+
+            </div>
+
+            <br>
+
+        </div>
+
+
+        <!-- بازرس علی البدل -->
+        <div class="col-12 col-md-5 border my-2 py-3">
+
+            <div class="col-12 ">
+                <label for="inputfname" class="form-label">نام:(بازرس علی البدل) <span class="t-red">*</span></label>
+                <input type="text" name="fnamebazres" class="form-control" value="<?php echo isset($_POST['fnamebazres']) ? $_POST['fnamebazres'] : null; ?>" " id=" validationCustom03" placeholder="لطفا نام  بازرس خود را وارد کنید" aria-label="First name" required>
+                <div class="invalid-feedback">
+                    وارد کردن نام بازرس اجباریست
+                </div>
+            </div>
+
+            <div class="col-md-12 my-3">
+                <label for="inputlname" class="form-label">نام خانوادگی:<span class="t-red">*</span></label>
+
+                <input type="text" name="lnamebazres" value="<?php echo isset($_POST['lnamebazres']) ? $_POST['lnamebazres'] : null; ?>" id="validationCustom03" class="form-control" placeholder="لطفا نام خانوادگی خود را وارد کنید" required>
+
+                <div class="invalid-feedback">
+                    وارد کردن نام خانوادگی بازرس اجباریست
+                </div>
+            </div>
+
+            <div class=" col-12 my-3">
+                <label for="inputfname" class="form-label">شماره همراه:<span class="t-red">*</span></label>
+
+                <input type="text" name="phonebazres" value="<?php echo isset($_POST['phonebazres']) ? $_POST['phonebazres'] : null; ?>" id="validationCustom03 phone" class="form-control" placeholder="لطفا شماره تلفن همراه خود را وارد کنید" maxlength="11" required>
+
+                <div class="invalid-feedback">
+                    وارد کردن شماره همراه بازرس اجباریست
+                </div>
+                <span id="spanmsg"></span>
+            </div>
+
+            <div class="col-12 my-3 ">
+                <label for="codmelibazresasli" class="form-label">کد ملی:<span class="t-red">*</span></label>
+
+                <input type="text" name="codmelibazres" class="form-control" value="<?php echo isset($_POST['codmelibazres']) ? $_POST['codmelibazres'] : null; ?>" placeholder="لطفا کد ملی خود را وارد کنید" required>
+
+                <div class="invalid-feedback">
+                    وارد کردن کد ملی اجباریست
+                </div>
+                <span id="spanmsg"></span>
+
+            </div>
+
+            <br>
+
+        </div>
+
+    </div>
+
+
+    <!--  مشخصات نماینده قانونی و مدیر عامل-->
+
+    <div class="row align-items-stretch justify-content-between">
+        <div class="alert alert-info container" role="alert">
+            لطفا مشخصات وکیل و یا نماینده قانونی  و مذیر عامل را وارد کنید
+        </div>
+
+        <div class="col-12 col-md-5 border my-3 p-3">
+
+            <div class="col-12 ">
+                <label for="inputfname" class="form-label">نام:(نماینده/وکیل قانونی)<span class="t-red">*</span></label>
+                <input type="text" name="fnamaiande" class="form-control" value="<?php echo isset($_POST['fnamaiande']) ? $_POST['fnamaiande'] : null; ?>" id=" validationCustom03" placeholder="لطفا نام  بازرس خود را وارد کنید" aria-label="First name" required>
+                <div class="invalid-feedback">
+                    وارد کردن نام اجباریست
+                </div>
+            </div>
+
+            <div class="col-md-12 my-3">
+                <label for="inputlname" class="form-label">نام خانوادگی:<span class="t-red">*</span></label>
+
+                <input type="text" name="lnamaiande" value="<?php echo isset($_POST['lnamaiande']) ? $_POST['lnamaiande'] : null; ?>" id="validationCustom03" class="form-control" placeholder="لطفا نام خانوادگی خود را وارد کنید" required>
+
+                <div class="invalid-feedback">
+                    وارد کردن نام خانوادگی نماینده اجباریست
+                </div>
+            </div>
+
+            <div class=" col-12 my-3">
+                <label for="inputfname" class="form-label">شماره همراه:<span class="t-red">*</span></label>
+
+                <input type="text" name="phonenamaiande" value="<?php echo isset($_POST['phonenamaiande']) ? $_POST['phonenamaiande'] : null; ?>" id="validationCustom03 phone" class="form-control" placeholder="لطفا شماره تلفن همراه خود را وارد کنید" maxlength="11" required>
+
+                <div class="invalid-feedback">
+                    وارد کردن شماره همراه نماینده اجباریست
+                </div>
+                <span id="spanmsg"></span>
+            </div>
+
+            <div class="col-12 my-3 ">
+                <label for="codmelinamaiande" class="form-label">کد ملی:<span class="t-red">*</span></label>
+
+                <input type="text" name="codmelinamaiande" class="form-control" value="<?php echo isset($_POST['codmelinamaiande']) ? $_POST['codmelinamaiande'] : null; ?>" placeholder="لطفا کد ملی نماینده را وارد کنید" required>
+
+                <div class="invalid-feedback">
+                    وارد کردن کد ملی اجباریست
+                </div>
+                <span id="spanmsg"></span>
+
+            </div>
+
+            <br>
+
+        </div>
+
+        <!-- مدیر عامل-->
+        <div class="col-12 col-md-5 border my-3 p-3">
+
+            <div class="col-12 ">
+                <label for="inputfname" class="form-label">نام:(مدیر عامل)<span class="t-red">*</span></label>
+                <input type="text" name="fmodiramel" class="form-control" value="<?php echo isset($_POST['fmodiramel']) ? $_POST['fmodiramel'] : null; ?>" id=" validationCustom03" placeholder="لطفا نام  بازرس خود را وارد کنید" aria-label="First name" required>
+                <div class="invalid-feedback">
+                وارد کردن نام  مدیر عامل اجباریست
+                </div>
+            </div>
+
+            <div class="col-md-12 my-3">
+                <label for="inputlname" class="form-label">نام خانوادگی:<span class="t-red">*</span></label>
+
+                <input type="text" name="lmodiramel" value="<?php echo isset($_POST['lmodiramel']) ? $_POST['lmodiramel'] : null; ?>" id="validationCustom03" class="form-control" placeholder="لطفا نام خانوادگی خود را وارد کنید" required>
+
+                <div class="invalid-feedback">
+                    وارد کردن نام خانوادگی مدیر عامل اجباریست
+                </div>
+            </div>
+
+            <div class=" col-12 my-3">
+                <label for="inputfname" class="form-label">شماره همراه:<span class="t-red">*</span></label>
+
+                <input type="text" name="phonemodiramel" value="<?php echo isset($_POST['phonemodiramel']) ? $_POST['phonemodiramel'] : null; ?>" id="validationCustom03 phone" class="form-control" placeholder="لطفا شماره تلفن همراه خود را وارد کنید" maxlength="11" required>
+
+                <div class="invalid-feedback">
+                    وارد کردن شماره همراه مدیر عامل اجباریست
+                </div>
+                <span id="spanmsg"></span>
+            </div>
+
+            <div class="col-12 my-3 ">
+                <label for="codmelimodiramel" class="form-label">کد ملی:<span class="t-red">*</span></label>
+
+                <input type="text" name="codmelimodiramel" class="form-control" value="<?php echo isset($_POST['codmelimodiramel']) ? $_POST['codmelimodiramel'] : null; ?>" placeholder="لطفا کد ملی مدیر عامل را وارد کنید" required>
+
+                <div class="invalid-feedback">
+                    وارد کردن کد ملی اجباریست
+                </div>
+                <span id="spanmsg"></span>
+
+            </div>
+
+            <br>
+
+        </div>
+    </div>
+
+    <div class="col-12 my-5 d-block ">
+        <button type="submit" class="btn w-100 btn-primary">ادامه</button>
+    </div>
+
+</form>
+
+
+
+
+<?php include_once('footer.php') ?>
