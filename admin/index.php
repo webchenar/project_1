@@ -1,16 +1,24 @@
-<?php include("partials/menu.php"); // database toye menu include shode. ?>
+<?php
+$website_title = "صفحه اصلی مدیریت";
+include "../config/db_config.php";
+include "partials/login-check.php";
+include "partials/header.php";
 
-    <div>
-    <h1>میز کار</h1>
+?>
+<link href="" rel="stylesheet">
+
+<?php
+include "partials/menu.php";
+?>
+
+
 <?php
 if (isset($_SESSION['login']))
     if (isset($_SESSION['login'])) {
         echo $_SESSION['login'];
         unset($_SESSION['login']);
     }
-    ?>
-
-    </div>
+?>
 
 
-<?php include "partials/footer.php"; ?>
+<?php include("partials/footer.php"); ?>

@@ -1,7 +1,18 @@
-<?php include('partials/menu.php'); ?>
+<?php
+$website_title = "تغییر گذرواژه";
+include "../../config/db_config.php";
+include "../partials/login-check.php";
+include '../partials/header.php';
+?>
+    <!--insert styles and Links here.-->
 
-    <div class="main-content">
-        <div class="wrapper">
+<?php
+include '../partials/menu.php';
+?>
+
+
+    <div>
+        <div>
             <h1>تغییر پسورد</h1>
             <br><br>
 
@@ -11,34 +22,40 @@
             }
             ?>
 
-            <form action="" method="POST">
+            <form action="update-password.php" method="POST">
 
-                <table style="width:100%;border-bottom:1px solid black;text-align: left; padding: 1%;">
+                <table>
                     <tr>
-                        <td>current_password</td>
                         <td>
-                            <input type="password" name="current_password" placeholder="current_password">
+                            گذرواژه فعلی:
+                        </td>
+                        <td>
+                            <input type="password" name="current_password">
                         </td>
                     </tr>
 
                     <tr>
-                        <td>new_password</td>
                         <td>
-                            <input type="password" name="new_password" placeholder="new_password">
+                            گذرواژه جدید:
+                        </td>
+                        <td>
+                            <input type="password" name="new_password">
                         </td>
                     </tr>
 
                     <tr>
-                        <td>confirm_password</td>
                         <td>
-                            <input type="password" name="confirm_password" placeholder="confirm_password">
+                            تکرار گذرواژه جدید:
+                        </td>
+                        <td>
+                            <input type="password" name="confirm_password">
                         </td>
                     </tr>
 
                     <tr>
                         <td colspan="2">
                             <input type="hidden" name="id" value="<?php echo $id; ?>">
-                            <input type="submit" name="submit" value="change password">
+                            <input type="submit" name="submit" value="تغییر گذرواژه">
                         </td>
                     </tr>
 
@@ -56,42 +73,37 @@ if (isset($_POST['submit'])) {
     $new_password = md5($_POST['new_password']);
     $confirm_password = md5($_POST['confirm_password']);
 
-
     $sql = "SELECT * FROM tbl_admin WHERE id=$id AND password='$current_password'";
-
     $res = mysqli_query($conn, $sql);
 
     if ($res == true) {
         $count = mysqli_num_rows($res);
         if ($count == 1) {
-
             if ($new_password == $confirm_password) {
                 $sql2 = "UPDATE tbl_admin SET 
                                 password='$new_password' 
                                 WHERE id=$id
                             ";
-
                 $res2 = mysqli_query($conn, $sql2);
 
                 if ($res2 == true) {
-                    $_SESSION['change-pwd'] = "<div>پسورد با موفقیت تغییر یافت.</div>";
-                    header('location:' . SITEURL . 'admin/manage-admin.php');
+                    $_SESSION['change-pwd'] = "<div>گذرواژه با موفقیت تغییر یافت.</div>";
+                    header('location:' . SITEURL . 'admin/administrator/manage-admin.php');
                 } else {
-                    $_SESSION['change-pwd'] = "<div>عملیات ناموفق بود.</div>";
-                    header('location:' . SITEURL . 'admin/manage-admin.php');
+                    $_SESSION['change-pwd'] = "<div>تغییر گذرواژه ناموفق بود.</div>";
+                    header('location:' . SITEURL . 'admin/administrator/manage-admin.php');
                 }
             } else {
-                $_SESSION['pwd-not-match'] = "<div>پسورد مطابقت ندارد.</div>";
-                header('location:' . SITEURL . 'admin/manage-admin.php');
+                $_SESSION['pwd-not-match'] = "<div>گذرواژه فعلی مطابقت ندارد.</div>";
+                header('location:' . SITEURL . 'admin/administrator/manage-admin.php');
             }
         } else {
             $_SESSION['user-not-found'] = "<div>کاربر یافت نشد.</div>";
-            header('location:' . SITEURL . 'admin/manage-admin.php');
+            header('location:' . SITEURL . 'admin/administrator/manage-admin.php');
         }
     }
 }
 
 ?>
 
-
-<?php include('partials/footer.php'); ?>
+<?php include('../partials/footer.php'); ?>

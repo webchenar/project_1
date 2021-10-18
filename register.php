@@ -42,12 +42,14 @@ require_once('./src/validation.php');
     <div class="container">
         <form class="my-5 needs-validation" action="register.php" method="POST" novalidate>
 
+        
+
             <div class="row align-items-stretch">
                 <div class="col-12 col-md-6">
 
                     <div class="col-12 ">
                         <label for="inputfname" class="form-label">نام: <span class="t-red">*</span></label>
-                        <input type="text" name="fname" class="form-control" vvalue="<?php echo isset($_POST['lname']) ? $_POST['lname'] : null; ?>" " id="validationCustom03" placeholder="لطفا نام خود را وارد کنید" aria-label="First name" required>
+                        <input type="text" name="fname" class="form-control" value="<?php echo isset($_POST['fname']) ? $_POST['fname'] : null; ?>" " id="validationCustom03" placeholder="لطفا نام خود را وارد کنید" aria-label="First name" required>
                         <div class="invalid-feedback">
                             وارد کردن نام اجباریست
                         </div>

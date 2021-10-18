@@ -1,9 +1,20 @@
-<?php include 'partials/menu.php'; ?>
+<?php
+$website_title = "اضافه کردن مدیر";
+include "../../config/db_config.php";
+include "../partials/login-check.php";
+include '../partials/header.php';
+?>
+<!--insert styles and Links here.-->
+
+
+<?php
+include '../partials/menu.php';
+?>
+
 
 <div>
     <div>
         <h1>اضافه کردن مدیر</h1>
-        <br>
         <br>
         <?php
         if (isset($_SESSION['add'])) {
@@ -11,69 +22,86 @@
             unset($_SESSION['add']);
         }
         ?>
-        <form action="" method="POST">
+        <form action="add-admin.php" method="POST">
             <table>
                 <tr>
-                    <td>Phone:</td>
                     <td>
-                        <input type="text" name="phone" placeholder="">
+                        تلفن:
+                    </td>
+                    <td>
+                        <input type="text" name="phone">
                     </td>
                 </tr>
                 <tr>
-                    <td>Password:</td>
                     <td>
-                        <input type="password" name="password" placeholder="">
+                        گذرواژه:
+                    </td>
+                    <td>
+                        <input type="password" name="password">
                     </td>
                 </tr>
 
                 <tr>
-                    <td>First_name:</td>
                     <td>
-                        <input type="text" name="first_name" placeholder="">
+                        نام:
+                    </td>
+                    <td>
+                        <input type="text" name="first_name">
                     </td>
                 </tr>
                 <tr>
-                    <td>last_name:</td>
                     <td>
-                        <input type="text" name="last_name" placeholder="">
+                        نام خانوادگی:
+                    </td>
+                    <td>
+                        <input type="text" name="last_name">
                     </td>
                 </tr>
                 <tr>
-                    <td>email:</td>
                     <td>
-                        <input type="email" name="email" placeholder="">
+                        ایمیل:
+                    </td>
+                    <td>
+                        <input type="email" name="email">
                     </td>
                 </tr>
                 <tr>
-                    <td>cell_phone:</td>
                     <td>
-                        <input type="text" name="cell_phone" placeholder="">
+                        تلفن ثابت:
+                    </td>
+                    <td>
+                        <input type="text" name="cell_phone">
                     </td>
                 </tr>
                 <tr>
-                    <td>verify:</td>
+                    <td>
+                        تایید توسط مدیر:
+                    </td>
                     <td>
                         <input type="radio" name="verified" value="1"> تایید
                         <input type="radio" name="verified" value="0"> تعلیق
                     </td>
                 </tr>
                 <tr>
-                    <td>username:</td>
                     <td>
-                        <input type="text" name="username" placeholder="">
+                        نام کاربری:
+                    </td>
+                    <td>
+                        <input type="text" name="username">
                     </td>
                 </tr>
                 <tr>
-                    <td>access_level</td>
                     <td>
-                        <input type="text" name="access_level" placeholder="">
+                        سطح دسترسی:
+                    </td>
+                    <td>
+                        <input type="text" name="access_level">
 
                     </td>
                 </tr>
-
                 <tr>
                     <td>
-                        <input type="submit" name="submit" value="Add Admin" class="btn-secondary">
+                        <input type="submit" name="submit" value="Add Admin">
                     </td>
                 </tr>
             </table>
@@ -81,7 +109,6 @@
     </div>
 </div>
 
-<?php include 'partials/footer.php' ?>
 
 <?php
 if (isset($_POST['submit'])) {
@@ -109,10 +136,11 @@ VALUES
 
     if ($result == TRUE) {
         $_SESSION['add'] = "<div>مدیر با موفقیت اضافه شد.</div>";
-        header("location:" . SITEURL . 'admin/manage-admin.php');
+        header("location:" . SITEURL . 'admin/administrator/manage-admin.php');
     } else {
         $_SESSION['add'] = "<div>عملیات ناموفق بود.</div>";
-        header("location:" . SITEURL . 'admin/add-admin.php');
+        header("location:" . SITEURL . 'admin/administrator/add-admin.php');
     }
 }
 ?>
+<?php include("../partials/footer.php"); ?>

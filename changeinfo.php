@@ -9,13 +9,7 @@ $_SESSION['titr'] = 'برای تایید ویرایش مشخصات لطفا کد
 
 $_SESSION['page'] = 'change';
 
-if (empty($_COOKIE['logIn'])) {
-    header('location:logout.php');
-}
-
-if ((empty($_SESSION['phone']) and empty($_SESSION['fname'])) and (empty($_COOKIE['phone']) and empty($_COOKIE['fname']))) {
-    header('location:index.php');
-}
+_function::logIn();
 
 $data = new DataBase();
 

@@ -2,11 +2,6 @@
 
 include_once('header.php');
 
-$t = NULL;
-
-if (isset($t)) {
-  echo 'set';
-}
-
+echo 
 
 include_once('footer.php'); ?>

@@ -1,4 +1,15 @@
-<?php include 'partials/menu.php'; ?>
+<?php
+$website_title = "به روز رسانی مدیر";
+include "../../config/db_config.php";
+include "../partials/login-check.php";
+include '../partials/header.php';
+?>
+<!--insert styles and Links here.-->
+
+<?php
+include '../partials/menu.php';
+?>
+
 
 <div>
 
@@ -25,58 +36,74 @@
                 $username = $row['username'];
                 $access_level = $row['access_level'];
             } else {
-                header('location: ' . SITEURL . 'admin/manage-admin.php');
+                header('location: ' . SITEURL . 'admin/administrator/manage-admin.php');
             }
         }
 
         ?>
 
         <form action="" method="POST">
-            <table style="width: 30%;border-bottom: 1px solid black; padding: 1%; text-align: left; ">
+            <table>
                 <tr>
-                    <td>phone:</td>
+                    <td>
+                        تلفن:
+                    </td>
                     <td>
                         <input type="text" name="phone" value="<?php echo $phone; ?>">
                     </td>
                 </tr>
                 <tr>
-                    <td>first_name:</td>
+                    <td>
+                        نام:
+                    </td>
                     <td>
                         <input type="text" name="first_name" value="<?php echo $first_name; ?>">
                     </td>
                 </tr>
                 <tr>
-                    <td>last_name:</td>
+                    <td>
+                        نام خانوادگی:
+                    </td>
                     <td>
                         <input type="text" name="last_name" value="<?php echo $last_name; ?>">
                     </td>
                 </tr>
                 <tr>
-                    <td>email:</td>
+                    <td>
+                        ایمیل:
+                    </td>
                     <td>
                         <input type="text" name="email" value="<?php echo $email; ?>">
                     </td>
                 </tr>
                 <tr>
-                    <td>cell_phone:</td>
+                    <td>
+                        تلفن ثابت:
+                    </td>
                     <td>
                         <input type="text" name="cell_phone" value="<?php echo $cell_phone; ?>">
                     </td>
                 </tr>
                 <tr>
-                    <td>verified:</td>
+                    <td>
+                        تایید شده توسط مدیر(۱ = بله/ ۰ = خیر):
+                    </td>
                     <td>
                         <input type="text" name="verified" value="<?php echo $verified; ?>">
                     </td>
                 </tr>
                 <tr>
-                    <td>username:</td>
+                    <td>
+                        نام کاربری:
+                    </td>
                     <td>
                         <input type="text" name="username" value="<?php echo $username; ?>">
                     </td>
                 </tr>
                 <tr>
-                    <td>access_level:</td>
+                    <td>
+                        سطح دسترسی:
+                    </td>
                     <td>
                         <input type="text" name="access_level" value="<?php echo $access_level; ?>">
                     </td>
@@ -84,7 +111,7 @@
                 <tr>
                     <td colspan="2">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
-                        <input type="submit" name="submit" value="Update Admin">
+                        <input type="submit" name="submit" value="به روز رسانی اطلاعات مدیر">
                     </td>
                 </tr>
 
@@ -123,14 +150,14 @@ if (isset($_POST['submit'])) {
     $result = mysqli_query($conn, $sql);
 
     if ($result == true) {
-        $_SESSION['update'] = "<div>مدیر با موفقیت به روز شد.</div>";
-        header('location:' . SITEURL . 'admin/manage-admin.php');
+        $_SESSION['update'] = "<div>اطلاعات مدیر با موفقیت به روز شد.</div>";
+        header('location:' . SITEURL . 'admin/administrator/manage-admin.php');
     } else {
         $_SESSION['update'] = "<div>عملیات ناموفق بود.</div>";
-        header('location:' . SITEURL . 'admin/manage-admin.php');
+        header('location:' . SITEURL . 'admin/administrator/manage-admin.php');
     }
 }
 
 ?>
 
-<?php include 'partials/footer.php'; ?>
+<?php include '../partials/footer.php'; ?>

@@ -1,4 +1,14 @@
-<?php include "partials/menu.php"; ?>
+<?php
+$website_title = "مدیریت مدیران";
+include "../../config/db_config.php";
+include "../partials/login-check.php";
+include '../partials/header.php';
+?>
+    <!--insert styles and Links here.-->
+
+<?php
+include '../partials/menu.php';
+?>
 
     <div>
         <h1>مدیریت نمایندگان و مدیران</h1>
@@ -36,16 +46,16 @@
         }
 
         ?>
-        <a href="<?php echo SITEURL . 'admin/add-admin.php/' ?>"> اضافه کردن مدیر </a>
+        <a href="<?php echo SITEURL . 'admin/administrator/add-admin.php/' ?>"> اضافه کردن مدیر </a>
         <br>
         <table style="width:100%;border-bottom:1px solid black; padding: 1%;text-align: left; padding: 1%;">
             <tr>
-                <th>ID:</th>
-                <th>first name and last name</th>
-                <th>Phone(username)</th>
-                <th>Access Level</th>
-                <th>Last Login:</th>
-                <th>Operations</th>
+                <th>ID</th>
+                <th>نام و نام خانوادگی</th>
+                <th>تلفن</th>
+                <th>سطح دسترسی</th>
+                <th>آخرین ورود:</th>
+                <th>عملیات ها</th>
             </tr>
 
             <?php
@@ -72,12 +82,15 @@
                             <td><?php echo $access_level; ?></td>
                             <td><?php echo $last_login; ?></td>
                             <td>
-                                <a href="<?php echo SITEURL; ?>admin/update-password.php?id=<?php echo $id; ?>">تغییر پسورد</a>
-                                <a href="<?php echo SITEURL; ?>admin/update-admin.php?id=<?php echo $id; ?>">به روز رسانی مدیر</a>
-                                <a href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $id; ?>">حذف مدیر</a>
+                                <a href="<?php echo SITEURL; ?>admin/administrator/update-password.php?id=<?php echo $id; ?>">تغییر
+                                    پسورد</a>
+                                <a href="<?php echo SITEURL; ?>admin/administrator/update-admin.php?id=<?php echo $id; ?>">به
+                                    روز رسانی
+                                    مدیر</a>
+                                <a href="<?php echo SITEURL; ?>admin/administrator/delete-admin.php?id=<?php echo $id; ?>">حذف
+                                    مدیر</a>
                             </td>
                         </tr>
-
                         <?php
 
                     }
@@ -90,4 +103,4 @@
         </table>
     </div>
 
-<?php include('partials/footer.php'); ?>
+<?php include "../partials/footer.php"; ?>

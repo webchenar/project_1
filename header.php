@@ -4,11 +4,14 @@ ob_start();
 
 session_start();
 
+include_once('./src/function.php');
+
 include_once('./config/Data.Class.php');
 
 if (empty($title)) {
     $title = 'نیکوثبت';
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
@@ -28,6 +31,13 @@ if (empty($title)) {
     <script src="js/plugins/piexif.js" type="text/javascript"></script>
     <script src="js/plugins/sortable.js" type="text/javascript"></script>
 
+    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>-->
+    <script src="./js/fileinput.js" type="text/javascript"></script>
+    <script src="./js/locales/fr.js" type="text/javascript"></script>
+    <script src="./js/locales/es.js" type="text/javascript"></script>
+    <script src="./themes/fas/theme.js" type="text/javascript"></script>
+    <script src="./themes/explorer-fas/theme.js" type="text/javascript"></script>
+
 
     <link rel="stylesheet" href="./bootstrap-5.1.1/css/bootstrap.rtl.css" />
     <link rel="stylesheet" href="./css/all.css" />
@@ -36,13 +46,8 @@ if (empty($title)) {
 </head>
 
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="../js/fileinput.js" type="text/javascript"></script>
-    <script src="../js/locales/fr.js" type="text/javascript"></script>
-    <script src="../js/locales/es.js" type="text/javascript"></script>
-    <script src="../themes/fas/theme.js" type="text/javascript"></script>
-    <script src="../themes/explorer-fas/theme.js" type="text/javascript"></script>
-    
+
+
     <header class="my-bg">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">

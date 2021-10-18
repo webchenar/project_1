@@ -11,7 +11,7 @@
  * https://github.com/kartik-v/bootstrap-fileinput/blob/master/LICENSE.md
  */
 
-.kv-rtl .close,
+.kv-rtl ,
 .kv-rtl .krajee-default .file-actions,
 .kv-rtl .krajee-default .file-other-error {
     float: left;

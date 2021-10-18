@@ -1,4 +1,5 @@
 <?php
+
 class DataBase
 {
     public $DbName = 'nikoosabt_db';
@@ -44,7 +45,7 @@ class DataBase
         if ($resualt === true) {
             return $data->fetch();
         }
-        echo $data->rowCount();
+        
         if ($data->rowCount() > 0) {
             $this->sql = null;
             //return $data->fetchAll();
@@ -55,6 +56,18 @@ class DataBase
     public function read($fild, $id)
     {
         return $this->select('users', $fild, $id, $fild2 = null, $id2 = null, $resualt = true);
+    }
+
+    public function insertSjtamdidSahamiKhas($rel_user, $c_shenase_meli, $c_name, $c_shomare_sabt, $c_sarmaye, $time_shore_jalase, $date_shore_jalase, $rozname, $adress, $t_sahamdaran, $t_saham,$hozor , $file_rozname = '', $tedad_emza = 0){
+        try{
+
+            //echo "INSERT INTO `sj_tamdid_sahami_khas`(`rel_user`, `c_shenase_meli`, `c_name`, `c_shomare_sabt`, `c_sarmaye`, `t_shorooe_jalase`, `d_shorooe_jalase`, `rooz_name`, `rooz_name_file`, `c_adress`, `t_sahamdar`, `t_saham`, `va_ya`) VALUES ('$rel_user', '$c_shenase_meli','$c_name','$c_shomare_sabt','$c_sarmaye','$time_shore_jalase','$date_shore_jalase','$rozname','$file_rozname', '$adress', '$t_sahamdaran', '$t_saham', '$tedad_emza')";
+
+            $this->Con->exec("INSERT INTO `sj_tamdid_sahami_khas`(`rel_user`, `c_shenase_meli`, `c_name`, `c_shomare_sabt`, `c_sarmaye`, `t_shorooe_jalase`, `d_shorooe_jalase`, `rooz_name`, `rooz_name_file`, `c_adress`, `t_sahamdar`, `hozor`, `t_saham`, `va_ya`) VALUES ('$rel_user', '$c_shenase_meli','$c_name','$c_shomare_sabt','$c_sarmaye','$time_shore_jalase','$date_shore_jalase','$rozname','$file_rozname', '$adress', '$t_sahamdaran','$hozor' , '$t_saham', '$tedad_emza')");
+
+        }catch(PDOException $e){
+            echo $e;
+        }
     }
 
     public function  insertUser($fname, $lname, $phone, $email, $cellPhone, $passWord, $verified)
@@ -78,17 +91,26 @@ class DataBase
         }
     }
 
-    public function search($table, $fild, $id)
+    public function searchFunction($table, $fild, $id)
     {
         //$this->Con->exec("SELECT `$fild` FROM `$table` WHERE `$fild` =" . "'" . $id . "'");
         $data = $this->Con->prepare("SELECT * FROM `$table` WHERE `$fild` =" . "'" . $id . "'");
         $data->execute();
-        return $data->fetch();
+        return $data;
+    }
+
+    public function search($table, $fild, $id){
+        return $this->searchFunction($table, $fild, $id)->fetch();
+    }
+
+
+    public function searchAll($table, $fild, $id){
+        return $this->searchFunction($table, $fild, $id)->fetchAll();
     }
 
     public function searchLogIn($table, $fild1, $id1, $fild2, $id2)
     {
-        //echo "SELECT * FROM `$table` WHERE `$fild1` =" . "'" . $id1 . "'" . "AND" . "`$fild2` ="  . "'" . $id2 . "'";
+        echo "SELECT * FROM `$table` WHERE `$fild1` =" . "'" . $id1 . "'" . "AND" . "`$fild2` ="  . "'" . $id2 . "'";
 
         $data = $this->Con->prepare("SELECT * FROM `$table` WHERE `$fild1` =" . "'" . $id1 . "'" . "AND" . "`$fild2` ="  . "'" . $id2 . "'");
         $data->execute();
@@ -101,6 +123,20 @@ class DataBase
         try {
             $this->Con->exec("UPDATE `tbl_user` SET `phone` = '$phone' , `PASSWORD` = '$passWord', `first_name` = '$fname', `last_name` = '$lname', `email` = '$email', `cell_phone` = '$cellPhone'  WHERE `phone` =" . "'" . $id . "'");
         } catch (PDOException $e) {
+            echo $e;
+        }
+    }
+
+    public function inserMemberSjtamdidSahamiKhas($idsj, $fname, $lname, $phone, $meli_code, $tedadsaham, $cartmeli, $shenasname, $vazifejalase, $semat, $sematnahaie){
+
+
+        try{
+
+            //echo "INSERT INTO `sahamdaran`(`id_sj_tamdid_sahami_khas`, `phone`, `fname`, `lname`, `meli_code`, `tedad_saham`, `scan_cart_meli`, `scan_shenasname_meli`, `vazife_jalase`, `semat`, `semat_nahaei`) VALUES ('$idsj','$phone','$lname','$fname','$meli_code','$tedadsaham','$cartmeli','$shenasname','$vazifejalase','$semat','$sematnahaie')";
+
+            $this->Con->exec("INSERT INTO `sahamdaran`(`id_sj_tamdid_sahami_khas`, `phone`, `fname`, `lname`, `meli_code`, `tedad_saham`, `scan_cart_meli`, `scan_shenasname_meli`, `vazife_jalase`, `semat`, `semat_nahaei`) VALUES ('$idsj','$phone','$lname','$fname','$meli_code','$tedadsaham','$cartmeli','$shenasname','$vazifejalase','$semat','$sematnahaie')");
+
+        }catch(PDOException $e){
             echo $e;
         }
     }
