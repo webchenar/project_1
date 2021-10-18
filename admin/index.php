@@ -1,8 +1,17 @@
 <?php
 $website_title = "صفحه اصلی مدیریت";
-include("partials/menu.php");
+include "../config/db_config.php";
+include "partials/login-check.php";
+include "partials/header.php";
 
 ?>
+<link href="" rel="stylesheet">
+
+<?php
+include "partials/menu.php";
+?>
+
+
 <?php
 if (isset($_SESSION['login']))
     if (isset($_SESSION['login'])) {
@@ -11,7 +20,5 @@ if (isset($_SESSION['login']))
     }
 ?>
 
-
-   
 
 <?php include("partials/footer.php"); ?>
