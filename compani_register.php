@@ -11,7 +11,7 @@ foreach($_FILES['img']['name'] as $img){
     var_dump($_FILES['img']['tmp_name'][$i]) ;
     var_dump($_FILES['img']['name'][$i]) ;
 
-    move_uploaded_file($_FILES['img']['tmp_name'][$i], 'img' . $_FILES['img']['name'][$i]);
+    move_uploaded_file($_FILES['img']['tmp_name'][$i], './img/' . $_FILES['img']['name'][$i]);
     $i++;
 }
 
@@ -24,6 +24,10 @@ if (isset($_FILES)) {
     move_uploaded_file($_FILES['img']['tmp_name'], 'img' . $_FILES['img']['name']);
 }*/
 ?>
+
+
+
+
 
 <form enctype="multipart/form-data" action="compani_register.php" method="POST">
 <input type="text" name="fname">
