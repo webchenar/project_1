@@ -5,7 +5,7 @@ require_once('../config/Data.Class.php');
 
 require_once('../src/function.php');
 
-_function::logIn();
+//_function::logIn();
 
 $data = new DataBase();
 
@@ -91,7 +91,7 @@ $pdf->setLanguageArray($lg);
 // ---------------------------------------------------------
 
 // set font
-$pdf->SetFont('sahel', 'B', 9);
+$pdf->SetFont('parastoo', 'B', 9);
 
 // add a page
 $pdf->AddPage();
