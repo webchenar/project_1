@@ -3,19 +3,15 @@ $title = 'تمدید شرکت سهامی خاص';
 include_once('header.php') ?>
 <?php
 
-//var_dump($_POST);
-
-var_dump($_SESSION);
-
-
-
 $data = new DataBase();
 
 _function::logIn();
 
 $_SESSION['step2'] = false;
 
-/*
+$_SESSION['stepfinish'] = false;
+
+
 if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset($_POST['shenasemelli']) && isset($_POST['rozname']) && isset($_POST['sahamdar']) && isset($_POST['tedadsaham']) && isset($_POST['hozor']) && empty($_SESSION['step2'])) {
 
 
@@ -246,14 +242,14 @@ if ($_SESSION['step2']) {
             }
 
 
-            /*if ($sematJalase->rowCount() == 1 ) {
+            if ($sematJalase->rowCount() == 1 ) {
                 echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
                 <strong>سمت جلسه  ' . $_POST['sematjalase'] . ' انتخاب شده است</strong>
               </div>';
                 $chek = false;
-            }*/
+            }
 
-/*if (strcmp($_POST['sematnahaie'], '- انتخاب سمت نهایی -') == 0) {
+if (strcmp($_POST['sematnahaie'], '- انتخاب سمت نهایی -') == 0) {
                 echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
                 <strong>لطفا سمت نهایی را مشخص کنید</strong>
               </div>';
@@ -735,9 +731,9 @@ if ($_SESSION['step2']) {
     <?php
 }
 
-if($_SESSION['count'] == $_SESSION['sahamdaran']){  ?>
+/*if($_SESSION['count'] == $_SESSION['sahamdaran']){  ?>
 
-*/ ?>
+ ?>
 
 
 <?php
@@ -774,11 +770,25 @@ if (isset($_POST['fnamebazresasli']) && isset($_POST['lnamebazresasli']) && isse
         $chek = false;
     }
 
+    $sj_id = $data->search('sj_tamdid_sahami_khas', 'rel_user', isset($_SESSION['phone']) ? $_SESSION['phone'] : $_COOKIE['phone'])['sj_id'];
+
+    if ($chek) {
+
+        //ذخیره بازرس اصلی
+        $data->insertMasolTamdidSahamiKhas($sj_id, $_POST['fnamebazresasli'], $_POST['lnamebazresasli'], $_POST['phonebazresasli'], $_POST['codmelibazresasli']);
+
+        //ذخیره بازرس علی البدل
+        $data->insertMasolTamdidSahamiKhas($sj_id, $_POST['fnamebazres'], $_POST['lnamebazres'], $_POST['phonebazres'], $_POST['codmelibazres']);
+
+        //ذخیره نماینده/وکیل قانونی
+        $data->insertMasolTamdidSahamiKhas($sj_id, $_POST['fnamaiande'], $_POST['lnamaiande'], $_POST['phonenamaiande'], $_POST['codmelinamaiande']);
+
+        //ذخیره مدیر عامل
+        $data->insertMasolTamdidSahamiKhas($sj_id, $_POST['fmodiramel'], $_POST['lmodiramel'], $_POST['phonemodiramel'], $_POST['codmelimodiramel']);
 
 
-
-    if ($_POST['fnamebazresasli'] && $_POST['lnamebazresasli'] && $_POST['fnamebazres'] && $_POST['lnamebazres']) {
-        # code...
+        $_SESSION['stepfinish'] = true;
+        $_POST = NULL;
     }
 }else{
     echo '<div class="container my-2 alert alert-light alert-dismissible fade show" role="alert">
@@ -1006,6 +1016,20 @@ if (isset($_POST['fnamebazresasli']) && isset($_POST['lnamebazresasli']) && isse
 </form>
 
 
+<!--finish Step -->
+
+<?php
+    if ($_SESSION['stepfinish']) {
+        ?>
 
 
-<?php include_once('footer.php') ?>
+
+
+<?php
+    }*/
+?>
+
+
+
+
+<?php include_once('footer.php'); ?>
