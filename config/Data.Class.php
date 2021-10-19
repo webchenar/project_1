@@ -93,6 +93,7 @@ class DataBase
 
     public function searchFunction($table, $fild, $id)
     {
+        //echo "SELECT * FROM `$table` WHERE `$fild` =" . "'" . $id . "'";
         //$this->Con->exec("SELECT `$fild` FROM `$table` WHERE `$fild` =" . "'" . $id . "'");
         $data = $this->Con->prepare("SELECT * FROM `$table` WHERE `$fild` =" . "'" . $id . "'");
         $data->execute();
@@ -106,6 +107,17 @@ class DataBase
 
     public function searchAll($table, $fild, $id){
         return $this->searchFunction($table, $fild, $id)->fetchAll();
+    }
+
+    public function insertMasolTamdidSahamiKhas($id_sj, $fname, $lname, $phone, $code_meli){
+        try{
+
+            //echo "INSERT INTO `masolan_sj_tamdid_sahami_khas`(`id_sj`, `fname`, `lname`, `phone`, `code_meli`) VALUES ('$id_sj','$fname', '$lname', '$phone', '$code_meli'";
+
+            $this->Con->exec("INSERT INTO `masolan_sj_tamdid_sahami_khas`(`id_sj`, `fname`, `lname`, `phone`, `code_meli`) VALUES ('$id_sj','$fname', '$lname', '$phone', '$code_meli')");
+        }catch(PDOException $e){
+            echo $e;
+        }
     }
 
     public function searchLogIn($table, $fild1, $id1, $fild2, $id2)
