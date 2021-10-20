@@ -8,7 +8,6 @@ $data = new DataBase();
 
 $chek = true;
 
-
 if (isset($_POST['phone']) and isset($_POST['password'])) {
 
     $user = $data->searchLogIn('tbl_user', 'phone', $_POST['phone'], 'PASSWORD', md5($_POST['password']));
