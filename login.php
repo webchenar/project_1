@@ -47,13 +47,14 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
         if (isset($_POST['check'])) {
 
             //session_start();
+            setcookie('phone', $user['phone'], time() + 5148000);
+            setcookie('fname', $user['first_name'], time() + 5148000);
+
+        } else {
 
             $_SESSION['phone'] = $user['phone'];
             $_SESSION['fname'] = $user['first_name'];
-        } else {
 
-            setcookie('phone', $user['phone'], time() + 10800);
-            setcookie('fname', $user['first_name'], time() + 10800);
         }
 
         setcookie("logIn", "true", time() + 10800);
