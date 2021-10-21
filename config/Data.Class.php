@@ -109,12 +109,12 @@ class DataBase
         return $this->searchFunction($table, $fild, $id)->fetchAll();
     }
 
-    public function insertMasolTamdidSahamiKhas($id_sj, $fname, $lname, $phone, $code_meli){
+    public function insertMasolTamdidSahamiKhas($id_sj, $fname, $lname, $phone, $code_meli, $masoliat){
         try{
 
             //echo "INSERT INTO `masolan_sj_tamdid_sahami_khas`(`id_sj`, `fname`, `lname`, `phone`, `code_meli`) VALUES ('$id_sj','$fname', '$lname', '$phone', '$code_meli'";
 
-            $this->Con->exec("INSERT INTO `masolan_sj_tamdid_sahami_khas`(`id_sj`, `fname`, `lname`, `phone`, `code_meli`) VALUES ('$id_sj','$fname', '$lname', '$phone', '$code_meli')");
+            $this->Con->exec("INSERT INTO `masolan_sj_tamdid_sahami_khas`(`id_sj`, `fname`, `lname`, `phone`, `code_meli`, `masoliat`) VALUES ('$id_sj','$fname', '$lname', '$phone', '$code_meli', '$masoliat')");
         }catch(PDOException $e){
             echo $e;
         }
