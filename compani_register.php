@@ -5,12 +5,10 @@ $i = 0;
 
 foreach ($_FILES['img']['name'] as $img) {
 
-<<<<<<< HEAD
     move_uploaded_file($_FILES['img']['tmp_name'][$i], './img/' . $_FILES['img']['name'][$i]);
-=======
+
     echo $i + 1 . '<br>';
     //move_uploaded_file($_FILES['img']['tmp_name'][$i], 'img' . $_FILES['img']['name'][$i]);
->>>>>>> 9ceda745cc42e07beefae12fa0cd72ffcb3de96f
     $i++;
 }
 
@@ -201,7 +199,7 @@ if (isset($_FILES)) {
         </div>
 
     </form>
->>>>>>> 9ceda745cc42e07beefae12fa0cd72ffcb3de96f
+
 
 
 </div>

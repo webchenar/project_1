@@ -1174,9 +1174,7 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
 if (isset($_SESSION['stepfinish']) && $_SESSION['step3'] == false) {
 
 
-    echo $_FILES['img']['type'][0];
-
-     var_dump($_FILES);
+    var_dump($_FILES);
 
     $sj = $data->searchAll('sj_tamdid_sahami_khas', 'rel_user', isset($_SESSION['phone']) ? $_SESSION['phone'] : $_COOKIE['phone']);
 
@@ -1189,14 +1187,14 @@ if (isset($_SESSION['stepfinish']) && $_SESSION['step3'] == false) {
     }
 
     $members = $data->searchAll('sahamdaran', 'id_sj_tamdid_sahami_khas', $sj_id);
-   
+
 
     if (isset($_POST['vekalat']) and isset($_POST['emza1']) and isset($_POST['vaYa']) and isset($_POST['vaYa']) and isset($_FILES['img'])) {
 
         $chek = true;
 
 
-        if (count($_FILES['img']['name']) >= 10) {
+        if (count($_FILES['img']['name']) >= (5 + count($members) * 2)) {
             echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
             <strong>تعداد فایل های آپلود بیشتر از حد مجاز فرم شماست</strong>
           </div>';
@@ -1221,8 +1219,6 @@ if (isset($_SESSION['stepfinish']) && $_SESSION['step3'] == false) {
                 $chek = false;
             }
         }
-
-
     }
 
 
@@ -1246,27 +1242,27 @@ if (isset($_SESSION['stepfinish']) && $_SESSION['step3'] == false) {
     }
 
     ?>
-        <form class="my-5 needs-validation container" action="tamdid_sherkat.php" method="POST" enctype="multipart/form-data" novalidate>
+    <form class="my-5 needs-validation container" action="tamdid_sherkat.php" method="POST" enctype="multipart/form-data" novalidate>
 
         <?php
         if ($monshi == true) {
-        
-        //var_dump($bazrasMonshi);
+
+            //var_dump($bazrasMonshi);
         ?>
             <label for="bazrasMonshi" class="form-label d-inline"> لطفا منشی جلسه را از بین بازرسین انتخاب کنید: <span class="t-red">*</span></label>
             <select name="bazrasMonshi" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
-                <?php
-                foreach ($bazrasMonshi as $exportmasol) {
-                    if (strcmp($exportmasol['masoliat'], 'بازرس اصلی') == 0 or strcmp($exportmasol['masoliat'], 'بازرس علی البدل') == 0) {
-                        echo '<option value="' . $exportmasol['phone'] . '">' . $exportmasol['fname'] . ' - ' . $exportmasol['lname'] . ' - ' . $exportmasol['phone'] . '</option>';
-                    }
+            <?php
+            foreach ($bazrasMonshi as $exportmasol) {
+                if (strcmp($exportmasol['masoliat'], 'بازرس اصلی') == 0 or strcmp($exportmasol['masoliat'], 'بازرس علی البدل') == 0) {
+                    echo '<option value="' . $exportmasol['phone'] . '">' . $exportmasol['fname'] . ' - ' . $exportmasol['lname'] . ' - ' . $exportmasol['phone'] . '</option>';
+                }
 
-                    if (strcmp($exportmasol['masoliat'], 'وکیل') == 0) {
-                        $vakil = $exportmasol;
-                    }
+                if (strcmp($exportmasol['masoliat'], 'وکیل') == 0) {
+                    $vakil = $exportmasol;
                 }
             }
-                ?>
+        }
+            ?>
             </select>
 
 
@@ -1328,21 +1324,28 @@ if (isset($_SESSION['stepfinish']) && $_SESSION['step3'] == false) {
             </div>
 
 
-            <div class="input-group mb-3 row">
+            <!--<div class="input-group mb-3 row">
                 <label for="inputfname" class="form-label col-12">کپی شناسنامه و کارت ملی اعضا:<span class="t-red">*</span></label>
                 <div class="file-loading">
                     <input id="file-0c" name="img[]" class="file" type="file" multiple>
                 </div>
                 <hr>
             </div>
+            -->
 
+            <div class="form-group">
+            <label for="inputfname" class="form-label col-12">اسکن روزنامه شناسنامه و کارت ملی اعضا:<span class="t-red">*</span></label>
+            <div class="file-loading">
+                <input name="img[]" id="file-1" type="file" multiple class="file" data-overwrite-initial="false" data-min-file-count="2">
+            </div>
+        </div>
 
             <div class="col-12 my-5 d-block ">
                 <button type="submit" class="btn w-100 btn-primary">ادامه</button>
             </div>
 
 
-        </form>
+    </form>
 
 
 <?php

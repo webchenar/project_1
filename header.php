@@ -28,7 +28,10 @@ if (empty($title)) {
     <script src="js/plugins/piexif.js" type="text/javascript"></script>
     <script src="js/plugins/sortable.js" type="text/javascript"></script>
 
-    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.min.css" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="./js/fileinput.js" type="text/javascript"></script>
     <script src="./js/locales/fr.js" type="text/javascript"></script>
     <script src="./js/locales/es.js" type="text/javascript"></script>
