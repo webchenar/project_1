@@ -1,6 +1,6 @@
 <?php
 $title = 'تمدید شرکت سهامی خاص';
-include_once('header.php') ?>
+include_once('./header.php') ?>
 <?php
 
 $data = new DataBase();
@@ -1349,4 +1349,4 @@ if (isset($_SESSION['stepfinish']) && $_SESSION['step3'] == false) {
 }
 ?>
 
-<?php include_once('footer.php'); ?>
+<?php include_once('./footer.php'); ?>
