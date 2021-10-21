@@ -1,7 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+@font-face {
+  font-family: "vazir";
+  src: url("vazir/Vazir.eot");
+  src: url("vazir/Vazir.eot") format("embedded-type"),
+    url("vazir/Vazir.ttf") format("truetype"),
+    url("vazir/Vazir.woff") format("woff"),
+    url("vazir/Vazir.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "sahel";
+  src: url("sahel/Sahel-Bold.eot");
+  src: url("sahel/Sahel-Bold.eot") format("embedded-type"),
+    url("sahel/Sahel-Bold.ttf") format("truetype"),
+    url("sahel/Sahel-Bold.woff") format("woff"),
+    url("font/sahel/Sahel-Bold.woff2") format("woff2");
+
+}
+
 body,
 button {
-  font-family: "Inter", sans-serif;
+  font-family: "vazir", sans-serif;
 }
 :root {
   --offcanvas-width: 270px;
