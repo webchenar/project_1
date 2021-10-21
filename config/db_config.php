@@ -13,8 +13,3 @@ define('DB_NAME', 'nikoosabt_db');
 $conn = mysqli_connect(LOCALHOST, DB_USERNAME, DB_PASSWORD) or die(mysqli_error($conn));
 mysqli_set_charset($conn, "utf8mb4");
 $selectDatabase = mysqli_select_db($conn, DB_NAME) or die(mysqli_error($conn));
-
-
-
-
-
