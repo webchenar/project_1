@@ -5,7 +5,7 @@ include "partials/login-check.php";
 include "partials/header.php";
 
 ?>
-<link href="" rel="stylesheet">
+<link href="styles/all.css" rel="stylesheet">
 
 <?php
 include "partials/menu.php";
