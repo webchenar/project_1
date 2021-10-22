@@ -21,12 +21,12 @@ class _function{
             <strong>لطفا فایل ' . $msg. ' را بارگذاری کنید</strong>
           </div>';
             return false;
-        }elseif ($size > 300 * 1024) {
+        }else if ($size > (300 * 1024)) {
             echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
             <strong>حجم فایل ارسالی '. $name .' باید کمتر از 300kb باشد</strong>
           </div>';
             return false;
-        }elseif ($type !== 'image/jpeg' and $type !== 'image/png') {
+        }else if ($type !== 'image/jpeg' and $type !== 'image/png') {
             echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
             <strong>فرمت تصویر ارسالی '. $name .' باید jpeg/jpg یا png باشد</strong>
           </div>';

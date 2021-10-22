@@ -118,12 +118,11 @@ class DataBase
         return $this->searchFunction($table, $fild, $id)->fetchAll();
     }
 
-    public function insertMasolTamdidSahamiKhas($id_sj, $fname, $lname, $phone, $code_meli, $masoliat){
+    public function insertMasolTamdidSahamiKhas($id_sj, $fname, $lname, $phone, $code_meli, $masoliat, $adressShenasname){
         try{
-
             //echo "INSERT INTO `masolan_sj_tamdid_sahami_khas`(`id_sj`, `fname`, `lname`, `phone`, `code_meli`) VALUES ('$id_sj','$fname', '$lname', '$phone', '$code_meli'";
 
-            $this->Con->exec("INSERT INTO `masolan_sj_tamdid_sahami_khas`(`id_sj`, `fname`, `lname`, `phone`, `code_meli`, `masoliat`) VALUES ('$id_sj','$fname', '$lname', '$phone', '$code_meli', '$masoliat')");
+            $this->Con->exec("INSERT INTO `masolan_sj_tamdid_sahami_khas`(`id_sj`, `fname`, `lname`, `phone`, `code_meli`, `masoliat`, `scan_shenasname_meli`) VALUES ('$id_sj','$fname', '$lname', '$phone', '$code_meli', '$masoliat', '$adressShenasname')");
         }catch(PDOException $e){
             echo $e;
         }
@@ -138,19 +137,17 @@ class DataBase
         return $data->fetch();
     }
 
-    public function update($fname, $lname, $phone, $email, $cellPhone, $passWord, $id)
+    public function update($table, $fild, $value, $fildsearch, $id)
     {
 
         try {
-            $this->Con->exec("UPDATE `tbl_user` SET `phone` = '$phone' , `PASSWORD` = '$passWord', `first_name` = '$fname', `last_name` = '$lname', `email` = '$email', `cell_phone` = '$cellPhone'  WHERE `phone` =" . "'" . $id . "'");
+            $this->Con->exec("UPDATE `$table` SET `$fild` = '$value' WHERE `$fildsearch` = '$id' ");
         } catch (PDOException $e) {
             echo $e;
         }
     }
 
     public function inserMemberSjtamdidSahamiKhas($idsj, $fname, $lname, $phone, $meli_code, $tedadsaham, $cartmeli, $shenasname, $vazifejalase, $semat, $sematnahaie){
-
-
         try{
 
             //echo "INSERT INTO `sahamdaran`(`id_sj_tamdid_sahami_khas`, `phone`, `fname`, `lname`, `meli_code`, `tedad_saham`, `scan_cart_meli`, `scan_shenasname_meli`, `vazife_jalase`, `semat`, `semat_nahaei`) VALUES ('$idsj','$phone','$lname','$fname','$meli_code','$tedadsaham','$cartmeli','$shenasname','$vazifejalase','$semat','$sematnahaie')";

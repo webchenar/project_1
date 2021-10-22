@@ -1,6 +1,9 @@
 <?php
 include_once('header.php');
 
+
+move_uploaded_file($_FILES['img']['tmp_name'], './upload/src/' . 'gholi.jpg');
+
 echo mkdir('upload/src');
 if (isset($_FILES['img'])) {
     var_dump($_FILES['img']);
