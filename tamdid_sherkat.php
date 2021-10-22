@@ -7,6 +7,8 @@ $data = new DataBase();
 
 _function::logIn();
 
+var_dump($_FILES);
+
 if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset($_POST['shenasemelli']) && isset($_POST['rozname']) && isset($_POST['sahamdar']) && isset($_POST['tedadsaham']) && isset($_POST['hozor']) && empty($_SESSION['step2'])) {
 
 
@@ -69,6 +71,8 @@ if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset
         $chek = false;
     }
 
+    $chek = _function::validation_img($_FILES['imgRozname']['name'], $_FILES['imgRozname']['size'], $_FILES['imgRozname']['type']);
+
     if ($_POST['sahamdar'] > 12 || $_POST['sahamdar'] < 3) {
         $chek = false;
     }
@@ -91,7 +95,26 @@ if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset
         $_SESSION['count'] = 0;
         $_SESSION['tedadsaham'] = $_POST['tedadsaham'];
 
-        $data->insertSjtamdidSahamiKhas(isset($_SESSION['phone']) ? $_SESSION['phone'] : $_COOKIE['phone'], $_POST['shenasemelli'], $_POST['namesherkat'], $_POST['shomaresabtsherkat'], $_POST['sarmaie'], $_POST['hours'] . '-' . $_POST['minute'], $_POST['years'] . '-' . $_POST['mounth'] . '-' . $_POST['day'], $_POST['rozname'], $_POST['adress'], $_SESSION['sahamdaran'], $_POST['tedadsaham'], $_POST['hozor']);
+        $data->insertSjtamdidSahamiKhas(isset($_SESSION['phone']) ? $_SESSION['phone'] : $_COOKIE['phone'], $_POST['shenasemelli'], $_POST['namesherkat'], $_POST['shomaresabtsherkat'], $_POST['sarmaie'], $_POST['hours'] . '-' . $_POST['minute'], $_POST['years'] . '-' . $_POST['mounth'] . '-' . $_POST['day'], $_POST['rozname'], $_POST['adress'], $_SESSION['sahamdaran'], $_POST['tedadsaham'], $_POST['hozor'], '');
+
+
+        //پیدا کردن آخرین صورت جلسه ثبت شده(صورتجلسه ای که در خط بالا ثب شد)
+        $sj = $data->searchAll('sj_tamdid_sahami_khas', 'rel_user', isset($_SESSION['phone']) ? $_SESSION['phone'] : $_COOKIE['phone']);
+        $sj_id = $sj[0]['sj_id'];
+
+        foreach ($sj as $id) {
+            if ($id['sj_id'] > $sj_id) {
+                $sj_id = $id['sj_id'];
+            }
+        }
+
+        mkdir("./upload/img/sj_tamdid_sahami_khas/$sj_id");
+        mkdir("./upload/img/sj_tamdid_sahami_khas/$sj_id/rozname");
+        //move_uploaded_file($_FILES['imgRozname']['tmp_name'], "./upload/img/sj_tamdid_sahami_khas/rozname/$sj_id/" . $_FILES['imgRozname']['name']);
+
+        move_uploaded_file($_FILES['imgRozname']['tmp_name'], "./upload/img/sj_tamdid_sahami_khas/$sj_id/rozname/" . $_FILES['imgRozname']['name']);
+
+        $data->updateSjtamdidiSahamiKhas('rooz_adress_file', "./upload/img/sj_tamdid_sahami_khas/$sj_id/rozname/" . $_FILES['imgRozname']['name'], $sj_id);
 
         $_SESSION['tedadsahamentekhabi'] = 0;
     } else {
@@ -164,7 +187,6 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                     $chek = false;
                 }
             }
-
 
             if (isset($_POST['sahm'])) {
                 if (!preg_match("/[0-9]$/", $_POST['sahm'])) {
@@ -246,6 +268,8 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                         $chek = false;
                     }
 
+                    $chek = _function::validation_img($_FILES['imgSahamdar'], $_FILES['imgSahamdar']['size'], $_FILES['imgSahamdar']['type']);
+
                     if (strcmp($_POST['sematjalase'], 'ناظر جلسه') == 0 and isset($_SESSION['sematjalase'])) {
                         if ($_SESSION['sematjalase'] == 2) {
                             echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
@@ -284,7 +308,16 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
             if ($chek) {
 
 
-                $data->inserMemberSjtamdidSahamiKhas($sj_id, $_POST['fname'], $_POST['lname'], $_POST['phone'], $_POST['codmeli'], $_POST['sahm'], '', '', $_POST['sematjalase'], 'سهامدار', $_POST['sematnahaie']);
+                if ($data->searchFunction('sahamdaran', 'id_sj_tamdid_sahami_khas', $sj_id)->rowCount() == 0) {
+                    mkdir("./upload/img/sj_tamdid_sahami_khas/$sj_id/sahamdar");
+                }
+
+                mkdir("./upload/img/sj_tamdid_sahami_khas/$sj_id/sahamdar/" . $_POST['phone']);
+                $adressSave = "./upload/img/sj_tamdid_sahami_khas/$sj_id/sahamdar/" . $_POST['phone'] . '/' . $_FILES['imgSahamdar']['name'];
+
+                move_uploaded_file($_FILES['imgSahamdar']['tmp_name'], $adressSave);
+
+                $data->inserMemberSjtamdidSahamiKhas($sj_id, $_POST['fname'], $_POST['lname'], $_POST['phone'], $_POST['codmeli'], $_POST['sahm'], '', $adressSave, $_POST['sematjalase'], 'سهامدار', $_POST['sematnahaie']);
 
                 $_SESSION['count']++;
 
@@ -326,17 +359,17 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
 
             <div class="form">
                 <div class="container">
-                    <form class="my-5 needs-validation" action="tamdid_sherkat.php" method="POST" novalidate>
+                    <form class="my-5 needs-validation" action="tamdid_sherkat.php" enctype="multipart/form-data" method="POST" novalidate>
 
 
                         <div class="row align-items-stretch">
 
 
-                            <div class="col-12 col-md-5 border p-3 my-2 m-sm-3">
+                            <div class="col-12 col-md-6 border p-3 my-2 m-sm-3">
 
                                 <div class="col-12 ">
                                     <label for="inputfname" class="form-label">نام: <span class="t-red">*</span></label>
-                                    <input type="text" name="fname" class="form-control" value="<?php echo isset($_POST['fname']) ? $_POST['fname'] : null; ?>" " id=" validationCustom03" placeholder="لطفا نام خود را وارد کنید" aria-label="First name" required>
+                                    <input type="text" name="fname" class="form-control" value="<?php echo isset($_POST['fname']) ? $_POST['fname'] : null; ?>" " id=" validationCustom03" placeholder="لطفا نام سهامدار را وارد کنید" aria-label="First name" required>
                                     <div class="invalid-feedback">
                                         وارد کردن نام اجباریست
                                     </div>
@@ -345,7 +378,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                 <div class="col-md-12 my-3">
                                     <label for="inputlname" class="form-label">نام خانوادگی:<span class="t-red">*</span></label>
 
-                                    <input type="text" name="lname" value="<?php echo isset($_POST['lname']) ? $_POST['lname'] : null; ?>" id="validationCustom03" class="form-control" placeholder="لطفا نام خانوادگی خود را وارد کنید" required>
+                                    <input type="text" name="lname" value="<?php echo isset($_POST['lname']) ? $_POST['lname'] : null; ?>" id="validationCustom03" class="form-control" placeholder="لطفا نام خانوادگی سهامدار را وارد کنید" required>
 
                                     <div class="invalid-feedback">
                                         وارد کردن نام خانوادگی اجباریست
@@ -355,7 +388,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                 <div class=" col-12 my-3">
                                     <label for="inputfname" class="form-label">شماره همراه:<span class="t-red">*</span></label>
 
-                                    <input type="text" name="phone" value="<?php echo isset($_POST['phone']) ? $_POST['phone'] : null; ?>" id="validationCustom03 phone" class="form-control" placeholder="لطفا شماره تلفن همراه خود را وارد کنید" maxlength="11" required>
+                                    <input type="text" name="phone" value="<?php echo isset($_POST['phone']) ? $_POST['phone'] : null; ?>" id="validationCustom03 phone" class="form-control" placeholder="لطفا شماره تلفن همراه سهامدار را وارد کنید" maxlength="11" required>
 
                                     <div class="invalid-feedback">
                                         وارد کردن شماره همراه اجباریست
@@ -366,7 +399,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                 <div class="col-12 my-3 ">
                                     <label for="codmeli" class="form-label">کد ملی:<span class="t-red">*</span></label>
 
-                                    <input type="text" name="codmeli" class="form-control" value="<?php echo isset($_POST['codmeli']) ? $_POST['codmeli'] : null; ?>" placeholder="لطفا کد ملی خود را وارد کنید" required>
+                                    <input type="text" name="codmeli" class="form-control" value="<?php echo isset($_POST['codmeli']) ? $_POST['codmeli'] : null; ?>" placeholder="لطفا کد ملی سهمامدار را وارد کنید" required>
 
                                     <div class="invalid-feedback">
                                         وارد کردن کد ملی اجباریست
@@ -499,7 +532,16 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                     ?>
 
                                 </select>
+
+                                <div class="input-group my-3 col-12">
+                                    <label class="input-group-text" for="inputGroupFile01">بارگذاری اسکن صفحه اول شناسنامه سهامدار: <span class="t-red">*</span></label>
+                                    <input type="file" name="imgSahamdar" class="form-control" id="inputGroupFile01" require>
+                                </div>
+
                             </div>
+
+
+
 
                             <!--<div class="d-none d-md-block col-md-6 border my-2 shadow-sm">
                         <h5 class="sahel fs-5 my-3 ">با ثبت نام در نیکو ثبت از خدمات زیر برخوردار میشوید:</h5>
@@ -536,9 +578,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
     <?php if (empty($_SESSION['step2']) && empty($_SESSION['step3'])) { ?>
         <div class="form">
             <div class="container">
-                <form class="my-5 needs-validation" action="tamdid_sherkat.php" method="POST" novalidate>
-
-
+                <form class="my-5 needs-validation" action="tamdid_sherkat.php" method="POST" enctype="multipart/form-data" novalidate>
 
                     <div class="row align-items-stretch">
                         <div class="col-12 col-md-6">
@@ -767,6 +807,12 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                 <div class="invalid-feedback">
                                     وارد کردن نام روزنامه اجباریست
                                 </div>
+                            </div>
+
+
+                            <div class="input-group my-3">
+                                <label class="input-group-text" for="inputGroupFile01">بارگذاری فایل روزنامه کثیرالنتشار: <span class="t-red">*</span></label>
+                                <input type="file" name="imgRozname" class="form-control" id="inputGroupFile01" require>
                             </div>
 
                             <div class="col-12 my-3">
