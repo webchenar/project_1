@@ -1324,21 +1324,31 @@ if (isset($_SESSION['stepfinish']) && $_SESSION['step3'] == false) {
             </div>
 
 
-            <!--<div class="input-group mb-3 row">
+            <!--
+            <div class="form-group">
+                <label for="file-3">Batch Preupload Error Check</label>
+                <div class="file-loading">
+                    <input id="file-3" type="file" multiple>
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label for="inputfname" class="form-label col-12">کپی شناسنامه و کارت ملی اعضا:<span class="t-red">*</span></label>
                 <div class="file-loading">
-                    <input id="file-0c" name="img[]" class="file" type="file" multiple>
+                    <input id="form-group" name="img[]" class="file" type="file" multiple>
                 </div>
                 <hr>
             </div>
-            -->
+
 
             <div class="form-group">
-            <label for="inputfname" class="form-label col-12">اسکن روزنامه شناسنامه و کارت ملی اعضا:<span class="t-red">*</span></label>
-            <div class="file-loading">
-                <input name="img[]" id="file-1" type="file" multiple class="file" data-overwrite-initial="false" data-min-file-count="2">
+                <label for="inputfname" class="form-label col-12">اسکن روزنامه شناسنامه و کارت ملی اعضا:<span class="t-red">*</span></label>
+                <div class="file-loading">
+                    <input name="img[]" id="file-1" type="file" multiple class="file" data-overwrite-initial="false" data-min-file-count="2">
+                </div>
             </div>
-        </div>
+            -->
+
 
             <div class="col-12 my-5 d-block ">
                 <button type="submit" class="btn w-100 btn-primary">ادامه</button>
