@@ -94,7 +94,7 @@ if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset
         $_SESSION['count'] = 0;
         $_SESSION['tedadsaham'] = $_POST['tedadsaham'];
 
-        $data->insertSjtamdidSahamiKhas(isset($_SESSION['phone']) ? $_SESSION['phone'] : $_COOKIE['phone'], $_POST['shenasemelli'], $_POST['namesherkat'], $_POST['shomaresabtsherkat'], $_POST['sarmaie'], $_POST['hours'] . '-' . $_POST['minute'], $_POST['years'] . '-' . $_POST['mounth'] . '-' . $_POST['day'], $_POST['rozname'], $_POST['adress'], $_SESSION['sahamdaran'], $_POST['tedadsaham'], $_POST['hozor'], '');
+        $data->insertSjtamdidSahamiKhas(isset($_SESSION['phone']) ? $_SESSION['phone'] : $_COOKIE['phone'], $_POST['shenasemelli'], $_POST['namesherkat'], $_POST['shomaresabtsherkat'], $_POST['sarmaie'], $_POST['hours'] . ':' . $_POST['minute'], $_POST['years'] . '/' . $_POST['mounth'] . '/' . $_POST['day'], $_POST['rozname'], $_POST['adress'], $_SESSION['sahamdaran'], $_POST['tedadsaham'], $_POST['hozor'], '');
 
 
         //پیدا کردن آخرین صورت جلسه ثبت شده(صورتجلسه ای که در خط بالا ثب شد)
@@ -1040,6 +1040,10 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
             $_SESSION['stepfinish'] = true;
             $_SESSION['step3'] = false;
             $_POST = NULL;
+            $phone = $_SESSION['phone'];
+            session_destroy();
+            $_SESSION['phone'] = $phone;
+            header('location: pdf/tamdid.php');
         }
     }
     if ($_SESSION['stepfinish'] == false and $_SESSION['step3'] = true) {
@@ -1144,7 +1148,7 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
                     </div>
 
                     <div class="col-12 my-3 ">
-                        <label for="codmelibazresasli" class="form-label">کد ملی:<span class="t-red">*</span></label>
+                        <label for="codmelibazres" class="form-label">کد ملی:<span class="t-red">*</span></label>
 
                         <input type="text" name="codmelibazres" class="form-control" value="<?php echo isset($_POST['codmelibazres']) ? $_POST['codmelibazres'] : null; ?>" placeholder="لطفا کد ملی بازرس علی البدل را وارد کنید" required>
 
@@ -1369,7 +1373,6 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
         if (isset($_POST['vaYa'])) {
             $data->update('sj_tamdid_sahami_khas', 'va_ya', $_POST['vaYa'], 'sj_id', $sj_id);
         }
-
     }
 
 
@@ -1377,23 +1380,21 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
 
     <form class="my-5 needs-validation container" action="tamdid_sherkat.php" method="POST" enctype="multipart/form-data" novalidate>
 
-        <div class="alert alert-info mt-5" role="alert">
-            <span class="bolder t-red">لطفا یکی از بازرسین را به عنوان منشی انتخاب کنید.</span>
-        </div>
-
-
         <?php
         if ($monshi == true) {
 
             //var_dump($bazrasMonshi);
         ?>
+            <div class="alert alert-info mt-5" role="alert">
+                <span class="bolder t-red">لطفا یکی از بازرسین را به عنوان منشی انتخاب کنید.</span>
+            </div>
             <label for="bazrasMonshi" class="form-label d-block d-md-inline my-2"> لطفا منشی جلسه را از بین بازرسین انتخاب کنید:
                 <span class="t-red">*</span></label>
             <select name="bazrasMonshi" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
             <?php
             foreach ($bazrasMonshi as $exportmasol) {
                 if (strcmp($exportmasol['masoliat'], 'بازرس اصلی') == 0 or strcmp($exportmasol['masoliat'], 'بازرس علی البدل') == 0) {
-                    echo '<option value="' . $exportmasol['phone'] .'">' . $exportmasol['fname'] . ' - ' . $exportmasol['lname'] . ' - ' . $exportmasol['phone'] . '</option>';
+                    echo '<option value="' . $exportmasol['phone'] . '">' . $exportmasol['fname'] . ' - ' . $exportmasol['lname'] . ' - ' . $exportmasol['phone'] . '</option>';
                 }
 
                 if (strcmp($exportmasol['masoliat'], 'وکیل') == 0) {
@@ -1418,7 +1419,7 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
             <label class="form-check-label ms-3" for="flexRadioDefault2">
                 وکیل
             </label>
-            <input class="form-check-input" type="radio" value="وکالت داده میشود" name="vekalat" id="flexRadioDefault2" checked>
+            <input class="form-check-input" type="radio" value="وکالت داده" name="vekalat" id="flexRadioDefault2" checked>
 
             <br>
 
@@ -1479,6 +1480,7 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
             -->
 
 
+            <br>
             <div class="col-12 my-5 d-block ">
                 <button type="submit" class="btn w-100 btn-primary">ادامه</button>
             </div>
@@ -1486,6 +1488,7 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
 
     </form>
 
+    <br><br><br><br><br><br>
 
 <?php
 }
