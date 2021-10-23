@@ -129,10 +129,11 @@ $sj = $data->search('sj_tamdid_sahami_khas', 'sj_id', $sj_id);
  $rozname = $sj['rooz_name'];
 
  $c_adress = $sj['c_adress'];
+
 // //مشخصات سهامداران
 //var_dump($sahamdaran);
 $sahamdarExport = '<table>';
-
+$sahamdaranEmza = '<table>';
 $i = 0;
 foreach($sahamdaran as $sahamdar){
   $tableRowS = NULL;
@@ -147,13 +148,17 @@ foreach($sahamdaran as $sahamdar){
   $i++;
   $sahamdarExport .= $tableRowS .'<td>'. $i . '-' . 'آقای / خانم ' . $sahamdar['fname'].' ' . $sahamdar['lname']. ' دارنده '. $sahamdar['tedad_saham'] . ' سهم' .'</td>' . $tableRowE;
   
+  $sahamdaranEmza  .= $tableRowS .'<td>' . $i . '-' . 'آقای / خانم ' . $sahamdar['fname'].' ' . $sahamdar['lname'].'</td>' . $tableRowE;
 
 }
+
+
 if ($i % 2 != 0) {
   $sahamdarExport .= '</tr>';
+  $sahamdaranEmza .= '</tr>';
 }
 $sahamdarExport .= '</table>';
-
+$sahamdaranEmza .= '</table>';
 //مشخصات اعضای هیئت رئیسه
 
 $raeisJalase = '';
@@ -198,6 +203,7 @@ $raeisHiatModire = '';
 $naebRaeis = '';
 $ozvAsli = '';
 $modirAmel = null;
+$modirAmelExport = NULL;
 foreach($sahamdaran as $sahamdar){
 
   if (strcmp($sahamdar['semat_nahaei'], 'مدیر عامل و رئیس هیئت مدیره') == 0) {
@@ -230,7 +236,9 @@ if (strcmp($raeisHiatModire['semat_nahaei'], 'رئیس هیئت میره') == 0)
   }
 }
 
-$fname = 'امیر';
+if (isset($modirAmel)) {
+   $modirAmelExport = '<h3>امضای مدیر عامل:</h3>' . '1.آقای / خانم ' . $modirAmel['fname'] . ' ' . $modirAmel['lname'];
+}
 
 //پیدا کردن بازرسین از بین مسئولین
 $bazres1;
@@ -368,7 +376,7 @@ $htmlpersian = '
 
 <h3>امضاء اعضای هیئت مدیره و سهامداران: </h3>
 
-'.$sahamdarExport.'
+'.$sahamdaranEmza. $modirAmelExport . '
 
 
 <h3>امضای بازرسان:</h3>
