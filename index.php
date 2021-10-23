@@ -84,7 +84,7 @@ if (isset($_COOKIE['newUser'])) {
               و یا هر آنچه مربوط به شرکت است ایجاد کند
             </p>
             <div class="d-flex flex-row-reverse">
-              <a href="#" class="card-link position-absolute bottom-0 mb-1">فرم تغیرات و تمدید شرکت</a>
+              <a href="./tamdid_sherkat.php" class="card-link position-absolute bottom-0 mb-1">فرم تغیرات و تمدید شرکت</a>
               <!--<a href="#" class="card-link">Another link</a>-->
             </div>
           </div>

@@ -9,7 +9,7 @@ class _function{
         }
         
         if ((empty($_SESSION['phone']) and empty($_SESSION['fname'])) and (empty($_COOKIE['phone']) and empty($_COOKIE['fname']))) {
-            header('location:index.php');
+            header('location:login.php');
         }
 
     }
