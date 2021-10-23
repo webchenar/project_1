@@ -128,6 +128,7 @@ $sj = $data->search('sj_tamdid_sahami_khas', 'sj_id', $sj_id);
 
  $rozname = $sj['rooz_name'];
 
+ $c_adress = $sj['c_adress'];
 // //مشخصات سهامداران
 //var_dump($sahamdaran);
 $sahamdarExport = '<table>';
@@ -280,7 +281,7 @@ $htmlpersian = '
 
 <p>
   جلسه مجمع عمومی عادی شرکت فوق در ساعت ' . $time_j . ' و در تاریخ ' . $date_j . ' با حضور ' .$hozor. '
-  به شرح زیر در محل قانونی شرکت واقع در  تشکیل گردید.
+  به شرح زیر در محل قانونی شرکت واقع در ' . $c_adress . ' تشکیل گردید.
 </p>
 
 <h4>الف: سهامداران حاضر در جلسه عبارتند از:</h4>

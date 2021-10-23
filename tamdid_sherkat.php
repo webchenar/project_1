@@ -7,7 +7,6 @@ $data = new DataBase();
 
 _function::logIn();
 
-//var_dump($_FILES);
 
 if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset($_POST['shenasemelli']) && isset($_POST['rozname']) && isset($_POST['sahamdar']) && isset($_POST['tedadsaham']) && isset($_POST['hozor']) && isset($_FILES['imgRozname']['name']) && empty($_SESSION['step2'])) {
 
@@ -125,7 +124,7 @@ if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset
 
 <?php
 
-if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSION['step3']) and empty($_SESSION['stepfinish'])) {
+if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSION['step3']) and empty($_SESSION['print'])) {
 
     $sj = $data->searchAll('sj_tamdid_sahami_khas', 'rel_user', isset($_SESSION['phone']) ? $_SESSION['phone'] : $_COOKIE['phone']);
 
@@ -1040,10 +1039,6 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
             $_SESSION['stepfinish'] = true;
             $_SESSION['step3'] = false;
             $_POST = NULL;
-            $phone = $_SESSION['phone'];
-            session_destroy();
-            $_SESSION['phone'] = $phone;
-            header('location: pdf/tamdid.php');
         }
     }
     if ($_SESSION['stepfinish'] == false and $_SESSION['step3'] = true) {
@@ -1325,7 +1320,7 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
     }
 }
 
-if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SESSION['step3'] == false) {
+if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SESSION['step3'] == false and empty($_SESSION['print'])) {
 
 
     //var_dump($_FILES);
@@ -1479,7 +1474,6 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
             </div>
             -->
 
-
             <br>
             <div class="col-12 my-5 d-block ">
                 <button type="submit" class="btn w-100 btn-primary">ادامه</button>
@@ -1492,6 +1486,38 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
 
 <?php
 }
+if (isset($_SESSION['print'])) {
+
 ?>
+
+    <div class="container my-5">
+    <h4 class="sahel my-5" >برای چاپ و یا دانلود  صورت جلسه ها به باکس های زیر مراجعه کنبد:</h4>
+        <div class="row ">
+            <div class="col-12 col-md-6 my-3 my-md-0 shadow">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title sahel opacity-75">صورت جلسه اول</h5>
+                        <p class="card-text sahel opacity-75">صورت جلسه مجمع عمومی عادی برای انتخاب مدیران، بازرسان و روزنامه کثیرالانتشار (شرکت سهامی خاص)</p>
+                        <a href="./pdf/tamdid.php" target="_blank" class="btn btn-outline-success">برای دریافت کلیک کنید</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 my-3 my-md-0 col-md-6 shadow">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title sahel opacity-75">صورت جلسه دوم</h5>
+                        <p class="card-text sahel opacity-75">صورتجلسه هیئت مدیره در خصوص تعیین سمت مدیران و تعیین دارندگان امضاء مجاز(سهامی خاص)</p>
+                        <a href="#" class="btn btn-outline-success">در دست طراحی</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br>
+<?php
+}
+?>
+
 
 <?php include_once('./footer.php'); ?>
