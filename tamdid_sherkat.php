@@ -1368,6 +1368,8 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
         if (isset($_POST['vaYa'])) {
             $data->update('sj_tamdid_sahami_khas', 'va_ya', $_POST['vaYa'], 'sj_id', $sj_id);
         }
+
+        $_SESSION['print'] = true;
     }
 
 
