@@ -39,8 +39,8 @@ if (isset($_POST)) {
             }
         }
 
-        $_SESSION['oldPhone'] = $user['phone'];
-        
+        $_SESSION['oldPhone'] = isset($_SESSION['phone'])?$_SESSION['phone']:$_COOKIE['phone'];
+        $_SESSION['oldEmail'] = $user['email'];
 
         require_once('./src/validation.php');
     }

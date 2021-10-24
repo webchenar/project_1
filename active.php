@@ -5,16 +5,18 @@ include_once('header.php');
 
 $data = new DataBase();
 
+
 //محل اتصال apn پیامک و ایمیل
 if (strcmp($_SESSION['page'], 'register') == 0 or strcmp($_SESSION['page'], 'forget') == 0) {
     echo $_SESSION['phone'] . '<br>' . $_SESSION['rand'] . '<br>' . $_SESSION['page'];
     //_function::sendSms($_SESSION['phone'], $_SESSION['rand']);
-
+    //_function::senMail($_SESSION['email'], $_SESSION['rand']);
+    
 } elseif(isset($_SESSION['newPhone'])) {
-    echo $_SESSION['newPhone'] . '<br>' . $_SESSION['rand'];
-    //_function::sendSms($_SESSION['newPhone'], $_SESSION['rand']);
-    $_SESSION['newPhone'] = NULL;
-
+    echo $_SESSION['oldPhone'] . '<br>' . $_SESSION['rand'];
+    //_function::sendSms($_SESSION['oldPhone'], $_SESSION['rand']);
+    //_function::senMail($_SESSION['oldEmail'], $_SESSION['rand']);
+    $_SESSION['oldPhone'] = NULL;
 }
 
 if (empty($_SESSION['rand']) and strcmp($_SESSION['page'], 'forget') != 0) {
@@ -40,22 +42,26 @@ if (isset($_POST['activeCode'])) {
             $_SESSION['page'] == '';
         } elseif (strcmp($_SESSION['page'], 'change') == 0) {
 
-            $data->updateUser($_SESSION['fname'], $_SESSION['lname'], $_SESSION['phone'], $_SESSION['email'], $_SESSION['cellPhone'], $_SESSION['password'], $_SESSION['oldPhone']);
+            $data->updateUser($_SESSION['fname'], $_SESSION['lname'], $_SESSION['newPhone'], $_SESSION['email'], $_SESSION['cellPhone'], $_SESSION['password'], $_SESSION['oldPhone']);
             $_POST = null;
 
 
-            if (isset($_COOKIE['fname'])) {
+            if (isset($_COOKIE['fname']) and isset($_COOKIE['phone'])) {
                 setcookie("fname", $_POST['fname'], time() + 10800);
+                setcookie('phone', $_SESSION['newPhone'], time() + 10800);
             }
 
-            $fname = $_SESSION['fname'];
-            $phone = $_SESSION['phone'];
+            if (isset($_SESSION['fname']) and $_SESSION['phone']) {
+                $fname = $_SESSION['fname'];
+                $phone = $_SESSION['phone'];
+    
+                session_unset();
+    
+                $_SESSION['fname'] = $fname;
+    
+                $_SESSION['phone'] = $phone;
+            }
 
-            session_unset();
-
-            $_SESSION['fname'] = $fname;
-
-            $_SESSION['phone'] = $phone;
             
         } elseif (strcmp($_SESSION['page'], 'forget') == 0) {
             $_SESSION['page'] = '';
