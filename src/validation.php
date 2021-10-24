@@ -80,6 +80,7 @@ if ($chek) {
     $_SESSION['password'] = md5($_POST['password']);
     $_SESSION['rand'] = rand(1000, 9999);
     $_SESSION['newPhone'] = isset($_POST['phone'])?$_POST['phone']:null;
+    $_SESSION['chekSms'] = true;
     $_POST = null;
     header('location:active.php');
 

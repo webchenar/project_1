@@ -7,16 +7,18 @@ $data = new DataBase();
 
 
 //محل اتصال apn پیامک و ایمیل
-if (strcmp($_SESSION['page'], 'register') == 0 or strcmp($_SESSION['page'], 'forget') == 0) {
-    echo $_SESSION['phone'] . '<br>' . $_SESSION['rand'] . '<br>' . $_SESSION['page'];
+if (strcmp($_SESSION['page'], 'register') == 0 or strcmp($_SESSION['page'], 'forget') == 0 and $_SESSION['chekSms']) {
+    echo $_SESSION['phone'] . '<br>' . $_SESSION['rand'] . '<br>' . $_SESSION['page'] . $_SESSION['email'];
     //_function::sendSms($_SESSION['phone'], $_SESSION['rand']);
     //_function::senMail($_SESSION['email'], $_SESSION['rand']);
+    $_SESSION['chekSms'] = false;
     
-} elseif(isset($_SESSION['newPhone'])) {
-    echo $_SESSION['oldPhone'] . '<br>' . $_SESSION['rand'];
-    //_function::sendSms($_SESSION['oldPhone'], $_SESSION['rand']);
+} elseif(isset($_SESSION['newPhone']) and $_SESSION['chekSms']) {
+
+    echo $_SESSION['oldPhone'] . '<br>' . $_SESSION['rand'] . $_SESSION['oldEmail'];
+    _function::sendSms($_SESSION['oldPhone'], $_SESSION['rand']);
     //_function::senMail($_SESSION['oldEmail'], $_SESSION['rand']);
-    $_SESSION['oldPhone'] = NULL;
+    $_SESSION['chekSms'] = false;
 }
 
 if (empty($_SESSION['rand']) and strcmp($_SESSION['page'], 'forget') != 0) {
