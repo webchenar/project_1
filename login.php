@@ -58,6 +58,7 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
 
         setcookie("logIn", "true", time() + 10800);
         header('location:index.php');
+       $_SESSION['msg'] = $user['first_name'] . ' ' . $user['last_name'];
     }
 }
 

@@ -27,7 +27,7 @@ if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset
         $chek = false;
     }
 
-    if (!preg_match("/[0-9]/", $_POST['sahamdar'])) {
+    if (strcmp($_POST['sahamdar'], '- تعداد سهامداران -') == 0) {
         echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
         <strong>لطفا تعداد سهامداران را مشخص کنید</strong>
       </div>';
@@ -50,7 +50,7 @@ if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset
 
     if (!preg_match("/[0-9]/", $_POST['tedadsaham'])) {
         echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>لطفا تعداد سهامداران را مشخص کنید</strong>
+        <strong>لطفا تعداد سهام های ثبت شده را مشخص کنید</strong>
       </div>';
         $chek = false;
     }
@@ -145,11 +145,6 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
     if ($_SESSION['count'] <= $_SESSION['sahamdaran']) {
 
         $chek = true;
-
-
-
-        echo $sj_id;
-
 
         if (isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['phone']) && isset($_POST['sahm']) && isset($_POST['sematjalase']) && isset($_POST['sematnahaie']) && isset($_FILES['imgSahamdar']['name'])) {
 
@@ -324,12 +319,9 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
 
 
                 if (strcmp($_POST['sematjalase'], 'ناظر جلسه') == 0) {
-                    echo 1;
                     if (empty($_SESSION['sematjalase'])) {
                         $_SESSION['sematjalase'] = 1;
-                        echo 2;
                     } else {
-                        echo 1;
                         $_SESSION['sematjalase']++;
                     }
                 }
@@ -465,19 +457,20 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                         }
                                     } else {
                                     ?>
+                                        <?php echo isset($_POST['sematjalase']) ? ('<option value="' . $_POST['sematjalase'] . '"> ' .  $_POST['sematjalase'] . '</option>') : NULL; ?>
                                         <option value="رئیس جلسه">رئیس جلسه</option>
                                         <option value="ناظر جلسه">ناظر جلسه</option>
                                         <option value="منشی جلسه">منشی جلسه</option>
                                         <option value="سهامدار">سهامدار</option>
                                     <?php } ?>
                                 </select>
-
                                 <br>
-
+                                <option value="نائب"> نائب</option>
                                 <label for="sematnahaie" class="form-label "> سمت نهایی: <span class="t-red">*</span></label>
                                 <select name="sematnahaie" class="btn-outline-success rounded p-1 mb-3 " aria-required="true" aria-invalid="false" required>
                                     <?php
 
+                                    
                                     $modiamel = true;
                                     $raeiHeiatModire = true;
                                     $naebRaeis = true;
@@ -521,11 +514,13 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                             echo '<option value="عضو اصلی هیئت مدیره">عضو اصلی هیئت مدیره</option>';
                                         }
 
+
                                         if ($modiamel == false && $raeiHeiatModire == false && $naebRaeis == false && $ozveAsli == false) {
                                             //echo '<option value="همه سمت ها انتخاب شده اند</option>';
                                             echo '<option>همه سمت ها انتخاب شده اند</option>';
                                         }
                                     } else { ?>
+                                        <?php echo isset($_POST['sematnahaie']) ? ('<option value="' . $_POST['sematnahaie'] . '"> ' .  $_POST['sematnahaie'] . '</option>') : NULL; ?>
                                         <option value="مدیر عامل و رئیس هیئت مدیره">مدیر عامل و رئیس هیئت مدیره</option>
                                         <option value="رئیس هیئت میره">رئیس هیئت میره</option>
                                         <option value="نائب رئیس هیئت مدیره">نائب رئیس هیئت مدیره</option>
@@ -536,6 +531,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
 
                                 </select>
 
+                                
                                 <div class="input-group my-3 col-12">
                                     <label class="input-group-text" for="inputGroupFile01">بارگذاری اسکن صفحه اول شناسنامه سهامدار:
                                         <span class="t-red">*</span></label>
@@ -544,7 +540,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
 
                             </div>
 
-
+                            <a href="./src/sesionRestart.php" class="bold">جهت ویرایش و شروع دوباره کلیک کنید.</a>
 
 
                             <!--<div class="d-none d-md-block col-md-6 border my-2 shadow-sm">
@@ -638,8 +634,9 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                     <label for="date_time" class="form-label d-block my-3">ساعت و تاریخ جلسه هیئت مدیره:<span class="t-red">*</span></label>
                                     <label for="minute" class="form-label d-inline"> ساعت: </label>
                                     <select name="minute" class="btn-outline-success rounded p-1 mb-3 d-inline " aria-required="true" aria-invalid="false">
+
+                                    <?php echo isset($_POST['minute']) ? ('<option value="' . $_POST['minute'] . '"> ' .  $_POST['minute'] . '</option>') : NULL; ?>
                                         <option>- دقیقه -</option>
-                                        <option value="0"></option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -704,7 +701,9 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
 
                                     <label for="hours" class="form-label"> : </label>
                                     <select name="hours" class="btn-outline-success rounded p-1 mb-3 d-inline " aria-required="true" aria-invalid="false">
+                                    <?php echo isset($_POST['hours']) ? ('<option value="' . $_POST['hours'] . '"> ' .  $_POST['hours'] . '</option>') : NULL; ?>
                                         <option>- ساعت -</option>
+
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -736,6 +735,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
 
                                 <label for="day" class="form-label d-inline"> روز: </label>
                                 <select name="day" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
+                                <?php echo isset($_POST['day']) ? ('<option value="' . $_POST['day'] . '"> ' .  $_POST['day'] . '</option>') : NULL; ?>
                                     <option>- روز -</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -772,6 +772,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
 
                                 <label for="mounth" class="form-label d-inline"> : </label>
                                 <select name="mounth" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
+                                <?php echo isset($_POST['mounth']) ? ('<option value="' . $_POST['mounth'] . '"> ' .  $_POST['mounth'] . '</option>') : NULL; ?>
                                     <option>- ماه -</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -792,6 +793,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
 
                                 <label for="years" class="form-label d-inline"> : </label>
                                 <select name="years" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
+                                <?php echo isset($_POST['years']) ? ('<option value="' . $_POST['years'] . '"> ' .  $_POST['years'] . '</option>') : NULL; ?>
                                     <option>- سال -</option>
                                     <option value="1400">1400</option>
                                     <option value="1401">1401</option>
@@ -831,6 +833,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
 
                             <label for="sahamdar" class="form-label d-inline"> تعداد سهامداران حاظر در جلسه: </label>
                             <select name="sahamdar" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
+                            <?php echo isset($_POST['sahamdar']) ? ('<option value="'.$_POST['sahamdar'].'"> ' .  $_POST['sahamdar'] . '</option>') : NULL; ?>
                                 <option>- تعداد سهامداران -</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
@@ -859,6 +862,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                             <div class="col-12 my-3">
                                 <label for="hozor" class="form-label">جلسه با حضور:<span class="t-red">*</span></label>
                                 <select name="hozor" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
+                                <?php echo isset($_POST['hozor']) ? ('<option value="' . $_POST['hozor'] . '"> ' .  $_POST['hozor'] . '</option>') : NULL; ?>
                                     <option>- کلیه/اکثریت -</option>
                                     <option value="با حضور اکثریت سهامداران">با حضور اکثریت سهامداران</option>
                                     <option value="با حضور کلیه سهامداران">با حضور کلیه سهامداران</option>
@@ -1493,7 +1497,7 @@ if (isset($_SESSION['print'])) {
 ?>
 
     <div class="container my-5">
-    <h4 class="sahel my-5" >برای چاپ و یا دانلود  صورت جلسه ها به باکس های زیر مراجعه کنبد:</h4>
+        <h4 class="sahel my-5">برای چاپ و یا دانلود صورت جلسه ها به باکس های زیر مراجعه کنبد:</h4>
         <div class="row ">
             <div class="col-12 col-md-6 my-3 my-md-0 shadow">
                 <div class="card">

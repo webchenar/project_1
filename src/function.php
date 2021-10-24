@@ -14,6 +14,10 @@ class _function{
 
     }
 
+    static function restart() {
+        session_destroy();
+    }
+    
     static function validation_img($name, $size, $type, $msg = ''){
 
         if (empty($name) and strcmp($name, "") == 0) {
