@@ -22,7 +22,7 @@ if (empty($title)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php echo $title; ?></title>
 
-    <link rel="shortcut icon" href="https://innostudio.de/fileuploader/images/favicon.ico">
+    <link rel="shortcut icon" href="https://s21.picofile.com/file/8442747484/cropped_Untitled_1_1_192x192.png">
     <link href="css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
     <link href="themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>

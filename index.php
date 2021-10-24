@@ -7,7 +7,6 @@ if (isset($_COOKIE['newUser'])) {
     </div></div>';
 
 }
-
 if (isset( $_SESSION['msg'])) {
   echo '<div class="my-bg"><div class="alert alert-success container my-bg" role="alert">
 خوش آمدید ' .  $_SESSION['msg'] . ' به نیکو ثبت

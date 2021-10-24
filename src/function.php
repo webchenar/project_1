@@ -17,7 +17,20 @@ class _function{
     static function restart() {
         session_destroy();
     }
-    
+
+    static function sendSms($number, $text){
+            ini_set("soap.wsdl_cache_enabled",0);
+            $sms = new SoapClient("http://api.payamak-panel.com/post/Send.asmx?wsdl",array("encoding"=>"UTF-8"));
+            $data = array("username"=>"09179335012" ,
+            "password"=>"5ZMH0",
+            "to"=>array($number),
+            "from"=>"50004001335012",
+            "text"=>$text,
+            "isflash"=>false);
+            $result = $sms->SendSimpleSMS($data)->SendSimpleSMSResult;
+    }
+
+
     static function validation_img($name, $size, $type, $msg = ''){
 
         if (empty($name) and strcmp($name, "") == 0) {
