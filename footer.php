@@ -56,7 +56,6 @@
 
 <script src="./js/bootstrap.bundle.js"></script>
 <script src="./js/validation.js"></script>
-<script src="./js/input.js"></script>
 
 
 </body>

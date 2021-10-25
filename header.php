@@ -25,17 +25,6 @@ if (empty($title)) {
     <link rel="shortcut icon" href="https://s21.picofile.com/file/8442747484/cropped_Untitled_1_1_192x192.png">
     <link href="css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
     <link href="themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
-    <script src="js/plugins/piexif.js" type="text/javascript"></script>
-    <script src="js/plugins/sortable.js" type="text/javascript"></script>
-
-    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>-->
-    <script src="./js/fileinput.js" type="text/javascript"></script>
-    <script src="./js/locales/fr.js" type="text/javascript"></script>
-    <script src="./js/locales/es.js" type="text/javascript"></script>
-    <script src="./themes/fas/theme.js" type="text/javascript"></script>
-    <script src="./themes/explorer-fas/theme.js" type="text/javascript"></script>
-
 
     <link rel="stylesheet" href="./bootstrap-5.1.1/css/bootstrap.rtl.css" />
     <link rel="stylesheet" href="./css/all.css" />
