@@ -148,9 +148,8 @@ class DataBase
     }
 
     public function updateUser($fname, $lname, $phone, $email, $cellPhone, $password, $oldPhone){
-        $newPassword = md5($password);
         try{
-        $this->Con->exec("UPDATE `tbl_user` SET `phone`='$phone',`PASSWORD`='$newPassword',`first_name`='$fname',`last_name`='$lname',`email`='$email', `cell_phone`='$cellPhone',`verified`='1' WHERE `phone` = '$oldPhone' ");
+        $this->Con->exec("UPDATE `tbl_user` SET `phone`='$phone',`PASSWORD`='$password',`first_name`='$fname',`last_name`='$lname',`email`='$email', `cell_phone`='$cellPhone',`verified`='1' WHERE `phone` = '$oldPhone' ");
         }catch(PDOException $e){
             echo $e;
         }

@@ -1,11 +1,6 @@
 <?php
 include_once('header.php');
 
-
+echo md5('123456789');
 ?>
-
-
-
-<a href="./pdf/tamdid.php" target="_top">چاپ پرینن صورتجلسه مجمع عمومی انتخاب مدیران، بازرسان، و روزنامه کثیرالانتشار</a>
-
 <?php include_once('footer.php'); ?>

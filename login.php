@@ -52,8 +52,8 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
 
         } else {
 
-            $_SESSION['phone'] = $user['phone'];
-            $_SESSION['fname'] = $user['first_name'];
+            setcookie('phone', $user['phone'], time() + 10800);
+            setcookie('fname', $user['first_name'], time() + 10800);
 
         }
 

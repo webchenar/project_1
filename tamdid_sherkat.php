@@ -1521,6 +1521,8 @@ if (isset($_SESSION['print'])) {
                     </div>
                 </div>
             </div>
+
+            <a href="./src/sesionRestart.php" class="my-4">جهت ثبت صورت جلسه جدید اینجا کلیک کنید</a>
         </div>
     </div>
 

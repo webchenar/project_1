@@ -73,7 +73,7 @@ if (empty($title)) {
                             </li>
                             <li class="nav-item dropdown">
                                 <?php
-                                if (((isset($_SESSION['phone']) and isset($_SESSION['fname'])) or (isset($_COOKIE['phone']) and isset($_COOKIE['fname']))) and empty($chekUser)) {
+                                if ((isset($_COOKIE['phone']) and isset($_COOKIE['fname'])) and empty($chekUser)) {
 
                                     $fname = isset($_COOKIE['fname']) ? $_COOKIE['fname'] : $_SESSION['fname'];
                                 ?>
@@ -113,7 +113,7 @@ if (empty($title)) {
                                 <?php } */ ?>
 
                                 <?php
-                                if (empty($_SESSION['phone']) and empty($_COOKIE['phone'])) {
+                                if (empty($_COOKIE['phone'])) {
                                 ?>
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         ورود / ثبت نام

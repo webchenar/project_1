@@ -8,7 +8,10 @@ $data = new DataBase();
 
 $chek = true;
 
+
 $_SESSION['page'] = 'forget';
+
+$_SESSION['chekSms'] = true;
 
 if (isset($_POST['phone'])) {
 
@@ -51,6 +54,8 @@ if (isset($_POST['phone'])) {
         $_SESSION['fname'] = $user['first_name'];
 
         $_SESSION['rand'] = rand(1000, 9999);
+
+        $_SESSION['email'] = $user['email'];
 
         header('location:active.php');
     }
