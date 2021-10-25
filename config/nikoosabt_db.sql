@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 23, 2021 at 01:27 PM
+-- Generation Time: Oct 25, 2021 at 08:18 AM
 -- Server version: 5.7.31
 -- PHP Version: 7.4.9
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `masolan_sj_tamdid_sahami_khas` (
   `code_meli` varchar(12) COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `monshi` varchar(20) COLLATE utf8mb4_persian_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
 -- Dumping data for table `masolan_sj_tamdid_sahami_khas`
@@ -48,16 +48,16 @@ CREATE TABLE IF NOT EXISTS `masolan_sj_tamdid_sahami_khas` (
 
 INSERT INTO `masolan_sj_tamdid_sahami_khas` (`id`, `id_sj`, `fname`, `lname`, `masoliat`, `scan_cart_meli`, `scan_shenasname_meli`, `phone`, `code_meli`, `monshi`) VALUES
 (24, 89, 'امیرحسن', 'خدادوست', 'مدیر عامل', NULL, './upload/img/sj_tamdid_sahami_khas/89/sahamdar/09363225838/2.jpg', '09363225838', '2520149663', NULL),
-(23, 89, 'امیر', 'خودی', 'نماینده قانونی', NULL, './upload/img/sj_tamdid_sahami_khas/89/namaiande/3.png', '09365214758', '2520149663', NULL),
+(23, 89, 'امیر', 'خودی', 'وکالت داده', NULL, './upload/img/sj_tamdid_sahami_khas/89/namaiande/3.png', '09365214758', '2520149663', NULL),
 (21, 89, 'امیرحسین', 'خدادوست', 'بازرس اصلی', NULL, './upload/img/sj_tamdid_sahami_khas/89/bazresin/bazresAsli/pexels-aleksandar-pasaric-325185.jpg', '09363236838', '2520149663', 'منشی جلسه'),
 (9, 87, 'امیرحسین', 'خدادوست', 'بازرس اصلی', NULL, NULL, '09363236838', '2520149663', 'منشی جلسه'),
 (10, 87, 'امیرحسین', 'خدادوست', 'بازرس علی البدل', NULL, NULL, '09172253815', '2521149663', 'منشی جلسه'),
-(11, 87, 'امیر', 'خودی', 'نماینده قانونی', NULL, NULL, '09365214758', '2520149663', NULL),
+(11, 87, 'امیر', 'خودی', 'وکالت داده', NULL, NULL, '09365214758', '2520149663', NULL),
 (12, 87, 'امیرحسن', 'خدادوست', 'مدیر عامل', NULL, NULL, '09363232538', '2520254663', NULL),
 (22, 89, 'امیرحسین', 'خدادوست', 'بازرس علی البدل', NULL, './upload/img/sj_tamdid_sahami_khas/89/bazresin/bazresAlalbadal/4.jpg', '09172253815', '2520156532', 'منشی جلسه'),
 (25, 90, 'امیرحسین', 'خدادوست', 'بازرس اصلی', NULL, './upload/img/sj_tamdid_sahami_khas/90/bazresin/bazresAsli1.jpg', '09363236838', '2520149663', 'منشی جلسه'),
 (26, 90, 'امیرحسین', 'خدادوست', 'بازرس علی البدل', NULL, './upload/img/sj_tamdid_sahami_khas/90/bazresin/bazresAlalbadal/2.jpg', '09172253815', '2521149663', NULL),
-(27, 90, 'امیر', 'خودی', 'نماینده قانونی', NULL, './upload/img/sj_tamdid_sahami_khas/90/namaiande/3.png', '09365214758', '2520135663', NULL),
+(27, 90, 'امیر', 'خودی', 'وکالت داده', NULL, './upload/img/sj_tamdid_sahami_khas/90/namaiande/3.png', '09365214758', '2520135663', NULL),
 (28, 90, 'حسن', 'خیخیخیخ', 'مدیر عامل', NULL, './upload/img/sj_tamdid_sahami_khas/90/modirAmel/4.jpg', '09365326838', '2520963256', NULL),
 (29, 91, 'ابوالفضل', 'خدادوست', 'بازرس اصلی', NULL, './upload/img/sj_tamdid_sahami_khas/91/bazresin/bazresAsli/1.jpg', '09363236838', '2520149663', 'منشی جلسه'),
 (30, 91, 'امیرحسین', 'خدادوست', 'بازرس علی البدل', NULL, './upload/img/sj_tamdid_sahami_khas/91/bazresin/bazresAlalbadal/2.jpg', '09172253815', '2521149663', NULL),
@@ -66,7 +66,19 @@ INSERT INTO `masolan_sj_tamdid_sahami_khas` (`id`, `id_sj`, `fname`, `lname`, `m
 (33, 92, 'قلی', 'قلی پور', 'بازرس اصلی', NULL, './upload/img/sj_tamdid_sahami_khas/92/bazresin/bazresAsli/bazres.jpg', '09362548796', '2523698714', NULL),
 (34, 92, 'علی ', 'علی پور', 'بازرس علی البدل', NULL, './upload/img/sj_tamdid_sahami_khas/92/bazresin/bazresAlalbadal/bazres2.jpg', '09362541725', '2520139663', NULL),
 (35, 92, 'مریم', 'اژه ای', 'وکالت داده', NULL, './upload/img/sj_tamdid_sahami_khas/92/namaiande/vakil.jpg', '09362541235', '2520149612', NULL),
-(36, 92, 'حسین', 'بیابانی', 'مدیر عامل', NULL, './upload/img/sj_tamdid_sahami_khas/92/modirAmel/modirAmel.png', '09325698547', '2520369841', NULL);
+(36, 92, 'حسین', 'بیابانی', 'مدیر عامل', NULL, './upload/img/sj_tamdid_sahami_khas/92/modirAmel/modirAmel.png', '09325698547', '2520369841', NULL),
+(37, 93, 'امیرحسین', 'خدادوست', 'بازرس اصلی', NULL, './upload/img/sj_tamdid_sahami_khas/93/bazresin/bazresAsli/3.png', '09362548796', '2525789663', NULL),
+(38, 93, 'امیرحسین', 'خدادوست', 'بازرس علی البدل', NULL, './upload/img/sj_tamdid_sahami_khas/93/bazresin/bazresAlalbadal/3.png', '09363236838', '2520149663', NULL),
+(39, 93, 'امیر', 'خودی', 'وکالت داده', NULL, './upload/img/sj_tamdid_sahami_khas/93/namaiande/3.png', '09365254758', '2520255663', NULL),
+(40, 93, 'حسن', 'بیابانی', 'مدیر عامل', NULL, './upload/img/sj_tamdid_sahami_khas/93/modirAmel/4.jpg', '09362546838', '2520925456', NULL),
+(41, 97, 'امیرحسین', 'خدادوست', 'بازرس اصلی', NULL, './upload/img/sj_tamdid_sahami_khas/97/bazresin/bazresAsli/1.jpg', '09362548796', '2520149663', NULL),
+(42, 97, 'امیرحسین', 'خدادوست', 'بازرس علی البدل', NULL, './upload/img/sj_tamdid_sahami_khas/97/bazresin/bazresAlalbadal/2.jpg', '09172253815', '2521149663', NULL),
+(43, 97, 'امیر', 'خودی', 'وکالت داده', NULL, './upload/img/sj_tamdid_sahami_khas/97/namaiande/4.jpg', '09365214758', '2520149663', NULL),
+(44, 97, 'امیر', 'بشکار', 'مدیر عامل', NULL, './upload/img/sj_tamdid_sahami_khas/97/sahamdar/09363225438/2.jpg', '09363225438', '2520149663', NULL),
+(45, 98, 'امیرحسین', 'خدادوست', 'بازرس اصلی', NULL, './upload/img/sj_tamdid_sahami_khas/98/bazresin/bazresAsli/1.jpg', '09362548796', '2520149663', NULL),
+(46, 98, 'امیرحسین', 'خدادوست', 'بازرس علی البدل', NULL, './upload/img/sj_tamdid_sahami_khas/98/bazresin/bazresAlalbadal/2.jpg', '09172253815', '2521149663', NULL),
+(47, 98, 'امیر', 'خودی', 'وکالت داده', NULL, './upload/img/sj_tamdid_sahami_khas/98/namaiande/4.jpg', '09365214758', '2520149663', NULL),
+(48, 98, 'امیرحسین', 'خدادوستی', 'مدیر عامل', NULL, './upload/img/sj_tamdid_sahami_khas/98/sahamdar/09363225438/1.jpg', '09363225438', '2520149663', NULL);
 
 -- --------------------------------------------------------
 
@@ -118,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `sahamdaran` (
   `semat` varchar(50) COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `semat_nahaei` varchar(50) COLLATE utf8mb4_persian_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=122 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=135 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
 -- Dumping data for table `sahamdaran`
@@ -156,7 +168,20 @@ INSERT INTO `sahamdaran` (`id`, `id_sj_tamdid_sahami_khas`, `phone`, `fname`, `l
 (118, 92, '09363236838', 'امیرحسن', 'خدادوست', '2520149663', '500', '', './upload/img/sj_tamdid_sahami_khas/92/sahamdar/09363236838/1.jpg', 'رئیس جلسه', 'سهامدار', 'رئیس هیئت میره'),
 (119, 92, '09363225838', 'امیرعلی', 'بشکار', '2520125463', '100', '', './upload/img/sj_tamdid_sahami_khas/92/sahamdar/09363225838/2.jpg', 'ناظر جلسه', 'سهامدار', 'نائب رئیس هیئت مدیره'),
 (120, 92, '09363254838', 'ابوالفضل', 'مصباحی', '2520125663', '100', '', './upload/img/sj_tamdid_sahami_khas/92/sahamdar/09363254838/3.png', 'ناظر جلسه', 'سهامدار', 'عضو اصلی هیئت مدیره'),
-(121, 92, '09172253815', 'فهمیمه', 'خواست', '2520254663', '100', '', './upload/img/sj_tamdid_sahami_khas/92/sahamdar/09172253815/4.jpg', 'منشی جلسه', 'سهامدار', 'همه سمت ها انتخاب شده اند');
+(121, 92, '09172253815', 'فهمیمه', 'خواست', '2520254663', '100', '', './upload/img/sj_tamdid_sahami_khas/92/sahamdar/09172253815/4.jpg', 'منشی جلسه', 'سهامدار', 'همه سمت ها انتخاب شده اند'),
+(122, 93, '09363225838', 'امیرحسین', 'خدادوستی', '2520125463', '100', '', './upload/img/sj_tamdid_sahami_khas/93/sahamdar/09363225838/1.jpg', 'ناظر جلسه', 'سهامدار', 'رئیس هیئت میره'),
+(123, 93, '09363225438', 'امیرحسین', 'بشکاری', '2520125663', '100', '', './upload/img/sj_tamdid_sahami_khas/93/sahamdar/09363225438/2 - Copy.jpg', 'منشی جلسه', 'سهامدار', 'عضو اصلی هیئت مدیره'),
+(124, 93, '09363236838', 'امیرعلی', 'بشکاری', '2520215463', '100', '', './upload/img/sj_tamdid_sahami_khas/93/sahamdar/09363236838/3.png', 'رئیس جلسه', 'سهامدار', 'نائب رئیس هیئت مدیره'),
+(125, 93, '09363232538', 'امیر', 'خدادوستی', '2520254663', '100', '', './upload/img/sj_tamdid_sahami_khas/93/sahamdar/09363232538/4.jpg', 'ناظر جلسه', 'سهامدار', 'همه سمت ها انتخاب شده اند'),
+(126, 95, '09363225438', 'امیر', 'بشکار', '2520852663', '100', '', './upload/img/sj_tamdid_sahami_khas/95/sahamdar/09363225438/1.jpg', 'ناظر جلسه', 'سهامدار', 'نائب رئیس هیئت مدیره'),
+(127, 95, '09172253815', 'امیرعلی', 'بشکار', '2520125463', '100', '', './upload/img/sj_tamdid_sahami_khas/95/sahamdar/09172253815/2 - Copy.jpg', 'رئیس جلسه', 'سهامدار', 'رئیس هیئت میره'),
+(128, 95, '09363225838', 'امیرحسین', 'خدادوستی', '2520125663', '500', '', './upload/img/sj_tamdid_sahami_khas/95/sahamdar/09363225838/1.jpg', 'منشی جلسه', 'سهامدار', 'عضو اصلی هیئت مدیره'),
+(129, 97, '09363225438', 'امیر', 'بشکار', '2520149663', '100', '', './upload/img/sj_tamdid_sahami_khas/97/sahamdar/09363225438/2.jpg', 'رئیس جلسه', 'سهامدار', 'مدیر عامل و رئیس هیئت مدیره'),
+(130, 97, '09172253815', 'امیر', 'بشکار', '2520125663', '100', '', './upload/img/sj_tamdid_sahami_khas/97/sahamdar/09172253815/2.jpg', 'منشی جلسه', 'سهامدار', 'نائب رئیس هیئت مدیره'),
+(131, 97, '09363236838', 'امیر', 'بشکار', '2520114563', '100', '', './upload/img/sj_tamdid_sahami_khas/97/sahamdar/09363236838/4.jpg', 'ناظر جلسه', 'سهامدار', 'عضو اصلی هیئت مدیره'),
+(132, 98, '09363225438', 'امیرحسین', 'خدادوستی', '2520149663', '100', '', './upload/img/sj_tamdid_sahami_khas/98/sahamdar/09363225438/1.jpg', 'رئیس جلسه', 'سهامدار', 'مدیر عامل و رئیس هیئت مدیره'),
+(133, 98, '09363236838', 'امیرحسین', 'خدادوستی', '2520145663', '100', '', './upload/img/sj_tamdid_sahami_khas/98/sahamdar/09363236838/2.jpg', 'منشی جلسه', 'سهامدار', 'نائب رئیس هیئت مدیره'),
+(134, 98, '09363225838', 'امیر', 'خدادوستی', '2520114663', '200', '', './upload/img/sj_tamdid_sahami_khas/98/sahamdar/09363225838/3.png', 'ناظر جلسه', 'سهامدار', 'عضو اصلی هیئت مدیره');
 
 -- --------------------------------------------------------
 
@@ -198,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `sj_tamdid_sahami_khas` (
   `hozor` varchar(30) COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `va_ya` varchar(30) COLLATE utf8mb4_persian_ci DEFAULT NULL,
   PRIMARY KEY (`sj_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=93 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
 -- Dumping data for table `sj_tamdid_sahami_khas`
@@ -233,7 +258,13 @@ INSERT INTO `sj_tamdid_sahami_khas` (`sj_id`, `rel_user`, `c_shenase_meli`, `c_n
 (89, '09363236838', '32569874', 'نیکو ثبت', '32569874', 25698744, '13-12', '1400-3-14', '800', 'همشهری', './upload/img/sj_tamdid_sahami_khas/89/rozname/1.jpg', 'استهبان', 4, 'با حضور اکثریت سهامداران', '0'),
 (90, '09363236838', '32569874', 'نیکو ثبت', '32569874', 25698744, '14-13', '1400-3-15', '800', 'همشهری', './upload/img/sj_tamdid_sahami_khas/90/rozname/1.jpg', 'استهبان', 3, 'با حضور اکثریت سهامداران', 'به تنهایی حق امضا دارد'),
 (91, '09363236838', '32569874', 'نیکو ثبت', '32569874', 25698744, '2:1', '1400/2/2', '800', 'همشهری', './upload/img/sj_tamdid_sahami_khas/91/rozname/1.jpg', 'استهبان', 3, 'با حضور اکثریت سهامداران', 'به تنهایی حق امضا دارد'),
-(92, '09363236838', '335522', 'مهندسان برتر', '88445522', 3652147, '15:30', '1400/5/8', '2000', 'آرمان ملی', './upload/img/sj_tamdid_sahami_khas/92/rozname/ArmanMeli_s.jpg', 'استهبان خیابان ابوذر', 4, 'با حضور کلیه سهامداران', 'به تنهایی حق امضا دارد');
+(92, '09363236838', '335522', 'مهندسان برتر', '88445522', 3652147, '15:30', '1400/5/8', '2000', 'آرمان ملی', './upload/img/sj_tamdid_sahami_khas/92/rozname/ArmanMeli_s.jpg', 'استهبان خیابان ابوذر', 4, 'با حضور کلیه سهامداران', 'به تنهایی حق امضا دارد'),
+(93, '09363236838', '32569874', 'مهندسان برتر', '32569874', 25698744, '4:4', '1401/3/4', '500', 'کیهان', './upload/img/sj_tamdid_sahami_khas/93/rozname/1.jpg', 'استهبان', 4, 'با حضور اکثریت سهامداران', 'به تنهایی حق امضا دارد'),
+(94, '09363236838', '32569874', 'مهندسان برتر', '3256سشیب4', 25698744, '19:14', '1400/12/21', '20', 'کیهان', './upload/img/sj_tamdid_sahami_khas/94/rozname/1.jpg', 'استهبان', 3, 'با حضور اکثریت سهامداران', '0'),
+(95, '09363236838', '32569874', 'مهندسان برتر', '32569874', 25698744, '4:4', '1400/4/4', '500', 'کیهان', './upload/img/sj_tamdid_sahami_khas/95/rozname/1.jpg', 'استهبان', 4, 'با', '0'),
+(96, '09363236838', '32569874', 'مهندسان برتر', '32569874', 25698744, '3:2', '1401/5/4', 'sdfg', 'کیهان', './upload/img/sj_tamdid_sahami_khas/96/rozname/1.jpg', 'استهبان', 3, 'با حضور اکثریت سهامداران', '0'),
+(97, '09363236838', '32569874', 'مهندسان برتر', '32569874', 25698744, '3:3', '1400/4/4', '800', 'آرمان ملی', './upload/img/sj_tamdid_sahami_khas/97/rozname/1.jpg', 'استهبان', 3, 'با حضور اکثریت سهامداران', 'به تنهایی حق امضا دارد'),
+(98, '09172253815', '32569874', 'مهندسان برتر', '32569874', 25698744, '3:3', '1401/2/3', '800', 'همشهری', './upload/img/sj_tamdid_sahami_khas/98/rozname/1.jpg', 'استهان', 3, 'با حضور کلیه سهامداران', 'به تنهایی حق امضا دارد');
 
 -- --------------------------------------------------------
 
@@ -281,14 +312,16 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
   `cell_phone` varchar(15) COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `verified` int(10) DEFAULT '0',
   PRIMARY KEY (`id`,`phone`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
 -- Dumping data for table `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`id`, `phone`, `PASSWORD`, `first_name`, `last_name`, `email`, `cell_phone`, `verified`) VALUES
-(2, '09363236838', '25f9e794323b453885f5181f1b624d0b', 'امیرحسین', 'خدادوستی', 'beheshtestahban@yahoo.com', '07153225604', 1);
+(2, '09363236838', '70873e8580c9900986939611618d7b1e', 'امیرحسین', 'خدادوستی', 'amir@gmail.com', '07153225604', 1),
+(3, '09376639193', '70873e8580c9900986939611618d7b1e', 'امیرعلی', 'خدادوستی', 'amirhossein6838@gmail.com', '07153225604', 1),
+(4, '09399052485', '2e9ec317e197819358fbc43afca7d837', 'احمد', 'ذوقی', 'cyber000cyber@gmail.com', '07153225604', 1);
 
 -- --------------------------------------------------------
 
