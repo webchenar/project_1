@@ -1517,7 +1517,7 @@ if (isset($_SESSION['print'])) {
                     <div class="card-body">
                         <h5 class="card-title sahel opacity-75">صورت جلسه دوم</h5>
                         <p class="card-text sahel opacity-75">صورتجلسه هیئت مدیره در خصوص تعیین سمت مدیران و تعیین دارندگان امضاء مجاز(سهامی خاص)</p>
-                        <a href="#" class="btn btn-outline-success">در دست طراحی</a>
+                        <a href="#" class="btn btn-outline-success">بزودی (در حال توسعه)</a>
                     </div>
                 </div>
             </div>

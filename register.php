@@ -75,12 +75,12 @@ require_once('./src/validation.php');
                         </div>
                         <span id="spanmsg"></span>
                     </div>
-
                     <div class="col-12 my-3 ">
                         <label for="inputfname" class="form-label">ایمیل:</label>
-
-                        <input type="text" name="email" class="form-control" value="<?php echo isset($_POST['email']) ? $_POST['email'] : null; ?>" placeholder="لطفا ایمیل خود را وارد کنید">
-
+                        <input type="text" name="email" class="form-control" value="<?php echo isset($_POST['email'])? $_POST['email'] : NULL?>" placeholder="لطفا ایمیل خود را وارد کنید" required>
+                        <div class="invalid-feedback">
+                            وارد کردن ایمیل اجباریست
+                        </div>
                     </div>
 
                     <div class="col-12 my-3">

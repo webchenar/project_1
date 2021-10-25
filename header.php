@@ -73,7 +73,7 @@ if (empty($title)) {
                             </li>
                             <li class="nav-item dropdown">
                                 <?php
-                                if ((isset($_SESSION['phone']) and isset($_SESSION['fname'])) or (isset($_COOKIE['phone']) and isset($_COOKIE['fname']))) {
+                                if (((isset($_SESSION['phone']) and isset($_SESSION['fname'])) or (isset($_COOKIE['phone']) and isset($_COOKIE['fname']))) and empty($chekUser)) {
 
                                     $fname = isset($_COOKIE['fname']) ? $_COOKIE['fname'] : $_SESSION['fname'];
                                 ?>

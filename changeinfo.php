@@ -5,7 +5,7 @@ include_once('header.php');
 
 $chek = true;
 
-$_SESSION['titr'] = 'برای تایید ویرایش مشخصات لطفا کدی که به شماره همراه و  یا ایمیل وارد شده ارسال شده را وارد کنید';
+$_SESSION['titr'] = 'برای تایید ویرایش مشخصات لطفا کدی که به شماره همراه و ایمیل ارسال شده را وارد کنید';
 
 $_SESSION['page'] = 'change';
 
@@ -86,7 +86,10 @@ if (isset($_POST)) {
 
                     <div class="col-12 my-3 ">
                         <label for="inputfname" class="form-label">ایمیل:</label>
-                        <input type="text" name="email" class="form-control" value="<?php echo isset($_POST['email'])? $_POST['email'] : $user['email'] ?>" placeholder="لطفا ایمیل خود را وارد کنید">
+                        <input type="text" name="email" class="form-control" value="<?php echo isset($_POST['email'])? $_POST['email'] : $user['email'] ?>" placeholder="لطفا ایمیل خود را وارد کنید" required>
+                        <div class="invalid-feedback">
+                            وارد کردن ایمیل اجباریست
+                        </div>
                     </div>
 
                     <div class="col-12 my-3">

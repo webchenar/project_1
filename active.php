@@ -1,6 +1,8 @@
 <?php
 $title = 'فعال سازی حساب';
 
+$chekUser = true;
+
 include_once('header.php');
 
 $data = new DataBase();
@@ -8,16 +10,16 @@ $data = new DataBase();
 
 //محل اتصال apn پیامک و ایمیل
 if (strcmp($_SESSION['page'], 'register') == 0 or strcmp($_SESSION['page'], 'forget') == 0 and $_SESSION['chekSms']) {
-    echo $_SESSION['phone'] . '<br>' . $_SESSION['rand'] . '<br>' . $_SESSION['page'] . $_SESSION['email'];
-    //_function::sendSms($_SESSION['phone'], $_SESSION['rand']);
-    //_function::senMail($_SESSION['email'], $_SESSION['rand']);
+    echo $_SESSION['phone'] . '<br>' . $_SESSION['rand'] . '<br>' . $_SESSION['page'] . '<be>' . $_SESSION['email'];
+    _function::sendSms($_SESSION['phone'], 'سلام، کد تایید شما برای نیکو ثبت عبارت است از: ' . $_SESSION['rand']);
+    _function::senMail($_SESSION['email'], 'سلام، کد تایید شما برای نیکو ثبت عبارت است از: ' . $_SESSION['rand']);
     $_SESSION['chekSms'] = false;
     
 } elseif(isset($_SESSION['newPhone']) and $_SESSION['chekSms']) {
 
-    echo $_SESSION['oldPhone'] . '<br>' . $_SESSION['rand'] . $_SESSION['oldEmail'];
-    _function::sendSms($_SESSION['oldPhone'], $_SESSION['rand']);
-    //_function::senMail($_SESSION['oldEmail'], $_SESSION['rand']);
+    echo $_SESSION['oldPhone'] . '<br>' . $_SESSION['rand']  . '<be>' . $_SESSION['oldEmail'];
+    _function::sendSms($_SESSION['oldPhone'], 'سلام، کد تایید شما برای نیکو ثبت عبارت است از: ' . $_SESSION['rand']);
+    _function::senMail($_SESSION['oldEmail'], 'سلام، کد تایید شما برای نیکو ثبت عبارت است از: ' . $_SESSION['rand']);
     $_SESSION['chekSms'] = false;
 }
 
@@ -46,7 +48,7 @@ if (isset($_POST['activeCode'])) {
 
             $data->updateUser($_SESSION['fname'], $_SESSION['lname'], $_SESSION['newPhone'], $_SESSION['email'], $_SESSION['cellPhone'], $_SESSION['password'], $_SESSION['oldPhone']);
             $_POST = null;
-
+            $chekUser = NULL;
 
             if (isset($_COOKIE['fname']) and isset($_COOKIE['phone'])) {
                 setcookie("fname", $_POST['fname'], time() + 10800);
@@ -62,6 +64,7 @@ if (isset($_POST['activeCode'])) {
                 $_SESSION['fname'] = $fname;
     
                 $_SESSION['phone'] = $phone;
+                $chekUser = NULL;
             }
 
             
@@ -90,6 +93,7 @@ if (isset($_POST['activeCode'])) {
 
 ?>
 
+<br><br><br><br><br>
 <div class="container border text-center mt-5  pb-3">
     <h3 class="sahel fs-3 fw-bold my-t-color m-3 ">
         <?php echo $_SESSION['titr'] ?>
