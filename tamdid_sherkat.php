@@ -7,6 +7,8 @@ $data = new DataBase();
 
 _function::logIn();
 
+//var_dump($_SESSION);
+//var_dump($_COOKIE);
 
 if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset($_POST['shenasemelli']) && isset($_POST['rozname']) && isset($_POST['sahamdar']) && isset($_POST['tedadsaham']) && isset($_POST['hozor']) && isset($_FILES['imgRozname']['name']) && empty($_SESSION['step2'])) {
 
@@ -98,6 +100,7 @@ if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset
 
         //پیدا کردن آخرین صورت جلسه ثبت شده(صورتجلسه ای که در خط بالا ثب شد)
         $sj = $data->searchAll('sj_tamdid_sahami_khas', 'rel_user', isset($_SESSION['phone']) ? $_SESSION['phone'] : $_COOKIE['phone']);
+
         $sj_id = $sj[0]['sj_id'];
 
         foreach ($sj as $id) {
@@ -129,6 +132,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
     $sj = $data->searchAll('sj_tamdid_sahami_khas', 'rel_user', isset($_SESSION['phone']) ? $_SESSION['phone'] : $_COOKIE['phone']);
 
 
+    //var_dump($sj);
     $sj_id = $sj[0]['sj_id'];
 
     foreach ($sj as $id) {
@@ -1379,7 +1383,7 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
 
     ?>
 
-    <form class="my-5 needs-validation container" action="tamdid_sherkat.php" method="POST" enctype="multipart/form-data" novalidate>
+    <form class="my-5 needs-validation container" action="tamdid_sherkat.php" method="POST" novalidate>
 
         <?php
         if ($monshi == true) {

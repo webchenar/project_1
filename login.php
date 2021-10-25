@@ -43,6 +43,7 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
     }
 
     if ($chek) {
+        session_destroy();
         if (isset($_POST['check'])) {
 
             //session_start();
@@ -59,6 +60,7 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
         setcookie("logIn", "true", time() + 10800);
         header('location:index.php');
        $_SESSION['msg'] = $user['first_name'] . ' ' . $user['last_name'];
+       
     }
 }
 
