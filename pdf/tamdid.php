@@ -7,6 +7,7 @@ require_once('../src/function.php');
 
 //_function::logIn();
 
+//var_dump($_COOKIE);
 
 $data = new DataBase();
 
