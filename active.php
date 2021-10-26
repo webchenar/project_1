@@ -7,22 +7,23 @@ include_once('header.php');
 
 $data = new DataBase();
 
+
 // var_dump($_SESSION);
 // var_dump($_COOKIE);
 //محل اتصال apn پیامک و ایمیل
 if (strcmp($_SESSION['page'], 'register') == 0 and $_SESSION['chekSms']) {
     echo $_SESSION['phone'] . '<br>' . $_SESSION['rand'] . '<br>' . $_SESSION['page'] . '<be>' . $_SESSION['email'];
-    _function::sendSms($_SESSION['phone'], 'سلام، کد تایید شما برای نیکو ثبت عبارت است از: ' . $_SESSION['rand']);
+    _function::sendSms($_SESSION['phone'], $_SESSION['fname'] , $_SESSION['rand']);
     _function::senMail($_SESSION['email'], 'سلام، کد تایید شما برای نیکو ثبت عبارت است از: ' . $_SESSION['rand']);
     $_SESSION['chekSms'] = false;
 } elseif (isset($_SESSION['newPhone']) and $_SESSION['chekSms']) {
     echo $_SESSION['oldPhone'] . '<br>' . $_SESSION['rand']  . '<be>' . $_SESSION['oldEmail'];
-    _function::sendSms($_SESSION['oldPhone'], 'سلام، کد تایید شما برای نیکو ثبت عبارت است از: ' . $_SESSION['rand']);
+    _function::sendSms($_SESSION['oldPhone'], $_SESSION['fname'] , $_SESSION['rand']);
     _function::senMail($_SESSION['oldEmail'], 'سلام، کد تایید شما برای نیکو ثبت عبارت است از: ' . $_SESSION['rand']);
     $_SESSION['chekSms'] = false;
 } elseif (strcmp($_SESSION['page'], 'forget') == 0 and $_SESSION['chekSms']) {
-    echo $_SESSION['phone'] . '<br>' . $_SESSION['rand'] . '<br>' . $_SESSION['page'] . '<be>' . $_SESSION['email'];
-    _function::sendSms($_SESSION['phone'], 'سلام، کد تایید شما برای نیکو ثبت عبارت است از: ' . $_SESSION['rand']);
+    echo $_SESSION['phone'] . '<br>' . $_SESSION['rand'] . '<br>' . '<be>' . $_SESSION['email'];
+    _function::sendSms($_SESSION['phone'], $_SESSION['fname'] , $_SESSION['rand']);
     _function::senMail($_SESSION['email'], 'سلام، کد تایید شما برای نیکو ثبت عبارت است از: ' . $_SESSION['rand']);
     $_SESSION['chekSms'] = false;
 }

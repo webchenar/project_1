@@ -31,9 +31,30 @@ class _function
         session_destroy();
     }
 
-    static function sendSms($number, $text)
+    static function sendSms($number, $member, $text)
     {
-        ini_set("soap.wsdl_cache_enabled", 0);
+        $data = array(
+            'username' => "09179335012",
+            'password' => "5ZMH0",
+            'text' => "$member;$text",
+            'to' => $number,
+            "bodyId" => '63044'
+        );
+        $post_data = http_build_query($data);
+        $handle = curl_init('https://rest.payamak-panel.com/api/SendSMS/BaseServiceNumber');
+        curl_setopt($handle, CURLOPT_HTTPHEADER, array(
+            'content-type' => 'application/x-www-form-urlencoded'
+        ));
+        curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($handle, CURLOPT_POST, true);
+        curl_setopt($handle, CURLOPT_POSTFIELDS, $post_data);
+        $response = curl_exec($handle);
+        //var_dump($response);
+        
+        //ارسال تبلیغاتی
+        /*ini_set("soap.wsdl_cache_enabled", 0);
         $sms = new SoapClient("http://api.payamak-panel.com/post/Send.asmx?wsdl", array("encoding" => "UTF-8"));
         $data = array(
             "username" => "09179335012",
@@ -43,7 +64,7 @@ class _function
             "text" => $text,
             "isflash" => false
         );
-        $result = $sms->SendSimpleSMS($data)->SendSimpleSMSResult;
+        $result = $sms->SendSimpleSMS($data)->SendSimpleSMSResult;*/
     }
 
     static function senMail($mailAdress, $rand)
