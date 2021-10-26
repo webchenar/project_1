@@ -116,15 +116,15 @@ $sj = $data->search('sj_tamdid_sahami_khas', 'sj_id', $sj_id);
 // //مشخصات شرکت
  $c_name = $sj['c_name'];
 
- $c_shenase_meli = $sj['c_shenase_meli'];
+ $c_shenase_meli = _function::fa_number($sj['c_shenase_meli']);
 
- $c_shomare_sabt = $sj['c_shomare_sabt'];
+ $c_shomare_sabt = _function::fa_number($sj['c_shomare_sabt']);
 
- $c_sarmaye = $sj['c_sarmaye'];
+ $c_sarmaye = _function::fa_number($sj['c_sarmaye']);
 
- $time_j = $sj['t_shorooe_jalase'];
+ $time_j = _function::fa_number($sj['t_shorooe_jalase']);
 
- $date_j = $sj['d_shorooe_jalase'];
+ $date_j = _function::fa_number($sj['d_shorooe_jalase']);
 
  $hozor = $sj['hozor'];
 
