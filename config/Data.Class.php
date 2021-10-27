@@ -166,4 +166,15 @@ class DataBase
             echo $e;
         }
     }
+
+    public function insertSjTaeinModiran($sj_id, $t_shore, $d_shore){
+        try{
+            $this->Con->exec("INSERT INTO `sj_taein_modiran`(`rel_sj_id`, `t_shorooe_jalase`, `d_shorooe_jalase`) VALUES ('$sj_id', '$t_shore', '$d_shore')");
+
+        }catch(PDOException $e){
+            echo $e;
+        }
+    }
+
+
 }
