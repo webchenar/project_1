@@ -38,7 +38,7 @@ class _function
             'password' => "5ZMH0",
             'text' => "$member;$text",
             'to' => $number,
-            "bodyId" => '63044'
+            "bodyId" => '63079'
         );
         $post_data = http_build_query($data);
         $handle = curl_init('https://rest.payamak-panel.com/api/SendSMS/BaseServiceNumber');
@@ -52,7 +52,7 @@ class _function
         curl_setopt($handle, CURLOPT_POSTFIELDS, $post_data);
         $response = curl_exec($handle);
         //var_dump($response);
-        
+
         //ارسال تبلیغاتی
         /*ini_set("soap.wsdl_cache_enabled", 0);
         $sms = new SoapClient("http://api.payamak-panel.com/post/Send.asmx?wsdl", array("encoding" => "UTF-8"));
@@ -74,13 +74,14 @@ class _function
 
         // Subject
         $subject = 'nikoosabt.ir';
-        $msg = rand(0000, 9999);
         // Message
         $message = "
-        <html>
-            <head>
-                 <title>سلام و عرض خدا قوت خدمت شما</title>
-            </head>
+        <!DOCTYPE html>
+        <html lang='fa'>
+        <head>
+            <meta charset='UTF-8'>
+            <title>کد فعالسازی</title>
+        </head>
             <body>
                 <p>سلام</p>
                 <h1>کد تایید شما عبارت است از: $rand</h1>
@@ -90,13 +91,21 @@ class _function
 
         // To send HTML mail, the Content-type header must be set
         $headers[] = 'MIME-Version: 1.0';
-        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+        $headers[] = 'Content-type: text/html; charset=utf-8';
 
         // Additional headers
         $headers[] = 'To: Mary <mary@example.com>, Kelly <kelly@example.com>';
         $headers[] = 'From: nikoosabt.ir';
         $headers[] = 'Cc: info@nikoosabt.ir';
         $headers[] = 'Bcc: info@nikoosabt.ir';
+
+        /*$headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'X-Mailer: PHP' . "\r\n";
+        $headers .= 'From: yourname <youraccount@example.com>' . "\r\n";
+        $headers .= 'Reply-To: yourname <youraccount@example.com>' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+        $headers .= 'Cc: admin@example.com' . "\r\n";
+        $headers .= 'Bcc: other@example.com' . "\r\n";*/
 
         // Mail it
         mail($to, $subject, $message, implode("\r\n", $headers));
