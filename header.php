@@ -12,6 +12,8 @@ if (empty($title)) {
     $title = 'نیکوثبت';
 }
 
+
+
 ?>
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
@@ -63,13 +65,12 @@ if (empty($title)) {
                             <li class="nav-item dropdown">
                                 <?php
                                 if ((isset($_COOKIE['phone']) and isset($_COOKIE['fname'])) and empty($chekUser)) {
-
-                                    $fname = isset($_COOKIE['fname']) ? $_COOKIE['fname'] : $_SESSION['fname'];
+;
                                 ?>
 
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                                        <?php echo "خوش آمدی " . $fname; ?>
+                                        <?php echo "خوش آمدی " .  $_COOKIE['fname'] ?>
 
                                     </a>
                                     <?php if (isset($_COOKIE['logIn'])) { ?>

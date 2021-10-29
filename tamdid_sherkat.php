@@ -115,7 +115,7 @@ if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset
                 $sj_id = $id['sj_id'];
             }
         }
-        echo $sj_id;
+        //echo $sj_id;
 
         mkdir("./upload/img/sj_tamdid_sahami_khas/$sj_id");
         mkdir("./upload/img/sj_tamdid_sahami_khas/$sj_id/rozname");
@@ -361,7 +361,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
 
             <div class="alert alert-info container" role="alert">
                 تعداد سهام های ثبت شده برابر با <?php echo $_SESSION['tedadsaham'] ?> است.(که تا کنون تعداد
-                <?php echo $_SESSION['tedadsahamentekhabi'] ?> انتخاب شده است.)
+                <?php echo $_SESSION['tedadsahamentekhabi'] ?> انتخاب شده است).
             </div>
 
             <div class="form">
@@ -472,12 +472,14 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                         <?php echo isset($_POST['sematjalase']) ? ('<option value="' . $_POST['sematjalase'] . '"> ' .  $_POST['sematjalase'] . '</option>') : NULL; ?>
                                         <option value="رئیس جلسه">رئیس جلسه</option>
                                         <option value="ناظر جلسه">ناظر جلسه</option>
-                                        <option value="منشی جلسه">منشی جلسه</option>
+                                        <?php if ($_SESSION['sahamdaran'] > 3) { ?>
+                                            <option value="منشی جلسه">منشی جلسه</option>
+                                        <?php } ?>
+
                                         <option value="سهامدار">سهامدار</option>
                                     <?php } ?>
                                 </select>
                                 <br>
-                                <option value="نائب"> نائب</option>
                                 <label for="sematnahaie" class="form-label "> سمت نهایی: <span class="t-red">*</span></label>
                                 <select name="sematnahaie" class="btn-outline-success rounded p-1 mb-3 " aria-required="true" aria-invalid="false" required>
                                     <?php
@@ -544,10 +546,19 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                 </select>
 
 
-                                <div class="input-group my-3 col-12">
-                                    <label class="input-group-text" for="inputGroupFile01">بارگذاری اسکن صفحه اول شناسنامه سهامدار:
+                                <div class="d-flex align-items-end">
+                                    <label class="bd-highlight" for="flexCheckDefault">
+                                        اگر این شخص مدیر عامل است کلیلک کنید:
+                                    </label>
+                                    <input class="bd-highlight align-self-stretch mx-3" type="checkbox" value="" id="flexCheckDefault">
+
+                                </div>
+
+                                <div class=" my-3 col-12 d-flex flex-row-reverse bd-highlight"">
+                                    <input type=" file" name="imgSahamdar" class="form-control bd-highlight" id="inputGroupFile01">
+                                    <label class="input-group-text bd-highlight" for="inputGroupFile01">بارگذاری اسکن صفحه اول شناسنامه سهامدار:
                                         <span class="t-red">*</span></label>
-                                    <input type="file" name="imgSahamdar" class="form-control" id="inputGroupFile01" require>
+
                                 </div>
 
                             </div>
@@ -1159,7 +1170,7 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
                         <span id="spanmsg"></span>
                     </div>
 
-                    <div class="col-12 my-3 ">
+                    <div class="col-12 my-3">
                         <label for="codmelibazres" class="form-label">کد ملی:<span class="t-red">*</span></label>
 
                         <input type="text" name="codmelibazres" class="form-control" value="<?php echo isset($_POST['codmelibazres']) ? $_POST['codmelibazres'] : null; ?>" placeholder="لطفا کد ملی بازرس علی البدل را وارد کنید" required>
@@ -1388,7 +1399,7 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
 
     if (isset($_POST['vekalat']) and isset($_POST['emza1']) and isset($_POST['vaYa']) and $chek) {
 
-        
+
         if (isset($_POST['bazrasMonshi'])) {
             $data->update('masolan_sj_tamdid_sahami_khas', 'monshi', 'منشی جلسه', 'phone', $_POST['bazrasMonshi']);
         }
