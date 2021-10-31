@@ -7,13 +7,15 @@ $data = new DataBase();
 
 _function::logIn();
 
+
 //var_dump($_SESSION);
 //var_dump($_COOKIE);
 
-if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset($_POST['shenasemelli']) && isset($_POST['rozname']) && isset($_POST['sahamdar']) && isset($_POST['tedadsaham']) && isset($_POST['hozor']) && isset($_FILES['imgRozname']['name']) && empty($_SESSION['step2'])) {
+if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset($_POST['shenasemelli']) && isset($_POST['rozname']) && isset($_POST['sahamdar']) && isset($_POST['tedadsaham']) && isset($_POST['hozor']) && empty($_SESSION['step2'])) {
 
 
-    $chek = _function::validation_img($_FILES['imgRozname']['name'], $_FILES['imgRozname']['size'], $_FILES['imgRozname']['type']);
+    /*$chek = _function::validation_img($_FILES['imgRozname']['name'], $_FILES['imgRozname']['size'], $_FILES['imgRozname']['type']);*/
+    $chek = true;
 
     if (!preg_match("/[0-9]/", $_POST['shomaresabtsherkat'])) {
         echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
@@ -118,12 +120,9 @@ if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset
         //echo $sj_id;
 
         mkdir("./upload/img/sj_tamdid_sahami_khas/$sj_id");
-        mkdir("./upload/img/sj_tamdid_sahami_khas/$sj_id/rozname");
+        //mkdir("./upload/img/sj_tamdid_sahami_khas/$sj_id/rozname");
         //move_uploaded_file($_FILES['imgRozname']['tmp_name'], "./upload/img/sj_tamdid_sahami_khas/rozname/$sj_id/" . $_FILES['imgRozname']['name']);
-
-        move_uploaded_file($_FILES['imgRozname']['tmp_name'], "./upload/img/sj_tamdid_sahami_khas/$sj_id/rozname/" . $_FILES['imgRozname']['name']);
-
-        $data->updateSjtamdidiSahamiKhas('rooz_adress_file', "./upload/img/sj_tamdid_sahami_khas/$sj_id/rozname/" . $_FILES['imgRozname']['name'], $sj_id);
+        //$data->updateSjtamdidiSahamiKhas('rooz_adress_file', "./upload/img/sj_tamdid_sahami_khas/$sj_id/rozname/" . $_FILES['imgRozname']['name'], $sj_id);
 
         $_SESSION['tedadsahamentekhabi'] = 0;
     } else {
@@ -325,7 +324,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
 
                 move_uploaded_file($_FILES['imgSahamdar']['tmp_name'], $adressSave);
 
-                $data->inserMemberSjtamdidSahamiKhas($sj_id, $_POST['fname'], $_POST['lname'], $_POST['phone'], $_POST['codmeli'], $_POST['sahm'], '', $adressSave, $_POST['sematjalase'], 'سهامدار', $_POST['sematnahaie']);
+                $data->inserMemberSjtamdidSahamiKhas($sj_id, $_POST['fname'], $_POST['lname'], $_POST['phone'], $_POST['codmeli'], $_POST['sahm'], '', $adressSave, $_POST['sematjalase'], 'سهامدار', $_POST['sematnahaie'], isset($_POST['saveModirAmel']) ? $_POST['saveModirAmel'] : NULL);
 
                 $_SESSION['count']++;
 
@@ -457,7 +456,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                         if ($raeisjalase == true) {
                                             echo '<option value="رئیس جلسه">رئیس جلسه</option>';
                                         }
-                                        if ($monshi == true) {
+                                        if ($monshi == true and $_SESSION['sahamdaran'] > 3) {
                                             echo ' <option value="منشی جلسه">منشی جلسه</option>';
                                         }
                                         if ($nazrjalase == true) {
@@ -485,7 +484,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                     <?php
 
 
-                                    $modiamel = true;
+                                    $modirAmel = true;
                                     $raeiHeiatModire = true;
                                     $naebRaeis = true;
                                     $ozveAsli = true;
@@ -493,14 +492,11 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                     if (!empty($members)) {
                                         foreach ($members as $member) {
 
-                                            if (strcmp($member['semat_nahaei'], 'مدیر عامل و رئیس هیئت مدیره') == 0) {
-                                                $modiamel = false;
-                                                $raeiHeiatModire = false;
+                                            if (strcmp($member['chek_modiamel'], 'مدیر عامل') == 0) {
+                                                $modirAmel = false;
                                             }
-
                                             if (strcmp($member['semat_nahaei'], 'رئیس هیئت میره') == 0) {
                                                 $raeiHeiatModire = false;
-                                                $modiamel = false;
                                             }
 
                                             if (strcmp($member['semat_nahaei'], 'نائب رئیس هیئت مدیره') == 0) {
@@ -512,11 +508,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                             }
                                         }
 
-                                        if ($modiamel == true && $raeiHeiatModire == true) {
-                                            echo '<option value="مدیر عامل و رئیس هیئت مدیره">مدیر عامل و رئیس هیئت مدیره</option>';
-                                        }
-
-                                        if ($raeiHeiatModire == true && $modiamel == true) {
+                                        if ($raeiHeiatModire == true) {
                                             echo '<option value="رئیس هیئت میره">رئیس هیئت میره</option>';
                                         }
 
@@ -535,7 +527,6 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                         }
                                     } else { ?>
                                         <?php echo isset($_POST['sematnahaie']) ? ('<option value="' . $_POST['sematnahaie'] . '"> ' .  $_POST['sematnahaie'] . '</option>') : NULL; ?>
-                                        <option value="مدیر عامل و رئیس هیئت مدیره">مدیر عامل و رئیس هیئت مدیره</option>
                                         <option value="رئیس هیئت میره">رئیس هیئت میره</option>
                                         <option value="نائب رئیس هیئت مدیره">نائب رئیس هیئت مدیره</option>
                                         <option value="عضو اصلی هیئت مدیره">عضو اصلی هیئت مدیره</option>
@@ -545,21 +536,21 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
 
                                 </select>
 
+                                <?php if ($modirAmel) { ?>
+                                    <div class="d-flex align-items-end">
+                                        <label class="bd-highlight" for="flexCheckDefault">
+                                            اگر این شخص مدیر عامل است تیک بزنید کنید:
+                                        </label>
+                                        <input class="bd-highlight align-self-stretch mx-3" name="saveModirAmel" type="checkbox" value="مدیر عامل" id="flexCheckDefault">
 
-                                <div class="d-flex align-items-end">
-                                    <label class="bd-highlight" for="flexCheckDefault">
-                                        اگر این شخص مدیر عامل است کلیلک کنید:
-                                    </label>
-                                    <input class="bd-highlight align-self-stretch mx-3" type="checkbox" value="" id="flexCheckDefault">
+                                    </div>
+                                <?php } ?>
 
+                                <div class="input-group my-3">
+                                    <label class="input-group-text" for="inputGroupFile01">بارگذاری اسکن صفحه اول شناسنامه سهامدار: <span class="t-red">*</span></label>
+                                    <input type="file" name="imgSahamdar" class="form-control" id="inputGroupFile01" require>
                                 </div>
 
-                                <div class=" my-3 col-12 d-flex flex-row-reverse bd-highlight"">
-                                    <input type=" file" name="imgSahamdar" class="form-control bd-highlight" id="inputGroupFile01">
-                                    <label class="input-group-text bd-highlight" for="inputGroupFile01">بارگذاری اسکن صفحه اول شناسنامه سهامدار:
-                                        <span class="t-red">*</span></label>
-
-                                </div>
 
                             </div>
 
@@ -840,10 +831,10 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                             </div>
 
 
-                            <div class="input-group my-3">
+                            <!--<div class="input-group my-3">
                                 <label class="input-group-text" for="inputGroupFile01">بارگذاری فایل روزنامه کثیرالنتشار: <span class="t-red">*</span></label>
                                 <input type="file" name="imgRozname" class="form-control" id="inputGroupFile01" require>
-                            </div>
+                            </div>-->
 
                             <div class="col-12 my-3">
 
@@ -956,7 +947,7 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
     $_SESSION['stepfinish'] = false;
 
     foreach ($members as $member) {
-        if (strcmp($member['semat_nahaei'], 'مدیر عامل و رئیس هیئت مدیره') == 0) {
+        if (strcmp($member['chek_modiamel'], 'مدیر عامل') == 0) {
             $modirAmel = $member;
         }
     }
@@ -1064,9 +1055,11 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
                 move_uploaded_file($_FILES['imgModirAmel']['tmp_name'], $imgAdress);
                 $data->insertMasolTamdidSahamiKhas($sj_id, $_POST['fmodiramel'], $_POST['lmodiramel'], $_POST['phonemodiramel'], $_POST['codmelimodiramel'], 'مدیر عامل', $imgAdress);
             }
+
             $_SESSION['stepfinish'] = true;
             $_SESSION['step3'] = false;
             $_POST = NULL;
+            $_FILES = NULL;
         }
     }
     if ($_SESSION['stepfinish'] == false and $_SESSION['step3'] = true) {
@@ -1258,7 +1251,7 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
                 <?php
                 //پیدا کردن مدیر عامل اگر از بین سهامداران باشد
                 foreach ($members as $member) {
-                    if (strcmp($member['semat_nahaei'], 'مدیر عامل و رئیس هیئت مدیره') == 0) {
+                    if (strcmp($member['chek_modiamel'], 'مدیر عامل') == 0) {
                         $modirAmel = $member;
                         $_POST['fmodiramel'] = $_POST['lmodiramel'] = $_POST['honemodiramel'] = $_POST['phonemodiramel'] = $_POST['codmelimodiramel'] = null;
                     }
@@ -1348,12 +1341,12 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
     }
 }
 
+
 if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SESSION['step3'] == false and empty($_SESSION['print'])) {
 
 
-
-    $chek = true;
     //var_dump($_FILES);
+
 
     $sj = $data->searchAll('sj_tamdid_sahami_khas', 'rel_user', isset($_SESSION['phone']) ? $_SESSION['phone'] : $_COOKIE['phone']);
 
@@ -1364,6 +1357,8 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
             $sj_id = $id['sj_id'];
         }
     }
+
+    $sj = $data->search('sj_tamdid_sahami_khas', 'sj_id', $sj_id);
 
     $members = $data->searchAll('sahamdaran', 'id_sj_tamdid_sahami_khas', $sj_id);
 
@@ -1385,16 +1380,29 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
         }
     }
 
+
     //بررسی ورود اطلاعات جلسه دوم
     if (isset($_POST['minute']) and isset($_POST['hours']) and isset($_POST['day']) and isset($_POST['mounth']) and isset($_POST['years'])) {
         $chek = true;
-        if (!(preg_match("/[0-9]/", $_POST['minute'])) && !(preg_match("/[0-9]/", $_POST['hours'])) && !(preg_match("/[0-9]/", $_POST['day'])) && !(preg_match("/[0-9]/", $_POST['mounth'])) && !(preg_match("/[0-9]/", $_POST['years']))) {
+        if (!(preg_match("/[0-9]/", $_POST['minute'])) or !(preg_match("/[0-9]/", $_POST['hours'])) or !(preg_match("/[0-9]/", $_POST['day'])) or !(preg_match("/[0-9]/", $_POST['mounth'])) or !(preg_match("/[0-9]/", $_POST['years']))) {
             echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
             <strong>لطفا تاریخ را مشخص کنید کنید</strong>
           </div>';
             $chek = false;
         }
+
+        //بررسی آپلود شدن فایل روزنامه
+        if (empty($_FILES['imgRozname']['name']) and $chek) {
+            echo '<div class="container alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>لطفا فایل روزنامه را آپلود کنید</strong>
+      </div>';
+            $chek = false;
+        } else {
+            $chek = _function::validation_img($_FILES['imgRozname']['name'], $_FILES['imgRozname']['size'], $_FILES['imgRozname']['type']);
+        }
     }
+
+
     //var_dump($_POST);
 
     if (isset($_POST['vekalat']) and isset($_POST['emza1']) and isset($_POST['vaYa']) and $chek) {
@@ -1412,106 +1420,223 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
             $data->update('sj_tamdid_sahami_khas', 'va_ya', $_POST['vaYa'], 'sj_id', $sj_id);
         }
 
-        echo $sj_id, $_COOKIE['phone'], $_POST['hours'] . ':' . $_POST['minute'], $_POST['years'] . '/' . $_POST['mounth'] . '/' . $_POST['day'];
+        //ذخیره فایل روزنامه
+        mkdir("./upload/img/sj_tamdid_sahami_khas/$sj_id/rozname");
+        move_uploaded_file($_FILES['imgRozname']['tmp_name'], "./upload/img/sj_tamdid_sahami_khas/$sj_id/rozname/" . $_FILES['imgRozname']['name']);
+        $data->updateSjtamdidiSahamiKhas('rooz_adress_file', "./upload/img/sj_tamdid_sahami_khas/$sj_id/rozname/" . $_FILES['imgRozname']['name'], $sj_id);
+
+        //echo $sj_id, $_COOKIE['phone'], $_POST['hours'] . ':' . $_POST['minute'], $_POST['years'] . '/' . $_POST['mounth'] . '/' . $_POST['day'];
         $data->insertSjTaeinModiran($sj_id, $_POST['hours'] . ':' . $_POST['minute'], $_POST['years'] . '/' . $_POST['mounth'] . '/' . $_POST['day']);
         $_SESSION['stepfinish'] = NULL;
         $_SESSION['print'] = true;
     }
 
 
+    if (empty($_SESSION['print'])) {
     ?>
 
-    <form class="my-5 needs-validation container" action="tamdid_sherkat.php" method="POST" novalidate>
+        <form class="my-5 needs-validation container" action="tamdid_sherkat.php" enctype="multipart/form-data" method="POST" novalidate>
 
-        <div class="alert alert-info mt-5" role="alert">
-            <span class="bolder t-red">ساعت جلسه هیئت مدیره در خصوص تعین سمت مدیرا و دارندگان امضا حداقل باید یک ساعت بعد از مجمع انتخاب بازرسان و مدیران باشد.</span>
+            <div class="alert alert-info mt-5" role="alert">
+                <span class="bolder t-red">ساعت جلسه هیئت مدیره در خصوص تعین سمت مدیرا و دارندگان امضا حداقل باید یک ساعت بعد از مجمع انتخاب بازرسان و مدیران باشد.</span>
 
+                <?php
+                if ($monshi == true) {
+
+                    //var_dump($bazrasMonshi);
+                ?>
+                    <span class="bolder t-red">لطفا یکی از بازرسین را به عنوان منشی انتخاب کنید.</span>
+            </div>
+
+
+            <label for="bazrasMonshi" class="form-label d-block d-md-inline my-2"> لطفا منشی جلسه را از بین بازرسین انتخاب کنید:
+                <span class="t-red">*</span></label>
+            <select name="bazrasMonshi" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
             <?php
-            if ($monshi == true) {
+                    foreach ($bazrasMonshi as $exportmasol) {
+                        if (strcmp($exportmasol['masoliat'], 'بازرس اصلی') == 0 or strcmp($exportmasol['masoliat'], 'بازرس علی البدل') == 0) {
+                            echo '<option value="' . $exportmasol['phone'] . '">' . $exportmasol['fname'] . ' - ' . $exportmasol['lname'] . ' - ' . $exportmasol['phone'] . '</option>';
+                        }
 
-                //var_dump($bazrasMonshi);
-            ?>
-                <span class="bolder t-red">لطفا یکی از بازرسین را به عنوان منشی انتخاب کنید.</span>
-        </div>
-        <label for="bazrasMonshi" class="form-label d-block d-md-inline my-2"> لطفا منشی جلسه را از بین بازرسین انتخاب کنید:
-            <span class="t-red">*</span></label>
-        <select name="bazrasMonshi" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
-        <?php
-                foreach ($bazrasMonshi as $exportmasol) {
-                    if (strcmp($exportmasol['masoliat'], 'بازرس اصلی') == 0 or strcmp($exportmasol['masoliat'], 'بازرس علی البدل') == 0) {
-                        echo '<option value="' . $exportmasol['phone'] . '">' . $exportmasol['fname'] . ' - ' . $exportmasol['lname'] . ' - ' . $exportmasol['phone'] . '</option>';
+                        if (strcmp($exportmasol['masoliat'], 'وکیل') == 0) {
+                            $vakil = $exportmasol;
+                        }
                     }
-
-                    if (strcmp($exportmasol['masoliat'], 'وکیل') == 0) {
-                        $vakil = $exportmasol;
-                    }
+                } else {
+                    echo '</div>';
                 }
-            } else {
-                echo '</div>';
-            }
-        ?>
-        </select>
-
-        <hr>
-
-        <label for="bazrasMonshi" class="form-label d-block d-md-inline"> لطفا مشخص کنید :
-            <?php echo $vakil['fname'] . ' - ' . $vakil['lname'] . ' - به شماره تماس ' . $vakil['phone']; ?> کدام است :
-            <span class="t-red">*</span></label>
-
-        <label class="form-check-label ms-3" for="flexRadioDefault1">
-            نماینده قانونی
-        </label>
-        <input class="form-check-input " value="نماینده قانونی" type="radio" name="vekalat" id="flexRadioDefault1">
-
-        <label class="form-check-label ms-3" for="flexRadioDefault2">
-            وکیل
-        </label>
-        <input class="form-check-input" type="radio" value="وکالت داده" name="vekalat" id="flexRadioDefault2" checked>
-
-        <br>
-
-        <hr>
-
-        <label for="emza1" class="form-label d-inline"> لطفا کسانی که حق امضا دارند را مشخص کنید: <span class="t-red">*</span></label>
-
-        <select name="emza1" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
-            <?php
-            foreach ($members as $member) {
-                echo '<option value="' . $member['phone'] . '">' . $member['fname'] . ' - ' . $member['lname'] . ' - ' . $member['phone'] . '</option>';
-            }
             ?>
-        </select>
+            </select>
 
 
-        <select name="vaYa" class="btn-outline-success rounded p-1 mb-3 d-inline mx-md-3" aria-required="true" aria-invalid="false">
-            <option value="به تنهایی حق امضا دارد">به تنهایی حق امضا دارد</option>
-            <option value="هر دو با هم">و (هر دو با هم باید امضا کنند) </option>
-            <option value="هر کدام حق امضا دارد">یا (هر کدام حق امضا دارد)</option>
-        </select>
+            <hr>
+
+            <?php if (strcmp($sj['hozor'], 'با حضور کلیه سهامداران') == 0) { ?>
+                <div class="input-group my-3 ">
+                    <label class="input-group-text" for="inputGroupFile01">بارگذاری فایل روزنامه کثیرالنتشار: <span class="t-red">*</span></label>
+                    <input type="file" name="imgRozname" class="form-control" id="inputGroupFile01" require>
+                </div>
+            <?php } ?>
+
+            <hr>
+            <label for="bazrasMonshi" class="form-label d-block d-md-inline"> لطفا مشخص کنید :
+                <?php echo $vakil['fname'] . ' - ' . $vakil['lname'] . ' - به شماره تماس ' . $vakil['phone']; ?> کدام است :
+                <span class="t-red">*</span></label>
+
+            <label class="form-check-label ms-3" for="flexRadioDefault1">
+                نماینده قانونی
+            </label>
+            <input class="form-check-input " value="نماینده قانونی" type="radio" name="vekalat" id="flexRadioDefault1">
+
+            <label class="form-check-label ms-3" for="flexRadioDefault2">
+                وکیل
+            </label>
+            <input class="form-check-input" type="radio" value="وکالت داده" name="vekalat" id="flexRadioDefault2" checked>
+
+            <br>
+
+            <hr>
+
+            <label for="emza1" class="form-label d-inline"> لطفا کسانی که حق امضا دارند را مشخص کنید: <span class="t-red">*</span></label>
+
+            <select name="emza1" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
+                <?php
+                foreach ($members as $member) {
+                    echo '<option value="' . $member['phone'] . '">' . $member['fname'] . ' - ' . $member['lname'] . ' - ' . $member['phone'] . '</option>';
+                }
+                ?>
+            </select>
 
 
-        <select name="emza2" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
-            <option value="">----------------------</option>
-            <?php
-            foreach ($members as $member) {
-                echo '<option value="' . $member['phone'] . '">' . $member['fname'] . ' - ' . $member['lname'] . ' - ' . $member['phone'] . '</option>';
-            }
-            ?>
-        </select>
-
-        <hr>
+            <select name="vaYa" class="btn-outline-success rounded p-1 mb-3 d-inline mx-md-3" aria-required="true" aria-invalid="false">
+                <option value="به تنهایی حق امضا دارد">به تنهایی حق امضا دارد</option>
+                <option value="هر دو با هم">و (هر دو با هم باید امضا کنند) </option>
+                <option value="هر کدام حق امضا دارد">یا (هر کدام حق امضا دارد)</option>
+            </select>
 
 
-        <div class="col-12 my-3">
+            <select name="emza2" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
+                <option value="">----------------------</option>
+                <?php
+                foreach ($members as $member) {
+                    echo '<option value="' . $member['phone'] . '">' . $member['fname'] . ' - ' . $member['lname'] . ' - ' . $member['phone'] . '</option>';
+                }
+                ?>
+            </select>
 
-            <div class="time d-block d-xl-inline">
-                <label for="date_time" class="form-label my-3 d-block"> ساعت و تاریخ جلسه هیئت مدیره در خصوص تعین سمت مدیران و تعیین دارندگان امضاء مجاز:<span class="t-red">*</span></label>
-                <label for="minute" class="form-label d-block d-md-inline"> ساعت: </label>
-                <select name="minute" class="btn-outline-success rounded p-1 mb-3 d-inline " aria-required="true" aria-invalid="false">
+            <hr>
 
-                    <?php echo isset($_POST['minute']) ? ('<option value="' . $_POST['minute'] . '"> ' .  $_POST['minute'] . '</option>') : NULL; ?>
-                    <option>- دقیقه -</option>
-                    <option value="0">0</option>
+
+            <div class="col-12 my-3">
+
+                <div class="time d-block d-xl-inline">
+                    <label for="date_time" class="form-label my-3 d-block"> ساعت و تاریخ جلسه هیئت مدیره در خصوص تعین سمت مدیران و تعیین دارندگان امضاء مجاز:<span class="t-red">*</span></label>
+                    <label for="minute" class="form-label d-block d-md-inline"> ساعت: </label>
+                    <select name="minute" class="btn-outline-success rounded p-1 mb-3 d-inline " aria-required="true" aria-invalid="false">
+
+                        <?php echo isset($_POST['minute']) ? ('<option value="' . $_POST['minute'] . '"> ' .  $_POST['minute'] . '</option>') : NULL; ?>
+                        <option>- دقیقه -</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                        <option value="32">32</option>
+                        <option value="33">33</option>
+                        <option value="34">34</option>
+                        <option value="35">35</option>
+                        <option value="36">36</option>
+                        <option value="37">37</option>
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                        <option value="45">45</option>
+                        <option value="46">46</option>
+                        <option value="47">47</option>
+                        <option value="48">48</option>
+                        <option value="49">49</option>
+                        <option value="50">50</option>
+                        <option value="51">51</option>
+                        <option value="52">52</option>
+                        <option value="53">53</option>
+                        <option value="54">54</option>
+                        <option value="55">55</option>
+                        <option value="56">56</option>
+                        <option value="57">57</option>
+                        <option value="58">58</option>
+                        <option value="59">59</option>
+                    </select>
+
+
+                    <label for="hours" class="form-label"> : </label>
+                    <select name="hours" class="btn-outline-success rounded p-1 mb-3 d-inline " aria-required="true" aria-invalid="false">
+                        <?php echo isset($_POST['hours']) ? ('<option value="' . $_POST['hours'] . '"> ' .  $_POST['hours'] . '</option>') : NULL; ?>
+                        <option>- ساعت -</option>
+
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                    </select>
+
+                </div>
+
+
+                <label for="day" class="form-label d-block d-md-inline"> روز: </label>
+                <select name="day" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
+                    <?php echo isset($_POST['day']) ? ('<option value="' . $_POST['day'] . '"> ' .  $_POST['day'] . '</option>') : NULL; ?>
+                    <option>- روز -</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -1543,42 +1668,12 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
                     <option value="29">29</option>
                     <option value="30">30</option>
                     <option value="31">31</option>
-                    <option value="32">32</option>
-                    <option value="33">33</option>
-                    <option value="34">34</option>
-                    <option value="35">35</option>
-                    <option value="36">36</option>
-                    <option value="37">37</option>
-                    <option value="38">38</option>
-                    <option value="39">39</option>
-                    <option value="40">40</option>
-                    <option value="41">41</option>
-                    <option value="42">42</option>
-                    <option value="43">43</option>
-                    <option value="44">44</option>
-                    <option value="45">45</option>
-                    <option value="46">46</option>
-                    <option value="47">47</option>
-                    <option value="48">48</option>
-                    <option value="49">49</option>
-                    <option value="50">50</option>
-                    <option value="51">51</option>
-                    <option value="52">52</option>
-                    <option value="53">53</option>
-                    <option value="54">54</option>
-                    <option value="55">55</option>
-                    <option value="56">56</option>
-                    <option value="57">57</option>
-                    <option value="58">58</option>
-                    <option value="59">59</option>
                 </select>
 
-
-                <label for="hours" class="form-label"> : </label>
-                <select name="hours" class="btn-outline-success rounded p-1 mb-3 d-inline " aria-required="true" aria-invalid="false">
-                    <?php echo isset($_POST['hours']) ? ('<option value="' . $_POST['hours'] . '"> ' .  $_POST['hours'] . '</option>') : NULL; ?>
-                    <option>- ساعت -</option>
-
+                <label for="mounth" class="form-label d-inline"> : </label>
+                <select name="mounth" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
+                    <?php echo isset($_POST['mounth']) ? ('<option value="' . $_POST['mounth'] . '"> ' .  $_POST['mounth'] . '</option>') : NULL; ?>
+                    <option>- ماه -</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -1591,94 +1686,24 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
                     <option value="10">10</option>
                     <option value="11">11</option>
                     <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                    <option value="18">18</option>
-                    <option value="19">19</option>
-                    <option value="20">20</option>
-                    <option value="21">21</option>
-                    <option value="22">22</option>
-                    <option value="23">23</option>
-                    <option value="24">24</option>
                 </select>
+
+
+
+
+                <label for="years" class="form-label d-inline"> : </label>
+                <select name="years" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
+                    <?php echo isset($_POST['years']) ? ('<option value="' . $_POST['years'] . '"> ' .  $_POST['years'] . '</option>') : NULL; ?>
+                    <option>- سال -</option>
+                    <option value="1400">1400</option>
+                    <option value="1401">1401</option>
+
+                </select>
+
 
             </div>
 
-
-            <label for="day" class="form-label d-block d-md-inline"> روز: </label>
-            <select name="day" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
-                <?php echo isset($_POST['day']) ? ('<option value="' . $_POST['day'] . '"> ' .  $_POST['day'] . '</option>') : NULL; ?>
-                <option>- روز -</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="21">21</option>
-                <option value="22">22</option>
-                <option value="23">23</option>
-                <option value="24">24</option>
-                <option value="25">25</option>
-                <option value="26">26</option>
-                <option value="27">27</option>
-                <option value="28">28</option>
-                <option value="29">29</option>
-                <option value="30">30</option>
-                <option value="31">31</option>
-            </select>
-
-            <label for="mounth" class="form-label d-inline"> : </label>
-            <select name="mounth" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
-                <?php echo isset($_POST['mounth']) ? ('<option value="' . $_POST['mounth'] . '"> ' .  $_POST['mounth'] . '</option>') : NULL; ?>
-                <option>- ماه -</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-            </select>
-
-
-
-
-            <label for="years" class="form-label d-inline"> : </label>
-            <select name="years" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
-                <?php echo isset($_POST['years']) ? ('<option value="' . $_POST['years'] . '"> ' .  $_POST['years'] . '</option>') : NULL; ?>
-                <option>- سال -</option>
-                <option value="1400">1400</option>
-                <option value="1401">1401</option>
-
-            </select>
-
-
-        </div>
-
-        <!--
+            <!--
             <div class="form-group">
                 <label for="file-3">Batch Preupload Error Check</label>
                 <div class="file-loading">
@@ -1703,21 +1728,22 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
             </div>
             -->
 
-        <br>
-        <div class="col-12 my-5 d-block ">
-            <button type="submit" class="btn w-100 btn-primary">ادامه</button>
-        </div>
+            <br>
+            <div class="col-12 my-5 d-block ">
+                <button type="submit" class="btn w-100 btn-primary">ادامه</button>
+            </div>
 
 
-    </form>
+        </form>
 
-    <br><br><br><br><br><br>
+        <br><br><br><br><br><br>
 
-<?php
+    <?php
+    }
 }
 if (isset($_SESSION['print'])) {
 
-?>
+    ?>
 
     <div class="container my-5">
         <h4 class="sahel my-5">برای چاپ و یا دانلود صورت جلسه ها به باکس های زیر مراجعه کنبد:</h4>

@@ -49,15 +49,17 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
             //session_start();
             setcookie('phone', $user['phone'], time() + 5148000);
             setcookie('fname', $user['first_name'], time() + 5148000);
+            setcookie("logIn", "true", time() + 5148000);
 
         } else {
 
             setcookie('phone', $user['phone'], time() + 10800);
             setcookie('fname', $user['first_name'], time() + 10800);
+            setcookie("logIn", "true", time() + 10800);
 
         }
 
-        setcookie("logIn", "true", time() + 10800);
+        
         header('location:index.php');
        $_SESSION['msg'] = $user['first_name'] . ' ' . $user['last_name'];
        

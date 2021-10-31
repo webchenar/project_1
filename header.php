@@ -13,7 +13,6 @@ if (empty($title)) {
 }
 
 
-
 ?>
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
@@ -35,7 +34,6 @@ if (empty($title)) {
 </head>
 
 <body>
-
 
     <header class="my-bg">
         <div class="container">

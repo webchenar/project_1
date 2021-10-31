@@ -299,7 +299,7 @@ if (isset($_GET['tamdid'])) {
     <title>Tamdid Sherkat</title>
     <style>
     p{
-      line-height: 15px;
+      line-height: 13px;
     }
     table{
       padding: 5px;
