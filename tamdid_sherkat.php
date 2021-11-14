@@ -7,13 +7,10 @@ $data = new DataBase();
 
 _function::logIn();
 
-
 //var_dump($_SESSION);
 //var_dump($_COOKIE);
 
 if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset($_POST['shenasemelli']) && isset($_POST['rozname']) && isset($_POST['sahamdar']) && isset($_POST['tedadsaham']) && isset($_POST['hozor']) && empty($_SESSION['step2'])) {
-
-
     /*$chek = _function::validation_img($_FILES['imgRozname']['name'], $_FILES['imgRozname']['size'], $_FILES['imgRozname']['type']);*/
     $chek = true;
 
@@ -495,7 +492,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                             if (strcmp($member['chek_modiamel'], 'مدیر عامل') == 0) {
                                                 $modirAmel = false;
                                             }
-                                            if (strcmp($member['semat_nahaei'], 'رئیس هیئت میره') == 0) {
+                                            if (strcmp($member['semat_nahaei'], 'رئیس هیئت مدیره') == 0) {
                                                 $raeiHeiatModire = false;
                                             }
 
@@ -509,7 +506,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                         }
 
                                         if ($raeiHeiatModire == true) {
-                                            echo '<option value="رئیس هیئت میره">رئیس هیئت میره</option>';
+                                            echo '<option value="رئیس هیئت میره">رئیس هیئت مدیره</option>';
                                         }
 
                                         if ($naebRaeis == true) {
@@ -523,11 +520,11 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
 
                                         if ($modiamel == false && $raeiHeiatModire == false && $naebRaeis == false && $ozveAsli == false) {
                                             //echo '<option value="همه سمت ها انتخاب شده اند</option>';
-                                            echo '<option>همه سمت ها انتخاب شده اند</option>';
+                                            echo '<option>سهامدار</option>';
                                         }
                                     } else { ?>
                                         <?php echo isset($_POST['sematnahaie']) ? ('<option value="' . $_POST['sematnahaie'] . '"> ' .  $_POST['sematnahaie'] . '</option>') : NULL; ?>
-                                        <option value="رئیس هیئت میره">رئیس هیئت میره</option>
+                                        <option value="رئیس هیئت مدیره">رئیس هیئت مدیره</option>
                                         <option value="نائب رئیس هیئت مدیره">نائب رئیس هیئت مدیره</option>
                                         <option value="عضو اصلی هیئت مدیره">عضو اصلی هیئت مدیره</option>
                                     <?php
@@ -583,6 +580,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                     </form>
                 </div>
             </div>
+
         <?php } ?>
     <?php
     }
@@ -868,7 +866,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                 <textarea type="text" name="adress" value="<?php echo isset($_POST['adress']) ? $_POST['adress'] : null; ?>" id="validationCustom03 phone" class="form-control" placeholder="آدرس رسمی و قانونی  یا کد پستی شرکت را وارد کنید" required><?php echo isset($_POST['adress']) ? $_POST['adress'] : null; ?></textarea>
 
                                 <div class="invalid-feedback">
-                                    وارد کردن آدرر قانونی شرکت شرکت اجباریست
+                                    وارد کردن آدرس قانونی شرکت شرکت اجباریست
                                 </div>
                                 <span id="spanmsg"></span>
                             </div>
@@ -1362,6 +1360,7 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
 
     $members = $data->searchAll('sahamdaran', 'id_sj_tamdid_sahami_khas', $sj_id);
 
+    $masolan = $data->search('masolan_sj_tamdid_sahami_khas', 'is_sj', $sj_id);
 
     //انتخاب منشی از بین بازرسین اگر انتخاب نشده بود
 
@@ -1403,10 +1402,11 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
     }
 
 
-    //var_dump($_POST);
+    var_dump($_POST);
 
     if (isset($_POST['vekalat']) and isset($_POST['emza1']) and isset($_POST['vaYa']) and $chek) {
 
+    
 
         if (isset($_POST['bazrasMonshi'])) {
             $data->update('masolan_sj_tamdid_sahami_khas', 'monshi', 'منشی جلسه', 'phone', $_POST['bazrasMonshi']);
@@ -1425,10 +1425,13 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
         move_uploaded_file($_FILES['imgRozname']['tmp_name'], "./upload/img/sj_tamdid_sahami_khas/$sj_id/rozname/" . $_FILES['imgRozname']['name']);
         $data->updateSjtamdidiSahamiKhas('rooz_adress_file', "./upload/img/sj_tamdid_sahami_khas/$sj_id/rozname/" . $_FILES['imgRozname']['name'], $sj_id);
 
+        //ذخیره اعضایی هیئت مدیره که حق امضا دارند
+        
         //echo $sj_id, $_COOKIE['phone'], $_POST['hours'] . ':' . $_POST['minute'], $_POST['years'] . '/' . $_POST['mounth'] . '/' . $_POST['day'];
-        $data->insertSjTaeinModiran($sj_id, $_POST['hours'] . ':' . $_POST['minute'], $_POST['years'] . '/' . $_POST['mounth'] . '/' . $_POST['day']);
-        $_SESSION['stepfinish'] = NULL;
-        $_SESSION['print'] = true;
+
+        //$data->insertSjTaeinModiran($sj_id, $_POST['hours'] . ':' . $_POST['minute'], $_POST['years'] . '/' . $_POST['mounth'] . '/' . $_POST['day']);
+        //$_SESSION['stepfinish'] = NULL;
+        //$_SESSION['print'] = true;
     }
 
 
@@ -1497,35 +1500,28 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
 
             <hr>
 
-            <label for="emza1" class="form-label d-inline"> لطفا کسانی که حق امضا دارند را مشخص کنید: <span class="t-red">*</span></label>
+            <label for="emza1" class="form-label"> لطفا کسانی که حق امضا دارند را مشخص کنید: <span class="t-red">*</span></label>
 
-            <select name="emza1" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
-                <?php
-                foreach ($members as $member) {
-                    echo '<option value="' . $member['phone'] . '">' . $member['fname'] . ' - ' . $member['lname'] . ' - ' . $member['phone'] . '</option>';
-                }
-                ?>
-            </select>
-
-
-            <select name="vaYa" class="btn-outline-success rounded p-1 mb-3 d-inline mx-md-3" aria-required="true" aria-invalid="false">
-                <option value="به تنهایی حق امضا دارد">به تنهایی حق امضا دارد</option>
-                <option value="هر دو با هم">و (هر دو با هم باید امضا کنند) </option>
-                <option value="هر کدام حق امضا دارد">یا (هر کدام حق امضا دارد)</option>
-            </select>
-
-
-            <select name="emza2" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
-                <option value="">----------------------</option>
-                <?php
-                foreach ($members as $member) {
-                    echo '<option value="' . $member['phone'] . '">' . $member['fname'] . ' - ' . $member['lname'] . ' - ' . $member['phone'] . '</option>';
-                }
-                ?>
-            </select>
+            <div id="emza">
+                <select name="emza[]" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
+                    <?php
+                    foreach ($masolan as $masol) {
+                        if (strcmp($masol['masoliat'], 'مدیر عامل') == 0) {
+                            echo '<option value="' . $masol['phone'] . '">' . $member['fname'] . ' - ' . $member['lname'] . ' - ' . ' مدیر عامل ' . '</option>';
+                        }
+                    }
+                    foreach ($members as $member) {
+                        echo $member['chek_modiamel'];
+                        echo '<option value="' . $member['phone'] . '">' . $member['fname'] . ' - ' . $member['lname'] . ' - ' . $member['semat_nahaei'] . ' ' . $member['chek_modiamel'] . '</option>';
+                    }
+                    ?>
+                </select>
+                <p id="addEmza">اگر بیش از یک نفر است کیلک کنید</p>
+            </div>
+            <p id="addBox" style="cursor: pointer;">اگر کسانی که حق امضا اوراق عادی و اداری دارند متفاوت است کلیک کنید</p>
+            <a href="./tamdid_sherkat.php" id="reset">اگر مقادیر را اشتباه وارد کردید برای ریست شدن کلیک کنید</a>
 
             <hr>
-
 
             <div class="col-12 my-3">
 
@@ -1689,8 +1685,6 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
                 </select>
 
 
-
-
                 <label for="years" class="form-label d-inline"> : </label>
                 <select name="years" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
                     <?php echo isset($_POST['years']) ? ('<option value="' . $_POST['years'] . '"> ' .  $_POST['years'] . '</option>') : NULL; ?>
@@ -1701,6 +1695,11 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
                 </select>
 
 
+            </div>
+
+            <div class="input-group my-3">
+                <label class="input-group-text">فایل روزنامه جلسه هیئت مدیره در خصوص تعین سمت مدیران و دارندگان امضاء: <span class="t-red">*</span></label>
+                <input type="file" name="imgRozname" class="form-control" require>
             </div>
 
             <!--
@@ -1741,8 +1740,8 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
     <?php
     }
 }
-if (isset($_SESSION['print'])) {
 
+if (isset($_SESSION['print'])) {
     ?>
 
     <div class="container my-5">
@@ -1771,11 +1770,91 @@ if (isset($_SESSION['print'])) {
             <a href="./src/sesionRestart.php?id=1" class="my-4">جهت ثبت صورت جلسه جدید اینجا کلیک کنید</a>
         </div>
     </div>
-
     <br><br><br>
 <?php
 }
 ?>
 
+
+
+<script>
+
+    console.log('add');
+
+    let addEmza = document.getElementById('addEmza');
+    let emza = document.getElementById('emza');
+    let addBox = document.getElementById('addBox');
+    let reset = document.getElementById('reset');
+    reset.style.display = 'none';
+    let i = 1;
+    addEmza.style.cursor = 'pointer';
+
+    addEmza.addEventListener('click', () => {
+
+        reset.style.display = 'block';
+        console.log('click');
+        if (condition) {
+            
+        }
+        //addEmza.style.display = 'none';
+        emza.innerHTML += `<select name="vaYa[]" class="btn-outline-success rounded p-1 mb-3 d-inline mx-md-3" aria-required="true" aria-invalid="false">
+         <option value="هر دو با هم">و (هر دو با هم باید امضا کنند) </option>
+        <option value="هر کدام حق امضا دارد">یا (هر کدام حق امضا دارد)</option>
+         </select>
+
+         <select name="emza2" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
+        <option value="">----------------------</option>
+         <?php
+            foreach ($members as $member) {
+                echo '<option value="' . $member['phone'] . '">' . $member['fname'] . ' - ' . $member['lname'] . ' - ' . $member['phone'] . '</option>';
+            }
+
+            ?>
+         </select>`;
+
+    });
+
+    addBox.addEventListener('click', () => {
+        reset.style.display = 'block';
+
+        if (i == 1) {
+            emza.innerHTML += `<br><hr>
+        <label for="emza1" class="form-label d-block"> لطفا کسانی که حق امضا  اوراق عادی و اداری دارند را مشخص کنید: <span class="t-red">*</span></label>
+
+                    <select name="emza2[]" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
+                    <?php
+                    foreach ($masolan as $masol) {
+                        if (strcmp($masol['masoliat'], 'مدیر عامل') == 0) {
+                            echo '<option value="' . $masol['phone'] . '">' . $member['fname'] . ' - ' . $member['lname'] . ' - ' . ' مدیر عامل ' . '</option>';
+                        }
+                    }
+                    foreach ($members as $member) {
+                        echo $member['chek_modiamel'];
+                        echo '<option value="' . $member['phone'] . '">' . $member['fname'] . ' - ' . $member['lname'] . ' - ' . $member['semat_nahaei'] . ' ' . $member['chek_modiamel'] . '</option>';
+                    }
+                    ?>
+                </select>
+                `;
+            addBox.innerHTML = 'اگر بیش از یک نفر است اینجا کلیک کنید';
+            i++;
+        } else {
+            //addBox.style.display = 'none';
+            emza.innerHTML += `<select name="vaYa2[]" class="btn-outline-success rounded p-1 mb-3 d-inline mx-md-3" aria-required="true" aria-invalid="false">
+         <option value="هر دو با هم">و (هر دو با هم باید امضا کنند) </option>
+        <option value="هر کدام حق امضا دارد">یا (هر کدام حق امضا دارد)</option>
+         </select>
+
+         <select name="emza2[]" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
+        <option value="">----------------------</option>
+         <?php
+            foreach ($members as $member) {
+                echo '<option value="' . $member['phone'] . '">' . $member['fname'] . ' - ' . $member['lname'] . ' - ' . $member['phone'] . '</option>';
+            }
+            ?>
+         </select>`;
+        }
+
+    });
+</script>
 
 <?php include_once('./footer.php'); ?>

@@ -53,7 +53,7 @@
     </div>
 </footer>
 
-
+<script src="./js/script.js"></script>
 <script src="./js/bootstrap.bundle.js"></script>
 <script src="./js/validation.js"></script>
 

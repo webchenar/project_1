@@ -233,7 +233,7 @@ if (isset($_GET['tamdid'])) {
       $raeisHiatModire = $sahamdar;
     }
 
-    if (strcmp($sahamdar['semat_nahaei'], 'رئیس هیئت میره') == 0) {
+    if (strcmp($sahamdar['semat_nahaei'], 'رئیس هیئت مدیره') == 0) {
       $raeisHiatModire = $sahamdar;
     }
 
@@ -246,7 +246,8 @@ if (isset($_GET['tamdid'])) {
     }
   }
 
-  $cheModiAlel = isset($modirAmel) ? '' : 'و مدیر عامل';
+  $cheModiAlel = isset($modirAmel) ? '' : 'مجمع تصویب نمود در
+  اجرای ماده۱۲۴ لایحه اصلاحی قانون تجارت میتواند رئیس هیئت مدیره و مدیر عامل یک نفر باشد. ';
   //var_dump($ozvAsli['fname']);
 
   //پیدا کردن مدیر عامل اگر از سهامداران نبود
@@ -360,8 +361,7 @@ if (isset($_GET['tamdid'])) {
   هیئت مدیره و آقای / خانم ' . $naebRaeis['fname'] . ' ' . $naebRaeis['lname'] . ' ' . ' به شماره ملی  ' . ' '  . _function::fa_number($naebRaeis['meli_code']) . ' ' . ' به عنوان نائب رئیس هیئت
   مدیره، آقای / خانم ' . $ozvAsli['fname'] . ' ' . $ozvAsli['lname'] . ' ' . '  به شماره ملی  ' . ' '  . _function::fa_number($ozvAsli['meli_code']) . ' ' . 'به سمت عضو اصلی هیئت مدیره
   برای مدت دو سال انتخاب شدند که با امضا ذیل صورتجلسه قبولی خود را اعلام می
-  دارند. مجمع تصویب نمود در اجرای ماده۱۲۴ لایحه اصلاحی قانون تجارت میتواند
-  رئیس هیئت مدیره ' .  $cheModiAlel . ' یک نفر باشد.
+  دارند. ' .  $cheModiAlel . '.
 </p>
 
 <p>
