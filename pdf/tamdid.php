@@ -252,7 +252,6 @@ if (isset($_GET['tamdid'])) {
     }
   }
 
-  
   //var_dump($raeisHiatModire);
 
 
