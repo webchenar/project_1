@@ -252,9 +252,10 @@ if (isset($_GET['tamdid'])) {
     }
   }
 
+  
   //var_dump($raeisHiatModire);
 
-  
+
   $cheModiAlel = isset($modirAmel) ? '' : 'مجمع تصویب نمود در
   اجرای ماده۱۲۴ لایحه اصلاحی قانون تجارت میتواند رئیس هیئت مدیره و مدیر عامل یک نفر باشد. ';
   //var_dump($ozvAsli['fname']);
