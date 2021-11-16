@@ -227,10 +227,16 @@ if (isset($_GET['tamdid'])) {
   $ozvAsli = '';
   $modirAmel = null;
   $modirAmelExport = NULL;
+
   foreach ($sahamdaran as $sahamdar) {
 
-    if (strcmp($sahamdar['semat_nahaei'], 'مدیر عامل و رئیس هیئت مدیره') == 0) {
-      $raeisHiatModire = $sahamdar;
+    //var_dump($sahamdar);
+    // if (strcmp($sahamdar['semat_nahaei'], 'رئیس هیئت مدیره') == 0) {
+    //   $raeisHiatModire = $sahamdar;
+    // }
+
+    if (strcmp($sahamdar['chek_modiamel'], 'مدیر عامل') == 0) {
+      $modirAmel = $sahamdar;
     }
 
     if (strcmp($sahamdar['semat_nahaei'], 'رئیس هیئت مدیره') == 0) {
@@ -246,15 +252,19 @@ if (isset($_GET['tamdid'])) {
     }
   }
 
+  //var_dump($raeisHiatModire);
+
   $cheModiAlel = isset($modirAmel) ? '' : 'مجمع تصویب نمود در
   اجرای ماده۱۲۴ لایحه اصلاحی قانون تجارت میتواند رئیس هیئت مدیره و مدیر عامل یک نفر باشد. ';
   //var_dump($ozvAsli['fname']);
 
   //پیدا کردن مدیر عامل اگر از سهامداران نبود
-  if (strcmp($raeisHiatModire['semat_nahaei'], 'رئیس هیئت میره') == 0) {
-    foreach ($masolan as $masol) {
-      if (strcmp($masol['masoliat'], 'مدیر عامل')  == 0) {
-        $modirAmel = $masol;
+  if (strcmp($raeisHiatModire['semat_nahaei'], 'رئیس هیئت مدیره') == 0) {
+    if (strcmp($raeisHiatModire['chek_modiamel'], 'مدیر عامل') != 0) {
+      foreach ($masolan as $masol) {
+        if (strcmp($masol['masoliat'], 'مدیر عامل')  == 0) {
+          $modirAmel = $masol;
+        }
       }
     }
   }
@@ -436,12 +446,12 @@ if (isset($_GET['tamdid'])) {
 
   //در حالتی که چند نفر و هر دو امضا اشخاص متفاوتی هستند
   if (strcmp($emza2, '') != 0) {
-    $txtEmza = ' ب: کلیه اسناد و مدارک و اوراق بهاءدار و تعهد آور و بانکی با امضاء  ' .$emza1  . ' اوراق عادی و اداری با امضاء ' . $emza2 . ' به همراه مهر شرکت معتبر میباشد.';
-  }else{
+    $txtEmza = ' ب: کلیه اسناد و مدارک و اوراق بهاءدار و تعهد آور و بانکی با امضاء  ' . $emza1  . ' اوراق عادی و اداری با امضاء ' . $emza2 . ' به همراه مهر شرکت معتبر میباشد.';
+  } else {
     $txtEmza = 'ب: کلیه اسناد و مدارک و اوراق بهاءدار و تعهد آور و بانکی و اوراق عادی و اداری با امضاء ' . $emza1 . '  به همراه مهر شرکت معتبر میباشد';
   }
 
-  
+
   $htmlpersian = '<!DOCTYPE html>
   <html lang="fa" dir="rtl">
     <head>
@@ -481,8 +491,8 @@ if (isset($_GET['tamdid'])) {
   </p>
   
   <p>' .
-  $txtEmza
-  .'
+    $txtEmza
+    . '
   </p>
   
   <p>
