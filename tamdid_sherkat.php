@@ -563,7 +563,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                 <?php if ($vakil) { ?>
                                     <div class="d-flex align-items-end">
                                         <label class="bd-highlight" for="flexCheckDefault">
-                                            اگر این شخص وکیل یا نماینده قانونی است تیک بزنید کنید:
+                                            اگر این شخص فرد امضا کننده در اداره ثبت است تیک بزنید کنید:
                                         </label>
                                         <input class="bd-highlight align-self-stretch mx-3" name="vakil" type="checkbox" value="وکیل" id="flexCheckDefault">
 
@@ -1235,18 +1235,18 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
             ?>
             <div class="row align-items-stretch justify-content-between">
                 <div class="alert alert-info container" role="alert">
-                    لطفا مشخصات وکیل و یا نماینده قانونی و مدیر عامل را وارد کنید
+                    لطفا مشخصات فرد امضا کننده در اداره ثبت و مدیر عامل را وارد کنید
                 </div>
 
                 <div class="col-12 col-md-5 border my-3 p-3">
 
                     <div class="col-12 ">
-                        <label for="inputfname" class="form-label">نام:(نماینده قانونی/وکیل)<span class="t-red">*</span></label>
+                        <label for="inputfname" class="form-label">نام:(فرد امضا کننده در اداره ثبت)<span class="t-red">*</span></label>
                         <input type="text" name="fnamaiande" class="form-control" value="<?php echo isset($vakil) ? $vakil['fname'] : null;
                                                                                             echo isset($_POST['fnamaiande']) ? $_POST['fnamaiande'] : null;
-                                                                                            ?>" id=" validationCustom03" placeholder="لطفا نام  نماینده قانونی/وکیل را وارد کنید" aria-label="First name" required>
+                                                                                            ?>" id=" validationCustom03" placeholder="لطفا نام  فرد امضا کننده در اداره ثبت را وارد کنید" aria-label="First name" required>
                         <div class="invalid-feedback">
-                            وارد کردن نماینده قانونی/وکیل اجباریست
+                            وارد کردن فرد امضا کننده در اداره ثبت اجباریست
                         </div>
                     </div>
 
@@ -1267,10 +1267,10 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
 
                         <input type="text" name="phonenamaiande" value="<?php echo isset($vakil) ? $vakil['phone'] : null;
                                                                         echo isset($_POST['phonenamaiande']) ? $_POST['phonenamaiande'] : null;
-                                                                        ?>" id="validationCustom03 phone" class="form-control" placeholder="لطفا شماره تلفن همراه نماینده قانونی/وکیل را وارد کنید" maxlength="11" required>
+                                                                        ?>" id="validationCustom03 phone" class="form-control" placeholder="لطفا شماره تلفن همراه فرد امضا کننده در اداره ثبت را وارد کنید" maxlength="11" required>
 
                         <div class="invalid-feedback">
-                            وارد کردن شماره همراه نماینده قانونی/وکیل اجباریست
+                            وارد کردن شماره همراه فرد امضا کننده در اداره ثبت اجباریست
                         </div>
                         <span id="spanmsg"></span>
                     </div>
@@ -1280,7 +1280,7 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
 
                         <input type="text" name="codmelinamaiande" class="form-control" value="<?php echo isset($vakil) ? $vakil['meli_code'] : null;
                                                                                                 echo isset($_POST['codmelinamaiande']) ? $_POST['codmelinamaiande'] : null;
-                                                                                                ?>" placeholder="لطفا کد ملی نماینده قانونی/وکیل را وارد کنید" required>
+                                                                                                ?>" placeholder="لطفا کد فرد امضا کننده در اداره ثبت را وارد کنید" required>
 
                         <div class="invalid-feedback">
                             وارد کردن کد ملی اجباریست

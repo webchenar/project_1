@@ -241,22 +241,34 @@ if (isset($_GET['tamdid'])) {
 
     if (strcmp($sahamdar['semat_nahaei'], 'رئیس هیئت مدیره') == 0) {
       $raeisHiatModire = $sahamdar;
+      if (strcmp($raeisHiatModire['chek_modiamel'], 'مدیر عامل') == 0) {
+        $raeisHiatModire['semat_nahaei'] = ' مدیر عامل و  ' . $raeisHiatModire['semat_nahaei'];
+      }
     }
 
     if (strcmp($sahamdar['semat_nahaei'], 'نائب رئیس هیئت مدیره') == 0) {
       $naebRaeis = $sahamdar;
+      if (strcmp($naebRaeis['chek_modiamel'], 'مدیر عامل') == 0) {
+        $naebRaeis['semat_nahaei'] = ' مدیر عامل و  ' . $naebRaeis['semat_nahaei'];
+      }
     }
 
     if (strcmp($sahamdar['semat_nahaei'], 'عضو اصلی هیئت مدیره') == 0) {
       $ozvAsli = $sahamdar;
+      if (strcmp($ozvAsli['chek_modiamel'], 'مدیر عامل') == 0) {
+        $ozvAsli['semat_nahaei'] = ' مدیر عامل و  ' . $ozvAsli['semat_nahaei'];
+      }
     }
+
+
   }
 
-  //var_dump($raeisHiatModire);
+  
+    //var_dump($raeisHiatModire);
 
 
-  $cheModiAlel = isset($modirAmel) ? '' : 'مجمع تصویب نمود در
-  اجرای ماده۱۲۴ لایحه اصلاحی قانون تجارت میتواند رئیس هیئت مدیره و مدیر عامل یک نفر باشد. ';
+  $cheModiAlel = empty($modirAmel) ? null : 'مجمع تصویب نمود در
+  اجرای ماده۱۲۴ لایحه اصلاحی قانون تجارت میتواند  ' . $modirAmel['semat_nahaei'] . ' و مدیر عامل یک نفر باشد. ';
   //var_dump($ozvAsli['fname']);
 
   //پیدا کردن مدیر عامل اگر از سهامداران نبود
@@ -270,7 +282,7 @@ if (isset($_GET['tamdid'])) {
     }
   }
 
-  if (isset($modirAmel)) {
+  if (empty($cheModiAlel)) {
     $modirAmelExport = '<h3>امضای مدیر عامل:</h3>' . '1.آقای / خانم ' . $modirAmel['fname'] . ' ' . $modirAmel['lname'];
   }
 
@@ -299,7 +311,6 @@ foreach ($masolan as $masol) {
     $vakil = $masol;
   }
 }
-
 
 //Persian and English content
 if (isset($_GET['tamdid'])) {
@@ -370,9 +381,8 @@ if (isset($_GET['tamdid'])) {
 
 <p >
   ب ۱: مقرر شد بین سهامداران یک نفر به عنوان اعضای هیئت مدیره انتخاب شوند
-  که در نتیجه آقای / خانم ' . $raeisHiatModire['fname'] . ' ' . $raeisHiatModire['lname'] . ' ' . '  به شماره ملی ' . ' '  . _function::fa_number($raeisHiatModire['meli_code']) . ' ' . ' به سمت رئیس
-  هیئت مدیره و آقای / خانم ' . $naebRaeis['fname'] . ' ' . $naebRaeis['lname'] . ' ' . ' به شماره ملی  ' . ' '  . _function::fa_number($naebRaeis['meli_code']) . ' ' . ' به عنوان نائب رئیس هیئت
-  مدیره، آقای / خانم ' . $ozvAsli['fname'] . ' ' . $ozvAsli['lname'] . ' ' . '  به شماره ملی  ' . ' '  . _function::fa_number($ozvAsli['meli_code']) . ' ' . 'به سمت عضو اصلی هیئت مدیره
+  که در نتیجه آقای / خانم ' . $raeisHiatModire['fname'] . ' ' . $raeisHiatModire['lname'] . ' ' . '  به شماره ملی ' . ' '  . _function::fa_number($raeisHiatModire['meli_code']) . ' ' . ' به سمت ' .  $raeisHiatModire['semat_nahaei'] . ' و آقای / خانم ' . $naebRaeis['fname'] . ' ' . $naebRaeis['lname'] . ' ' . ' به شماره ملی  ' . ' '  . _function::fa_number($naebRaeis['meli_code']) . ' ' . ' به ' . $naebRaeis['semat_nahaei'] . '
+  ، آقای / خانم ' . $ozvAsli['fname'] . ' ' . $ozvAsli['lname'] . ' ' . '  به شماره ملی  ' . ' '  . _function::fa_number($ozvAsli['meli_code']) . ' ' . 'به سمت ' . $ozvAsli['semat_nahaei'] .'  
   برای مدت دو سال انتخاب شدند که با امضا ذیل صورتجلسه قبولی خود را اعلام می
   دارند. ' .  $cheModiAlel . '.
 </p>
