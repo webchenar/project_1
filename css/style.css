@@ -41,7 +41,9 @@ a{
 }
 
 .my-bg{
-    background-color: #f7fdfd;
+   background-color: #f7fdfd;
+   /*background-color: rgb(0, 152, 175);*/
+
 }
 
 .my-bg-blue{

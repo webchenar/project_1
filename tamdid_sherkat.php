@@ -321,7 +321,21 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
 
                 move_uploaded_file($_FILES['imgSahamdar']['tmp_name'], $adressSave);
 
-                $data->inserMemberSjtamdidSahamiKhas($sj_id, $_POST['fname'], $_POST['lname'], $_POST['phone'], $_POST['codmeli'], $_POST['sahm'], '', $adressSave, $_POST['sematjalase'], 'سهامدار', $_POST['sematnahaie'], isset($_POST['saveModirAmel']) ? $_POST['saveModirAmel'] : NULL);
+                $data->inserMemberSjtamdidSahamiKhas(
+                    $sj_id,
+                    $_POST['fname'],
+                    $_POST['lname'],
+                    $_POST['phone'],
+                    $_POST['codmeli'],
+                    $_POST['sahm'],
+                    '',
+                    $adressSave,
+                    $_POST['sematjalase'],
+                    'سهامدار',
+                    $_POST['sematnahaie'],
+                    isset($_POST['saveModirAmel']) ? $_POST['saveModirAmel'] : NULL,
+                    isset($_POST['vakil']) ? $_POST['vakil'] : NULL
+                );
 
                 $_SESSION['count']++;
 
@@ -459,10 +473,9 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                         if ($nazrjalase == true) {
                                             echo '<option value="ناظر جلسه">ناظر جلسه</option>';
                                         }
-                                        if ($monshi == false and $raeisjalase == false and $nazrjalase == false) {
-                                            echo 'hello';
+                                        /*if ($monshi == false and $raeisjalase == false and $nazrjalase == false) {
                                             echo '<option value="سهامدار">سهامدار</option>';
-                                        }
+                                        }*/
                                     } else {
                                     ?>
                                         <?php echo isset($_POST['sematjalase']) ? ('<option value="' . $_POST['sematjalase'] . '"> ' .  $_POST['sematjalase'] . '</option>') : NULL; ?>
@@ -471,9 +484,8 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                         <?php if ($_SESSION['sahamdaran'] > 3) { ?>
                                             <option value="منشی جلسه">منشی جلسه</option>
                                         <?php } ?>
-
-                                        <option value="سهامدار">سهامدار</option>
                                     <?php } ?>
+                                    <option value="سهامدار">سهامدار</option>
                                 </select>
                                 <br>
                                 <label for="sematnahaie" class="form-label "> سمت نهایی: <span class="t-red">*</span></label>
@@ -485,6 +497,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                     $raeiHeiatModire = true;
                                     $naebRaeis = true;
                                     $ozveAsli = true;
+                                    $vakil = true;
 
                                     if (!empty($members)) {
                                         foreach ($members as $member) {
@@ -503,10 +516,14 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                             if (strcmp($member['semat_nahaei'], 'عضو اصلی هیئت مدیره') == 0) {
                                                 $ozveAsli = false;
                                             }
+
+                                            if (strcmp($member['chek_vakil'], 'وکیل') == 0) {
+                                                $vakil = false;
+                                            }
                                         }
 
                                         if ($raeiHeiatModire == true) {
-                                            echo '<option value="رئیس هیئت میره">رئیس هیئت مدیره</option>';
+                                            echo '<option value="رئیس هیئت مدیره">رئیس هیئت مدیره</option>';
                                         }
 
                                         if ($naebRaeis == true) {
@@ -518,10 +535,10 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                         }
 
 
-                                        if ($modiamel == false && $raeiHeiatModire == false && $naebRaeis == false && $ozveAsli == false) {
+                                        /*if ($modiamel == false && $raeiHeiatModire == false && $naebRaeis == false && $ozveAsli == false) {
                                             //echo '<option value="همه سمت ها انتخاب شده اند</option>';
                                             echo '<option>سهامدار</option>';
-                                        }
+                                        }*/
                                     } else { ?>
                                         <?php echo isset($_POST['sematnahaie']) ? ('<option value="' . $_POST['sematnahaie'] . '"> ' .  $_POST['sematnahaie'] . '</option>') : NULL; ?>
                                         <option value="رئیس هیئت مدیره">رئیس هیئت مدیره</option>
@@ -530,7 +547,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                     <?php
                                     }
                                     ?>
-
+                                    <option>سهامدار</option>
                                 </select>
 
                                 <?php if ($modirAmel) { ?>
@@ -539,6 +556,16 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                             اگر این شخص مدیر عامل است تیک بزنید کنید:
                                         </label>
                                         <input class="bd-highlight align-self-stretch mx-3" name="saveModirAmel" type="checkbox" value="مدیر عامل" id="flexCheckDefault">
+
+                                    </div>
+                                <?php } ?>
+
+                                <?php if ($vakil) { ?>
+                                    <div class="d-flex align-items-end">
+                                        <label class="bd-highlight" for="flexCheckDefault">
+                                            اگر این شخص وکیل یا نماینده قانونی است تیک بزنید کنید:
+                                        </label>
+                                        <input class="bd-highlight align-self-stretch mx-3" name="vakil" type="checkbox" value="وکیل" id="flexCheckDefault">
 
                                     </div>
                                 <?php } ?>
@@ -944,16 +971,22 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
 
     $_SESSION['stepfinish'] = false;
 
+
+    //\یدا کردن وکیل و مدیر عام از بین سهامداران اگر وارد شده بودند
     foreach ($members as $member) {
         if (strcmp($member['chek_modiamel'], 'مدیر عامل') == 0) {
             $modirAmel = $member;
+        }
+
+        if (strcmp($member['chek_vakil'], 'وکیل') == 0) {
+            $vakil = $member;
         }
     }
 
     $chekImg = true;
 
     if (isset($_FILES['imgBazresَAsli'])) {
-        if ($_FILES['imgBazresَAsli']['error'] == 4 or $_FILES['imgBazres']['error'] == 4 or $_FILES['imgNamaiande']['error'] == 4 or ($_FILES['imgModirAmel']['error'] == 4 and empty($modirAmel))) {
+        if ($_FILES['imgBazresَAsli']['error'] == 4 or $_FILES['imgBazres']['error'] == 4 or ($_FILES['imgModirAmel']['error'] == 4 and empty($modirAmel)) or ($_FILES['imgNamaiande']['error'] == 4 and empty($vakil))) {
             echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
         <strong>لطفا همه تصاویر را بارگذاری کنید</strong>
       </div>';
@@ -974,7 +1007,9 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
         }
 
         if ($chek) {
-            $chek = _function::validation_img($_FILES['imgNamaiande']['name'], $_FILES['imgNamaiande']['size'], $_FILES['imgNamaiande']['type'], 'بازرس اصلی');
+            if (empty($vakil)) {
+                $chek = _function::validation_img($_FILES['imgNamaiande']['name'], $_FILES['imgNamaiande']['size'], $_FILES['imgNamaiande']['type'], 'بازرس اصلی');
+            }
         }
 
         if ($chek) {
@@ -1038,11 +1073,14 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
 
 
             //ذخیره نماینده/وکیل قانونی
-            mkdir("./upload/img/sj_tamdid_sahami_khas/$sj_id/namaiande");
-            $imgAdress = "./upload/img/sj_tamdid_sahami_khas/$sj_id/namaiande/" . $_FILES['imgNamaiande']['name'];
-            move_uploaded_file($_FILES['imgNamaiande']['tmp_name'], $imgAdress);
-            $data->insertMasolTamdidSahamiKhas($sj_id, $_POST['fnamaiande'], $_POST['lnamaiande'], $_POST['phonenamaiande'], $_POST['codmelinamaiande'], 'وکیل', $imgAdress);
-
+            if (isset($vakil)) {
+                $data->insertMasolTamdidSahamiKhas($sj_id, $vakil['fname'], $vakil['lname'], $vakil['phone'], $vakil['meli_code'], 'وکیل', $vakil['scan_shenasname']);
+            } else {
+                mkdir("./upload/img/sj_tamdid_sahami_khas/$sj_id/namaiande");
+                $imgAdress = "./upload/img/sj_tamdid_sahami_khas/$sj_id/namaiande/" . $_FILES['imgNamaiande']['name'];
+                move_uploaded_file($_FILES['imgNamaiande']['tmp_name'], $imgAdress);
+                $data->insertMasolTamdidSahamiKhas($sj_id, $_POST['fnamaiande'], $_POST['lnamaiande'], $_POST['phonenamaiande'], $_POST['codmelinamaiande'], 'وکیل', $imgAdress);
+            }
 
             //ذخیره مدیر عامل
             if (isset($modirAmel)) {
@@ -1186,7 +1224,15 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
 
 
             <!--  مشخصات نماینده قانونی-->
-
+            <?php
+            //پیدا کردن وکیل اگر از بین سهامداران باشد
+            foreach ($members as $member) {
+                if (strcmp($member['chek_vakil'], 'وکیل') == 0) {
+                    $vakil = $member;
+                    $_POST['fnamaiande'] = $_POST['lnamaiande'] = $_POST['codmelinamaiande'] = $_POST['phonenamaiande'] = $_POST['imgNamaiande'] = null;
+                }
+            }
+            ?>
             <div class="row align-items-stretch justify-content-between">
                 <div class="alert alert-info container" role="alert">
                     لطفا مشخصات وکیل و یا نماینده قانونی و مدیر عامل را وارد کنید
@@ -1196,7 +1242,9 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
 
                     <div class="col-12 ">
                         <label for="inputfname" class="form-label">نام:(نماینده قانونی/وکیل)<span class="t-red">*</span></label>
-                        <input type="text" name="fnamaiande" class="form-control" value="<?php echo isset($_POST['fnamaiande']) ? $_POST['fnamaiande'] : null; ?>" id=" validationCustom03" placeholder="لطفا نام  نماینده قانونی/وکیل را وارد کنید" aria-label="First name" required>
+                        <input type="text" name="fnamaiande" class="form-control" value="<?php echo isset($vakil) ? $vakil['fname'] : null;
+                                                                                            echo isset($_POST['fnamaiande']) ? $_POST['fnamaiande'] : null;
+                                                                                            ?>" id=" validationCustom03" placeholder="لطفا نام  نماینده قانونی/وکیل را وارد کنید" aria-label="First name" required>
                         <div class="invalid-feedback">
                             وارد کردن نماینده قانونی/وکیل اجباریست
                         </div>
@@ -1205,7 +1253,9 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
                     <div class="col-md-12 my-3">
                         <label for="inputlname" class="form-label">نام خانوادگی:<span class="t-red">*</span></label>
 
-                        <input type="text" name="lnamaiande" value="<?php echo isset($_POST['lnamaiande']) ? $_POST['lnamaiande'] : null; ?>" id="validationCustom03" class="form-control" placeholder="لطفا نام خانوادگی نماینده قانونی/وکیل را وارد کنید" required>
+                        <input type="text" name="lnamaiande" id="validationCustom03" class="form-control" placeholder="لطفا نام خانوادگی نماینده قانونی/وکیل را وارد کنید" value="<?php echo isset($vakil) ? $vakil['lname'] : null;
+                                                                                                                                                                                    echo isset($_POST['lnamaiande']) ? $_POST['lnamaiande'] : null;
+                                                                                                                                                                                    ?>" required>
 
                         <div class="invalid-feedback">
                             وارد کردن نام خانوادگی نماینده قانونی/وکیل اجباریست
@@ -1215,7 +1265,9 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
                     <div class=" col-12 my-3">
                         <label for="inputfname" class="form-label">شماره همراه:<span class="t-red">*</span></label>
 
-                        <input type="text" name="phonenamaiande" value="<?php echo isset($_POST['phonenamaiande']) ? $_POST['phonenamaiande'] : null; ?>" id="validationCustom03 phone" class="form-control" placeholder="لطفا شماره تلفن همراه نماینده قانونی/وکیل را وارد کنید" maxlength="11" required>
+                        <input type="text" name="phonenamaiande" value="<?php echo isset($vakil) ? $vakil['phone'] : null;
+                                                                        echo isset($_POST['phonenamaiande']) ? $_POST['phonenamaiande'] : null;
+                                                                        ?>" id="validationCustom03 phone" class="form-control" placeholder="لطفا شماره تلفن همراه نماینده قانونی/وکیل را وارد کنید" maxlength="11" required>
 
                         <div class="invalid-feedback">
                             وارد کردن شماره همراه نماینده قانونی/وکیل اجباریست
@@ -1226,7 +1278,9 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
                     <div class="col-12 my-3 my-1">
                         <label for="codmelinamaiande" class="form-label">کد ملی:<span class="t-red">*</span></label>
 
-                        <input type="text" name="codmelinamaiande" class="form-control" value="<?php echo isset($_POST['codmelinamaiande']) ? $_POST['codmelinamaiande'] : null; ?>" placeholder="لطفا کد ملی نماینده قانونی/وکیل را وارد کنید" required>
+                        <input type="text" name="codmelinamaiande" class="form-control" value="<?php echo isset($vakil) ? $vakil['meli_code'] : null;
+                                                                                                echo isset($_POST['codmelinamaiande']) ? $_POST['codmelinamaiande'] : null;
+                                                                                                ?>" placeholder="لطفا کد ملی نماینده قانونی/وکیل را وارد کنید" required>
 
                         <div class="invalid-feedback">
                             وارد کردن کد ملی اجباریست
@@ -1237,10 +1291,23 @@ if (isset($_SESSION['step3']) and $_SESSION['step3'] == true and empty($_SESSION
 
                     <br>
 
-                    <div class="input-group col-12 my-1">
-                        <label class="input-group-text " for="inputGroupFile01">بارگذاری صفحه اول شناسنامه: <span class="t-red">*</span></label>
-                        <input type="file" name="imgNamaiande" class="form-control" id="inputGroupFile01" require>
-                    </div>
+                    <?php
+                    if (isset($vakil)) { ?>
+
+                        <div class="input-group col-12  my-1">
+                            <label class="input-group-text" for="inputGroupFile01m">ارسال شده(اگر قصد ویرایش دارید کلیک
+                                کنید)</label>
+                            <input type="file" name="imgNamaiande" class="form-control d-none" id="inputGroupFile01m" require>
+                        </div>
+
+                    <?php } else {
+                    ?>
+
+                        <div class="input-group  col-12 my-1">
+                            <label class="input-group-text" for="inputGroupFile01m">بارگذاری صفحه اول شناسنامه: <span class="t-red">*</span></label>
+                            <input type="file" name="imgNamaiande" class="form-control" id="inputGroupFile01m" require>
+                        </div>
+                    <?php } ?>
 
                 </div>
 
@@ -1379,10 +1446,11 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
         }
     }
 
+    $chek = true;
 
     //بررسی ورود اطلاعات جلسه دوم
     if (isset($_POST['minute']) and isset($_POST['hours']) and isset($_POST['day']) and isset($_POST['mounth']) and isset($_POST['years'])) {
-        $chek = true;
+
         if (!(preg_match("/[0-9]/", $_POST['minute'])) or !(preg_match("/[0-9]/", $_POST['hours'])) or !(preg_match("/[0-9]/", $_POST['day'])) or !(preg_match("/[0-9]/", $_POST['mounth'])) or !(preg_match("/[0-9]/", $_POST['years']))) {
             echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
             <strong>لطفا تاریخ را مشخص کنید کنید</strong>
@@ -1391,20 +1459,21 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
         }
 
         //بررسی آپلود شدن فایل روزنامه
-        if (empty($_FILES['imgRozname']['name']) and $chek) {
-            echo '<div class="container alert alert-danger alert-dismissible fade show" role="alert">
+        if (strcmp($sj['hozor'], 'با حضور اکثریت سهامداران') == 0) {
+            if (empty($_FILES['imgRozname']['name']) and $chek) {
+                echo '<div class="container alert alert-danger alert-dismissible fade show" role="alert">
         <strong>لطفا فایل روزنامه را آپلود کنید</strong>
       </div>';
-            $chek = false;
-        } else {
-            $chek = _function::validation_img($_FILES['imgRozname']['name'], $_FILES['imgRozname']['size'], $_FILES['imgRozname']['type']);
+                $chek = false;
+            } else {
+                $chek = _function::validation_img($_FILES['imgRozname']['name'], $_FILES['imgRozname']['size'], $_FILES['imgRozname']['type']);
+            }
         }
     }
 
     //var_dump($_POST);
 
-
-    if (isset($_POST['vekalat']) and isset($_POST['emza']) and isset($_POST['vaYa']) and $chek) {
+    if (isset($_POST['vekalat']) and isset($_POST['emza']) and $chek) {
 
 
         if (isset($_POST['bazrasMonshi'])) {
@@ -1420,10 +1489,11 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
         // }
 
         //ذخیره فایل روزنامه
-        mkdir("./upload/img/sj_tamdid_sahami_khas/$sj_id/rozname");
-        move_uploaded_file($_FILES['imgRozname']['tmp_name'], "./upload/img/sj_tamdid_sahami_khas/$sj_id/rozname/" . $_FILES['imgRozname']['name']);
-        $data->updateSjtamdidiSahamiKhas('rooz_adress_file', "./upload/img/sj_tamdid_sahami_khas/$sj_id/rozname/" . $_FILES['imgRozname']['name'], $sj_id);
-
+        if (strcmp($sj['hozor'], 'با حضور اکثریت سهامداران') == 0) {
+            mkdir("./upload/img/sj_tamdid_sahami_khas/$sj_id/rozname");
+            move_uploaded_file($_FILES['imgRozname']['tmp_name'], "./upload/img/sj_tamdid_sahami_khas/$sj_id/rozname/" . $_FILES['imgRozname']['name']);
+            $data->updateSjtamdidiSahamiKhas('rooz_adress_file', "./upload/img/sj_tamdid_sahami_khas/$sj_id/rozname/" . $_FILES['imgRozname']['name'], $sj_id);
+        }
 
         //ذخیره اعضایی هیئت مدیره که حق امضا دارند
 
@@ -1457,6 +1527,7 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
 
     if (empty($_SESSION['print'])) {
     ?>
+
 
         <form class="my-5 needs-validation container" action="tamdid_sherkat.php" enctype="multipart/form-data" method="POST" novalidate>
 
@@ -1494,7 +1565,7 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
 
             <hr>
 
-            <?php if (strcmp($sj['hozor'], 'با حضور کلیه سهامداران') == 0) { ?>
+            <?php if (strcmp($sj['hozor'], 'با حضور اکثریت سهامداران') == 0) { ?>
                 <div class="input-group my-3 ">
                     <label class="input-group-text" for="inputGroupFile01">بارگذاری فایل روزنامه کثیرالنتشار: <span class="t-red">*</span></label>
                     <input type="file" name="imgRozname" class="form-control" id="inputGroupFile01" require>
@@ -1725,10 +1796,10 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
 
             </div>
 
-            <div class="input-group my-3">
+            <!--<div class="input-group my-3">
                 <label class="input-group-text">فایل روزنامه جلسه هیئت مدیره در خصوص تعین سمت مدیران و دارندگان امضاء: <span class="t-red">*</span></label>
                 <input type="file" name="imgRozname" class="form-control" require>
-            </div>
+            </div>-->
 
             <!--
             <div class="form-group">

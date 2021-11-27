@@ -281,11 +281,13 @@ if (isset($_GET['tamdid'])) {
     if (strcmp($masol['masoliat'], 'بازرس اصلی')  == 0) {
       $bazres1 = $masol;
     }
-    if (strcmp($masol['masoliat'], 'بازرس علی البدل')  == 0) {
+  if (strcmp($masol['masoliat'], 'بازرس علی البدل')  == 0) {
       $bazres2 = $masol;
     }
   }
 }
+
+//var_dump($bazres1);
 
 //پیدا کردن نماینده/وکیل قانونی
 $vakil;
