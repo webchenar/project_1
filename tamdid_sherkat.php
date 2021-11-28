@@ -504,7 +504,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                     $modirAmel = true;
                                     $raeiHeiatModire = true;
                                     $naebRaeis = true;
-                                    $ozveAsli = true;
+                                    //$ozveAsli = true;
                                     $vakil = true;
 
                                     if (!empty($members)) {
@@ -521,10 +521,10 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                                 $naebRaeis = false;
                                             }
 
-                                            if (strcmp($member['semat_nahaei'], 'عضو اصلی هیئت مدیره') == 0) {
+                                            /*if (strcmp($member['semat_nahaei'], 'عضو اصلی هیئت مدیره') == 0) {
                                                 $ozveAsli = false;
                                             }
-
+*/
                                             if (strcmp($member['chek_vakil'], 'وکیل') == 0) {
                                                 $vakil = false;
                                             }
@@ -538,9 +538,9 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                             echo '<option value="نائب رئیس هیئت مدیره">نائب رئیس هیئت مدیره</option>';
                                         }
 
-                                        if ($ozveAsli == true) {
+                                        /*if ($ozveAsli == true) {
                                             echo '<option value="عضو اصلی هیئت مدیره">عضو اصلی هیئت مدیره</option>';
-                                        }
+                                        }*/
 
 
                                         /*if ($modiamel == false && $raeiHeiatModire == false && $naebRaeis == false && $ozveAsli == false) {
@@ -550,12 +550,12 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                     } else { ?>
                                         <?php echo isset($_POST['sematnahaie']) ? ('<option value="' . $_POST['sematnahaie'] . '"> ' .  $_POST['sematnahaie'] . '</option>') : NULL; ?>
                                         <option value="رئیس هیئت مدیره">رئیس هیئت مدیره</option>
-                                        <option value="نائب رئیس هیئت مدیره">نائب رئیس هیئت مدیره</option>
-                                        <option value="عضو اصلی هیئت مدیره">عضو اصلی هیئت مدیره</option>
+                                        <option value="نائب رئیس هیئت مدیره">نائب رئیس هیئت مدیره</option>  
                                     <?php
                                     }
                                     ?>
-                                    <option>سهامدار</option>
+                                    <option value="عضو اصلی هیئت مدیره">عضو اصلی هیئت مدیره</option>
+                                    <option value="سهامدار">سهامدار</option>
                                 </select>
 
                                 <?php if ($modirAmel) { ?>
@@ -684,7 +684,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
 
                                         <?php echo isset($_POST['minute']) ? ('<option value="' . $_POST['minute'] . '"> ' .  $_POST['minute'] . '</option>') : NULL; ?>
                                         <option>- دقیقه -</option>
-                                        <option value="0">0</option>
+                                        <option value="00">00</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -863,7 +863,7 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
                                 </div>-->
                                 <div id="roznamebox" class="d-inline">
                                     <select name="rozname" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
-                                        <?php echo isset($_POST['rozname']) or strcmp($_POST['rozname'], '') != 0? ('<option value="' . $_POST['rozname'] . '"> ' .  $_POST['rozname'] . '</option>') : NULL; ?>
+                                        <?php echo isset($_POST['rozname']) or strcmp($_POST['rozname'], '') != 0 ? ('<option value="' . $_POST['rozname'] . '"> ' .  $_POST['rozname'] . '</option>') : NULL; ?>
                                         <option value="-انتخاب نام روزنامه-">-انتخاب نام روزنامه-</option>
                                         <option value="پارسه">پارسه</option>
                                         <option value="پیام ما">پیام ما</option>
@@ -1692,7 +1692,7 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
                         }
                         foreach ($members as $member) {
                             //echo $member['chek_modiamel'];
-                            echo '<option value="' . ((strcmp($member['chek_modiamel'], 'مدیر عامل') == 0) ?  ($member['chek_modiamel'] . ' و ') : ('')) . $member['semat_nahaei'] . '">' . $member['fname'] . ' - ' . $member['lname'] . ' - ' . $member['semat_nahaei'] . ' ' . $member['chek_modiamel'] . '</option>';
+                            echo '<option value="' . ((strcmp($member['chek_modiamel'], 'مدیر عامل') == 0) ?  ($member['chek_modiamel']) : ('')) .'">' . $member['fname'] . ' - ' . $member['lname'] . ' - ' . $member['semat_nahaei'] . ' ' . $member['chek_modiamel'] . '</option>';
                         }
                         ?>
                     </select>
@@ -1719,7 +1719,7 @@ if (isset($_SESSION['stepfinish']) and $_SESSION['stepfinish'] == true and $_SES
 
                         <?php echo isset($_POST['minute']) ? ('<option value="' . $_POST['minute'] . '"> ' .  $_POST['minute'] . '</option>') : NULL; ?>
                         <option>- دقیقه -</option>
-                        <option value="0">0</option>
+                        <option value="00">00</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

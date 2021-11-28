@@ -384,7 +384,7 @@ if (isset($_GET['tamdid'])) {
   که در نتیجه آقای / خانم ' . $raeisHiatModire['fname'] . ' ' . $raeisHiatModire['lname'] . ' ' . '  به شماره ملی ' . ' '  . _function::fa_number($raeisHiatModire['meli_code']) . ' ' . ' به سمت ' .  $raeisHiatModire['semat_nahaei'] . ' و آقای / خانم ' . $naebRaeis['fname'] . ' ' . $naebRaeis['lname'] . ' ' . ' به شماره ملی  ' . ' '  . _function::fa_number($naebRaeis['meli_code']) . ' ' . ' به ' . $naebRaeis['semat_nahaei'] . '
   ، آقای / خانم ' . $ozvAsli['fname'] . ' ' . $ozvAsli['lname'] . ' ' . '  به شماره ملی  ' . ' '  . _function::fa_number($ozvAsli['meli_code']) . ' ' . 'به سمت ' . $ozvAsli['semat_nahaei'] .'  
   برای مدت دو سال انتخاب شدند که با امضا ذیل صورتجلسه قبولی خود را اعلام می
-  دارند. ' .  $cheModiAlel . '.
+  دارند. ' .  $cheModiAlel . '
 </p>
 
 <p>
