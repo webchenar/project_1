@@ -79,6 +79,14 @@ if (isset($_POST['namesherkat']) && isset($_POST['shomaresabtsherkat']) && isset
     }
 
 
+    if (strcmp($_POST['rozname'], '-انتخاب نام روزنامه-') == 0 or strcmp($_POST['rozname'], '') == 0) {
+        echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>لطفا نام روزنامه را وارد کنید</strong>
+      </div>';
+        $chek = false;
+    }
+
+
     if ($_POST['sahamdar'] > 12 || $_POST['sahamdar'] < 3) {
         $chek = false;
     }
@@ -846,12 +854,92 @@ if (isset($_SESSION['step2']) and  $_SESSION['step2'] == true and empty($_SESSIO
 
 
                             <div class="col-12 my-3">
-
                                 <label for="rozname" class="form-label">اسم روزنامه کثیر الانتشار:<span class="t-red">*</span></label>
 
-                                <input type="text" name="rozname" class="form-control" value="<?php echo isset($_POST['rozname']) ? $_POST['rozname'] : null; ?>" placeholder="لطفا اسم روزنامه کثیر الانتشار را وارد کنید" required>
+                                <!--<input type="text" name="rozname" class="form-control" value="<?php //echo isset($_POST['rozname']) ? $_POST['rozname'] : null; 
+                                                                                                    ?>" placeholder="لطفا اسم روزنامه کثیر الانتشار را وارد کنید" required>
                                 <div class="invalid-feedback">
                                     وارد کردن نام روزنامه اجباریست
+                                </div>-->
+                                <div id="roznamebox" class="d-inline">
+                                    <select name="rozname" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
+                                        <?php echo isset($_POST['rozname']) or strcmp($_POST['rozname'], '') != 0? ('<option value="' . $_POST['rozname'] . '"> ' .  $_POST['rozname'] . '</option>') : NULL; ?>
+                                        <option value="-انتخاب نام روزنامه-">-انتخاب نام روزنامه-</option>
+                                        <option value="پارسه">پارسه</option>
+                                        <option value="پیام ما">پیام ما</option>
+                                        <option value="چهره نما">چهره نما</option>
+                                        <option value="کار و کارگر">کار و کارگر</option>
+                                        <option value="کارون">کارون</option>
+                                        <option value="آسیا">آسیا</option>
+                                        <option value="آفاق فیروزآباد">آفاق فیروزآباد</option>
+                                        <option value="آفتاب اقتصادی">آفتاب اقتصادی</option>
+                                        <option value="آفتاب جنوب">آفتاب جنوب</option>
+                                        <option value="ابتکار">ابتکار</option>
+                                        <option value="ابرار">ابرار</option>
+                                        <option value="ابرار اقتصادی">ابرار اقتصادی</option>
+                                        <option value="اخبار جهرم">اخبار جهرم</option>
+                                        <option value="استخر">استخر</option>
+                                        <option value="اعتدال">اعتدال</option>
+                                        <option value="افسانه">افسانه</option>
+                                        <option value="اقتصاد">اقتصاد</option>
+                                        <option value="اقتصاد ملی">اقتصاد ملی</option>
+                                        <option value="امتیاز">امتیاز</option>
+                                        <option value="بشارت نو">بشارت نو</option>
+                                        <option value="بیشاپور">بیشاپور</option>
+                                        <option value="تخت جمشید">تخت جمشید</option>
+                                        <option value="تعادل">تعادل</option>
+                                        <option value="تماشا">تماشا</option>
+                                        <option value="حسبان">حسبان</option>
+                                        <option value="حمایت">حمایت</option>
+                                        <option value="راه مردم">راه مردم</option>
+                                        <option value="رسالت">رسالت</option>
+                                        <option value="روزگار ما">روزگار ما</option>
+                                        <option value="روزان">روزان</option>
+                                        <option value="سپهر فارس">سپهر فارس</option>
+                                        <option value="سایه">سایه</option>
+                                        <option value="سبحان">سبحان</option>
+                                        <option value="سبحان مهر">سبحان مهر</option>
+                                        <option value="سبحان مهر و لامرد">سبحان مهر و لامرد</option>
+                                        <option value="سفیر مردم">سفیر مردم</option>
+                                        <option value="شاخه سبز">شاخه سبز</option>
+                                        <option value="شهر سبز">شهر سبز</option>
+                                        <option value="شیراز نوین">شیراز نوین</option>
+                                        <option value="صبح ساحل">صبح ساحل</option>
+                                        <option value="صدای شرق">صدای شرق</option>
+                                        <option value="طلوع">طلوع</option>
+                                        <option value="طلوع جنوب">طلوع جنوب</option>
+                                        <option value="طلوع لامرد و مهر">طلوع لامرد و مهر</option>
+                                        <option value="عصر اقتصاد">عصر اقتصاد</option>
+                                        <option value="عصر لارستان">عصر لارستان</option>
+                                        <option value="عصر مردم">عصر مردم</option>
+                                        <option value="فرزام">فرزام</option>
+                                        <option value="فرصت امروز">فرصت امروز</option>
+                                        <option value="فسا مهر">فسا مهر</option>
+                                        <option value="مردم سالاری">مردم سالاری</option>
+                                        <option value="مناقصه - مزایده">مناقصه - مزایده</option>
+                                        <option value="منشور داراب">منشور داراب</option>
+                                        <option value="میلاد لارستان">میلاد لارستان</option>
+                                        <option value="نی ریزان فارس">نی ریزان فارس</option>
+                                        <option value="نیم نگاه">نیم نگاه</option>
+                                        <option value="هدف و اقتصاد">هدف و اقتصاد</option>
+                                        <option value="کیهان">کیهان</option>
+                                        <option value="آفتاب یزد">آفتاب یزد</option>
+                                        <option value="اطلاعات">اطلاعات</option>
+                                        <option value="اعتماد">اعتماد</option>
+                                        <option value="ایران">ایران</option>
+                                        <option value="جام جم">جام جم</option>
+                                        <option value="جمهوری اسلامی">جمهوری اسلامی</option>
+                                        <option value="جهان صنعت">جهان صنعت</option>
+                                        <option value="جوان">جوان</option>
+                                        <option value="خبر جنوب">خبر جنوب</option>
+                                        <option value="خراسان">خراسان</option>
+                                        <option value="دنیای اقتصاد">دنیای اقتصاد</option>
+                                        <option value="سازندگی">سازندگی</option>
+                                        <option value="صمت">صمت</option>
+                                        <option value="قدس">قدس</option>
+                                        <option value="هفت صبح">هفت صبح</option>
+                                    </select>
+                                    <p id="roznameClick" style="cursor: pointer;" class="fs-6 text-primary">اگر نام روزنامه شما در این باکس نیست اینجا کلیک کنید</p>
                                 </div>
                             </div>
 
@@ -1877,23 +1965,32 @@ if (isset($_SESSION['print'])) {
 
 
 <script>
-    console.log('add');
+    if (document.getElementById('roznamebox') != null) {
+        let roznamebox = document.getElementById('roznamebox');
+        let roznameClick = document.getElementById('roznameClick');
+        roznameClick.addEventListener('click', () => {
+            roznamebox.innerHTML = `<input type="text" name="rozname" class="form-control" value="<?php //echo isset($_POST['rozname']) ? $_POST['rozname'] : null; 
+                                                                                                    ?>" placeholder="لطفا اسم روزنامه کثیر الانتشار را وارد کنید" required>`;
+        });
+    }
 
-    let addEmza = document.getElementById('addEmza');
-    let emza1 = document.getElementById('emza1');
-    let emza2 = document.getElementById('emza2');
-    let addBox = document.getElementById('addBox');
-    let reset = document.getElementById('reset');
-    reset.style.display = 'none';
-    let i = 1;
-    addEmza.style.cursor = 'pointer';
 
-    addEmza.addEventListener('click', () => {
+    if (document.getElementById('emza1') != null) {
+        let addEmza = document.getElementById('addEmza');
+        let emza1 = document.getElementById('emza1');
+        let emza2 = document.getElementById('emza2');
+        let addBox = document.getElementById('addBox');
+        let reset = document.getElementById('reset');
 
-        reset.style.display = 'block';
-        console.log('click');
-        //addEmza.style.display = 'none';
-        emza1.innerHTML += `<select name="vaYa[]" class="btn-outline-success rounded p-1 mb-3 d-inline mx-md-3" aria-required="true" aria-invalid="false">
+        reset.style.display = 'none';
+        let i = 1;
+        addEmza.style.cursor = 'pointer';
+        addEmza.addEventListener('click', () => {
+
+            reset.style.display = 'block';
+            console.log('click');
+            //addEmza.style.display = 'none';
+            emza1.innerHTML += `<select name="vaYa[]" class="btn-outline-success rounded p-1 mb-3 d-inline mx-md-3" aria-required="true" aria-invalid="false">
         <option value="و">و (هر دو با هم باید امضا کنند) </option>
         <option value="یا">یا (هر کدام حق امضا دارد)</option>
          </select>
@@ -1913,13 +2010,13 @@ if (isset($_SESSION['print'])) {
         ?>
          </select>`;
 
-    });
+        });
 
-    addBox.addEventListener('click', () => {
-        reset.style.display = 'block';
-        console.log('click');
-        if (i == 1) {
-            emza2.innerHTML += `<br><hr>
+        addBox.addEventListener('click', () => {
+            reset.style.display = 'block';
+            console.log('click');
+            if (i == 1) {
+                emza2.innerHTML += `<br><hr>
         <label for="emza1" class="form-label d-block"> لطفا کسانی که حق امضا  اوراق عادی و اداری دارند را مشخص کنید: <span class="t-red">*</span></label>
 
                     <select name="emza2[]" class="btn-outline-success rounded p-1 mb-3 d-inline" aria-required="true" aria-invalid="false">
@@ -1936,11 +2033,11 @@ if (isset($_SESSION['print'])) {
                     ?>
                 </select>
                 `;
-            addBox.innerHTML = 'اگر بیش از یک نفر است اینجا کلیک کنید';
-            i++;
-        } else {
-            //addBox.style.display = 'none';
-            emza2.innerHTML += `<select name="vaYa2[]" class="btn-outline-success rounded p-1 mb-3 d-inline mx-md-3" aria-required="true" aria-invalid="false">
+                addBox.innerHTML = 'اگر بیش از یک نفر است اینجا کلیک کنید';
+                i++;
+            } else {
+                //addBox.style.display = 'none';
+                emza2.innerHTML += `<select name="vaYa2[]" class="btn-outline-success rounded p-1 mb-3 d-inline mx-md-3" aria-required="true" aria-invalid="false">
             <option value="و">و (هر دو با هم باید امضا کنند) </option>
         <option value="یا">یا (هر کدام حق امضا دارد)</option>
          </select>
@@ -1963,9 +2060,10 @@ if (isset($_SESSION['print'])) {
             }
             ?>
          </select>`;
-        }
+            }
 
-    });
+        });
+    }
 </script>
 
 <?php include_once('./footer.php'); ?>
