@@ -1,46 +1,41 @@
-<?php 
+<?php
 $title = 'نیکوثبت';
-include_once('./header.php'); 
+include_once('./header.php');
 if (isset($_COOKIE['newUser'])) {
   echo '<div class="my-bg"><div class="alert alert-success container my-bg" role="alert">
   حساب کاربری شما با موفقیت فعال شد
     </div></div>';
-
 }
-if (isset( $_SESSION['msg'])) {
+if (isset($_SESSION['msg'])) {
   echo '<div class="my-bg"><div class="alert alert-success container my-bg" role="alert">
 خوش آمدید ' .  $_SESSION['msg'] . ' به نیکو ثبت
     </div></div>';
-    $_SESSION['msg'] = NULL;
+  $_SESSION['msg'] = NULL;
 }
 ?>
 
 <div class="my-bg">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-md-6">
-        <img class="img-fluid" src="./img/header.png" alt="" />
+  <div class="container slid">
+    <br><br><br><br><br>
+    <div class=" w-50 m-auto mt-5">
+      <span class="fs-4 ms-2 sahel justifuy mt-5">نیکوثبت مجموعه ای ثبتی جهت انجام کلیه امور ثبتی کسب وکار
+        شما</span>
+      <p class=" fs-5 justifuy my-3 myblue sahel">
+        مجموعه نیکوثبت کسب وکار شما را از بسیاری جهات لمس میکند با خیال
+        راحت امور ثبتیتان را به ما بسپارید و به مدیریت کسب وکار خود
+        بپردارید.
+      </p>
+      <div class="d-block d-md-flex justify-content-between d-lg-inline-block mb-md-1">
+        <a class="d-block d-md-inline-block  btn btn-outline-warning p-4  " href="#">درخواست مشاوره</a>
+        <a class="d-block d-md-inline-block btn btn-outline-warning my-1 my-md-0" href="#">فهرست خدمات نیکو ثبت</a>
       </div>
-      <div class="col-md-6">
-        <span class="fs-4 ms-2 sahel justifuy ">نیکوثبت مجموعه ای ثبتی جهت انجام کلیه امور ثبتی کسب وکار
-          شما</span>
-        <p class="m-5 fs-5 justifuy">
-          مجموعه نیکوثبت کسب وکار شما را از بسیاری جهات لمس میکند با خیال
-          راحت امور ثبتیتان را به ما بسپارید و به مدیریت کسب وکار خود
-          بپردارید.
-        </p>
-        <div class="d-block d-md-flex justify-content-between d-lg-inline-block mb-md-1">
-          <a class="d-block d-md-inline-block  btn btn-outline-primary " href="#">درخواست مشاوره</a>
-          <a class="d-block d-md-inline-block btn btn-outline-primary my-1 my-md-0" href="#">فهرست خدمات نیکو ثبت</a>
-        </div>
-        <a class="d-block d-md-block  d-lg-inline-block btn btn-primary mt-lg-0" href="./tamdid_sherkat.php">
-          تمدید شرکت سهامی خاص</a>
+      <a class="d-block d-md-block  d-lg-inline-block btn btn-warning mt-lg-0" href="./tamdid_sherkat.php">
+        تمدید شرکت سهامی خاص</a>
 
-      </div>
     </div>
   </div>
 </div>
-<section class="mb-4">
+<section class="mb-4 ">
   <div class="container">
     <div class="titr text-center">
       <h1 class="
