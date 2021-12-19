@@ -26,10 +26,10 @@ if (isset($_SESSION['msg'])) {
         بپردارید.
       </p>
       <div class="d-block d-md-flex justify-content-between d-lg-inline-block mb-md-1">
-        <a class="d-block d-md-inline-block  btn btn-outline-warning p-4  " href="#">درخواست مشاوره</a>
+        <a class="d-block d-md-inline-block  btn btn-outline-warning   " href="#">درخواست مشاوره</a>
         <a class="d-block d-md-inline-block btn btn-outline-warning my-1 my-md-0" href="#">فهرست خدمات نیکو ثبت</a>
       </div>
-      <a class="d-block d-md-block  d-lg-inline-block btn btn-warning mt-lg-0" href="./tamdid_sherkat.php">
+      <a class="d-block d-md-block  d-lg-inline-block btn btn-tamdid mt-lg-0" href="./tamdid_sherkat.php">
         تمدید شرکت سهامی خاص</a>
 
     </div>
@@ -136,7 +136,7 @@ if (isset($_SESSION['msg'])) {
         </div>
       </div>
 
-      <div class="col-12 col-lg-4 mt-3">
+      <div class="col-12 col-lg-4 mt-3 shadow-one ">
         <div class="card card-height">
           <div class="card-body border-1 shadow">
             <div class="row">

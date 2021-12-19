@@ -123,3 +123,33 @@ a{
 .myyellow{
   color: yellow;
 }
+
+
+.btn-tamdid{
+  color: #000;
+    background-color: #20b9aa;
+    border-color: #20b9aa;
+}
+
+.btn-outline-warning {
+  color: #070707;
+  border-color: #20b9aa;
+}
+
+
+
+
+.btn-outline-warning:hover{
+  color: #000;
+  background-color: #20b9aa;
+  border-color: #20b9aa;
+
+}
+
+.shadow-one{
+transition: 1s ease;
+}
+
+.shadow-one:hover{
+box-shadow: 1px 1px 1px #efefef;
+  }
