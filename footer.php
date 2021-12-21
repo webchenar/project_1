@@ -1,50 +1,83 @@
-<footer class="my-footer-color">
+<footer class="footer-color">
     <div class="container">
         <div class="row">
-            <div class="col-md-5 pt-2">
-                <h5 class="fs-5 sahel pt-2">تماس با نیکو ثبت</h5>
-                <h5 class="fs-6">
-                    <i class="fas fa-house-user"></i> آدرس: ساختمان مرکز رشد
-                    استهبان،مجموعه ثبتی نیکوثبت
+            
+            <div class="col-md-3 border-right-footer">
+                <h5 class="fs-5 sahel mt-5 text-dark pb-2 ">تماس با نیکو ثبت</h5>
+                <h5 class="fs-6 mb-4">
+                    <i class="fas fa-house-user text-white me-2"></i><span class="text-white">
+                    آدرس : ساختمان مرکز رشد
+                    استهبان
+                    </span>
                 </h5>
-                <h5 class="fs-6">
-                    <i class="fas fa-phone"></i> تلفن : 07153232868
+                <h5 class="fs-6 mb-4 ">
+                    <i class="fas fa-phone text-white me-2"></i> 
+                    <span class="text-white">
+                    تلفن : 07153232868
+                    </span>
                 </h5>
-                <h5 class="fs-6">
-                    <i class="fas fa-mobile-alt"></i> تلفن همراه: 09179335012
+                <h5 class="fs-6  mb-4">
+                    <i class="fas fa-mobile-alt text-white me-2"></i>
+                    <span class="text-white">
+                    تلفن همراه: 09179335012
+                    </span>
                 </h5>
-                <h5 class="fs-6">
-                    <i class="fas fas fa-clock"></i> ساعات حضور: شنبه –چهارشنبه 9 صبح
+                <h5 class="fs-6  mb-4">
+                    <i class="fas fas fa-clock text-white me-2"></i>
+                    <span class="text-white">
+                    ساعات حضور: شنبه –چهارشنبه 9 صبح
                     تا 15بعد از ظهر
+                    </span> 
                 </h5>
-                <h5 class="fs-6">
-                    <i class="far fa-envelope"></i> نمابر: nikoosabt@gmail.com
+                <h5 class="fs-6  mb-4">
+                    <i class="far fa-envelope text-white me-2"></i>
+                    <span class="text-white">
+                    نمابر: nikoosabt@gmail.com
+                    </span> 
                 </h5>
-            </div>
-            <hr class="d-block d-md-none">
-            <div class="col-md-2">
-                <a class="btn-light d-block m-1" href="#">خانه</a>
-                <a class="btn-light d-block m-1" href="#">خدمات</a>
-                <a class="btn-light d-block m-1" href="#">تماس با ما</a>
-                <a class="btn-light d-block m-1" href="#">درباره ما</a>
-                <a class="btn-light d-block m-1" href="#">همکاران</a>
-                <a class="btn-light d-block m-1" href="#">مقالات</a>
             </div>
 
-            <div class="col-3 d-flex align-items-end">
-                <a class="fs-1 messenger mx-2" href="#"><i class="fab fa-instagram"></i></a>
-                <a class="fs-1 messenger  mx-2" href="#"><i class="fab fa-whatsapp"></i></a>
-                <a class="fs-1 messenger  mx-2" href="#"><i class="fab fa-telegram"></i></a>
-                <a class="fs-1 messenger  mx-2" href="#"><i class="fas fa-envelope-open"></i></a>
+            <div class="col-md-3 border-right-footer">
+            <h5 class="fs-5 sahel mt-5 text-dark pb-2 ">دسترسی سریع</h5>
+                <a class=" d-block text-white mx-2 mb-4" href="#">خانه</a>
+                <a class=" d-block text-white mx-2  mb-4" href="#">خدمات</a>
+                <a class=" d-block text-white mx-2  mb-4" href="#">خدمات</a>
+                <a class=" d-block text-white mx-2 mb-4" href="#">تماس با ما</a>
+                <a class=" d-block text-white mx-2 mb-4" href="#">درباره ما</a>
+  
+  
             </div>
+            <div class="col-md-3 border-right-footer">
+            <h5 class="fs-5 sahel mt-5 text-dark pb-2 ">دسترسی سریع</h5>
+                <a class=" d-block text-white mx-2 mb-4" href="#">خانه</a>
+                <a class=" d-block text-white mx-2  mb-4" href="#">خدمات</a>
+                <a class=" d-block text-white mx-2  mb-4" href="#">خدمات</a>
+                <a class=" d-block text-white mx-2 mb-4" href="#">تماس با ما</a>
+                <a class=" d-block text-white mx-2 mb-4" href="#">درباره ما</a>
+  
+  
+            </div>
+
+            <div class="col-md-3 border-right-footer">
+            <h5 class="fs-5 sahel mt-5 text-dark pb-2 ">شبکهای اجتماعی</h5>
+                <a class="fs-2 messenger me-3 text-white" href="#"><i class="fab fa-instagram"></i></a>
+                <a class="fs-2 messenger  mx-3 text-white" href="#"><i class="fab fa-whatsapp"></i></a>
+                <a class="fs-2 messenger  mx-3 text-white" href="#"><i class="fab fa-telegram"></i></a>
+                <a class="fs-2 messenger  mx-3 text-white" href="#"><i class="fas fa-envelope-open"></i></a>
+                <h5 class="fs-5 sahel pt-2 text-dark pb-2 ">نماد الکترونیک و ساماندهی</h5>
+            <a href="https://trustseal.enamad.ir/?id=215586&Code=IINrmBz3ODf4yhf3kLRq">    <img class="img-fluid namad" src="img/namade.png" alt="">     </a>
+            <a href="https://logo.samandehi.ir/Verify.aspx?id=236652&p=uiwkxlaogvkagvkadshwuiwk">    <img class="img-fluid namad ms-2" src="img/namads.png" alt="">     </a>
+            </div>
+            </div>
+  
         </div>
     </div>
 
-    <div class="footer bg-primary">
+    <div class="footer-end ">
         <div class="container">
             <div class="row p-2">
-                <div class="col-12 col-md-5 fs-6 text-light mt-1 ">طراحی و توسعه توسط شرکت AM_TECH</div>
-                <div class="col-12 col-md-5 offset-md-2 fs-6 align-self-start text-light">
+                <div class="col-12 col-md-5 fs-6 text-white my-2 ">طراحی و توسعه توسط مهدسین webchenar </div>
+                <div class="col-12 col-md-5 offset-md-2 fs-6 align-self-start text-white my-2">
                     کلیه حقوق مادی و معنوی این وبسایت متعلق به شرکت نیکوثبت است
                 </div>
             </div>
@@ -53,9 +86,11 @@
     </div>
 </footer>
 
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="./js/script.js"></script>
 <script src="./js/bootstrap.bundle.js"></script>
 <script src="./js/validation.js"></script>
+    <script src="js/main.js"></script>
 
 
 </body>

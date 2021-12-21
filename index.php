@@ -13,12 +13,12 @@ if (isset($_SESSION['msg'])) {
   $_SESSION['msg'] = NULL;
 }
 ?>
-
-<div class="my-bg">
-  <div class="container slid">
-    <br><br><br><br><br>
-    <div class=" w-50 m-auto mt-5">
-      <span class="fs-4 ms-2 sahel justifuy mt-5">نیکوثبت مجموعه ای ثبتی جهت انجام کلیه امور ثبتی کسب وکار
+<div class="container">
+  <div class="row">
+  <div class="col-12 img-filter">
+    <img class="slid" src="img/5.jpg" alt="">
+    <div class=" w-50 m-auto h-auto text-on-img">
+      <span class="fs-4 ms-2 sahel justifuy mt-5 ">نیکوثبت مجموعه ای ثبتی جهت انجام کلیه امور ثبتی کسب وکار
         شما</span>
       <p class=" fs-5 justifuy my-3 myblue sahel">
         مجموعه نیکوثبت کسب وکار شما را از بسیاری جهات لمس میکند با خیال
@@ -26,34 +26,37 @@ if (isset($_SESSION['msg'])) {
         بپردارید.
       </p>
       <div class="d-block d-md-flex justify-content-between d-lg-inline-block mb-md-1">
-        <a class="d-block d-md-inline-block  btn btn-outline-warning   " href="#">درخواست مشاوره</a>
-        <a class="d-block d-md-inline-block btn btn-outline-warning my-1 my-md-0" href="#">فهرست خدمات نیکو ثبت</a>
+        <a class="d-block d-md-inline-block  btn btn-outline-warning mx-1 " href="#">درخواست مشاوره</a>
+        <a class="d-block d-md-inline-block btn btn-outline-warning my-1 my-md-0 " href="#">فهرست خدمات نیکو ثبت</a>
       </div>
       <a class="d-block d-md-block  d-lg-inline-block btn btn-tamdid mt-lg-0" href="./tamdid_sherkat.php">
         تمدید شرکت سهامی خاص</a>
-
+    
     </div>
+
   </div>
 </div>
+</div>
+
 <section class="mb-4 ">
   <div class="container">
     <div class="titr text-center">
-      <h1 class="
+      <h1 class="px-3 
               sahel
               my-green
               d-inline-flex
               fs-1
               fw-bold
               border-bottom border-4 border-primary
-              p-2
               lh-lg
             ">
         معرفی خدمات نیکوثبت
       </h1>
+      
     </div>
 
-    <div class="row">
-      <div class="col-12 col-lg-4 mt-3">
+    <div class="row Services-nikoosabt">
+      <div class="col-12 col-lg-4 my-4">
         <div class="card card-height">
           <div class="card-body border-1 shadow">
             <div class="row">
@@ -65,14 +68,14 @@ if (isset($_SESSION['msg'])) {
               با چند کلیک ساده و به صورت آنلانن شرکت خود را به ثبت برسانید
             </p>
             <div class="d-flex flex-row-reverse">
-              <a href="#" class="card-link position-absolute bottom-0 mb-1"> فرم ثبت شرکت</a>
+              <a href="#" class="card-link position-absolute bottom-0 mb-3"> فرم ثبت شرکت</a>
               <!--<a href="#" class="card-link">Another link</a>-->
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-12 col-lg-4 mt-3">
+      <div class="col-12 col-lg-4 my-4">
         <div class="card card-height">
           <div class="card-body border-1 shadow">
             <div class="row">
@@ -85,14 +88,14 @@ if (isset($_SESSION['msg'])) {
               و یا هر آنچه مربوط به شرکت است ایجاد کند
             </p>
             <div class="d-flex flex-row-reverse">
-              <a href="./tamdid_sherkat.php" class="card-link position-absolute bottom-0 mb-1">فرم تغیرات و تمدید شرکت</a>
+              <a href="./tamdid_sherkat.php" class="card-link position-absolute bottom-0 mb-3">فرم تغیرات و تمدید شرکت</a>
               <!--<a href="#" class="card-link">Another link</a>-->
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-12 col-lg-4 mt-3">
+      <div class="col-12 col-lg-4 my-4">
         <div class="card card-height">
           <div class="card-body border-1 shadow">
             <div class="row">
@@ -107,7 +110,7 @@ if (isset($_SESSION['msg'])) {
               خدمات از یک فروشنده
             </p>
             <div class="d-flex flex-row-reverse">
-              <a href="#" class="card-link position-absolute bottom-0 mb-1">فرم ثبت علائم تجاری و لوگو</a>
+              <a href="#" class="card-link position-absolute bottom-0 mb-3">فرم ثبت علائم تجاری و لوگو</a>
               <!--<a href="#" class="card-link">Another link</a>-->
             </div>
           </div>
@@ -115,8 +118,8 @@ if (isset($_SESSION['msg'])) {
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-12 col-lg-4 mt-3">
+    <div class="row Services-nikoosabt">
+      <div class="col-12 col-lg-4 mb-4">
         <div class="card card-height">
           <div class="card-body border-1 shadow">
             <div class="row">
@@ -129,14 +132,14 @@ if (isset($_SESSION['msg'])) {
               می‌شود...
             </p>
             <div class="d-flex flex-row-reverse">
-              <a href="#" class="card-link position-absolute bottom-0 mb-1">فرم اخذ کارت بازرکانی</a>
+              <a href="#" class="card-link position-absolute bottom-0 mb-3">فرم اخذ کارت بازرکانی</a>
               <!--<a href="#" class="card-link">Another link</a>-->
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-12 col-lg-4 mt-3 shadow-one ">
+      <div class="col-12 col-lg-4 mb-4 shadow-one ">
         <div class="card card-height">
           <div class="card-body border-1 shadow">
             <div class="row">
@@ -148,14 +151,14 @@ if (isset($_SESSION['msg'])) {
               اختراع محصول جدیدی است که در نتیجه‌ی فکر فرد یا افراد مخترع
             </p>
             <div class="d-flex flex-row-reverse">
-              <a href="#" class="card-link position-absolute bottom-0 mb-1">فرم درخواسن ثبت اختراع</a>
+              <a href="#" class="card-link position-absolute bottom-0 mb-3">فرم درخواسن ثبت اختراع</a>
               <!--<a href="#" class="card-link">Another link</a>-->
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-12 col-lg-4 mt-3">
+      <div class="col-12 col-lg-4 mb-4">
         <div class="card card-height">
           <div class="card-body border-1 shadow">
             <div class="row">
@@ -168,7 +171,7 @@ if (isset($_SESSION['msg'])) {
               مراوده و پیگیری از سازمان مدیریت...
             </p>
             <div class="d-flex flex-row-reverse">
-              <a href="#" class="card-link position-absolute bottom-0 mb-1">درخواست اخذ گرید و رتبه بندی</a>
+              <a href="#" class="card-link position-absolute bottom-0 mb-3">درخواست اخذ گرید و رتبه بندی</a>
               <!--<a href="#" class="card-link">Another link</a>-->
             </div>
           </div>
@@ -176,8 +179,8 @@ if (isset($_SESSION['msg'])) {
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-12 col-lg-4 mt-3">
+    <div class="row Services-nikoosabt">
+      <div class="col-12 col-lg-4 mb-4">
         <div class="card card-height">
           <div class="card-body border-1 shadow">
             <div class="row">
@@ -192,14 +195,14 @@ if (isset($_SESSION['msg'])) {
               تولیدی-اقتصادی اخذ می کنند ...
             </p>
             <div class="d-flex flex-row-reverse">
-              <a href="#" class="card-link position-absolute bottom-0 m-2 mb-1">درخواست جواز تاسیس و اکتشافات معدن</a>
+              <a href="#" class="card-link position-absolute bottom-0 m-2 mb-3">درخواست جواز تاسیس و اکتشافات معدن</a>
               <!--<a href="#" class="card-link">Another link</a>-->
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-12 col-lg-4 mt-3">
+      <div class="col-12 col-lg-4 mb-4">
         <div class="card card-height">
           <div class="card-body border-1 shadow">
             <div class="row">
@@ -214,7 +217,7 @@ if (isset($_SESSION['msg'])) {
               عملکرد یک شرکت در قراردادها ...
             </p>
             <div class="d-flex flex-row-reverse">
-              <a href="#" class="card-link position-absolute bottom-0 mb-1">
+              <a href="#" class="card-link position-absolute bottom-0 mb-3">
                 اخذ کد اقتصادی و پلمپ دفاتر تجاری</a>
               <!--<a href="#" class="card-link">Another link</a>-->
             </div>
@@ -222,7 +225,7 @@ if (isset($_SESSION['msg'])) {
         </div>
       </div>
 
-      <div class="col-12 col-lg-4 mt-3">
+      <div class="col-12 col-lg-4 mb-4">
         <div class="card card-height">
           <div class="card-body border-1 shadow">
             <div class="row">
@@ -236,8 +239,8 @@ if (isset($_SESSION['msg'])) {
               یک موسسه خدمات مالی، نیاز به مشاوره مالی مناسب دارد تا در مورد
               مسائل مالی به مشتریان مشاوره دهد...
             </p>
-            <div class="d-flex flex-row-reverse mt-3">
-              <a href="#" class="card-link position-absolute bottom-0 mb-1">فرم خدمات حسابداری و دفاتر مالیاتی</a>
+            <div class="d-flex flex-row-reverse ">
+              <a href="#" class="card-link position-absolute bottom-0 mb-3">فرم خدمات حسابداری و دفاتر مالیاتی</a>
               <!--<a href="#" class="card-link">Another link</a>-->
             </div>
           </div>
@@ -247,14 +250,24 @@ if (isset($_SESSION['msg'])) {
   </div>
 </section>
 
+<section>
+<div class="container">
+  <div class="row">
+    <div class="col-12 my-5">
+    <div class="baner">
+   <a href="#"><img src="img/157760660.jpg" class="img-fluid" alt="">s</a>
+  </div>
+</section>
+    </div>
+  </div>
+</div>
+
 <section class="pt-2 mb-5">
   <div class="container">
-    <div class="row align-items-center">
-      <div class="d-block d-md-none col-12">
-        <img class="img-fluid" src="./img/img-section2.jpg" alt="" />
-      </div>
+    <div class="row ">
+    
 
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-6 moshavereh mt-5">
         <h1 class="
                 sahel
                 my-green
@@ -272,192 +285,80 @@ if (isset($_SESSION['msg'])) {
           اکنون فعالیت هایش را با انجام امور ثبتی شرکتهای مختلف در تمام
           شهرهای ایران بصورت حضوری و دورکاری گسترده نموده است و درخدمت شما
           عزیزان وکسب و کارتان می باشد، تا شما با خیال راحت به اداره امور و
-          مدیریت کسب وکار خود بپردازید
+          مدیریت کسب وکار خود بپردازیدمام
+          شهرهای ایران بصورت حضوری و دورکاری گسترده نموده است و درخدمت شما
+          عزیزان وکسب و کارتان می با
         </p>
-        <div class="text-end">
-          <img src="./img/emza.jpg" alt="" />
-        </div>
+   
       </div>
 
       <div class="d-none d-md-block col-md-6">
-        <img class="img-fluid" src="./img/img-section2.jpg" alt="" />
+        <img class="img-fluid" src="./img/Consulting-rafiki.png" alt="" />
       </div>
+      <p class="text-center fs-5">اگر به مشاوره نیاز دارید <a class="my-green" href="#">اینجا </a> کلیک کنید</p>
     </div>
   </div>
 </section>
 
-<section class="mt-5">
+
+
+<section class="">
   <div class="container">
-    <div class="row">
-      <div class="col-12 col-lg-6">
-        <div>
-          <img class="img-fluid" src="./img/section3.jpg" alt=" " />
-        </div>
-      </div>
-      <div class="col-12 col-lg-6 flex-column">
-        <h1 class="sahel my-green d-inline-flex fs-2 fw-bold p-2">
-          چرا نیکوثبت:
-        </h1>
-        <br />
+  <div class="row">
+
+        <div class="d-none d-md-block col-md-6">
+          
         <h1 class="
                 sahel
-                my-t-color
-                fs-4
-                d-inline
+                my-green
+                d-inline-flex
+                fs-3
                 fw-bold
                 border-bottom border-4 border-primary
                 p-2
-                m-3
-                lh-lg
               ">
-          انجام امور ثبتی در سریع ترین زمان ممکن:
+        چرا باید نیکو ثبت را انتخاب کنیم؟
         </h1>
-        <p class="mt-4 fs-5 justifuy">
-          این پیچیدگی ها را چطور به زمان ساده بیان کنند و مشغله به روند کاری
-          ما اضافه نکنند بسیار مهم هست شما دوست عزیز با پیوستن به مجموعه
-          ثبتی نیکوثبت امورثبتی خود را به کارشناسان ما بسپارید وخود به
-          مدیریت کسب و کار خود بپردازید، در حالی که مرتب از کلیه روند ثبتی
-          خود مطلع هستید
+        <img class="img-fluid mt-2 company" src="./img/Company-amico.png" alt="" />
+      </div>
+      <div class="col-12 col-md-6 mt-5 define-niko">
+        <p class="mt-2 fs-5 justifuy">
+          نیکو ثبت مجموعه ثبتی با کارشناسانی مجرب و باتجربه هست که فعالیت
+          خود را در مرکز رشد با شرکت های نوپا و دانش بنیان آغاز کرد وهم
+          اکنون فعالیت هایش را با انجام امور ثبتی شرکتهای مختلف در تمام
+          شهرهای ایران بصورت حضوری و دورکاری گسترده نموده است و درخدمت شما
+          عزیزان وکسب و کارتان می باشد، تا شما با خیال راحت به اداره امور و
+          مدیریت کسب وکار خود بپردازید
+          اکنون فعالیت هایش را با انجام امور ثبتی شرکتهای مختلف در تمام
+          شهرهای ایران بصورت حضوری و دورکاری گسترده نموده است و درخدمت شما
+          عزیزان وکسب و کارتان می باشد، تا شما با خیال راحت به اداره امور و
+          مدیریت کسب وکار خود بپردازید
         </p>
-
-        <h1 class="
-                sahel
-                my-t-color
-                fs-4
-                d-inline
-                fw-bold
-                border-bottom border-4 border-primary
-                p-2
-                m-3
-                lh-lg
-              ">
-          همراهی کارشناس در کلیه مراحل:
-        </h1>
-        <p class="mt-4 fs-5 justifuy">
-          در مجموعه نیکوثبت پس از بستن قرار داد کارشناس ویژه به شما تعلق می
-          گیرد و شما را همراهی می کند، تا امور ثبتی شما به بهترین شکل به
-          پایان برسد
-        </p>
-
-        <h1 class="sahel fs-1 d-inline fw-bold p-2 m-3">و....</h1>
+   
       </div>
     </div>
-  </div>
+</div>
+
+
+
+     
+</div>
 </section>
 
-<section class="mt-5 my-bg-card">
-  <div class="container">
-    <h1 class="
-            sahel
-            my-t-color
-            d-inline-flex
-            fs-2
-            fw-bold
-            border-bottom border-5 border-primary
-            p-2
-            mb-5
-            mt-5
-          ">
-      معرفی نیکوثبتی ها:
-    </h1>
-    <div class="row justify-content-between">
-      <div class="col-12 col-lg-3 col-md-6">
-        <div class="card shadow">
-          <img src="./img/profile/member.jpg" class="card-profile-img rounded-circle m-2" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">
-              <br />.<br /><br />.<br />توضیحات شرکت
-            </h5>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">نام شرکت : زرین سارگل استهبان</li>
-            <li class="list-group-item">مدیرعامل : امین منوری</li>
-            <li class="list-group-item">شماره تماس:آزمایشی</li>
-            <li class="list-group-item">آدرس:آزمایشی</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link">وبسایت شرکت:آزمایشی </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 mt-3 mt-md-0 col-lg-3 col-md-6">
-        <div class="card shadow">
-          <img src="./img/profile/member.jpg" class="card-profile-img rounded-circle m-2" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">
-              <br />.<br /><br />.<br />توضیحات شرکت
-            </h5>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">نام شرکت : زرین سارگل استهبان</li>
-            <li class="list-group-item">مدیرعامل : امین منوری</li>
-            <li class="list-group-item">شماره تماس:آزمایشی</li>
-            <li class="list-group-item">آدرس:آزمایشی</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link">وبسایت شرکت:آزمایشی </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="d-none d-lg-block col-lg-3">
-        <div class="card shadow">
-          <img src="./img/profile/member.jpg" class="card-profile-img rounded-circle m-2" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">
-              <br />.<br /><br />.<br />توضیحات شرکت
-            </h5>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">نام شرکت : زرین سارگل استهبان</li>
-            <li class="list-group-item">مدیرعامل : امین منوری</li>
-            <li class="list-group-item">شماره تماس:آزمایشی</li>
-            <li class="list-group-item">آدرس:آزمایشی</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link">وبسایت شرکت:آزمایشی </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="d-none d-lg-block col-lg-3">
-        <div class="card shadow">
-          <img src="./img/profile/member.jpg" class="card-profile-img rounded-circle m-2" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">
-              <br />.<br /><br />.<br />توضیحات شرکت
-            </h5>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">نام شرکت : زرین سارگل استهبان</li>
-            <li class="list-group-item">مدیرعامل : امین منوری</li>
-            <li class="list-group-item">شماره تماس:آزمایشی</li>
-            <li class="list-group-item">آدرس:آزمایشی</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link">وبسایت شرکت:آزمایشی </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="m-5">
-  <div class="container text-center my-bg-blue">
-    <h1 class="sahel fs-2 fw-bold my-t-color p-2 mt-5">
+<section class="mb-5">
+  <div class="container text-center my-bg-blue khabarname">
+    <h1 class="sahel fs-2 fw-bold my-t-color py-3">
       عضویت در خبرنامه نیکوثبت
     </h1>
 
-    <h2 class="sahel fs-5 fw-bold p-2">
-      با وارد کردن شماره موبایل خود در کادر زیر به صورت رایگان عضو خبرنامه
-      نیکوثبت شوید
+    <h2 class="sahel fs-5 fw-bold pb-3">
+      با وارد کردن شماره موبایل خود در کادر زیر از 10 درصد تخفیف بهرمند شوید
     </h2>
     <div class="row d-flex justify-content-center">
       <form class="col-12 col-lg-4 row">
-        <div class="input-group mb-4">
+        <div class="input-group mb-5 pb-2">
           <input type="text" class="form-control" placeholder="شماره تلفن همراه" aria-describedby="button-addon2" />
-          <button class="btn btn-primary" type="button" id="button-addon2">
+          <button class="btn btn-primary " type="button" id="button-addon2">
             عضویت
           </button>
         </div>
@@ -465,5 +366,11 @@ if (isset($_SESSION['msg'])) {
     </div>
   </div>
 </section>
+
+
+<a href="javascript:" id="scrool-to-top">
+    <i class="fas fa-chevron-up"></i>
+ </a>
+
 
 <?php include_once('./footer.php') ?>

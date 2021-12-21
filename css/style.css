@@ -79,7 +79,7 @@ a{
 }
 
 .my-footer-color{
- background-color: #F7FAFD;
+ background-color: #023263!important;
 }
 
 .messenger{
@@ -108,13 +108,16 @@ a{
 }
 
 .slid{
-  background-image: url(../img/5.jpg);
+  /* background-image: url(../img/5.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
   width: 100%;
   height: 500px;
+  filter: blur(3px);
+
 
 }
+
 
 .myblue{
   color: #0b3469;
@@ -153,3 +156,124 @@ transition: 1s ease;
 .shadow-one:hover{
 box-shadow: 1px 1px 1px #efefef;
   }
+
+
+
+
+
+                      /* footer */
+
+footer , .footer-end{
+  background-color: #0264c8;                      
+}
+.border-right-footer{
+  border-right: 1px solid #efefef;
+  padding-right: 20px;
+}
+          .namad{
+            width: 130px;
+    height: 110px;
+          }            
+          .footer-end{
+            border-top: 1px solid #efefef;
+          }
+
+
+
+
+
+           /* khabarname */
+
+           .khabarname{
+            position: relative;
+            top: 94px;
+            border-radius: 10px;
+           }
+
+
+
+
+           /*     moshavereh    */
+
+           .moshavereh p ,.define-niko p{
+       line-height: 52px;
+           }
+        .company{
+      
+          height: 500px;
+        }
+     
+
+
+        /*      baner       */
+
+
+        .baner{
+          width: 1295px;
+          height: 300px;
+        overflow: hidden;
+  
+        }
+
+        
+        .baner img{
+          width: 100%;
+          object-fit: fill;
+       
+        }
+
+
+
+
+
+
+        /* Services-nikoosabt */
+        .Services-nikoosabt p{
+line-height:38px;
+        }
+
+
+        .card-body {
+          flex: 1 1 auto;
+          padding: 2rem 1rem;
+        }
+
+
+        /* scroll to top */
+        #scrool-to-top {
+          position: fixed;
+          bottom: -60px;
+          right: 20px;
+          background-color: rgb(38, 38, 38);
+          width: 50px;
+          height: 50px;
+          display: block;
+          border-radius: 35px;
+          transition: all .3s ease;
+         
+      }
+      #scrool-to-top i{
+color: #fff;
+position: relative;
+right: 18px;
+top: 12px;
+transition: all .3s linear;
+      }
+      #scrool-to-top:hover{
+background-color: rgba(0, 0, 0, .7);
+      }
+      #scrool-to-top:hover i{
+          top: 7px;
+      }
+
+.text-on-img{
+  position: relative;
+
+  top: -330px;
+}
+.text-on-img p{
+line-height: 40px;
+}
+.img-filter{
+  height: 534px;
+}

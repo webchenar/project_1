@@ -34,11 +34,16 @@ if (empty($title)) {
 </head>
 
 <body>
-
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6"></div>
+        <div class="col-6"></div>
+    </div>
+</div>
     <header class="my-bg">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="container-fluid d-flex flex-row-reverse">
+                <div class="container-fluid d-flex ">
                     <a class="navbar-brand my-blue fs-3" href="index.php">NikooSabt</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
