@@ -32,15 +32,32 @@ if (empty($title)) {
     <link rel="stylesheet" href="./css/style.css" />
 
 </head>
-
+                                        <!-- top header -->
 <body>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-6"></div>
-        <div class="col-6"></div>
+<div class="container-fluid top-header ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mt-2">
+                <p class="text-white define">
+                به مجموعه ثبتی نیکوثبت خوش آمدید.
+                </p>
+                <p class="text-white define">
+                نیکو ثبت اولین ارائه دهنده خدمات ثبتی دور کاری در کشور
+                </p>
+            </div>
+            <div class="col-md-6 mt-2 tel-me">
+            
+               <i class="fas fa-phone-volume fs-5 me-2 text-white"></i>
+<a class="text-white define" href="tel:09179335012">09179335012</a>
+
+
+<a class="text-white define d-block " href="tel:07153232868">07153232868</a>
+
+            </div>
+        </div>
     </div>
 </div>
-    <header class="my-bg">
+    <header class="my-bg fix-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid d-flex ">
@@ -57,10 +74,22 @@ if (empty($title)) {
                                 <a class="nav-link" href="#">خدمات</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="#">نمایندگی ها</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="#">ارتباط با ما</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">کارشناسان</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">نیکوثبتی ها</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">ثبت شرکت</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">مشاوره</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">درباره ما</a>

@@ -13,14 +13,16 @@ if (isset($_SESSION['msg'])) {
   $_SESSION['msg'] = NULL;
 }
 ?>
+
+
 <div class="container">
   <div class="row">
   <div class="col-12 img-filter">
     <img class="slid" src="img/5.jpg" alt="">
     <div class=" w-50 m-auto h-auto text-on-img">
-      <span class="fs-4 ms-2 sahel justifuy mt-5 ">نیکوثبت مجموعه ای ثبتی جهت انجام کلیه امور ثبتی کسب وکار
+      <span class="fs-5 sahel justifuy ">نیکوثبت مجموعه ای ثبتی جهت انجام کلیه امور ثبتی کسب وکار
         شما</span>
-      <p class=" fs-5 justifuy my-3 myblue sahel">
+      <p class=" fs-5 justifuy my-3 sahel">
         مجموعه نیکوثبت کسب وکار شما را از بسیاری جهات لمس میکند با خیال
         راحت امور ثبتیتان را به ما بسپارید و به مدیریت کسب وکار خود
         بپردارید.
@@ -36,6 +38,7 @@ if (isset($_SESSION['msg'])) {
   </div>
 </div>
 </div>
+
 
 <section class="mb-4 ">
   <div class="container">
@@ -57,7 +60,7 @@ if (isset($_SESSION['msg'])) {
     <div class="row Services-nikoosabt">
       <div class="col-12 col-lg-4 my-4">
         <div class="card card-height">
-          <div class="card-body border-1 shadow">
+          <div class="card-body border-1 ">
             <div class="row">
               <h5 class="col-8 card-title sahel">ثبت انواع شرکت:</h5>
               <i class="fas fa-check fa-2x icon col-2 offset-2"></i>
@@ -76,7 +79,7 @@ if (isset($_SESSION['msg'])) {
 
       <div class="col-12 col-lg-4 my-4">
         <div class="card card-height">
-          <div class="card-body border-1 shadow">
+          <div class="card-body border-1 ">
             <div class="row">
               <h5 class="col-8 card-title sahel">تغییرات وتمدید شرکت:</h5>
               <i class="fas fa-tasks fa-2x icon col-2 offset-2"></i>
@@ -96,7 +99,7 @@ if (isset($_SESSION['msg'])) {
 
       <div class="col-12 col-lg-4 my-4">
         <div class="card card-height">
-          <div class="card-body border-1 shadow">
+          <div class="card-body border-1 ">
             <div class="row">
               <h5 class="col-8 card-title sahel">
                 ثبت علائم تجاری، لوگو و برند:
@@ -120,7 +123,7 @@ if (isset($_SESSION['msg'])) {
     <div class="row Services-nikoosabt">
       <div class="col-12 col-lg-4 mb-4">
         <div class="card card-height">
-          <div class="card-body border-1 shadow">
+          <div class="card-body border-1 ">
             <div class="row">
               <h5 class="col-8 card-title sahel">اخذکارت بازرگانی:</h5>
               <i class="fas fa-id-card fa-2x icon col-2 offset-2"></i>
@@ -138,9 +141,9 @@ if (isset($_SESSION['msg'])) {
         </div>
       </div>
 
-      <div class="col-12 col-lg-4 mb-4 shadow-one ">
+      <div class="col-12 col-lg-4 mb-4  ">
         <div class="card card-height">
-          <div class="card-body border-1 shadow">
+          <div class="card-body border-1 ">
             <div class="row">
               <h5 class="col-8 card-title sahel">ثبت اختراع:</h5>
               <i class="fas fa-fill-drip fa-2x icon col-2 offset-2"></i>
@@ -159,7 +162,7 @@ if (isset($_SESSION['msg'])) {
 
       <div class="col-12 col-lg-4 mb-4">
         <div class="card card-height">
-          <div class="card-body border-1 shadow">
+          <div class="card-body border-1 ">
             <div class="row">
               <h5 class="col-8 card-title sahel">اخذ گرید و رتبه بندی:</h5>
               <i class="fas fa-chart-line fa-2x icon col-2 offset-2"></i>
@@ -181,7 +184,7 @@ if (isset($_SESSION['msg'])) {
     <div class="row Services-nikoosabt">
       <div class="col-12 col-lg-4 mb-4">
         <div class="card card-height">
-          <div class="card-body border-1 shadow">
+          <div class="card-body border-1 ">
             <div class="row">
               <h5 class="col-8 card-title sahel">
                 جواز تاسیس و اکتشافات معدن:
@@ -203,7 +206,7 @@ if (isset($_SESSION['msg'])) {
 
       <div class="col-12 col-lg-4 mb-4">
         <div class="card card-height">
-          <div class="card-body border-1 shadow">
+          <div class="card-body border-1 ">
             <div class="row">
               <h5 class="col-8 card-title sahel">
                 اخذ کداقتصادی و پلمپ دفاتر:
@@ -226,7 +229,7 @@ if (isset($_SESSION['msg'])) {
 
       <div class="col-12 col-lg-4 mb-4">
         <div class="card card-height">
-          <div class="card-body border-1 shadow">
+          <div class="card-body border-1 ">
             <div class="row">
               <h5 class="col-9 card-title sahel">
                 خدمات حسابداری و دفاتر مالیاتی:
@@ -254,7 +257,7 @@ if (isset($_SESSION['msg'])) {
   <div class="row">
     <div class="col-12 my-5">
     <div class="baner">
-   <a href="#"><img src="img/157760660.jpg" class="img-fluid" alt="">s</a>
+   <a href="#"><img src="img/WhatsApp Image 2021-12-21 at 19.45.00.png" class="img-fluid" alt=""></a>
   </div>
 </section>
     </div>
@@ -278,7 +281,7 @@ if (isset($_SESSION['msg'])) {
               ">
           مشاوره عالی ومفید توسط بهترین مجموعه ثبتی
         </h1>
-        <p class="mt-2 fs-5 justifuy">
+        <p class="mt-2 mb-5 fs-5 justifuy">
           نیکو ثبت مجموعه ثبتی با کارشناسانی مجرب و باتجربه هست که فعالیت
           خود را در مرکز رشد با شرکت های نوپا و دانش بنیان آغاز کرد وهم
           اکنون فعالیت هایش را با انجام امور ثبتی شرکتهای مختلف در تمام
@@ -294,7 +297,7 @@ if (isset($_SESSION['msg'])) {
       <div class="d-none d-md-block col-md-6">
         <img class="img-fluid" src="./img/Consulting-rafiki.png" alt="" />
       </div>
-      <p class="text-center fs-5">اگر به مشاوره نیاز دارید <a class="my-green" href="#">اینجا </a> کلیک کنید</p>
+      <p class="text-center my-5 fs-5">اگر به مشاوره نیاز دارید <a class="link-moshavereh" href="#">اینجا </a> کلیک کنید</p>
     </div>
   </div>
 </section>

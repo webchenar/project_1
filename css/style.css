@@ -118,6 +118,34 @@ a{
 
 }
 
+.btn-check:focus + .btn-outline-warning, .btn-outline-warning:focus {
+  box-shadow: none;
+}
+.btn-check:checked + .btn-outline-warning:focus, .btn-check:active + .btn-outline-warning:focus, .btn-outline-warning:active:focus, .btn-outline-warning.active:focus, .btn-outline-warning.dropdown-toggle.show:focus {
+  box-shadow: none;
+}
+.btn-check:focus + .btn, .btn:focus {
+  outline: 0;
+  box-shadow: none;
+}
+.btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: none;
+
+}
+
+
+.form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #000000;
+  outline: 0;
+   box-shadow: none;
+}
+
+.img-filter{
+  height: 530px;
+}
+
 
 .myblue{
   color: #0b3469;
@@ -125,6 +153,7 @@ a{
 
 .myyellow{
   color: yellow;
+  
 }
 
 
@@ -137,6 +166,7 @@ a{
 .btn-outline-warning {
   color: #070707;
   border-color: #20b9aa;
+  transition: .3s ease;
 }
 
 
@@ -149,13 +179,8 @@ a{
 
 }
 
-.shadow-one{
-transition: 1s ease;
-}
 
-.shadow-one:hover{
-box-shadow: 1px 1px 1px #efefef;
-  }
+
 
 
 
@@ -163,7 +188,7 @@ box-shadow: 1px 1px 1px #efefef;
 
                       /* footer */
 
-footer , .footer-end{
+footer , .footer-end , .top-header{ 
   background-color: #0264c8;                      
 }
 .border-right-footer{
@@ -171,12 +196,41 @@ footer , .footer-end{
   padding-right: 20px;
 }
           .namad{
-            width: 130px;
+            width: 123px;
     height: 110px;
           }            
           .footer-end{
             border-top: 1px solid #efefef;
           }
+.footer-style h5 , .footer-style a{
+  font-size: .9rem;
+}
+
+.footer-style .time-we{
+  line-height: 20px;
+}
+.footer-style a{
+transition: .3s ease!important;
+
+
+}
+.footer-style a:hover{
+color: rgb(175, 175, 175)!important;
+padding-right: 4px!important;
+}
+
+a .fa-instagram:hover{
+color: red;
+}
+a .fa-whatsapp:hover{
+  color: rgb(10, 142, 36);
+  }
+a .fa-telegram:hover{
+  color: rgb(194, 218, 251);
+  }
+  a .fa-envelope-open:hover{
+    color: rgb(133, 133, 133);
+    }
 
 
 
@@ -188,6 +242,9 @@ footer , .footer-end{
             position: relative;
             top: 94px;
             border-radius: 10px;
+           }
+           .khabarname form{
+         width: 55%;
            }
 
 
@@ -203,22 +260,32 @@ footer , .footer-end{
           height: 500px;
         }
      
+.link-moshavereh{
+  color: #20B9AA;
+}
+.link-moshavereh:hover{
+  color: #20B9AA!important;
+}
 
 
         /*      baner       */
 
 
         .baner{
-          width: 1295px;
-          height: 300px;
-        overflow: hidden;
+          max-width: 1295px;
+    height: 500px;
+    overflow: hidden;
+transition: .3s ease;
   
+        }
+        .baner:hover{
+          box-shadow:  5px -6px 8px 0px #858585;
         }
 
         
         .baner img{
           width: 100%;
-          object-fit: fill;
+          height: 500px;
        
         }
 
@@ -266,6 +333,10 @@ background-color: rgba(0, 0, 0, .7);
           top: 7px;
       }
 
+
+
+                  /* tex-on-img */
+
 .text-on-img{
   position: relative;
 
@@ -274,6 +345,61 @@ background-color: rgba(0, 0, 0, .7);
 .text-on-img p{
 line-height: 40px;
 }
-.img-filter{
-  height: 534px;
+
+
+.top-header .define{
+font-size: .9rem;
 }
+.top-header i{
+  vertical-align: -21px;
+  }
+  .top-header .tel-me a:last-child{
+    margin-right: 27px;
+  }
+
+              /* nav-hover */
+  .navbar li a{
+    color: rgb(90, 90, 90)!important;
+    transition: .5s ease;
+  }
+  .navbar li a:hover{
+    color: rgb(0, 0, 0)!important;
+    transform: translateY(-5px);
+
+  }
+
+
+
+               /* top-header */
+
+.top-header .tel-me a{
+  transition: .3s ease;
+}
+.top-header .tel-me a:hover{
+ color: #bfbfbf!important;
+}
+
+
+
+
+
+
+
+
+                    /* Services-nikoosabt */
+.Services-nikoosabt .card{
+  box-shadow: 2px 3px 6px 0px #858585;
+  transition: .5s ease;
+}
+
+.Services-nikoosabt .card:hover{
+  box-shadow: 2px 3px 6px 0px #323232;
+  transform: translateY(-5px);
+
+}
+
+
+
+
+
+

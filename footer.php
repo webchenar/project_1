@@ -2,43 +2,44 @@
     <div class="container">
         <div class="row">
             
-            <div class="col-md-3 border-right-footer">
+            <div class="col-md-3 border-right-footer footer-style">
                 <h5 class="fs-5 sahel mt-5 text-dark pb-2 ">تماس با نیکو ثبت</h5>
-                <h5 class="fs-6 mb-4">
-                    <i class="fas fa-house-user text-white me-2"></i><span class="text-white">
-                    آدرس : ساختمان مرکز رشد
+                <h5 class=" mb-4">
+                    <i class="fas fa-house-user text-white me-2"></i>
+                        <a class="text-white" href="javascript:">
+                            آدرس : ساختمان مرکز رشد
                     استهبان
-                    </span>
+                    </a>
                 </h5>
-                <h5 class="fs-6 mb-4 ">
+                <h5 class="mb-4 ">
                     <i class="fas fa-phone text-white me-2"></i> 
-                    <span class="text-white">
+                    <a class="text-white" href="tel:07153232868">
                     تلفن : 07153232868
-                    </span>
+                            </a>
                 </h5>
-                <h5 class="fs-6  mb-4">
+                <h5 class=" mb-4">
                     <i class="fas fa-mobile-alt text-white me-2"></i>
-                    <span class="text-white">
+                    <a class="text-white" href="tel:09179335012">
                     تلفن همراه: 09179335012
-                    </span>
+                        </a>
                 </h5>
-                <h5 class="fs-6  mb-4">
+                <h5 class=" mb-4 time-we">
                     <i class="fas fas fa-clock text-white me-2"></i>
-                    <span class="text-white">
+                    <a class="text-white" href="javascript:">
                     ساعات حضور: شنبه –چهارشنبه 9 صبح
                     تا 15بعد از ظهر
-                    </span> 
+                </a> 
                 </h5>
-                <h5 class="fs-6  mb-4">
+                <h5 class=" mb-4">
                     <i class="far fa-envelope text-white me-2"></i>
-                    <span class="text-white">
+                    <a class="text-white" href="javascript:">
                     نمابر: nikoosabt@gmail.com
-                    </span> 
+                </a> 
                 </h5>
             </div>
 
-            <div class="col-md-3 border-right-footer">
-            <h5 class="fs-5 sahel mt-5 text-dark pb-2 ">دسترسی سریع</h5>
+            <div class="col-md-3 border-right-footer footer-style">
+                <h5 class="fs-5 sahel mt-5 text-dark pb-2 ">دسترسی سریع</h5>
                 <a class=" d-block text-white mx-2 mb-4" href="#">خانه</a>
                 <a class=" d-block text-white mx-2  mb-4" href="#">خدمات</a>
                 <a class=" d-block text-white mx-2  mb-4" href="#">خدمات</a>
@@ -47,7 +48,7 @@
   
   
             </div>
-            <div class="col-md-3 border-right-footer">
+            <div class="col-md-3 border-right-footer footer-style">
             <h5 class="fs-5 sahel mt-5 text-dark pb-2 ">دسترسی سریع</h5>
                 <a class=" d-block text-white mx-2 mb-4" href="#">خانه</a>
                 <a class=" d-block text-white mx-2  mb-4" href="#">خدمات</a>
@@ -58,7 +59,7 @@
   
             </div>
 
-            <div class="col-md-3 border-right-footer">
+            <div class="col-md-3 border-right-footer ">
             <h5 class="fs-5 sahel mt-5 text-dark pb-2 ">شبکهای اجتماعی</h5>
                 <a class="fs-2 messenger me-3 text-white" href="#"><i class="fab fa-instagram"></i></a>
                 <a class="fs-2 messenger  mx-3 text-white" href="#"><i class="fab fa-whatsapp"></i></a>
@@ -66,7 +67,7 @@
                 <a class="fs-2 messenger  mx-3 text-white" href="#"><i class="fas fa-envelope-open"></i></a>
                 <h5 class="fs-5 sahel pt-2 text-dark pb-2 ">نماد الکترونیک و ساماندهی</h5>
             <a href="https://trustseal.enamad.ir/?id=215586&Code=IINrmBz3ODf4yhf3kLRq">    <img class="img-fluid namad" src="img/namade.png" alt="">     </a>
-            <a href="https://logo.samandehi.ir/Verify.aspx?id=236652&p=uiwkxlaogvkagvkadshwuiwk">    <img class="img-fluid namad ms-2" src="img/namads.png" alt="">     </a>
+            <a href="https://logo.samandehi.ir/Verify.aspx?id=236652&p=uiwkxlaogvkagvkadshwuiwk">    <img class="img-fluid namad" src="img/namads.png" alt="">     </a>
             </div>
             </div>
   
