@@ -77,7 +77,7 @@
     <div class="footer-end ">
         <div class="container">
             <div class="row p-2">
-                <div class="col-12 col-md-5 fs-6 text-white my-2 ">طراحی و توسعه توسط مهدسین webchenar </div>
+                <div class="col-12 col-md-5 fs-6 text-white my-2 ">طراحی و توسعه توسط مهندسین webchenar </div>
                 <div class="col-12 col-md-5 offset-md-2 fs-6 align-self-start text-white my-2">
                     کلیه حقوق مادی و معنوی این وبسایت متعلق به شرکت نیکوثبت است
                 </div>
