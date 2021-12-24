@@ -244,9 +244,11 @@ a .fa-telegram:hover{
             border-radius: 10px;
            }
            .khabarname form{
-         width: 55%;
+         width: 624px;
            }
-
+.khabarname h2{
+  line-height: 40px;
+}
 
 
 
@@ -342,7 +344,7 @@ background-color: rgba(0, 0, 0, .7);
 
   top: -330px;
 }
-.text-on-img p{
+.text-on-img p , .text-on-img span{
 line-height: 40px;
 }
 
@@ -367,8 +369,77 @@ font-size: .9rem;
     transform: translateY(-5px);
 
   }
+  .navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+     box-shadow:none;
+  }
 
+ 
 
+  @media only screen and  (max-width: 1200px){
+  .navbar-expand-lg .navbar-nav .nav-link {
+      padding-left: 0rem;
+      padding-right: 0.8rem;
+      font-size: .99rem;
+  }
+  .text-on-img {
+    top: -403px;
+    width: 75%!important;
+  }
+  .text-on-img span{
+    font-size: 1.1rem!important;
+  }
+  .text-on-img p{
+    font-size: 1.1rem!important;
+  }
+
+  .text-on-img a{
+    display: block;
+    margin-bottom: 6px;
+    margin-right: 0!important;
+    margin-left: 0!important;
+  }
+  .moshavereh p, .define-niko p{
+line-height: 38px;
+  }
+
+  .moshavereh-img img{
+    max-width: 100%;
+    height: 80%;
+    margin-top: 63px;
+  }
+  .company{
+    height: 467px;
+  }
+  .email{
+    margin-right: 0!important;
+  }
+}
+@media only screen and  (max-width: 992px){
+  .define-niko, .moshavereh{
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  .company , .moshavereh-img img{
+   display: none;
+  }
+  .moshavereh p, .define-niko p{
+    line-height: 44px;
+      }
+      .define-niko p{
+        margin-top: 0!important;
+      }
+      .define-niko {
+        margin-top: 0!important;
+      }
+}
+
+@media only screen and  (max-width: 768px){
+  .text-on-img{
+width: 85%;
+  }
+}
 
                /* top-header */
 
@@ -395,11 +466,14 @@ font-size: .9rem;
 .Services-nikoosabt .card:hover{
   box-shadow: 2px 3px 6px 0px #323232;
   transform: translateY(-5px);
-
 }
+  
 
 
 
-
+.titr{
+  font-size: 1.5rem;
+    margin-bottom: 17px;
+}
 
 

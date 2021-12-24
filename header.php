@@ -26,7 +26,7 @@ if (empty($title)) {
     <link rel="shortcut icon" href="https://s21.picofile.com/file/8442747484/cropped_Untitled_1_1_192x192.png">
     <link href="css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
     <link href="themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css" />
-
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="./bootstrap-5.1.1/css/bootstrap.rtl.css" />
     <link rel="stylesheet" href="./css/all.css" />
     <link rel="stylesheet" href="./css/style.css" />

@@ -1,8 +1,8 @@
 <footer class="footer-color">
     <div class="container">
-        <div class="row">
+        <div class="row ">
             
-            <div class="col-md-3 border-right-footer footer-style">
+            <div class=" col-md-3 border-right-footer footer-style">
                 <h5 class="fs-5 sahel mt-5 text-dark pb-2 ">تماس با نیکو ثبت</h5>
                 <h5 class=" mb-4">
                     <i class="fas fa-house-user text-white me-2"></i>
@@ -11,6 +11,7 @@
                     استهبان
                     </a>
                 </h5>
+                <div>
                 <h5 class="mb-4 ">
                     <i class="fas fa-phone text-white me-2"></i> 
                     <a class="text-white" href="tel:07153232868">
@@ -36,9 +37,10 @@
                     نمابر: nikoosabt@gmail.com
                 </a> 
                 </h5>
+                </div>
             </div>
 
-            <div class="col-md-3 border-right-footer footer-style">
+            <div class="col-sm-6 col-md-3 border-right-footer footer-style">
                 <h5 class="fs-5 sahel mt-5 text-dark pb-2 ">دسترسی سریع</h5>
                 <a class=" d-block text-white mx-2 mb-4" href="#">خانه</a>
                 <a class=" d-block text-white mx-2  mb-4" href="#">خدمات</a>
@@ -48,7 +50,7 @@
   
   
             </div>
-            <div class="col-md-3 border-right-footer footer-style">
+            <div class="col-sm-6 col-md-3 border-right-footer footer-style">
             <h5 class="fs-5 sahel mt-5 text-dark pb-2 ">دسترسی سریع</h5>
                 <a class=" d-block text-white mx-2 mb-4" href="#">خانه</a>
                 <a class=" d-block text-white mx-2  mb-4" href="#">خدمات</a>
@@ -59,15 +61,19 @@
   
             </div>
 
-            <div class="col-md-3 border-right-footer ">
+            <div class="col-sm-6 col-md-3 border-right-footer ">
             <h5 class="fs-5 sahel mt-5 text-dark pb-2 ">شبکهای اجتماعی</h5>
-                <a class="fs-2 messenger me-3 text-white" href="#"><i class="fab fa-instagram"></i></a>
-                <a class="fs-2 messenger  mx-3 text-white" href="#"><i class="fab fa-whatsapp"></i></a>
-                <a class="fs-2 messenger  mx-3 text-white" href="#"><i class="fab fa-telegram"></i></a>
-                <a class="fs-2 messenger  mx-3 text-white" href="#"><i class="fas fa-envelope-open"></i></a>
+            <div class="d-flex justify-content-around">
+                <a class="fs-2 messenger text-white " href="#"><i class="fab fa-instagram"></i></a>
+                <a class="fs-2 messenger text-white " href="#"><i class="fab fa-whatsapp"></i></a>
+                <a class="fs-2 messenger text-white " href="#"><i class="fab fa-telegram"></i></a>
+                <a class="fs-2 messenger text-white " href="#"><i class="fas fa-envelope-open"></i></a>
+                </div>
                 <h5 class="fs-5 sahel pt-2 text-dark pb-2 ">نماد الکترونیک و ساماندهی</h5>
+<div class="d-flex">
             <a href="https://trustseal.enamad.ir/?id=215586&Code=IINrmBz3ODf4yhf3kLRq">    <img class="img-fluid namad" src="img/namade.png" alt="">     </a>
             <a href="https://logo.samandehi.ir/Verify.aspx?id=236652&p=uiwkxlaogvkagvkadshwuiwk">    <img class="img-fluid namad" src="img/namads.png" alt="">     </a>
+            </div>
             </div>
             </div>
   
@@ -77,8 +83,8 @@
     <div class="footer-end ">
         <div class="container">
             <div class="row p-2">
-                <div class="col-12 col-md-5 fs-6 text-white my-2 ">طراحی و توسعه توسط مهندسین webchenar </div>
-                <div class="col-12 col-md-5 offset-md-2 fs-6 align-self-start text-white my-2">
+                <div class="col-sm-6 col-md-5 fs-6 text-white my-2 ">طراحی و توسعه توسط مهندسین<a class="text-info text-center mt-4" href="#"> webchenar</a> </div>
+                <div class=" col-sm-6 col-md-5 offset-md-2 fs-6 align-self-start text-white my-2">
                     کلیه حقوق مادی و معنوی این وبسایت متعلق به شرکت نیکوثبت است
                 </div>
             </div>
@@ -91,6 +97,7 @@
 <script src="./js/script.js"></script>
 <script src="./js/bootstrap.bundle.js"></script>
 <script src="./js/validation.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/main.js"></script>
 
 

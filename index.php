@@ -27,12 +27,12 @@ if (isset($_SESSION['msg'])) {
         راحت امور ثبتیتان را به ما بسپارید و به مدیریت کسب وکار خود
         بپردارید.
       </p>
-      <div class="d-block d-md-flex justify-content-between d-lg-inline-block mb-md-1">
-        <a class="d-block d-md-inline-block  btn btn-outline-warning mx-1 " href="#">درخواست مشاوره</a>
-        <a class="d-block d-md-inline-block btn btn-outline-warning my-1 my-md-0 " href="#">فهرست خدمات نیکو ثبت</a>
-      </div>
-      <a class="d-block d-md-block  d-lg-inline-block btn btn-tamdid mt-lg-0" href="./tamdid_sherkat.php">
-        تمدید شرکت سهامی خاص</a>
+     
+        <a class="btn btn-outline-warning " href="#">درخواست مشاوره</a>
+        <a class=" btn btn-outline-warning my-1 mx-2 " href="#">فهرست خدمات نیکو ثبت</a>
+        <a class=" btn btn-tamdid mt-lg-0" href="./tamdid_sherkat.php">
+          تمدید شرکت سهامی خاص</a>
+      
     
     </div>
   </div>
@@ -47,7 +47,7 @@ if (isset($_SESSION['msg'])) {
               sahel
               my-green
               d-inline-flex
-              fs-1
+              titr
               fw-bold
               border-bottom border-4 border-primary
               lh-lg
@@ -58,8 +58,16 @@ if (isset($_SESSION['msg'])) {
     </div>
 
     <div class="row Services-nikoosabt">
-      <div class="col-12 col-lg-4 my-4">
-        <div class="card card-height">
+      <div class="col-12 col-md-6 col-lg-4 my-4">
+
+        <div data-aos="flip-right"
+        data-aos-offset="200"
+        
+         
+        
+        data-aos-duration="1000"
+    data-aos-easing="ease-in-out"
+      class="card card-height">
           <div class="card-body border-1 ">
             <div class="row">
               <h5 class="col-8 card-title sahel">ثبت انواع شرکت:</h5>
@@ -77,8 +85,13 @@ if (isset($_SESSION['msg'])) {
         </div>
       </div>
 
-      <div class="col-12 col-lg-4 my-4">
-        <div class="card card-height">
+      <div class="col-12 col-md-6 col-lg-4 my-4">
+        <div data-aos="flip-right"
+        data-aos-offset="200"
+        
+         
+        data-aos-duration="1000"
+    data-aos-easing="ease-in-out" class="card card-height">
           <div class="card-body border-1 ">
             <div class="row">
               <h5 class="col-8 card-title sahel">تغییرات وتمدید شرکت:</h5>
@@ -97,9 +110,14 @@ if (isset($_SESSION['msg'])) {
         </div>
       </div>
 
-      <div class="col-12 col-lg-4 my-4">
-        <div class="card card-height">
-          <div class="card-body border-1 ">
+      <div class="col-12 col-md-6 col-lg-4 my-4">
+        <div data-aos="flip-right"
+        data-aos-offset="200"
+        
+         
+        data-aos-duration="1000"
+    data-aos-easing="ease-in-out" class="card card-height">
+    <div class="card-body border-1 ">
             <div class="row">
               <h5 class="col-8 card-title sahel">
                 ثبت علائم تجاری، لوگو و برند:
@@ -118,11 +136,11 @@ if (isset($_SESSION['msg'])) {
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="row Services-nikoosabt">
-      <div class="col-12 col-lg-4 mb-4">
-        <div class="card card-height">
+      <div class="col-12 col-md-6 col-lg-4 my-4">
+        <div data-aos="flip-up"
+        data-aos-duration="1000"
+         
+    data-aos-easing="ease-in-out" class="card card-height">
           <div class="card-body border-1 ">
             <div class="row">
               <h5 class="col-8 card-title sahel">اخذکارت بازرگانی:</h5>
@@ -141,8 +159,11 @@ if (isset($_SESSION['msg'])) {
         </div>
       </div>
 
-      <div class="col-12 col-lg-4 mb-4  ">
-        <div class="card card-height">
+      <div class="col-12 col-md-6 col-lg-4 my-4">
+        <div data-aos="flip-up"
+        data-aos-duration="1000"
+         
+    data-aos-easing="ease-in-out"  class="card card-height">
           <div class="card-body border-1 ">
             <div class="row">
               <h5 class="col-8 card-title sahel">ثبت اختراع:</h5>
@@ -160,95 +181,116 @@ if (isset($_SESSION['msg'])) {
         </div>
       </div>
 
-      <div class="col-12 col-lg-4 mb-4">
-        <div class="card card-height">
-          <div class="card-body border-1 ">
-            <div class="row">
-              <h5 class="col-8 card-title sahel">اخذ گرید و رتبه بندی:</h5>
-              <i class="fas fa-chart-line fa-2x icon col-2 offset-2"></i>
+
+
+      
+            <div class="col-12 col-md-6 col-lg-4 my-4">
+              <div data-aos="flip-up"
+        data-aos-duration="1000"
+         
+    data-aos-easing="ease-in-out" class="card card-height">
+                <div class="card-body border-1 ">
+                  <div class="row">
+                    <h5 class="col-8 card-title sahel">اخذ گرید و رتبه بندی:</h5>
+                    <i class="fas fa-chart-line fa-2x icon col-2 offset-2"></i>
+                  </div>
+                  <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+                  <p class="card-text fs-6 justify">
+                    فرآیند رتبه بندی متشکل از پیگیری جهت تکمیل شرایط و مدارک و
+                    مراوده و پیگیری از سازمان مدیریت...
+                  </p>
+                  <div class="d-flex flex-row-reverse">
+                    <a href="#" class="card-link position-absolute bottom-0 mb-3">درخواست اخذ گرید و رتبه بندی</a>
+                    <!--<a href="#" class="card-link">Another link</a>-->
+                  </div>
+                </div>
+              </div>
+      
             </div>
-            <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
-            <p class="card-text fs-6 justify">
-              فرآیند رتبه بندی متشکل از پیگیری جهت تکمیل شرایط و مدارک و
-              مراوده و پیگیری از سازمان مدیریت...
-            </p>
-            <div class="d-flex flex-row-reverse">
-              <a href="#" class="card-link position-absolute bottom-0 mb-3">درخواست اخذ گرید و رتبه بندی</a>
-              <!--<a href="#" class="card-link">Another link</a>-->
+            <div class="col-12 col-md-6 col-lg-4 my-4">
+              <div data-aos="flip-down"
+        data-aos-duration="1000"
+         
+    data-aos-easing="ease-in-out" class="card card-height">
+                <div class="card-body border-1 ">
+                  <div class="row">
+                    <h5 class="col-8 card-title sahel">
+                      جواز تاسیس و اکتشافات معدن:
+                    </h5>
+                    <i class="fas fa-snowplow fa-2x icon col-2 offset-2"></i>
+                  </div>
+                  <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+                  <p class="card-text justify">
+                    جواز تاسیس به مجوزی که افراد جهت انجام یک فعالیت
+                    تولیدی-اقتصادی اخذ می کنند ...
+                  </p>
+                  <div class="d-flex flex-row-reverse">
+                    <a href="#" class="card-link position-absolute bottom-0 m-2 mb-3">درخواست جواز تاسیس و اکتشافات معدن</a>
+                    <!--<a href="#" class="card-link">Another link</a>-->
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
+       
+            <div class="col-12 col-md-6 col-lg-4 my-4">
+              <div data-aos="flip-down"
+        data-aos-duration="1000"
+         
+    data-aos-easing="ease-in-out" class="card card-height">
+                <div class="card-body border-1 ">
+                  <div class="row">
+                    <h5 class="col-8 card-title sahel">
+                      اخذ کداقتصادی و پلمپ دفاتر:
+                    </h5>
+                    <i class="fas fa-unlock fa-2x icon col-2 offset-2"></i>
+                  </div>
+                  <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+                  <p class="card-text justify">
+                    هر شرکت نیاز به یک کد اقتصادی دارد. این کد برای مشخص شدن
+                    عملکرد یک شرکت در قراردادها ...
+                  </p>
+                  <div class="d-flex flex-row-reverse">
+                    <a href="#" class="card-link position-absolute bottom-0 mb-3">
+                      اخذ کد اقتصادی و پلمپ دفاتر تجاری</a>
+                    <!--<a href="#" class="card-link">Another link</a>-->
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            <div class="col-12 col-md-6 col-lg-4 my-4">
+              <div data-aos="flip-down"
+        data-aos-duration="1000"
+         
+    data-aos-easing="ease-in-out" class="card card-height">
+                <div class="card-body border-1 ">
+                  <div class="row">
+                    <h5 class="col-9 card-title sahel">
+                      خدمات حسابداری و دفاتر مالیاتی:
+                    </h5>
+                    <i class="fas fa-calculator fa-2x icon col-2 offset-1"></i>
+                  </div>
+                  <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+                  <p class="card-text  justify">
+                    یک موسسه خدمات مالی، نیاز به مشاوره مالی مناسب دارد تا در مورد
+                    مسائل مالی به مشتریان مشاوره دهد...
+                  </p>
+                  <div class="d-flex flex-row-reverse ">
+                    <a href="#" class="card-link position-absolute bottom-0 mb-3">فرم خدمات حسابداری و دفاتر مالیاتی</a>
+                    <!--<a href="#" class="card-link">Another link</a>-->
+                  </div>
+                </div>
+              </div>
+            </div>
+         
+       
+
     </div>
 
-    <div class="row Services-nikoosabt">
-      <div class="col-12 col-lg-4 mb-4">
-        <div class="card card-height">
-          <div class="card-body border-1 ">
-            <div class="row">
-              <h5 class="col-8 card-title sahel">
-                جواز تاسیس و اکتشافات معدن:
-              </h5>
-              <i class="fas fa-snowplow fa-2x icon col-2 offset-2"></i>
-            </div>
-            <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
-            <p class="card-text justify">
-              جواز تاسیس به مجوزی که افراد جهت انجام یک فعالیت
-              تولیدی-اقتصادی اخذ می کنند ...
-            </p>
-            <div class="d-flex flex-row-reverse">
-              <a href="#" class="card-link position-absolute bottom-0 m-2 mb-3">درخواست جواز تاسیس و اکتشافات معدن</a>
-              <!--<a href="#" class="card-link">Another link</a>-->
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="col-12 col-lg-4 mb-4">
-        <div class="card card-height">
-          <div class="card-body border-1 ">
-            <div class="row">
-              <h5 class="col-8 card-title sahel">
-                اخذ کداقتصادی و پلمپ دفاتر:
-              </h5>
-              <i class="fas fa-unlock fa-2x icon col-2 offset-2"></i>
-            </div>
-            <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
-            <p class="card-text justify">
-              هر شرکت نیاز به یک کد اقتصادی دارد. این کد برای مشخص شدن
-              عملکرد یک شرکت در قراردادها ...
-            </p>
-            <div class="d-flex flex-row-reverse">
-              <a href="#" class="card-link position-absolute bottom-0 mb-3">
-                اخذ کد اقتصادی و پلمپ دفاتر تجاری</a>
-              <!--<a href="#" class="card-link">Another link</a>-->
-            </div>
-          </div>
-        </div>
-      </div>
+    
+   
 
-      <div class="col-12 col-lg-4 mb-4">
-        <div class="card card-height">
-          <div class="card-body border-1 ">
-            <div class="row">
-              <h5 class="col-9 card-title sahel">
-                خدمات حسابداری و دفاتر مالیاتی:
-              </h5>
-              <i class="fas fa-calculator fa-2x icon col-2 offset-1"></i>
-            </div>
-            <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
-            <p class="card-text  justify">
-              یک موسسه خدمات مالی، نیاز به مشاوره مالی مناسب دارد تا در مورد
-              مسائل مالی به مشتریان مشاوره دهد...
-            </p>
-            <div class="d-flex flex-row-reverse ">
-              <a href="#" class="card-link position-absolute bottom-0 mb-3">فرم خدمات حسابداری و دفاتر مالیاتی</a>
-              <!--<a href="#" class="card-link">Another link</a>-->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -270,18 +312,27 @@ if (isset($_SESSION['msg'])) {
     
 
       <div class="col-12 col-md-6 moshavereh mt-5">
-        <h1 class="
+        <h1  data-aos="fade-left"
+      
+    data-aos-duration="500"
+    data-aos-easing="ease-in-out"
+
+         class="
                 sahel
                 my-green
                 d-inline-flex
-                fs-3
+                titr
                 fw-bold
                 border-bottom border-4 border-primary
                 p-2
               ">
           مشاوره عالی ومفید توسط بهترین مجموعه ثبتی
         </h1>
-        <p class="mt-2 mb-5 fs-5 justifuy">
+        <p data-aos="fade-left"
+      data-aos-duration="1000"
+      data-aos-offset="200"
+    data-aos-delay="500"
+      data-aos-easing="liner" class="mt-2 mb-5 fs-5 justifuy ">
           نیکو ثبت مجموعه ثبتی با کارشناسانی مجرب و باتجربه هست که فعالیت
           خود را در مرکز رشد با شرکت های نوپا و دانش بنیان آغاز کرد وهم
           اکنون فعالیت هایش را با انجام امور ثبتی شرکتهای مختلف در تمام
@@ -294,10 +345,18 @@ if (isset($_SESSION['msg'])) {
    
       </div>
 
-      <div class="d-none d-md-block col-md-6">
-        <img class="img-fluid" src="./img/Consulting-rafiki.png" alt="" />
+      <div class="d-none d-md-block col-md-6 moshavereh-img">
+        <img data-aos="fade-right"
+      data-aos-duration="1000"
+      data-aos-offset="200"
+    data-aos-delay="1000"
+      data-aos-easing="liner" class="img-fluid" src="./img/Consulting-rafiki.png" alt="" />
       </div>
-      <p class="text-center my-5 fs-5">اگر به مشاوره نیاز دارید <a class="link-moshavereh" href="#">اینجا </a> کلیک کنید</p>
+      <p class="text-center fs-5">اگر به مشاوره نیاز دارید <a data-aos="zoom-in-down"
+      data-aos-duration="500"
+      data-aos-offset="200"
+  
+     class="link-moshavereh" href="#">اینجا </a> کلیک کنید</p>
     </div>
   </div>
 </section>
@@ -308,23 +367,34 @@ if (isset($_SESSION['msg'])) {
   <div class="container">
   <div class="row">
 
-        <div class="d-none d-md-block col-md-6">
+        <div class=" col-md-6">
           
-        <h1 class="
+        <h1 data-aos="fade-left"
+      
+      data-aos-duration="500"
+      data-aos-easing="ease-in-out" class="
                 sahel
                 my-green
                 d-inline-flex
-                fs-3
+               titr
                 fw-bold
                 border-bottom border-4 border-primary
                 p-2
               ">
         چرا باید نیکو ثبت را انتخاب کنیم؟
         </h1>
-        <img class="img-fluid mt-2 company" src="./img/Company-amico.png" alt="" />
+        <img data-aos="fade-left"
+      data-aos-duration="1000"
+      data-aos-offset="200"
+    data-aos-delay="500"
+      data-aos-easing="liner" class="img-fluid mt-2 company" src="./img/Company-amico.png" alt="" />
       </div>
-      <div class="col-12 col-md-6 mt-5 define-niko">
-        <p class="mt-2 fs-5 justifuy">
+      <div class="col-12 col-md-6 mt-5  define-niko">
+        <p data-aos="fade-left"
+      data-aos-duration="1000"
+      data-aos-offset="200"
+    data-aos-delay="900"
+      data-aos-easing="liner" class="mt-5 fs-5 justifuy">
           نیکو ثبت مجموعه ثبتی با کارشناسانی مجرب و باتجربه هست که فعالیت
           خود را در مرکز رشد با شرکت های نوپا و دانش بنیان آغاز کرد وهم
           اکنون فعالیت هایش را با انجام امور ثبتی شرکتهای مختلف در تمام

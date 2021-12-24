@@ -1,4 +1,4 @@
-// document.getElementsByClassName("fix-top").style.transition = "all 2s";
+AOS.init();
 
 $(window).scroll(function(){
     if($(this).scrollTop() >=1000){
