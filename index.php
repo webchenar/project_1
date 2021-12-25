@@ -65,7 +65,7 @@ if (isset($_SESSION['msg'])) {
         
          
         
-        data-aos-duration="1000"
+        data-aos-duration="800"
     data-aos-easing="ease-in-out"
       class="card card-height">
           <div class="card-body border-1 ">
@@ -90,7 +90,7 @@ if (isset($_SESSION['msg'])) {
         data-aos-offset="200"
         
          
-        data-aos-duration="1000"
+        data-aos-duration="800"
     data-aos-easing="ease-in-out" class="card card-height">
           <div class="card-body border-1 ">
             <div class="row">
@@ -115,7 +115,7 @@ if (isset($_SESSION['msg'])) {
         data-aos-offset="200"
         
          
-        data-aos-duration="1000"
+        data-aos-duration="800"
     data-aos-easing="ease-in-out" class="card card-height">
     <div class="card-body border-1 ">
             <div class="row">
@@ -138,7 +138,7 @@ if (isset($_SESSION['msg'])) {
       </div>
       <div class="col-12 col-md-6 col-lg-4 my-4">
         <div data-aos="flip-up"
-        data-aos-duration="1000"
+        data-aos-duration="800"
          
     data-aos-easing="ease-in-out" class="card card-height">
           <div class="card-body border-1 ">
@@ -161,7 +161,7 @@ if (isset($_SESSION['msg'])) {
 
       <div class="col-12 col-md-6 col-lg-4 my-4">
         <div data-aos="flip-up"
-        data-aos-duration="1000"
+        data-aos-duration="800"
          
     data-aos-easing="ease-in-out"  class="card card-height">
           <div class="card-body border-1 ">
@@ -186,7 +186,7 @@ if (isset($_SESSION['msg'])) {
       
             <div class="col-12 col-md-6 col-lg-4 my-4">
               <div data-aos="flip-up"
-        data-aos-duration="1000"
+        data-aos-duration="800"
          
     data-aos-easing="ease-in-out" class="card card-height">
                 <div class="card-body border-1 ">
@@ -209,7 +209,7 @@ if (isset($_SESSION['msg'])) {
             </div>
             <div class="col-12 col-md-6 col-lg-4 my-4">
               <div data-aos="flip-down"
-        data-aos-duration="1000"
+        data-aos-duration="800"
          
     data-aos-easing="ease-in-out" class="card card-height">
                 <div class="card-body border-1 ">
@@ -234,7 +234,7 @@ if (isset($_SESSION['msg'])) {
        
             <div class="col-12 col-md-6 col-lg-4 my-4">
               <div data-aos="flip-down"
-        data-aos-duration="1000"
+        data-aos-duration="800"
          
     data-aos-easing="ease-in-out" class="card card-height">
                 <div class="card-body border-1 ">
@@ -260,7 +260,7 @@ if (isset($_SESSION['msg'])) {
       
             <div class="col-12 col-md-6 col-lg-4 my-4">
               <div data-aos="flip-down"
-        data-aos-duration="1000"
+        data-aos-duration="800"
          
     data-aos-easing="ease-in-out" class="card card-height">
                 <div class="card-body border-1 ">
