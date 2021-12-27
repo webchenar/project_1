@@ -37,7 +37,7 @@ if (empty($title)) {
 <div class="container-fluid top-header ">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 mt-2">
+            <div class="col-xs-12 col-md-6 mt-2">
                 <p class="text-white define">
                 به مجموعه ثبتی نیکوثبت خوش آمدید.
                 </p>
@@ -45,7 +45,7 @@ if (empty($title)) {
                 نیکو ثبت اولین ارائه دهنده خدمات ثبتی دور کاری در کشور
                 </p>
             </div>
-            <div class="col-md-6 mt-2 tel-me">
+            <div class="col-xs-3 col-md-3 mt-2 tel-me">
             
                <i class="fas fa-phone-volume fs-5 me-2 text-white"></i>
 <a class="text-white define" href="tel:09179335012">09179335012</a>
@@ -54,6 +54,16 @@ if (empty($title)) {
 <a class="text-white define d-block " href="tel:07153232868">07153232868</a>
 
             </div>
+            <div class="ol-xs-3 col-md-3 support-social d-flex align-items-center">
+      
+            <i class="fas fa-headset fs-2  text-white"></i>
+            <span class="text-white define mx-2">پشتیبانی</span>
+                <div class="d-flex justify-content-center icon-social mb-4">
+                <a class="fs-5 messenger text-white" href="http://instagram.com/nikoosabt"><i class="fab fa-instagram"></i></a>
+                <a target="_blank" href="https://api.whatsapp.com/send?phone=9809179335012" rel="nofollow" class="fs-5 messenger text-white mx-3"><i class="fab fa-whatsapp"></i></a>
+                <a class="fs-5 messenger text-white " href="#"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -61,7 +71,7 @@ if (empty($title)) {
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid d-flex ">
-                    <a class="navbar-brand my-blue fs-3" href="index.php">NikooSabt</a>
+                    <a class="navbar-brand my-blue fs-3" href="index.php"><img class="icon-img" src="img/Untitled-1.png" alt=""></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -89,7 +99,7 @@ if (empty($title)) {
                                 <a class="nav-link" href="#">ثبت شرکت</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">مشاوره</a>
+                                <a class="nav-link" href="moshavereh.php">مشاوره</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">درباره ما</a>
