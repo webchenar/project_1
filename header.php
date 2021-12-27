@@ -86,9 +86,7 @@ if (empty($title)) {
                             <li class="nav-item">
                                 <a class="nav-link" href="#">نمایندگی ها</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">ارتباط با ما</a>
-                            </li>
+                  
                             <li class="nav-item">
                                 <a class="nav-link" href="#">کارشناسان</a>
                             </li>

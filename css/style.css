@@ -1,4 +1,5 @@
 @import url('_moshavereh.css');
+@import url('_about.css');
 
 
 @font-face {
@@ -277,9 +278,6 @@ a .fa-telegram:hover{
 
 
         .baner{
-          max-width: 1295px;
-    height: 350px;
-    overflow: hidden;
 transition: .3s ease;
   
         }

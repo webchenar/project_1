@@ -40,7 +40,7 @@ if (isset($_SESSION['msg'])) {
 </div>
 
 
-<section class="mb-4 ">
+<section class="mb-4 bg-light">
   <div class="container">
     <div class="titr text-center">
       <h1 class="px-3 
@@ -306,7 +306,7 @@ if (isset($_SESSION['msg'])) {
   </div>
 </div>
 
-<section class=" mb-5">
+<section class=" mb-5 bg-light">
   <div class="container">
     <div class="row ">
     

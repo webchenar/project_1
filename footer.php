@@ -53,9 +53,9 @@
             <div class="col-sm-6 col-md-3 border-right-footer footer-style">
             <h5 class="fs-5 sahel mt-5 text-dark pb-2 ">دسترسی سریع</h5>
                 <a class=" d-block text-white mx-2 mb-4" href="#">ثبت شرکت</a>
-                <a class=" d-block text-white mx-2  mb-4" href="#">مشاوره</a>
+                <a class=" d-block text-white mx-2  mb-4" href="moshavereh.php">مشاوره</a>
                 <a class=" d-block text-white mx-2  mb-4" href="#">مقالات</a>
-                <a class=" d-block text-white mx-2 mb-4" href="#">ارتباط با ما</a>
+                <a class=" d-block text-white mx-2 mb-4" href="#">ورود</a>
                 <a class=" d-block text-white mx-2 mb-4" href="#">درباره ما</a>
   
   
