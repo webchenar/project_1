@@ -118,6 +118,7 @@ if (isset($_POST['phone']) and isset($_POST['password'])) {
                     ورود
                 </button>
 
+                <a class="btn btn-outline-primary text-center col-12 mb-3" href="./register.php">اگر تا کنون ثبت نام نکرده اید از طریق این لینک ثبت نام کنید</a>
                 <a href="forget.php" class="m-2">فراموشی نام کاربری یا رمز عبور</a>
                 
             </form>
