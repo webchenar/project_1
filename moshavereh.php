@@ -2,7 +2,7 @@
 
 <?php
 $chek = true;
-
+var_dump($_GET);
 if (isset($_COOKIE['moshavere'])) {
   echo '<div class="alert alert-primary container" role="alert">
   کاربر عزیر درخواست شما ثبت شد و به مدیران نیکو ثبت ارسال شده، لطفا اگر با شما تماس حاصل نشد پس از هشت ساعت دوباره اقدام کنید و یا با شماره ما در بالای صفحه تماس بگیرید
@@ -29,14 +29,14 @@ if (isset($_GET['phoneMoshavere']) and isset($_GET['name'])) {
     }
 
     if ($chek) {
-      setcookie("moshavere", "true", time() + 1287000);
-      $phoneModir = '09172253815';
+      //setcookie("moshavere", "true", time() + 1287000);
+      $phoneModir = '09363236838';
       $emaiModir = 'nikoosabt@gmail.com';
       $name = $_GET['name'];
       $phone = $_GET['phoneMoshavere'];
-      $zaman = isset($_GET['zaman']) ? isset($_GET['zaman']) : "انتخاب نشده";
-      $mozoe = isset($_GET['mozoe']) ? isset($_GET['mozoe']) : "انتخاب نشده";
-      $txt = isset($_GET['txtMoshavere']) ? isset($_GET['txtMoshavere']) : "انتخاب نشده";
+      $zaman = $_GET['zaman'];
+      $mozoe = $_GET['mozoe'];
+      $txt = $_GET['txtMoshavere'];
       $txtMoshavere = isset($_GET['txtMoshavere']) ? isset($_GET['txtMoshavere']) : "انتخاب نشده";
       _function::senMailMoshavere($emaiModir, $phone, $name, $mozoe, $zaman, $txt);
       _function::sendSmsMoshavere($phoneModir, $name, $phone, $mozoe, $zaman);

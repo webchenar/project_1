@@ -140,7 +140,7 @@ class _function
         $data = array(
             'username' => "09179335012",
             'password' => "5ZMH0",
-            'text' => "$name;$phone;$mozoe;zaman",
+            'text' => "$name;$phone;$mozoe;$zaman",
             'to' => $number,
             "bodyId" => $bodyId
         );
