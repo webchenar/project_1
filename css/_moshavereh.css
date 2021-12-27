@@ -1,0 +1,17 @@
+.title-moshavereh span{
+border-radius: 0 10px 0 10px;
+background-color: #0264c8;
+}
+.btn-submit{
+    background-color: #0264c8;
+}
+
+.form-select:focus {
+    border-color: #171717;
+    outline: 0;
+    box-shadow:none; 
+}
+.p-def{
+    color: rgb(110, 110, 110);
+    margin-bottom: 0;
+}

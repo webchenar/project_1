@@ -29,7 +29,7 @@ $(window).scroll(function(){
             position: "sticky",
             zIndex:"2",
             top:0,
-            backgroundColor:"#ededed99",
+            backgroundColor:"#ededed1",
             transition:"all 2s",
   
         });

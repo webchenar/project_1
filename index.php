@@ -28,7 +28,7 @@ if (isset($_SESSION['msg'])) {
         بپردارید.
       </p>
      
-        <a class="btn btn-outline-warning " href="#">درخواست مشاوره</a>
+        <a class="btn btn-outline-warning " href="moshavereh.php">درخواست مشاوره</a>
         <a class=" btn btn-outline-warning my-1 mx-2 " href="#">فهرست خدمات نیکو ثبت</a>
         <a class=" btn btn-tamdid mt-lg-0" href="./tamdid_sherkat.php">
           تمدید شرکت سهامی خاص</a>
@@ -299,19 +299,19 @@ if (isset($_SESSION['msg'])) {
   <div class="row">
     <div class="col-12 my-5">
     <div class="baner">
-   <a href="#"><img src="img/WhatsApp Image 2021-12-21 at 19.45.00.png" class="img-fluid" alt=""></a>
+   <a href="#"><img src="img/sabt.jpg" class="img-fluid" alt=""></a>
   </div>
 </section>
     </div>
   </div>
 </div>
 
-<section class="pt-2 mb-5">
+<section class=" mb-5">
   <div class="container">
     <div class="row ">
     
 
-      <div class="col-12 col-md-6 moshavereh mt-5">
+      <div class="col-12 col-md-6 moshavereh mt-2">
         <h1  data-aos="fade-left"
       
     data-aos-duration="500"

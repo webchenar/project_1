@@ -1,5 +1,5 @@
 <footer class="footer-color">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row ">
             
             <div class=" col-md-3 border-right-footer footer-style">
@@ -44,18 +44,18 @@
                 <h5 class="fs-5 sahel mt-5 text-dark pb-2 ">دسترسی سریع</h5>
                 <a class=" d-block text-white mx-2 mb-4" href="#">خانه</a>
                 <a class=" d-block text-white mx-2  mb-4" href="#">خدمات</a>
-                <a class=" d-block text-white mx-2  mb-4" href="#">خدمات</a>
-                <a class=" d-block text-white mx-2 mb-4" href="#">تماس با ما</a>
-                <a class=" d-block text-white mx-2 mb-4" href="#">درباره ما</a>
+                <a class=" d-block text-white mx-2  mb-4" href="#">نمایندگی ها</a>
+                <a class=" d-block text-white mx-2 mb-4" href="#">کارشناسان</a>
+                <a class=" d-block text-white mx-2 mb-4" href="#">نیکوثبتی ها</a>
   
   
             </div>
             <div class="col-sm-6 col-md-3 border-right-footer footer-style">
             <h5 class="fs-5 sahel mt-5 text-dark pb-2 ">دسترسی سریع</h5>
-                <a class=" d-block text-white mx-2 mb-4" href="#">خانه</a>
-                <a class=" d-block text-white mx-2  mb-4" href="#">خدمات</a>
-                <a class=" d-block text-white mx-2  mb-4" href="#">خدمات</a>
-                <a class=" d-block text-white mx-2 mb-4" href="#">تماس با ما</a>
+                <a class=" d-block text-white mx-2 mb-4" href="#">ثبت شرکت</a>
+                <a class=" d-block text-white mx-2  mb-4" href="#">مشاوره</a>
+                <a class=" d-block text-white mx-2  mb-4" href="#">مقالات</a>
+                <a class=" d-block text-white mx-2 mb-4" href="#">ارتباط با ما</a>
                 <a class=" d-block text-white mx-2 mb-4" href="#">درباره ما</a>
   
   
@@ -64,8 +64,9 @@
             <div class="col-sm-6 col-md-3 border-right-footer ">
             <h5 class="fs-5 sahel mt-5 text-dark pb-2 ">شبکهای اجتماعی</h5>
             <div class="d-flex justify-content-around">
-                <a class="fs-2 messenger text-white " href="#"><i class="fab fa-instagram"></i></a>
-                <a class="fs-2 messenger text-white " href="#"><i class="fab fa-whatsapp"></i></a>
+                
+                <a class="fs-2 messenger text-white" href="http://instagram.com/nikoosabt"><i class="fab fa-instagram"></i></a>
+                <a target="_blank" href="https://api.whatsapp.com/send?phone=9809179335012" rel="nofollow" class="fs-2 messenger text-white "><i class="fab fa-whatsapp"></i></a>
                 <a class="fs-2 messenger text-white " href="#"><i class="fab fa-telegram"></i></a>
                 <a class="fs-2 messenger text-white " href="#"><i class="fas fa-envelope-open"></i></a>
                 </div>
@@ -83,15 +84,17 @@
     <div class="footer-end ">
         <div class="container">
             <div class="row p-2">
-                <div class="col-sm-6 col-md-5 fs-6 text-white my-2 ">طراحی و توسعه توسط مهندسین<a class="text-info text-center mt-4" href="#"> webchenar</a> </div>
+                <div class="col-sm-6 col-md-5 fs-6 text-white my-2 ">طراحی و توسعه توسط مهندسین<a target="_blank" class="text-info text-center mt-4" href="http://webchenar.ihweb.ir/"> webchenar</a> </div>
                 <div class=" col-sm-6 col-md-5 offset-md-2 fs-6 align-self-start text-white my-2">
                     کلیه حقوق مادی و معنوی این وبسایت متعلق به شرکت نیکوثبت است
                 </div>
             </div>
         </div>
     </div>
-    </div>
+
+
 </footer>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="./js/script.js"></script>
