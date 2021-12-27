@@ -40,10 +40,6 @@ if (isset($_GET['phoneMoshavere']) and isset($_GET['name'])) {
       $_GET = null;
     }
   } 
-}else {
-  echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
-<strong>شماره تماس و نام را باید حتما وارد کنید</strong>
-</div>';
 }
 
 
