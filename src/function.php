@@ -31,14 +31,14 @@ class _function
         session_destroy();
     }
 
-    static function sendSms($number, $member, $text)
+    static function sendSms($number, $member, $text, $bodyId = 63079)
     {
         $data = array(
             'username' => "09179335012",
             'password' => "5ZMH0",
             'text' => "$member;$text",
             'to' => $number,
-            "bodyId" => '63079'
+            "bodyId" => $bodyId
         );
         $post_data = http_build_query($data);
         $handle = curl_init('https://rest.payamak-panel.com/api/SendSMS/BaseServiceNumber');
@@ -133,4 +133,42 @@ class _function
             return true;
         }
     }
+
+
+    static function sendSmsMoshavere($number, $name, $phone, $mozoe, $zaman, $bodyId = 70305)
+    {
+        $data = array(
+            'username' => "09179335012",
+            'password' => "5ZMH0",
+            'text' => "$name;$phone;$mozoe;zaman",
+            'to' => $number,
+            "bodyId" => $bodyId
+        );
+        $post_data = http_build_query($data);
+        $handle = curl_init('https://rest.payamak-panel.com/api/SendSMS/BaseServiceNumber');
+        curl_setopt($handle, CURLOPT_HTTPHEADER, array(
+            'content-type' => 'application/x-www-form-urlencoded'
+        ));
+        curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($handle, CURLOPT_POST, true);
+        curl_setopt($handle, CURLOPT_POSTFIELDS, $post_data);
+        $response = curl_exec($handle);
+        //var_dump($response);
+
+        //ارسال تبلیغاتی
+        /*ini_set("soap.wsdl_cache_enabled", 0);
+        $sms = new SoapClient("http://api.payamak-panel.com/post/Send.asmx?wsdl", array("encoding" => "UTF-8"));
+        $data = array(
+            "username" => "09179335012",
+            "password" => "5ZMH0",
+            "to" => array($number),
+            "from" => "50004001335012",
+            "text" => $text,
+            "isflash" => false
+        );
+        $result = $sms->SendSimpleSMS($data)->SendSimpleSMSResult;*/
+    }
+
 }

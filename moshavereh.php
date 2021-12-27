@@ -1,30 +1,49 @@
 <?php include_once('header.php') ?>
 
 <?php
-var_dump($_GET);
-var_dump($_SESSION);
+$chek = true;
 
 if (isset($_COOKIE['moshavere'])) {
-  echo '<div class="alert alert-primary" role="alert">
-  کاربر عزیر درخواست شما ثبت شد و به مدیران نیکو ثبت ارسال شد لطفا اگر با شما تماس حاصل نشد پس از هشت ساعت دوباره اقدام کنید و یا با شماره ما در بالای صفحه تماس بگیرید
+  echo '<div class="alert alert-primary container" role="alert">
+  کاربر عزیر درخواست شما ثبت شد و به مدیران نیکو ثبت ارسال شده، لطفا اگر با شما تماس حاصل نشد پس از هشت ساعت دوباره اقدام کنید و یا با شماره ما در بالای صفحه تماس بگیرید
 </div>';
+  $chek = false;
 }
-if ($_GET['phoneMoshavere']) {
 
-  if (strcmp(strtolower($_SESSION['captcha']), strtolower($_GET['captcha']) ) != 0) {
-    echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+if (isset($_GET['phoneMoshavere']) and isset($_GET['name'])) {
+
+  if ($_GET['phoneMoshavere'] != "" and $_GET['name'] != "" and $chek) {
+
+    if (strcmp(strtolower($_SESSION['captcha']), strtolower($_GET['captcha'])) != 0) {
+      echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
     <strong>کد امنیتی اشتباه است</strong>
   </div>';
-  $chek = false;
-  }
+      $chek = false;
+    }
 
-  if (!preg_match("/^09[0-9]{9}$/", $_GET['phoneMoshavere'])) {
-    echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+    if (!preg_match("/^09[0-9]{9}$/", $_GET['phoneMoshavere'])) {
+      echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
     <strong>فرمت شماره همراه اشتباه است</strong>
   </div>';
-    $chek = false;
-}
+      $chek = false;
+    }
 
+    if ($chek) {
+      setcookie("moshavere", "true", time() + 1287000);
+      $phoneModir = '09172253815';
+      $name = $_GET['name'];
+      $phone = $_GET['phoneMoshavere'];
+      $zaman = isset($_GET['zaman']) ? isset($_GET['zaman']) : "انتخاب نشده";
+      $mozoe = isset($_GET['mozoe']) ? isset($_GET['mozoe']) : "انتخاب نشده";
+      $txtMoshavere = isset($_GET['txtMoshavere']) ? isset($_GET['txtMoshavere']) : "انتخاب نشده";
+      _function::sendSmsMoshavere($phoneModir, $name, $phone, $mozoe, $zaman);
+      $_GET = null;
+    }
+  } 
+}else {
+  echo '<div class="container my-2 alert alert-danger alert-dismissible fade show" role="alert">
+<strong>شماره تماس و نام را باید حتما وارد کنید</strong>
+</div>';
 }
 
 
@@ -49,7 +68,7 @@ if ($_GET['phoneMoshavere']) {
           <label for="validationCustomUsername" class="form-label">شماره تماس</label>
           <div class="input-group has-validation">
 
-            <input name="phoneMoshavere" type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" placeholder="مثال : 091765477567" required>
+            <input name="phoneMoshavere" type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" placeholder="091765477567" required>
             <div class="invalid-feedback">
               لطفا شماره تلفن خود را به صورت صحیح وارد کنید
             </div>
@@ -79,13 +98,13 @@ if ($_GET['phoneMoshavere']) {
         <p class="p-def">لطفا اطلاعات را به صورت صحیح وارد کنید تا کارشناسان ما در اسرع وقت با شما تماس بگیرند</p>
         <div class="mb-3 coustom-form ">
           <label for="exampleFormControlTextarea1" class="form-label"> اگر پیامی دارید وارد کنید</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea name="txtMoshavere" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
         <div class="col-12 col-md-5 coustom-form">
           <div class="form-check p-0">
-              <img src="./src/captcha.php" alt="">
-              <input name="captcha" type="text" class="form-control" id="validationCustom01" placeholder="لطفا متن تصویر بالا را وارد کنید" required>
-      
+            <img src="./src/captcha.php" alt="">
+            <input name="captcha" type="text" class="form-control" id="validationCustom01" placeholder="لطفا متن تصویر بالا را وارد کنید" required>
+
           </div>
         </div>
         <div class="col-12 mb-5 coustom-form">
