@@ -84,11 +84,10 @@ if (empty($title)) {
                                 <a class="nav-link" href="#">خدمات</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="namaiandegiha.php">نمایندگی ها</a>
                                 <a class="nav-link" href="#">نمایندگی ها</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">ارتباط با ما</a>
-                            </li>
+                  
                             <li class="nav-item">
                                 <a class="nav-link" href="#">کارشناسان</a>
                             </li>
@@ -102,7 +101,7 @@ if (empty($title)) {
                                 <a class="nav-link" href="moshavereh.php">مشاوره</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">درباره ما</a>
+                                <a class="nav-link" href="about.php">درباره ما</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <?php

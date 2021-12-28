@@ -40,7 +40,7 @@ if (isset($_SESSION['msg'])) {
 </div>
 
 
-<section class="mb-4 ">
+<section class="mb-4 bg-light">
   <div class="container">
     <div class="titr text-center">
       <h1 class="px-3 
@@ -306,7 +306,7 @@ if (isset($_SESSION['msg'])) {
   </div>
 </div>
 
-<section class=" mb-5">
+<section class=" mb-5 bg-light">
   <div class="container">
     <div class="row ">
     
@@ -440,9 +440,7 @@ if (isset($_SESSION['msg'])) {
 </section>
 
 
-<a href="javascript:" id="scrool-to-top">
-    <i class="fas fa-chevron-up"></i>
- </a>
+
 
 
 <?php include_once('./footer.php') ?>
