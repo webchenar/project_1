@@ -30,7 +30,7 @@ if (isset($_GET['phoneMoshavere']) and isset($_GET['name'])) {
 
     if ($chek) {
       //setcookie("moshavere", "true", time() + 1287000);
-      $phoneModir = '09363236838';
+      $phoneModir = '09179335012';
       $emaiModir = 'nikoosabt@gmail.com';
       $name = $_GET['name'];
       $phone = $_GET['phoneMoshavere'];
@@ -116,7 +116,7 @@ if (isset($_GET['phoneMoshavere']) and isset($_GET['name'])) {
             </div>
         </div>
     </div>
-  </div>
+ 
 
 
 <?php include_once('./footer.php') ?>
