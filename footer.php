@@ -1,3 +1,6 @@
+<a href="javascript:" id="scrool-to-top">
+    <i class="fas fa-chevron-up"></i>
+ </a>
 <footer class="footer-color">
     <div class="container-fluid">
         <div class="row ">
@@ -44,7 +47,7 @@
                 <h5 class="fs-5 sahel mt-5 text-dark pb-2 ">دسترسی سریع</h5>
                 <a class=" d-block text-white mx-2 mb-4" href="#">خانه</a>
                 <a class=" d-block text-white mx-2  mb-4" href="#">خدمات</a>
-                <a class=" d-block text-white mx-2  mb-4" href="#">نمایندگی ها</a>
+                <a class=" d-block text-white mx-2  mb-4" href="namaiandegiha.php">نمایندگی ها</a>
                 <a class=" d-block text-white mx-2 mb-4" href="#">کارشناسان</a>
                 <a class=" d-block text-white mx-2 mb-4" href="#">نیکوثبتی ها</a>
   

@@ -1,0 +1,38 @@
+/* .namaiandegiha-bg-color-fluid{
+    background-color: #aeaeae54;
+} */
+body{
+    background-color: #aeaeae54;
+}
+
+
+.namaiandegiha-style{
+    color: #2d2d2d;
+    background-color: #ffffff;
+    box-shadow: 2px 1px 6px #000;
+    padding: 4px 21px;
+    margin-bottom: 10px;
+}
+.namaiandegiha-style p i{
+    vertical-align: -2px;
+    color: #003de8;
+}
+
+
+.font-color{
+    color: #1a1d1f;
+    line-height:40px;
+}
+ .shadow-p{
+    border: 1px solid #efefef;
+    box-shadow: 1px 1px 3px #000;
+    color: #404a4b;
+}
+@media screen and (max-width:992px) {
+    .upload-pic{
+        display: block!important;
+    }
+    .shadow-p{
+      font-size: 1.2rem!important;;
+    }
+}

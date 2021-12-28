@@ -84,7 +84,7 @@ if (empty($title)) {
                                 <a class="nav-link" href="#">خدمات</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">نمایندگی ها</a>
+                                <a class="nav-link" href="namaiandegiha.php">نمایندگی ها</a>
                             </li>
                   
                             <li class="nav-item">

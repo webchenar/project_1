@@ -440,9 +440,7 @@ if (isset($_SESSION['msg'])) {
 </section>
 
 
-<a href="javascript:" id="scrool-to-top">
-    <i class="fas fa-chevron-up"></i>
- </a>
+
 
 
 <?php include_once('./footer.php') ?>
