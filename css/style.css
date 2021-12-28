@@ -440,6 +440,10 @@ line-height: 38px;
   .text-on-img{
 width: 85%;
   }
+  .support-social{
+    margin-top: -64px;
+    margin-right: 200px;
+  }
 }
 
                /* top-header */
