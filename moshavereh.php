@@ -51,6 +51,7 @@ if (isset($_GET['phoneMoshavere']) and isset($_GET['name'])) {
             <div class="row">
              <div class="d-flex justify-content-center align-items-center title-moshavereh mt-3">
                 <span class="text-center text-white p-3 my-4">مشاوره با کارشناسان نیکوثبت</span>
+</div>
             <form class="row g-3 needs-validation d-flex justify-content-between align-items-center" novalidate>
                 <div class="col-lg-5 coustom-form">
                   <label for="validationCustom01" class="form-label">نام و نام خانوداگی  </label>
