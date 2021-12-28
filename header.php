@@ -100,7 +100,7 @@ if (empty($title)) {
                                 <a class="nav-link" href="moshavereh.php">مشاوره</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">درباره ما</a>
+                                <a class="nav-link" href="about.php">درباره ما</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <?php

@@ -56,7 +56,7 @@
                 <a class=" d-block text-white mx-2  mb-4" href="moshavereh.php">مشاوره</a>
                 <a class=" d-block text-white mx-2  mb-4" href="#">مقالات</a>
                 <a class=" d-block text-white mx-2 mb-4" href="#">ورود</a>
-                <a class=" d-block text-white mx-2 mb-4" href="#">درباره ما</a>
+                <a class=" d-block text-white mx-2 mb-4" href="about.php">درباره ما</a>
   
   
             </div>

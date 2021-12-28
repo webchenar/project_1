@@ -1,20 +1,12 @@
-<!DOCTYPE html>
-<html lang="en" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="bootstrap-5.1.1/css/bootstrap.rtl.css">
-    <link rel="stylesheet" href="css/_about.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
-</head>
-<body>
-    
- 
+<?php include_once('header.php')?>
 
-    <div class="container-fluid">
+
+
+
+
+
+
+<div class="container-fluid">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -162,8 +154,8 @@
               <p class="title fs-3 mt-5">
             بنیان گذار نیکوثبت
               </p>
-              <p >
-                <strong class="define-1">   مهندس فهیمه خواست :</strong> 
+              <p class="mb-4">
+                <strong class="define-1 ">   مهندس فهیمه خواست :</strong> 
      
                 کارشناسی ارشد IT – دانشگاه شیراز
          
@@ -178,5 +170,9 @@
 </div>
 
 
-</body>
-</html>
+
+
+
+
+
+<?php include_once('./footer.php') ?>

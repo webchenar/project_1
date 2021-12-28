@@ -25,10 +25,12 @@
     background-color: #f2f2f2;
     padding: 10px;
     border-radius: 20px;
-    right: -73px;
+    right: -65px;
     bottom: 8px;
     position: relative;
     box-shadow: -1px 2px 6px #525252;
+    z-index: 99;
+
 }
 
 .about-me-def ul::before{
@@ -36,9 +38,10 @@
     position: absolute;
     background: var(--bs-gray-100);
     width: 4px;
-    top: 0;
+    top: 295px;
     bottom: 67px;
     right: 75px;
+    height: 1481px;
 }
 .about-me-def ul li{
     list-style: none;
@@ -47,3 +50,42 @@
     line-height: 52px;
 }
 
+.ravande-kar{
+    background-color: #00A19D;
+    border-radius: 10px;
+}
+.ravande-kar span, .ravande-kar2 span, .ravande-kar3 span, .ravande-kar4 span{
+    background-color: #ffffff69;
+    padding: 14px 20px;
+    border-radius: 10px 0 10px 0;
+    box-shadow: 2px 4px 6px 1px #000;
+}
+
+
+.ravande-kar2{
+    background-color: #FFF8E5;
+    border-radius: 10px;
+}
+
+.ravande-kar3{
+    background-color: #FFB344;
+    border-radius: 10px;
+}
+
+.ravande-kar4{
+    background-color: #E05D5D;
+    border-radius: 10px;
+}
+
+
+.tamas-we span{
+    padding: 20px;
+    background-color: #0264c8;
+    border-radius: 10px 0 10px 0;
+    
+}
+.define-1{
+
+    color: #20b9aa;
+   
+}
