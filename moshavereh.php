@@ -2,7 +2,6 @@
 
 <?php
 $chek = true;
-var_dump($_GET);
 if (isset($_COOKIE['moshavere'])) {
   echo '<div class="alert alert-primary container" role="alert">
   کاربر عزیر درخواست شما ثبت شد و به مدیران نیکو ثبت ارسال شده، لطفا اگر با شما تماس حاصل نشد پس از هشت ساعت دوباره اقدام کنید و یا با شماره ما در بالای صفحه تماس بگیرید
@@ -30,7 +29,7 @@ if (isset($_GET['phoneMoshavere']) and isset($_GET['name'])) {
 
     if ($chek) {
       //setcookie("moshavere", "true", time() + 1287000);
-      $phoneModir = '09363236838';
+      $phoneModir = '09179335012';
       $emaiModir = 'nikoosabt@gmail.com';
       $name = $_GET['name'];
       $phone = $_GET['phoneMoshavere'];
