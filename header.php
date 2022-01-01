@@ -85,10 +85,6 @@ if (empty($title)) {
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="namaiandegiha.php">نمایندگی ها</a>
-<<<<<<< HEAD
-=======
-
->>>>>>> 61909799e59d68aa5d7e3586cd9ca0f0c76351bc
                             </li>
                   
                             <li class="nav-item">
@@ -165,4 +161,5 @@ if (empty($title)) {
                 </div>
             </nav>
         </div>
+        
     </header>
