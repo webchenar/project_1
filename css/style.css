@@ -1,6 +1,7 @@
 @import url('_moshavereh.css');
 @import url('_about.css');
 @import url('_namaiandegiha.css');
+@import url('_karshenasan.css');
 
  
 @font-face {
@@ -165,6 +166,11 @@ a{
 .btn-tamdid{
   color: #000;
     background-color: #20b9aa;
+    border-color: #20b9aa;
+}
+.btn-tamdid:hover{
+  color: #000;
+    background-color: #fff0;
     border-color: #20b9aa;
 }
 
@@ -440,6 +446,10 @@ line-height: 38px;
 @media only screen and  (max-width: 768px){
   .text-on-img{
 width: 85%;
+  }
+  .support-social{
+    margin-top: -64px;
+    margin-right: 200px;
   }
 }
 

@@ -85,11 +85,10 @@ if (empty($title)) {
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="namaiandegiha.php">نمایندگی ها</a>
-                                <a class="nav-link" href="#">نمایندگی ها</a>
                             </li>
                   
                             <li class="nav-item">
-                                <a class="nav-link" href="#">کارشناسان</a>
+                                <a class="nav-link" href="karshenasan.php">کارشناسان</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">نیکوثبتی ها</a>
