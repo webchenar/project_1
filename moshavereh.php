@@ -116,7 +116,7 @@ if (isset($_GET['phoneMoshavere']) and isset($_GET['name'])) {
             </div>
         </div>
     </div>
-  </div>
+ 
 
 
 <?php include_once('./footer.php') ?>
