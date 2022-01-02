@@ -1939,7 +1939,7 @@ if (isset($_SESSION['print'])) {
                     <div class="card-body">
                         <h5 class="card-title sahel opacity-75">صورت جلسه اول</h5>
                         <p class="card-text sahel opacity-75">صورت جلسه مجمع عمومی عادی برای انتخاب مدیران، بازرسان و روزنامه کثیرالانتشار (شرکت سهامی خاص)</p>
-                        <a href="./pdf/tamdid.php?tamdid=true" class="btn btn-outline-success" target="_blank">جهت دریافت صورت جلسه کلیک کنید</a>
+                        <a href="./pdf/tamdid.php?tamdid=true" class="btn btn-outline-success" target="_blank">جهت ثبت صورت جلسه جدید اینجا کلیک کنی</a>
                     </div>
                 </div>
             </div>
@@ -1949,7 +1949,7 @@ if (isset($_SESSION['print'])) {
                         <h5 class="card-title sahel opacity-75">صورت جلسه دوم</h5>
                         <p class="card-text sahel opacity-75">صورتجلسه هیئت مدیره در خصوص تعیین سمت مدیران و تعیین دارندگان امضاء مجاز(سهامی خاص)</p>
                         <form action="./pdf/tamdid.php" method="GET" target="_blank">
-                            <button type="submit" value="taienModiran" class="btn btn-outline-success">جهت دریافت صورت جلسه کلیک کنید</button>
+                            <button type="submit" value="taienModiran" class="btn btn-outline-success">جهت ثبت صورت جلسه جدید اینجا کلیک کنید</button>
                         </form>
                     </div>
                 </div>

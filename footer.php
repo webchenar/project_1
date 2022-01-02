@@ -48,7 +48,7 @@
                 <a class=" d-block text-white mx-2 mb-4" href="#">خانه</a>
                 <a class=" d-block text-white mx-2  mb-4" href="#">خدمات</a>
                 <a class=" d-block text-white mx-2  mb-4" href="namaiandegiha.php">نمایندگی ها</a>
-                <a class=" d-block text-white mx-2 mb-4" href="#">کارشناسان</a>
+                <a class=" d-block text-white mx-2 mb-4" href="karshenasan.php">کارشناسان</a>
                 <a class=" d-block text-white mx-2 mb-4" href="#">نیکوثبتی ها</a>
   
   
