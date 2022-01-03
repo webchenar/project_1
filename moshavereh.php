@@ -30,7 +30,7 @@ if (isset($_GET['phoneMoshavere']) and isset($_GET['name'])) {
     }
 
     if ($chek) {
-      //setcookie("moshavere", "true", time() + 1287000);
+      setcookie("moshavere", "true", time() + 1287000);
       $phoneModir = '09363236838';
       $emaiModir = 'nikoosabt@gmail.com';
       $name = $_GET['name'];
