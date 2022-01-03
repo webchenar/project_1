@@ -1,6 +1,10 @@
 <a href="javascript:" id="scrool-to-top">
     <i class="fas fa-chevron-up"></i>
  </a>
+ <div class="fix-to-left">
+ <a target="_blank" href="https://api.whatsapp.com/send?phone=9809179335012" rel="nofollow" class="fs-2 messenger text-white whatsapp-fixed"><i class="fab fa-whatsapp"></i></a>
+ <p>ارتباط سریع </p>
+ </div>
 <footer class="footer-color">
     <div class="container-fluid">
         <div class="row ">
@@ -60,7 +64,7 @@
                 <a class=" d-block text-white mx-2  mb-4" href="#">مقالات</a>
                 <a class=" d-block text-white mx-2 mb-4" href="#">ورود</a>
                <a class=" d-block text-white mx-2 mb-4" href="about.php">درباره ما</a>
-                <a class=" d-block text-white mx-2 mb-4" href="#">درباره ما</a>
+              
   
   
             </div>
