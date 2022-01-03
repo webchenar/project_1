@@ -45,7 +45,7 @@ class DataBase
         if ($resualt === true) {
             return $data->fetch();
         }
-        
+
         if ($data->rowCount() > 0) {
             $this->sql = null;
             //return $data->fetchAll();
@@ -58,32 +58,33 @@ class DataBase
         return $this->select('users', $fild, $id, $fild2 = null, $id2 = null, $resualt = true);
     }
 
-    public function insertSjtamdidSahamiKhas($rel_user, $c_shenase_meli, $c_name, $c_shomare_sabt, $c_sarmaye, $time_shore_jalase, $date_shore_jalase, $rozname, $adress, $t_sahamdaran, $t_saham, $hozor, $file_rozname, $emza1 = '', $emza2 = ''){
-        try{
+    public function insertSjtamdidSahamiKhas($rel_user, $c_shenase_meli, $c_name, $c_shomare_sabt, $c_sarmaye, $time_shore_jalase, $date_shore_jalase, $rozname, $adress, $t_sahamdaran, $t_saham, $hozor, $file_rozname, $emza1 = '', $emza2 = '')
+    {
+        try {
 
             //echo "INSERT INTO `sj_tamdid_sahami_khas`(`rel_user`, `c_shenase_meli`, `c_name`, `c_shomare_sabt`, `c_sarmaye`, `t_shorooe_jalase`, `d_shorooe_jalase`, `rooz_name`, `rooz_name_file`, `c_adress`, `t_sahamdar`, `t_saham`, `va_ya`) VALUES ('$rel_user', '$c_shenase_meli','$c_name','$c_shomare_sabt','$c_sarmaye','$time_shore_jalase','$date_shore_jalase','$rozname','$file_rozname', '$adress', '$t_sahamdaran', '$t_saham', '$tedad_emza')";
 
             $this->Con->exec("INSERT INTO `sj_tamdid_sahami_khas`(`rel_user`, `c_shenase_meli`, `c_name`, `c_shomare_sabt`, `c_sarmaye`, `t_shorooe_jalase`, `d_shorooe_jalase`, `rooz_name`, `rooz_adress_file`, `c_adress`, `t_sahamdar`, `hozor`, `t_saham`) VALUES ('$rel_user', '$c_shenase_meli','$c_name','$c_shomare_sabt','$c_sarmaye','$time_shore_jalase','$date_shore_jalase','$rozname','$file_rozname', '$adress', '$t_sahamdaran','$hozor' , '$t_saham')");
-
-        }catch(PDOException $e){
+        } catch (PDOException $e) {
             echo $e;
         }
     }
 
-    public function updateSjtamdidiSahamiKhas($fild, $value, $sj_id){
-    try{
+    public function updateSjtamdidiSahamiKhas($fild, $value, $sj_id)
+    {
+        try {
 
-        $this->Con->exec("UPDATE `sj_tamdid_sahami_khas` SET `$fild` = '$value' WHERE `sj_id` = '$sj_id'");
-    }catch (PDOException $e){
-        echo $e;
-    }
+            $this->Con->exec("UPDATE `sj_tamdid_sahami_khas` SET `$fild` = '$value' WHERE `sj_id` = '$sj_id'");
+        } catch (PDOException $e) {
+            echo $e;
+        }
     }
 
     public function  insertUser($fname, $lname, $phone, $email, $cellPhone, $passWord, $verified)
     {
-        
+
         try {
-            
+
             $this->Con->exec("INSERT INTO `tbl_user`(`phone`, `PASSWORD`, `first_name`, `last_name`, `email`, `cell_phone`, `verified`) VALUES ('$phone','$passWord','$fname','$lname','$email','$cellPhone', '$verified')");
         } catch (PDOException $e) {
             echo $e;
@@ -109,21 +110,24 @@ class DataBase
         return $data;
     }
 
-    public function search($table, $fild, $id){
+    public function search($table, $fild, $id)
+    {
         return $this->searchFunction($table, $fild, $id)->fetch();
     }
 
 
-    public function searchAll($table, $fild, $id){
+    public function searchAll($table, $fild, $id)
+    {
         return $this->searchFunction($table, $fild, $id)->fetchAll();
     }
 
-    public function insertMasolTamdidSahamiKhas($id_sj, $fname, $lname, $phone, $code_meli, $masoliat, $adressShenasname){
-        try{
+    public function insertMasolTamdidSahamiKhas($id_sj, $fname, $lname, $phone, $code_meli, $masoliat, $adressShenasname)
+    {
+        try {
             //echo "INSERT INTO `masolan_sj_tamdid_sahami_khas`(`id_sj`, `fname`, `lname`, `phone`, `code_meli`) VALUES ('$id_sj','$fname', '$lname', '$phone', '$code_meli'";
 
             $this->Con->exec("INSERT INTO `masolan_sj_tamdid_sahami_khas`(`id_sj`, `fname`, `lname`, `phone`, `code_meli`, `masoliat`, `scan_shenasname_meli`) VALUES ('$id_sj','$fname', '$lname', '$phone', '$code_meli', '$masoliat', '$adressShenasname')");
-        }catch(PDOException $e){
+        } catch (PDOException $e) {
             echo $e;
         }
     }
@@ -146,34 +150,42 @@ class DataBase
         }
     }
 
-    public function updateUser($fname, $lname, $phone, $email, $cellPhone, $password, $oldPhone){
-        try{
-        $this->Con->exec("UPDATE `tbl_user` SET `phone`='$phone',`PASSWORD`='$password',`first_name`='$fname',`last_name`='$lname',`email`='$email', `cell_phone`='$cellPhone',`verified`='1' WHERE `phone` = '$oldPhone' ");
-        }catch(PDOException $e){
+    public function updateUser($fname, $lname, $phone, $email, $cellPhone, $password, $oldPhone)
+    {
+        try {
+            $this->Con->exec("UPDATE `tbl_user` SET `phone`='$phone',`PASSWORD`='$password',`first_name`='$fname',`last_name`='$lname',`email`='$email', `cell_phone`='$cellPhone',`verified`='1' WHERE `phone` = '$oldPhone' ");
+        } catch (PDOException $e) {
             echo $e;
         }
     }
 
-    public function inserMemberSjtamdidSahamiKhas($idsj, $fname, $lname, $phone, $meli_code, $tedadsaham, $cartmeli, $shenasname, $vazifejalase, $semat, $sematnahaie, $modirAmel, $chekVakil){
-        try{
+    public function inserMemberSjtamdidSahamiKhas($idsj, $fname, $lname, $phone, $meli_code, $tedadsaham, $cartmeli, $shenasname, $vazifejalase, $semat, $sematnahaie, $modirAmel, $chekVakil)
+    {
+        try {
 
             //echo "INSERT INTO `sahamdaran`(`id_sj_tamdid_sahami_khas`, `phone`, `fname`, `lname`, `meli_code`, `tedad_saham`, `scan_cart_meli`, `scan_shenasname_meli`, `vazife_jalase`, `semat`, `semat_nahaei`) VALUES ('$idsj','$phone','$lname','$fname','$meli_code','$tedadsaham','$cartmeli','$shenasname','$vazifejalase','$semat','$sematnahaie')";
 
             $this->Con->exec("INSERT INTO `sahamdaran`(`id_sj_tamdid_sahami_khas`, `phone`, `fname`, `lname`, `meli_code`, `tedad_saham`, `scan_cart_meli`, `scan_shenasname`, `vazife_jalase`, `semat`, `semat_nahaei`, `chek_modiamel`, `chek_vakil`) VALUES ('$idsj','$phone','$fname','$lname','$meli_code','$tedadsaham','$cartmeli','$shenasname','$vazifejalase','$semat','$sematnahaie', '$modirAmel', '$chekVakil')");
-
-        }catch(PDOException $e){
+        } catch (PDOException $e) {
             echo $e;
         }
     }
 
-    public function insertSjTaeinModiran($sj_id, $t_shore, $d_shore){
-        try{
+    public function insertSjTaeinModiran($sj_id, $t_shore, $d_shore)
+    {
+        try {
             $this->Con->exec("INSERT INTO `sj_taein_modiran`(`rel_sj_id`, `t_shorooe_jalase`, `d_shorooe_jalase`) VALUES ('$sj_id', '$t_shore', '$d_shore')");
-
-        }catch(PDOException $e){
+        } catch (PDOException $e) {
             echo $e;
         }
     }
 
-
+    public function insertNamaiandegi($user_id, $name, $code_meli, $phone, $adressWork, $codePosti, $email, $shenasnamepic = '', $cartMellipic = '', $mozavez_pic = '')
+    {
+        try {
+            $this->Con->exec("INSERT INTO `namaiandegiha`(`user_id`, `name`, `codemelli`, `phone`, `adresswork`, `codeposti`, `email`, `shenasname_pic`, `cardmelli_pic`, `mojavez_pic`) VALUES ('$user_id', '$name', '$code_meli', '$phone', '$adressWork', '$codePosti', '$email', '$shenasnamepic', '$cartMellipic', '$mozavez_pic')");
+        } catch (PDOException $e) {
+            echo $e;
+        }
+    }
 }

@@ -354,11 +354,17 @@ if (isset($_SESSION['msg'])) {
   </div>
 </section>
 
+
 <!-- nikosabtiha -->
 
 <div class="container-fluid my-5">
   <div class="titr text-center">
     <h1 class="px-3 
+         <!-- nikosabtiha -->
+
+         <div class="container-fluid bg-light my-5">
+           <div class="titr text-center">
+      <h1 class="px-3 
               sahel
               my-green
               d-inline-flex
@@ -368,6 +374,7 @@ if (isset($_SESSION['msg'])) {
               lh-lg
               
             ">
+      
       نیکوثبتی ها
     </h1>
 
@@ -498,22 +505,13 @@ if (isset($_SESSION['msg'])) {
       </div>
 
 
-    </div>
-
-
-
+    </div
 
   </div>
 </div>
 
-
-
-
-
-
-
 <section class="mb-5">
-
+                     
   <div class="container text-center my-bg-blue khabarname">
     <h1 class="sahel fs-2 fw-bold my-t-color py-3">
       عضویت در خبرنامه نیکوثبت
