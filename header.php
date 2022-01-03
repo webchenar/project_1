@@ -29,6 +29,8 @@ if (empty($title)) {
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="./bootstrap-5.1.1/css/bootstrap.rtl.css" />
     <link rel="stylesheet" href="./css/all.css" />
+    <link rel="stylesheet" href="./css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./css/owl.theme.default.min.css">
     <link rel="stylesheet" href="./css/style.css" />
 
 </head>
@@ -89,13 +91,9 @@ if (empty($title)) {
                   
                             <li class="nav-item">
                                 <a class="nav-link" href="karshenasan.php">کارشناسان</a>
+
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">نیکوثبتی ها</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">ثبت شرکت</a>
-                            </li>
+                       
                             <li class="nav-item">
                                 <a class="nav-link" href="moshavereh.php">مشاوره</a>
                             </li>

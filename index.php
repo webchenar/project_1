@@ -15,7 +15,7 @@ if (isset($_SESSION['msg'])) {
 ?>
 
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
   <div class="col-12 img-filter">
     <img class="slid" src="img/5.jpg" alt="">
@@ -417,7 +417,154 @@ if (isset($_SESSION['msg'])) {
 </div>
 </section>
 
-<section class="mb-5">
+         <!-- nikosabtiha -->
+
+         <div class="container-fluid bg-light my-5">
+           <div class="titr text-center">
+      <h1 class="px-3 
+              sahel
+              my-green
+              d-inline-flex
+              titr
+              fw-bold
+              border-bottom border-4 border-primary
+              lh-lg
+              
+            ">
+       نیکوثبتی ها
+      </h1>
+      
+    </div>
+             <div class="row">
+               <div class="owl-carousel owl-theme">
+               <div class="col-md-3 w-100">
+        <div class="item">
+        <div class="card owl-coustom">
+              <img src="./img/bokbok.jpg" class="card-img-top" alt="...">
+              <div class="card-body p-0 m-0">
+                    <h6 class="card-title text-center p-3">شرکت فراوردهای انجیر تین استهبان</h6>
+               <span class="card-text text-center p-1">مدیرعامل : محمدرضا فهیم</span>
+               <p class="card-text pb-2 p-1">موضوع فعالیت : فرآوری انجیر و کلوچه انجبر</p>
+              <div class="d-flex justify-content-center ">
+                <a href="#">اطلاعات بیشتر شرکت انجیر تین </a>
+       </div>
+        </div>
+              </div>
+              </div>
+        </div>
+        <div class="col-md-3 w-100">
+        <div class="item">
+        <div class="card owl-coustom">
+              <img src="./img/hesam-hasannejad.jpg" class="card-img-top" alt="...">
+              <div class="card-body p-0 m-0">
+                    <h6 class="card-title text-center p-3">شرکت حسام تجارت رسام</h6>
+               <span class="card-text text-center p-1">مدیرعامل : حسام حسن نژاد</span>
+               <p class="card-text pb-2 p-1">موضوع فعالیت : خرید، فروش ، صادرات و واردات انجیر و انواع خشکبار</p>
+              <div class="d-flex justify-content-center ">
+                <a href="#">اطلاعات بیشتر  شرکت حسام تجارت</a>
+       </div>
+        </div>
+              </div>
+              </div>
+        </div>
+     
+<div class="col-md-3 w-100">
+        <div class="item">
+        <div class="card owl-coustom">
+              <img src="./img/arvin.jpg" class="card-img-top" alt="...">
+              <div class="card-body p-0 m-0">
+              <h6 class="card-title text-center p-3">شرکت آروین سپهرایلیا سازه</h6>
+               <span class="card-text text-center p-1">مدیرعامل : محسن صفاری</span>
+               <p class="card-text pb-2 p-1">موضوع فعالیت : انجام کلیه امور برداری پیمانکاری کلیه کارهای خدماتی مواد  </p>
+              <div class="d-flex justify-content-center ">
+                <a href="#">اطلاعات بیشتر  شرکت حسام تجارت</a>
+       </div>
+        </div>
+              </div>
+         </div>
+        </div>
+        <div class="col-md-3 w-100">
+        <div class="item">
+        <div class="card owl-coustom">
+              <img src="./img/arvin.jpg" class="card-img-top" alt="...">
+              <div class="card-body p-0 m-0">
+              <h6 class="card-title text-center p-3">شرکت آروین سپهرایلیا سازه</h6>
+               <span class="card-text text-center p-1">مدیرعامل : محسن صفاری</span>
+               <p class="card-text pb-2 p-1">موضوع فعالیت : انجام کلیه امور برداری پیمانکاری کلیه کارهای خدماتی مواد  </p>
+              <div class="d-flex justify-content-center ">
+                <a href="#">اطلاعات بیشتر  شرکت حسام تجارت</a>
+       </div>
+        </div>
+              </div>
+         </div>
+        </div>
+     
+        <div class="col-md-3 w-100">
+        <div class="item">
+        <div class="card owl-coustom">
+              <img src="./img/arvin.jpg" class="card-img-top" alt="...">
+              <div class="card-body p-0 m-0">
+              <h6 class="card-title text-center p-3">شرکت آروین سپهرایلیا سازه</h6>
+               <span class="card-text text-center p-1">مدیرعامل : محسن صفاری</span>
+               <p class="card-text pb-2 p-1">موضوع فعالیت : انجام کلیه امور برداری پیمانکاری کلیه کارهای خدماتی مواد  </p>
+              <div class="d-flex justify-content-center ">
+                <a href="#">اطلاعات بیشتر  شرکت حسام تجارت</a>
+       </div>
+        </div>
+              </div>
+         </div>
+        </div>
+     
+        <div class="col-md-3 w-100">
+        <div class="item">
+        <div class="card owl-coustom">
+              <img src="./img/arvin.jpg" class="card-img-top" alt="...">
+              <div class="card-body p-0 m-0">
+              <h6 class="card-title text-center p-3">شرکت آروین سپهرایلیا سازه</h6>
+               <span class="card-text text-center p-1">مدیرعامل : محسن صفاری</span>
+               <p class="card-text pb-2 p-1">موضوع فعالیت : انجام کلیه امور برداری پیمانکاری کلیه کارهای خدماتی مواد  </p>
+              <div class="d-flex justify-content-center ">
+                <a href="#">اطلاعات بیشتر  شرکت حسام تجارت</a>
+       </div>
+        </div>
+              </div>
+         </div>
+        </div>
+     
+
+<div class="col-md-3 w-100">
+        <div class="item">
+        <div class="card owl-coustom" >
+              <img src="./img/bokbok.jpg" class="card-img-top" alt="...">
+              <div class="card-body p-0 m-0">
+                    <h6 class="card-title text-center p-3">خرید،فروش،صادرات و واردات انجیر</h6>
+               <p class="card-text text-center p-1">اولین شرکت در تولید کلوچه و مسقطی انجیر در استهبان</p>
+              <div class="d-flex justify-content-center ">
+                <a href="#">اطلاعات بیشتر درباره بک بک</a>
+       </div>
+        </div>
+              </div>
+        
+        </div>
+      </div>
+     
+  
+    </div>
+
+
+    
+
+             </div>
+           </div>
+     
+
+
+
+
+
+
+           <section class="mb-5">
+
   <div class="container text-center my-bg-blue khabarname">
     <h1 class="sahel fs-2 fw-bold my-t-color py-3">
       عضویت در خبرنامه نیکوثبت

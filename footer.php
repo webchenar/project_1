@@ -104,6 +104,7 @@
 <script src="./js/script.js"></script>
 <script src="./js/bootstrap.bundle.js"></script>
 <script src="./js/validation.js"></script>
+<script src="./js/owl.carousel.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/main.js"></script>
 
