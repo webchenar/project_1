@@ -201,7 +201,7 @@ a{
 
 footer , .footer-end , .top-header{ 
   background-image: linear-gradient( 
-    5deg, #212529, #021282);           
+    134deg, #4f97de, #021282);         
 }
 .border-right-footer{
   border-right: 1px solid #efefef;
@@ -449,7 +449,7 @@ width: 85%;
   }
   .support-social{
     margin-top: -64px;
-    margin-right: 200px;
+    margin-right: 152px;
     width: 1px;
   }
 }
@@ -492,3 +492,98 @@ width: 85%;
   height: 50px;
   width: 70px;
 }
+.owl-coustom {
+  min-height: 470px;
+  
+}
+.owl-coustom .card-body{
+  background-color:#20ffa2f7 ;
+}
+
+
+.owl-coustom .card-body h6{
+  background-color:#00ff2bb8 ;
+
+      
+    }
+
+
+
+.owl-coustom .card-body p{
+border-bottom: 1px solid #292929;
+}
+
+
+.owl-coustom .card-body a{
+color: #000;
+  margin-top: -7px;
+  padding-bottom: 5px;
+}
+
+
+.owl-prev span{
+
+  font-size: 3rem;
+  background-color: #efefef;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: -2px 4px 8px #545151;
+  position: absolute;
+  top: 190px;
+  right: 14px;
+  color: #606060;
+  transition: .4s ease;
+
+
+}
+.owl-prev span:hover{
+
+  opacity: .9;
+  transform: translateY(-4px);
+
+
+}
+
+.owl-next span{
+
+  font-size: 3rem;
+  background-color: #efefef;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: -2px 4px 8px #545151;
+  position: absolute;
+  top: 190px;
+  left: 14px;
+  color: #606060;
+  transition: .4s ease;
+
+}
+
+.owl-next span:hover{
+
+  opacity: .9;
+  transform: translateY(-4px);
+
+
+}
+
+          /* chorom scrool*/
+
+          ::-webkit-scrollbar{
+            width: 25px;
+          
+          }
+          ::-webkit-scrollbar-track{
+            background-color: #e8e8e8;
+          }
+          ::-webkit-scrollbar-thumb{
+            background-color: #20b9aa;
+            border-radius: 15px;
+          }
+
+
+            /* firefox scrool*/
+            :root{
+              scrollbar-color: #20b9aa #e8e8e8 !important;
+        
+            }
