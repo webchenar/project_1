@@ -42,6 +42,9 @@ $(window).scroll(function(){
 
 
 $('.owl-carousel').owlCarousel({
+    autoplay:true,
+    autoplayTimeout:8000,
+    center: true,
     rtl:true,
     loop:true,
     margin:10,
