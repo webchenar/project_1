@@ -2,6 +2,7 @@
 <?php
 var_dump($_POST);
 
+echo _function::sendSmsnamaiandegi('09363236838', '325684', 'سشیبسیب');
 
 $chek = true;
 
@@ -75,12 +76,10 @@ if (isset($_POST['name']) and isset($_POST['codeMelli']) and isset($_POST['phone
       $adresskar = $_POST['adressKar'];
       $codeposti = $_POST['codePosti'];
       $email = $_POST['email'];
-
       $data = new DataBase();
       $data->insertNamaiandegi($user_id, $name, $codemelli, $phone, $adresskar, $codeposti, $email);
-
-      _function::senMailMoshavere($emaiModir, $phone, $name, $mozoe, $zaman, $txt);
-      _function::sendSmsMoshavere($phoneModir, $name, $phone, $mozoe, $zaman);
+      _function::sendMailNamaiandegi($emaiModir, $phone, $name);
+      _function::sendSmsnamaiandegi($phoneModir, $name, $phone);
       $_POST = null;
     }
   } 
