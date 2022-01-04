@@ -358,7 +358,6 @@ if (isset($_SESSION['msg'])) {
 <!-- nikosabtiha -->
 
 
-        
 
          <div class="container-fluid bg-light my-5">
            <div class="titr text-center">
@@ -503,7 +502,7 @@ if (isset($_SESSION['msg'])) {
       </div>
 
 
-</div>
+
 
   </div>
 </div>
