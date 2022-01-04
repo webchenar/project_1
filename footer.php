@@ -97,7 +97,6 @@
         <div class="container-fluid">
             <div class="container">
 
-
                 <div class="row p-2">
                     <div class="col-sm-6 col-md-5 fs-6 text-white my-2 ">طراحی و توسعه توسط مهندسین<a target="_blank" class="text-info text-center mt-4" href="http://webchenar.ihweb.ir/"> webchenar</a> </div>
                     <div class=" col-sm-6 col-md-5 offset-md-2 fs-6 align-self-start text-white my-2">
