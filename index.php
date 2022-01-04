@@ -395,7 +395,6 @@ if (isset($_SESSION['msg'])) {
           </div>
         </div>
       </div>
-    </div>
       <div class="col-md-3 w-100">
         <div class="item">
           <div class="card owl-coustom">
@@ -505,6 +504,7 @@ if (isset($_SESSION['msg'])) {
 
 
 
+  </div>
   </div>
 </div>
 
