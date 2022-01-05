@@ -35,7 +35,7 @@ if (empty($title)) {
 
 </head>
                                         <!-- top header -->
-<body>
+<body class="transion">
 <div class="container-fluid top-header ">
     <div class="container">
         <div class="row">
@@ -83,7 +83,7 @@ if (empty($title)) {
                                 <a class="nav-link active" href="index.php">خانه</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">خدمات</a>
+                                <a class="nav-link" href="khadamat.php">خدمات</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="namaiandegiha.php">نمایندگی ها</a>
