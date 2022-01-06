@@ -69,7 +69,7 @@ include_once('./header.php');
           <p>تشکیلات و موسسات غیر تجارتی، کلیه تشکیلات و موسساتی هستند که برای مقاصد غیر تجارتی از ...</p>
 
         </div>
-        <a href="#">بیشتر</a>
+        <a href="khadamat-sabtesherkat-moasesat.php">بیشتر</a>
         <div class="ico-card">
           <i class="fa fa-rebel"></i>
         </div>
@@ -81,7 +81,7 @@ include_once('./header.php');
           <h1>ثبت شرکت تضامنی </h1>
           <p>شرکتی است که تحت اسم مخصوصی برای امور تجارتی بین دو یا چند نفر با مسئولیت تضامنی   ...</p>
         </div>
-        <a href="#">بیشتر</a>
+        <a href="khadamat-sabtesherkat-tazamoni.php">بیشتر</a>
         <div class="ico-card">
           <i class="fa fa-rebel"></i>
         </div>
@@ -93,7 +93,7 @@ include_once('./header.php');
           <h1>ثبت شرکت نسبی </h1>
           <p>شرکت نسبی مانند شرکت تضامنی است با این تفاوت که در شرکت تضامنی شرکا در  مقابل ...</p>
         </div>
-        <a href="#">بیشتر</a>
+        <a href="khadamat-sabtesherkat-nesbi.php">بیشتر</a>
         <div class="ico-card">
           <i class="fa fa-rebel"></i>
         </div>
@@ -105,7 +105,7 @@ include_once('./header.php');
           <h1>ثبت شرکت مختلط </h1>
           <p>شرکت مختلط به شرکتی گفته می شود که دارای یک یا چند شریک ضامن و یا بامسئولیت محدود ...</p>
         </div>
-        <a href="#">بیشتر</a>
+        <a href="khadamat-sabtesherkat-mokhtalet.php">بیشتر</a>
         <div class="ico-card">
           <i class="fa fa-rebel"></i>
         </div>
