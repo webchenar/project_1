@@ -13,6 +13,8 @@ if (isset($_COOKIE['namaiandegi'])) {
   $chek = false;
 }
 
+
+
 if (isset($_POST['name']) and isset($_POST['codeMelli']) and isset($_POST['phone'])) {
 
   if ($_POST['phone'] != "" and $_POST['name'] != "" and $chek) {
