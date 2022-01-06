@@ -17,7 +17,7 @@ include_once('./header.php');
       <div class="card card-khadamat gr-1">
         <div class="txt">
           <h1>ثبت شرکت</h1>
-          <p>سهامی خاص ، مسولیت محدود ،سهامی محدود و... </p>
+          <p>سهامی خاص ،سهامی عام،سهامی محدود و... </p>
         </div>
         <a href="khadamat-sabtesherkat.php">بیشتر</a>
         <div class="ico-card">
@@ -32,7 +32,7 @@ include_once('./header.php');
            </h1>
           <p>انحلال ، تغیر شرکت ، تغییر آدرس و..</p>
         </div>
-        <a href="#">بیشتر</a>
+        <a href="khadamat-taghirat-shekat.php">بیشتر</a>
         <div class="ico-card">
           <i class="fa fa-codepen"></i>
         </div>
@@ -44,7 +44,7 @@ include_once('./header.php');
           <h1>ثبت مالکیت معنوی</h1>
           <p>ثبت علائم تجاری،ثبت اختراع و ...</p>
         </div>
-        <a href="#">بیشتر</a>
+        <a href="khadamat-sabte-malekiat.php">بیشتر</a>
         <div class="ico-card">
           <i class="fa fa-empire"></i>
         </div>
@@ -53,7 +53,7 @@ include_once('./header.php');
     <div class="col-md-6 col-lg-4 column">
       <div class="card card-khadamat gr-4">
         <div class="txt">
-          <h1>ثبت شرکت پیشخوان خدمات دولت </h1>
+          <h1>ثبت پیشخوان خدمات دولت </h1>
           <p>مدارک لازم جهت ثبت شرکت خدمات دولت </p>
         </div>
         <a href="#">بیشتر</a>
