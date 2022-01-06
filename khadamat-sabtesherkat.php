@@ -127,7 +127,7 @@ include_once('./header.php');
           <h1>ثبت شرکت پیشخوان </h1>
           <p>مجوز دفاتر پیشخوان فقط به اشخاص حقوقی (شرکت) و برای شهرها صادر می شود. که ...</p>
         </div>
-        <a href="#">بیشتر</a>
+        <a href="khadamat-sabte-pishkhan-dolat.php">بیشتر</a>
         <div class="ico-card">
           <i class="fa fa-rebel"></i>
         </div>

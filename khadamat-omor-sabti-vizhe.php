@@ -16,10 +16,10 @@ include_once('./header.php');
     <div class="col-md-6 col-lg-4 column">
       <div class="card card-khadamat gr-1">
         <div class="txt">
-          <h1>ثبت شرکت</h1>
-          <p>سهامی خاص ،سهامی عام،سهامی محدود و... </p>
+          <h1>اخذ کارت بازرگانی</h1>
+          <p>کارت بازرگانی مجوزی برای ثبت سفارش، واردات از مناطق آزاد و صادرات ... </p>
         </div>
-        <a href="khadamat-sabtesherkat.php">بیشتر</a>
+        <a href="khadamat-omor-sabti-vizhe-akhze-kart.php">بیشتر</a>
         <div class="ico-card">
           <i class="fa fa-rebel"></i>
         </div>
@@ -28,11 +28,11 @@ include_once('./header.php');
     <div class="col-md-6 col-lg-4 column">
       <div class="card card-khadamat gr-2">
         <div class="txt">
-          <h1>تغیرات شرکت </br>
+          <h1>اخذ جواز تاسیس</br>
            </h1>
-          <p>انحلال ، تغیر شرکت ، تغییر آدرس و..</p>
+          <p>جواز تاسیس به مجوزی گفته می شود که اشخاص حقوقی یا حقیقی..</p>
         </div>
-        <a href="khadamat-taghirat-shekat.php">بیشتر</a>
+        <a href="khadamat-omor-sabti-vizhe-akhze-javaz.php">بیشتر</a>
         <div class="ico-card">
           <i class="fa fa-codepen"></i>
         </div>
@@ -41,10 +41,10 @@ include_once('./header.php');
     <div class="col-md-6 col-lg-4 column">
       <div class="card card-khadamat gr-3">
         <div class="txt">
-          <h1>ثبت مالکیت معنوی</h1>
-          <p>ثبت علائم تجاری،ثبت اختراع و ...</p>
+          <h1>رتبه بندی پیمان کاری</h1>
+          <p>اخذ رتبه یا فرآیند  رتبه بندی فرآیندی متشکل از پیگیری جهت...</p>
         </div>
-        <a href="khadamat-sabte-malekiat.php">بیشتر</a>
+        <a href="khadamat-omor-sabti-vizhe-rotbe-bandi.php">بیشتر</a>
         <div class="ico-card">
           <i class="fa fa-empire"></i>
         </div>
@@ -53,10 +53,10 @@ include_once('./header.php');
     <div class="col-md-6 col-lg-4 column">
       <div class="card card-khadamat gr-4">
         <div class="txt">
-          <h1>ثبت پیشخوان خدمات دولت </h1>
-          <p>مدارک لازم جهت ثبت شرکت خدمات دولت </p>
+          <h1>پروانه بهره برداری </h1>
+          <p>جواز تاسیس به مجوزی گفته می شود که اشخاص حقوقی یا حقیقی</p>
         </div>
-        <a href="khadamat-sabte-pishkhan-dolat.php">بیشتر</a>
+        <a href="khadamat-omor-sabti-vizhe-parvaneh-bahrebardari.php">بیشتر</a>
         <div class="ico-card">
           <i class="fa fa-rebel"></i>
         </div>
@@ -65,10 +65,10 @@ include_once('./header.php');
     <div class="col-md-6 col-lg-4 column">
       <div class="card card-khadamat gr-5">
         <div class="txt">
-          <h1>پس از ثبت  </h1>
-          <p>کد اقتصادی ، پلمپ دفاتر ، مالی و حسابداری </p>
+          <h1>پروانه اکتشاف معادن  </h1>
+          <p>برای انجام امور اکتشاف از معادن به صورت خصوص یا دولتی باید </p>
         </div>
-        <a href="khadamat-pas-az-sabt.php">بیشتر</a>
+        <a href="khadamat-omor-sabti-vizhe-parvaneh-ekteshaf.php">بیشتر</a>
         <div class="ico-card">
           <i class="fa fa-rebel"></i>
         </div>
@@ -77,10 +77,10 @@ include_once('./header.php');
     <div class="col-md-6 col-lg-4 column">
       <div class="card card-khadamat gr-6">
         <div class="txt">
-          <h1>امور ثبتی ویژه</h1>
-          <p>کارت بازرگانی ، جواز تاسیس ، بهره برداری و ...</p>
+          <h1>ارتباط با نیکوثبت</h1>
+          <p>جهت تغییرات شرکت، ثبت سفارش،ثبت مالکیت معنوی ،ثبت شرکت پیشخوان  ...</p>
         </div>
-        <a href="khadamat-omor-sabti-vizhe.php">بیشتر</a>
+        <a href="moshavereh.php">بیشتر</a>
         <div class="ico-card">
           <i class="fa fa-rebel"></i>
         </div>
