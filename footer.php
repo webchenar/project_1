@@ -36,8 +36,8 @@
                     <h5 class=" mb-4 time-we">
                         <i class="fas fas fa-clock text-white me-2"></i>
                         <a class="text-white" href="javascript:">
-                            ساعات حضور: شنبه –چهارشنبه 9 صبح
-                            تا 15بعد از ظهر
+                            ساعات حضور: شنبه تا چهارشنبه 9 صبح
+                            تا 15 بعد از ظهر
                         </a>
                     </h5>
                     <h5 class=" mb-4">
@@ -98,7 +98,7 @@
             <div class="container">
 
                 <div class="row p-2">
-                    <div class="col-sm-6 col-md-5 fs-6 text-white my-2 ">طراحی و توسعه توسط مهندسین<a target="_blank" class="text-info text-center mt-4" href="http://webchenar.ihweb.ir/"> webchenar</a> </div>
+                    <div class="col-sm-6 col-md-5 fs-6 text-white my-2 ">طراحی و توسعه توسط مهندسین<a target="_blank" class="text-white text-center mt-4" href="http://webchenar.ihweb.ir/"> webchenar</a> </div>
                     <div class=" col-sm-6 col-md-5 offset-md-2 fs-6 align-self-start text-white my-2">
                         کلیه حقوق مادی و معنوی این وبسایت متعلق به شرکت نیکوثبت است
                     </div>

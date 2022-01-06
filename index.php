@@ -29,7 +29,7 @@ if (isset($_SESSION['msg'])) {
         </p>
 
         <a class="btn btn-outline-warning " href="moshavereh.php">درخواست مشاوره</a>
-        <a class=" btn btn-outline-warning my-1 mx-2 " href="#">فهرست خدمات نیکو ثبت</a>
+        <a class=" btn btn-outline-warning my-1 mx-2 " href="khadamat.php">فهرست خدمات نیکو ثبت</a>
         <a class=" btn btn-tamdid mt-lg-0" href="./tamdid_sherkat.php">
           تمدید شرکت سهامی خاص</a>
 
