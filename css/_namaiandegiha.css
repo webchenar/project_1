@@ -15,7 +15,10 @@
     vertical-align: -2px;
     color: #003de8;
 }
-
+.color-gary{
+    color: #646464;
+    line-height:40px;
+}
 
 .font-color{
     color: #1a1d1f;
@@ -25,12 +28,14 @@
     border: 1px solid #efefef;
     box-shadow: 1px 1px 3px #000;
     color: #404a4b;
+    background-color: #c8e8ff!important;
 }
 @media screen and (max-width:992px) {
     .upload-pic{
         display: block!important;
     }
     .shadow-p{
-      font-size: 1.2rem!important;;
+      font-size: 1.2rem!important;
+    
     }
 }

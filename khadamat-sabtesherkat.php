@@ -19,7 +19,7 @@ include_once('./header.php');
           <h1>ثبت شرکت سهامی خاص</h1>
           <p>یکی از متداول ترین انواع شرکت های تجاری در ایران، شرکت های سهامی هستند .ماده ۴ لایحه ...</p>
         </div>
-        <a href="#">بیشتر</a>
+        <a href="khadamat-sabtesherkat-sahami-khas.php">بیشتر</a>
         <div class="ico-card">
           <i class="fa fa-rebel"></i>
         </div>
@@ -32,7 +32,7 @@ include_once('./header.php');
            </h1>
           <p>شرکت مسئولیت محدود که یکی دیگر از شرکت های تجاری در ایران هست با داشتن حداقل ۲ ...</p>
         </div>
-        <a href="#">بیشتر</a>
+        <a href="khadamat-sabtesherkat-sherkate-masoliat-mahdod.php">بیشتر</a>
         <div class="ico-card">
           <i class="fa fa-codepen"></i>
         </div>
@@ -44,7 +44,7 @@ include_once('./header.php');
           <h1>ثبت شرکت سهامی عام </h1>
           <p>شرکت سهامی عام کامل ترین نوع شرکت سهامی است و مسلم است برای انجام امور مهمه ...</p>
         </div>
-        <a href="#">بیشتر</a>
+        <a href="khadamat-sabtesherkat-sahami-amm.php">بیشتر</a>
         <div class="ico-card">
           <i class="fa fa-empire"></i>
         </div>
@@ -56,7 +56,7 @@ include_once('./header.php');
           <h1>ثبت شرکت تعاونی </h1>
           <p>شرکت های  تعاونی نوعی دیگری از شرکت های تجاری است، شرکت های تعاونی کمک به ...</p>
         </div>
-        <a href="#">بیشتر</a>
+        <a href="khadamat-sabtesherkat-taavoni.php">بیشتر</a>
         <div class="ico-card">
           <i class="fa fa-rebel"></i>
         </div>
@@ -115,7 +115,7 @@ include_once('./header.php');
       <div class="card card-khadamat gr-9">
         <div class="txt">
           <h1>ثبت شرکت پیشخوان </h1>
-          <p>مجوز دفاتر پیشخوان فقط به اشخاص حقوقی (شرکت) و برای شهرها صادر می شود.  ...</p>
+          <p>مجوز دفاتر پیشخوان فقط به اشخاص حقوقی (شرکت) و برای شهرها صادر می شود. که ...</p>
         </div>
         <a href="#">بیشتر</a>
         <div class="ico-card">
