@@ -1,6 +1,8 @@
 @import url('_moshavereh.css');
 @import url('_about.css');
 @import url('_namaiandegiha.css');
+@import url('_karshenasan.css');
+@import url('_khadamat.css');
 
  
 @font-face {
@@ -167,6 +169,11 @@ a{
     background-color: #20b9aa;
     border-color: #20b9aa;
 }
+.btn-tamdid:hover{
+  color: #000;
+    background-color: #fff0;
+    border-color: #20b9aa;
+}
 
 .btn-outline-warning {
   color: #070707;
@@ -195,7 +202,7 @@ a{
 
 footer , .footer-end , .top-header{ 
   background-image: linear-gradient( 
-    5deg, #212529, #021282);           
+    134deg, #4f97de, #021282);         
 }
 .border-right-footer{
   border-right: 1px solid #efefef;
@@ -441,6 +448,11 @@ line-height: 38px;
   .text-on-img{
 width: 85%;
   }
+  .support-social{
+    margin-top: -64px;
+    margin-right: 152px;
+    width: 1px;
+  }
 }
 
                /* top-header */
@@ -481,3 +493,140 @@ width: 85%;
   height: 50px;
   width: 70px;
 }
+.owl-coustom {
+  min-height: 550px;
+  background-color: #efefef42;  
+}
+
+.owl-coustom .card-body p{
+color: #000;
+font-size: .9rem;
+    line-height: 33px;
+    padding: 20px!important;
+}
+
+
+
+.owl-coustom .card-body a{
+color: #000;
+  margin-top: -7px;
+  padding-bottom: 5px;
+}
+
+.owl-prev span{
+
+  font-size: 3rem;
+  background-color: #efefef;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: -2px 4px 8px #545151;
+  position: absolute;
+  top: 190px;
+  right: 14px;
+  color: #606060;
+  transition: .4s ease;
+
+
+}
+.owl-prev span:hover{
+
+  opacity: .9;
+  transform: translateY(-4px);
+
+
+}
+
+.owl-next span{
+
+  font-size: 3rem;
+  background-color: #efefef;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: -2px 4px 8px #545151;
+  position: absolute;
+  top: 190px;
+  left: 14px;
+  color: #606060;
+  transition: .4s ease;
+
+}
+
+.owl-next span:hover{
+
+  opacity: .9;
+  transform: translateY(-4px);
+
+
+}
+
+          /* chorom scrool*/
+
+          ::-webkit-scrollbar{
+            width: 20px;
+          
+          }
+          ::-webkit-scrollbar-track{
+            background-color: #e8e8e8;
+          }
+          ::-webkit-scrollbar-thumb{
+            background-color: #20b9aa;
+            border-radius: 15px;
+          }
+
+
+            /* firefox scrool*/
+            :root{
+              scrollbar-color: #20b9aa #e8e8e8 !important;
+        
+            }
+
+.owl-coustom img{
+  border-radius: 180px;
+  height: 100px;
+  width: 100px!important;
+  box-shadow: 4px 6px 15px #7e7e7e;
+}
+.item{
+  transition: .8s linear;
+}
+.owl-item.active.center .item{
+  background: #1e43a4;
+  box-shadow: 0 12px 20px 0 rgb(145 145 145 / 26%);
+  color: #fff;
+}
+
+.owl-item.active.center p{
+  color: #fff;
+}
+
+.owl-coustom .card-body a{
+  color: #ff972c;
+
+}
+
+
+.whatsapp-fixed{
+  position: fixed!important;
+  bottom: 20px;
+  left: 12px;
+  background-color: rgb(0 255 78);
+  width: 50px;
+  height: 50px;
+  display: block;
+  border-radius: 35px;
+}
+
+.whatsapp-fixed i {
+
+  margin-right: 10px;
+  vertical-align: -4px;
+}
+
+.fix-to-left p{
+  position: fixed!important;
+  bottom: 18px;
+  left: 67px;
+  font-size: .9rem;
+  opacity: .9;
+}
+

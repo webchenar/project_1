@@ -1,0 +1,47 @@
+.bg-rezome{
+    background-color: #efefef!important;
+}
+
+.karshenas-style h6{
+font-size: 1rem!important;
+}
+
+
+.karshenas-style p{
+    line-height: 33px;
+    text-align: center;
+    margin-top: 22px;
+    font-size: .9rem;
+}
+
+
+ .tab-content > .active {
+    width: 18rem;
+    line-height: 30px;
+    font-size: .9rem;
+    background: #19f083;
+    border-radius: 10px;
+    
+
+}
+.bg-1:enabled{
+    background-color: #19f083!important;
+    border-bottom: none;
+    margin-top: 1px;
+}
+.nav-link {
+   
+    color: #000000!important;
+    
+}
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    border-color:none; 
+
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    border-color:none;
+}
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    border-color:#e4e4e4;
+}

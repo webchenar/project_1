@@ -29,11 +29,13 @@ if (empty($title)) {
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="./bootstrap-5.1.1/css/bootstrap.rtl.css" />
     <link rel="stylesheet" href="./css/all.css" />
+    <link rel="stylesheet" href="./css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./css/owl.theme.default.min.css">
     <link rel="stylesheet" href="./css/style.css" />
 
 </head>
                                         <!-- top header -->
-<body>
+<body class="transion">
 <div class="container-fluid top-header ">
     <div class="container">
         <div class="row">
@@ -81,22 +83,17 @@ if (empty($title)) {
                                 <a class="nav-link active" href="index.php">خانه</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">خدمات</a>
+                                <a class="nav-link" href="khadamat.php">خدمات</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="namaiandegiha.php">نمایندگی ها</a>
-                                <a class="nav-link" href="#">نمایندگی ها</a>
                             </li>
                   
                             <li class="nav-item">
-                                <a class="nav-link" href="#">کارشناسان</a>
+                                <a class="nav-link" href="karshenasan.php">کارشناسان</a>
+
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">نیکوثبتی ها</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">ثبت شرکت</a>
-                            </li>
+                       
                             <li class="nav-item">
                                 <a class="nav-link" href="moshavereh.php">مشاوره</a>
                             </li>
@@ -162,4 +159,5 @@ if (empty($title)) {
                 </div>
             </nav>
         </div>
+        
     </header>

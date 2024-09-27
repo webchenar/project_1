@@ -2,6 +2,7 @@
 <?php include_once('header.php')?>
 
 <?php
+//var_dump($_GET);
 $chek = true;
 if (isset($_COOKIE['moshavere'])) {
   echo '<div class="alert alert-primary container" role="alert">
@@ -29,8 +30,8 @@ if (isset($_GET['phoneMoshavere']) and isset($_GET['name'])) {
     }
 
     if ($chek) {
-      //setcookie("moshavere", "true", time() + 1287000);
-      $phoneModir = '09179335012';
+      setcookie("moshavere", "true", time() + 1287000);
+      $phoneModir = '09363236838';
       $emaiModir = 'nikoosabt@gmail.com';
       $name = $_GET['name'];
       $phone = $_GET['phoneMoshavere'];
@@ -51,10 +52,11 @@ if (isset($_GET['phoneMoshavere']) and isset($_GET['name'])) {
             <div class="row">
              <div class="d-flex justify-content-center align-items-center title-moshavereh mt-3">
                 <span class="text-center text-white p-3 my-4">مشاوره با کارشناسان نیکوثبت</span>
-            <form class="row g-3 needs-validation d-flex justify-content-between align-items-center" novalidate>
+</div>
+            <form class="row g-3 needs-validation d-flex justify-content-between align-items-center" method="GET" novalidate>
                 <div class="col-lg-5 coustom-form">
                   <label for="validationCustom01" class="form-label">نام و نام خانوداگی  </label>
-                  <input type="text" class="form-control" id="validationCustom01" placeholder="مثال : امیرحسین خدایی " required>
+                  <input name="name" type="text" class="form-control" id="validationCustom01" placeholder="مثال : امیرحسین خدایی " required>
                   <div class="invalid-feedback">
                     لطفا فرم را پر کنید
                    </div>
@@ -65,7 +67,7 @@ if (isset($_GET['phoneMoshavere']) and isset($_GET['name'])) {
                   <label for="validationCustomUsername" class="form-label">شماره تماس</label>
                   <div class="input-group has-validation">
       
-                    <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" placeholder="مثال : 091765477567" required>
+                    <input name="phoneMoshavere" type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" placeholder="مثال : 091765477567" required>
                     <div class="invalid-feedback">
                      لطفا شماره تلفن خود را به صورت صحیح وارد کنید
                     </div>
@@ -74,7 +76,7 @@ if (isset($_GET['phoneMoshavere']) and isset($_GET['name'])) {
 
                 <div class="col-lg-5 coustom-form ">
                   <label for="validationCustom04" class="form-label">موضوع مشاوره</label>
-                  <select class="form-select" id="validationCustom04" required>
+                  <select name="mozoe" class="form-select" id="validationCustom04" required>
                     <option selected disabled value="">انتخاب کنید...</option>
                     <option>ثبت شرکت</option>
                     <option>تغیرات شرکت </option>
@@ -90,21 +92,18 @@ if (isset($_GET['phoneMoshavere']) and isset($_GET['name'])) {
                 </div>
                 <div class="col-lg-5 coustom-form">
                   <label for="validationCustom05" class="form-label">جه زمانی را برای تماس مناسب میدانید؟</label>
-                  <input type="text" class="form-control" id="validationCustom05" >
+                  <input name="zaman" type="text" class="form-control" id="validationCustom05" >
                 </div>
                 <p class="p-def">لطفا اطلاعات را به صورت صحیح وارد کنید تا کارشناسان ما در اسرع وقت با شما تماس بگیرند</p>
                 <div class="mb-3 coustom-form ">
                   <label for="exampleFormControlTextarea1" class="form-label"> اگر پیامی دارید وارد کنید</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <textarea name="txtMoshavere" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
                 <div class="col-12 coustom-form">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                    <label class="form-check-label" for="invalidCheck">
-              من ربات نیستم
-                    </label>
-                  
-          
+                  <label for="validationCustom05" class="form-label">لطفا متن تصویر را در کادر وارد کنید:</label>
+                    <input type="text" name="captcha" value="" id="invalidCheck" required>
+                    <img src="./src/captcha.php" alt="">
                   </div>
                 </div>
                 <div class="col-12 mb-5 coustom-form">
@@ -115,7 +114,7 @@ if (isset($_GET['phoneMoshavere']) and isset($_GET['name'])) {
             </div>
         </div>
     </div>
-  </div>
+ </div>
 
 
 <?php include_once('./footer.php') ?>
